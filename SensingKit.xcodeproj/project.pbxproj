@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
+		CFBB413F19B92514002AE1A9 /* SensingKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB413E19B92514002AE1A9 /* SensingKit.h */; };
+		CFBB414119B92514002AE1A9 /* SensingKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB414019B92514002AE1A9 /* SensingKit.m */; };
+		CFBB414819B92514002AE1A9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB414719B92514002AE1A9 /* XCTest.framework */; };
+		CFBB414919B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
+		CFBB414B19B92514002AE1A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB414A19B92514002AE1A9 /* UIKit.framework */; };
+		CFBB414E19B92514002AE1A9 /* libSensingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413619B92514002AE1A9 /* libSensingKit.a */; };
+		CFBB415419B92514002AE1A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFBB415219B92514002AE1A9 /* InfoPlist.strings */; };
+		CFBB415619B92514002AE1A9 /* SensingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB415519B92514002AE1A9 /* SensingKitTests.m */; };
+		CFBB416719B928C2002AE1A9 /* KKBatterySensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416019B928C2002AE1A9 /* KKBatterySensing.m */; };
+		CFBB416819B928C2002AE1A9 /* KKiBeaconSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* KKiBeaconSensing.m */; };
+		CFBB416919B928C2002AE1A9 /* KKLocationSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* KKLocationSensing.m */; };
+		CFBB416A19B928C2002AE1A9 /* KKMotionSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416619B928C2002AE1A9 /* KKMotionSensing.m */; };
+		CFBB416E19B92902002AE1A9 /* NSString+KKSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416D19B92902002AE1A9 /* NSString+KKSensing.m */; };
+		CFBB417619B92923002AE1A9 /* KKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417119B92923002AE1A9 /* KKModel.m */; };
+		CFBB417719B92923002AE1A9 /* KKModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417319B92923002AE1A9 /* KKModelManager.m */; };
+		CFBB417819B92923002AE1A9 /* KKSensorDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417519B92923002AE1A9 /* KKSensorDataBuffer.m */; };
+		CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417A19B92970002AE1A9 /* GZIP.m */; };
+		CFBB417F19B933DB002AE1A9 /* GZIP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB417919B92970002AE1A9 /* GZIP.h */; };
+		CFBB418019B933DB002AE1A9 /* NSString+KKSensing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB416C19B92902002AE1A9 /* NSString+KKSensing.h */; };
+		CFBB418119B933DB002AE1A9 /* KKBatterySensing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB415F19B928C2002AE1A9 /* KKBatterySensing.h */; };
+		CFBB418219B933DB002AE1A9 /* KKiBeaconSensing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB416119B928C2002AE1A9 /* KKiBeaconSensing.h */; };
+		CFBB418319B933DB002AE1A9 /* KKLocationSensing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB416319B928C2002AE1A9 /* KKLocationSensing.h */; };
+		CFBB418419B933DB002AE1A9 /* KKMotionSensing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB416519B928C2002AE1A9 /* KKMotionSensing.h */; };
+		CFBB418519B933DB002AE1A9 /* KKModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB417019B92923002AE1A9 /* KKModel.h */; };
+		CFBB418619B933DB002AE1A9 /* KKModelManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB417219B92923002AE1A9 /* KKModelManager.h */; };
+		CFBB418719B933DB002AE1A9 /* KKSensorDataBuffer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB417419B92923002AE1A9 /* KKSensorDataBuffer.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFBB414C19B92514002AE1A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFBB412E19B92514002AE1A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFBB413519B92514002AE1A9;
+			remoteInfo = SensingKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CFBB413419B92514002AE1A9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				CFBB417F19B933DB002AE1A9 /* GZIP.h in CopyFiles */,
+				CFBB418019B933DB002AE1A9 /* NSString+KKSensing.h in CopyFiles */,
+				CFBB418119B933DB002AE1A9 /* KKBatterySensing.h in CopyFiles */,
+				CFBB418219B933DB002AE1A9 /* KKiBeaconSensing.h in CopyFiles */,
+				CFBB418319B933DB002AE1A9 /* KKLocationSensing.h in CopyFiles */,
+				CFBB418419B933DB002AE1A9 /* KKMotionSensing.h in CopyFiles */,
+				CFBB418519B933DB002AE1A9 /* KKModel.h in CopyFiles */,
+				CFBB418619B933DB002AE1A9 /* KKModelManager.h in CopyFiles */,
+				CFBB418719B933DB002AE1A9 /* KKSensorDataBuffer.h in CopyFiles */,
+				CFBB413F19B92514002AE1A9 /* SensingKit.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CFBB413619B92514002AE1A9 /* libSensingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSensingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFBB413919B92514002AE1A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CFBB413D19B92514002AE1A9 /* SensingKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SensingKit-Prefix.pch"; sourceTree = "<group>"; };
+		CFBB413E19B92514002AE1A9 /* SensingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SensingKit.h; sourceTree = "<group>"; };
+		CFBB414019B92514002AE1A9 /* SensingKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKit.m; sourceTree = "<group>"; };
+		CFBB414619B92514002AE1A9 /* SensingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SensingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFBB414719B92514002AE1A9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CFBB414A19B92514002AE1A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		CFBB415119B92514002AE1A9 /* SensingKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SensingKitTests-Info.plist"; sourceTree = "<group>"; };
+		CFBB415319B92514002AE1A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CFBB415519B92514002AE1A9 /* SensingKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKitTests.m; sourceTree = "<group>"; };
+		CFBB415F19B928C2002AE1A9 /* KKBatterySensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBatterySensing.h; sourceTree = "<group>"; };
+		CFBB416019B928C2002AE1A9 /* KKBatterySensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBatterySensing.m; sourceTree = "<group>"; };
+		CFBB416119B928C2002AE1A9 /* KKiBeaconSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKiBeaconSensing.h; sourceTree = "<group>"; };
+		CFBB416219B928C2002AE1A9 /* KKiBeaconSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKiBeaconSensing.m; sourceTree = "<group>"; };
+		CFBB416319B928C2002AE1A9 /* KKLocationSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKLocationSensing.h; sourceTree = "<group>"; };
+		CFBB416419B928C2002AE1A9 /* KKLocationSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKLocationSensing.m; sourceTree = "<group>"; };
+		CFBB416519B928C2002AE1A9 /* KKMotionSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKMotionSensing.h; sourceTree = "<group>"; };
+		CFBB416619B928C2002AE1A9 /* KKMotionSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKMotionSensing.m; sourceTree = "<group>"; };
+		CFBB416C19B92902002AE1A9 /* NSString+KKSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KKSensing.h"; sourceTree = "<group>"; };
+		CFBB416D19B92902002AE1A9 /* NSString+KKSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KKSensing.m"; sourceTree = "<group>"; };
+		CFBB417019B92923002AE1A9 /* KKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKModel.h; sourceTree = "<group>"; };
+		CFBB417119B92923002AE1A9 /* KKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKModel.m; sourceTree = "<group>"; };
+		CFBB417219B92923002AE1A9 /* KKModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKModelManager.h; sourceTree = "<group>"; };
+		CFBB417319B92923002AE1A9 /* KKModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKModelManager.m; sourceTree = "<group>"; };
+		CFBB417419B92923002AE1A9 /* KKSensorDataBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKSensorDataBuffer.h; sourceTree = "<group>"; };
+		CFBB417519B92923002AE1A9 /* KKSensorDataBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKSensorDataBuffer.m; sourceTree = "<group>"; };
+		CFBB417919B92970002AE1A9 /* GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIP.h; sourceTree = "<group>"; };
+		CFBB417A19B92970002AE1A9 /* GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZIP.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFBB413319B92514002AE1A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFBB414319B92514002AE1A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFBB414E19B92514002AE1A9 /* libSensingKit.a in Frameworks */,
+				CFBB414819B92514002AE1A9 /* XCTest.framework in Frameworks */,
+				CFBB414B19B92514002AE1A9 /* UIKit.framework in Frameworks */,
+				CFBB414919B92514002AE1A9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFBB412D19B92514002AE1A9 = {
+			isa = PBXGroup;
+			children = (
+				CFBB413B19B92514002AE1A9 /* SensingKit */,
+				CFBB414F19B92514002AE1A9 /* SensingKitTests */,
+				CFBB413819B92514002AE1A9 /* Frameworks */,
+				CFBB413719B92514002AE1A9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFBB413719B92514002AE1A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB413619B92514002AE1A9 /* libSensingKit.a */,
+				CFBB414619B92514002AE1A9 /* SensingKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFBB413819B92514002AE1A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB413919B92514002AE1A9 /* Foundation.framework */,
+				CFBB414719B92514002AE1A9 /* XCTest.framework */,
+				CFBB414A19B92514002AE1A9 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFBB413B19B92514002AE1A9 /* SensingKit */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB417C19B92983002AE1A9 /* GZIP */,
+				CFBB416F19B92906002AE1A9 /* Categories */,
+				CFBB416B19B928CF002AE1A9 /* SensingModules */,
+				CFBB417019B92923002AE1A9 /* KKModel.h */,
+				CFBB417119B92923002AE1A9 /* KKModel.m */,
+				CFBB417219B92923002AE1A9 /* KKModelManager.h */,
+				CFBB417319B92923002AE1A9 /* KKModelManager.m */,
+				CFBB417419B92923002AE1A9 /* KKSensorDataBuffer.h */,
+				CFBB417519B92923002AE1A9 /* KKSensorDataBuffer.m */,
+				CFBB413E19B92514002AE1A9 /* SensingKit.h */,
+				CFBB414019B92514002AE1A9 /* SensingKit.m */,
+				CFBB413C19B92514002AE1A9 /* Supporting Files */,
+			);
+			path = SensingKit;
+			sourceTree = "<group>";
+		};
+		CFBB413C19B92514002AE1A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB413D19B92514002AE1A9 /* SensingKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFBB414F19B92514002AE1A9 /* SensingKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB415519B92514002AE1A9 /* SensingKitTests.m */,
+				CFBB415019B92514002AE1A9 /* Supporting Files */,
+			);
+			path = SensingKitTests;
+			sourceTree = "<group>";
+		};
+		CFBB415019B92514002AE1A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB415119B92514002AE1A9 /* SensingKitTests-Info.plist */,
+				CFBB415219B92514002AE1A9 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFBB416B19B928CF002AE1A9 /* SensingModules */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB415F19B928C2002AE1A9 /* KKBatterySensing.h */,
+				CFBB416019B928C2002AE1A9 /* KKBatterySensing.m */,
+				CFBB416119B928C2002AE1A9 /* KKiBeaconSensing.h */,
+				CFBB416219B928C2002AE1A9 /* KKiBeaconSensing.m */,
+				CFBB416319B928C2002AE1A9 /* KKLocationSensing.h */,
+				CFBB416419B928C2002AE1A9 /* KKLocationSensing.m */,
+				CFBB416519B928C2002AE1A9 /* KKMotionSensing.h */,
+				CFBB416619B928C2002AE1A9 /* KKMotionSensing.m */,
+			);
+			name = SensingModules;
+			sourceTree = "<group>";
+		};
+		CFBB416F19B92906002AE1A9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB416C19B92902002AE1A9 /* NSString+KKSensing.h */,
+				CFBB416D19B92902002AE1A9 /* NSString+KKSensing.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		CFBB417C19B92983002AE1A9 /* GZIP */ = {
+			isa = PBXGroup;
+			children = (
+				CFBB417919B92970002AE1A9 /* GZIP.h */,
+				CFBB417A19B92970002AE1A9 /* GZIP.m */,
+			);
+			name = GZIP;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFBB413519B92514002AE1A9 /* SensingKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFBB415919B92514002AE1A9 /* Build configuration list for PBXNativeTarget "SensingKit" */;
+			buildPhases = (
+				CFBB413219B92514002AE1A9 /* Sources */,
+				CFBB413319B92514002AE1A9 /* Frameworks */,
+				CFBB413419B92514002AE1A9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SensingKit;
+			productName = SensingKit;
+			productReference = CFBB413619B92514002AE1A9 /* libSensingKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CFBB414519B92514002AE1A9 /* SensingKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFBB415C19B92514002AE1A9 /* Build configuration list for PBXNativeTarget "SensingKitTests" */;
+			buildPhases = (
+				CFBB414219B92514002AE1A9 /* Sources */,
+				CFBB414319B92514002AE1A9 /* Frameworks */,
+				CFBB414419B92514002AE1A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFBB414D19B92514002AE1A9 /* PBXTargetDependency */,
+			);
+			name = SensingKitTests;
+			productName = SensingKitTests;
+			productReference = CFBB414619B92514002AE1A9 /* SensingKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFBB412E19B92514002AE1A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = sensingkitlib;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Queen Mary University of London";
+			};
+			buildConfigurationList = CFBB413119B92514002AE1A9 /* Build configuration list for PBXProject "SensingKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CFBB412D19B92514002AE1A9;
+			productRefGroup = CFBB413719B92514002AE1A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFBB413519B92514002AE1A9 /* SensingKit */,
+				CFBB414519B92514002AE1A9 /* SensingKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFBB414419B92514002AE1A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFBB415419B92514002AE1A9 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFBB413219B92514002AE1A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFBB417819B92923002AE1A9 /* KKSensorDataBuffer.m in Sources */,
+				CFBB416919B928C2002AE1A9 /* KKLocationSensing.m in Sources */,
+				CFBB416819B928C2002AE1A9 /* KKiBeaconSensing.m in Sources */,
+				CFBB417619B92923002AE1A9 /* KKModel.m in Sources */,
+				CFBB416A19B928C2002AE1A9 /* KKMotionSensing.m in Sources */,
+				CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */,
+				CFBB416E19B92902002AE1A9 /* NSString+KKSensing.m in Sources */,
+				CFBB417719B92923002AE1A9 /* KKModelManager.m in Sources */,
+				CFBB414119B92514002AE1A9 /* SensingKit.m in Sources */,
+				CFBB416719B928C2002AE1A9 /* KKBatterySensing.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFBB414219B92514002AE1A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFBB415619B92514002AE1A9 /* SensingKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFBB414D19B92514002AE1A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFBB413519B92514002AE1A9 /* SensingKit */;
+			targetProxy = CFBB414C19B92514002AE1A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CFBB415219B92514002AE1A9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFBB415319B92514002AE1A9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFBB415719B92514002AE1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CFBB415819B92514002AE1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFBB415A19B92514002AE1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SensingKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CFBB415B19B92514002AE1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SensingKit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CFBB415D19B92514002AE1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SensingKitTests/SensingKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CFBB415E19B92514002AE1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
+				INFOPLIST_FILE = "SensingKitTests/SensingKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFBB413119B92514002AE1A9 /* Build configuration list for PBXProject "SensingKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFBB415719B92514002AE1A9 /* Debug */,
+				CFBB415819B92514002AE1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFBB415919B92514002AE1A9 /* Build configuration list for PBXNativeTarget "SensingKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFBB415A19B92514002AE1A9 /* Debug */,
+				CFBB415B19B92514002AE1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFBB415C19B92514002AE1A9 /* Build configuration list for PBXNativeTarget "SensingKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFBB415D19B92514002AE1A9 /* Debug */,
+				CFBB415E19B92514002AE1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFBB412E19B92514002AE1A9 /* Project object */;
+}
