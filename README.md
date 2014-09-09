@@ -12,7 +12,6 @@ Coming soon…
 ## License
 
 ```
-#!text
 Copyright (c) 2014. Queen Mary University of London
 Kleomenis Katevas, k.katevas@qmul.ac.uk
 
@@ -35,4 +34,4 @@ along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 
 This library is available under the GNU Lesser General Public License 3.0, allowing to use the library in your applications.
 
-If you want to help with the open source project, contact hello@sensingkit.org
+If you want to help with the open source project, contact hello@sensingkit.org.
