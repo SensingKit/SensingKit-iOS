@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5298951A0CFC7A002A4D54 /* UIKit.framework */; };
 		CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
-		CFBB413F19B92514002AE1A9 /* SensingKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB413E19B92514002AE1A9 /* SensingKit.h */; };
-		CFBB414119B92514002AE1A9 /* SensingKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB414019B92514002AE1A9 /* SensingKit.m */; };
+		CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB413E19B92514002AE1A9 /* SensingKitLib.h */; };
+		CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB414019B92514002AE1A9 /* SensingKitLib.m */; };
 		CFBB414919B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
 		CFBB414E19B92514002AE1A9 /* libSensingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413619B92514002AE1A9 /* libSensingKit.a */; };
 		CFBB415419B92514002AE1A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFBB415219B92514002AE1A9 /* InfoPlist.strings */; };
@@ -61,7 +61,7 @@
 				CFBB418519B933DB002AE1A9 /* KKModel.h in CopyFiles */,
 				CFBB418619B933DB002AE1A9 /* KKModelManager.h in CopyFiles */,
 				CFBB418719B933DB002AE1A9 /* KKSensorDataBuffer.h in CopyFiles */,
-				CFBB413F19B92514002AE1A9 /* SensingKit.h in CopyFiles */,
+				CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,8 +72,8 @@
 		CFBB413619B92514002AE1A9 /* libSensingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSensingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBB413919B92514002AE1A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CFBB413D19B92514002AE1A9 /* SensingKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SensingKit-Prefix.pch"; sourceTree = "<group>"; };
-		CFBB413E19B92514002AE1A9 /* SensingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SensingKit.h; sourceTree = "<group>"; };
-		CFBB414019B92514002AE1A9 /* SensingKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKit.m; sourceTree = "<group>"; };
+		CFBB413E19B92514002AE1A9 /* SensingKitLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SensingKitLib.h; sourceTree = "<group>"; };
+		CFBB414019B92514002AE1A9 /* SensingKitLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKitLib.m; sourceTree = "<group>"; };
 		CFBB414619B92514002AE1A9 /* SensingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SensingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBB415119B92514002AE1A9 /* SensingKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SensingKitTests-Info.plist"; sourceTree = "<group>"; };
 		CFBB415319B92514002AE1A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -160,8 +160,8 @@
 				CFBB417319B92923002AE1A9 /* KKModelManager.m */,
 				CFBB417419B92923002AE1A9 /* KKSensorDataBuffer.h */,
 				CFBB417519B92923002AE1A9 /* KKSensorDataBuffer.m */,
-				CFBB413E19B92514002AE1A9 /* SensingKit.h */,
-				CFBB414019B92514002AE1A9 /* SensingKit.m */,
+				CFBB413E19B92514002AE1A9 /* SensingKitLib.h */,
+				CFBB414019B92514002AE1A9 /* SensingKitLib.m */,
 				CFBB413C19B92514002AE1A9 /* Supporting Files */,
 			);
 			path = SensingKit;
@@ -316,7 +316,7 @@
 				CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */,
 				CFBB416E19B92902002AE1A9 /* NSString+KKSensing.m in Sources */,
 				CFBB417719B92923002AE1A9 /* KKModelManager.m in Sources */,
-				CFBB414119B92514002AE1A9 /* SensingKit.m in Sources */,
+				CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */,
 				CFBB416719B928C2002AE1A9 /* KKBatterySensing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

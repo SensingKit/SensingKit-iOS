@@ -1,5 +1,5 @@
 //
-//  SensingKit.h
+//  SensingKitLib.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -25,7 +25,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface SensingKit : NSObject
+@interface SensingKitLib : NSObject
 
 - (void)startSensing;
 - (void)stopSensing;

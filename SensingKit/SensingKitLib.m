@@ -1,5 +1,5 @@
 //
-//  SensingKit.m
+//  SensingKitLib.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,7 +22,7 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SensingKit.h"
+#import "SensingKitLib.h"
 
 #import "KKModelManager.h"
 
@@ -31,7 +31,7 @@
 #import "KKMotionSensing.h"
 #import "KKBatterySensing.h"
 
-@interface SensingKit()
+@interface SensingKitLib()
 
 @property (nonatomic, strong) KKModelManager *modelManager;
 
@@ -48,7 +48,7 @@
 
 @end
 
-@implementation SensingKit
+@implementation SensingKitLib
 
 - (id)initWithUUID:(NSUUID *)uuid
          serverUrl:(NSURL *)url
