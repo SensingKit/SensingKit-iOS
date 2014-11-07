@@ -24,15 +24,6 @@
 		CFBB417719B92923002AE1A9 /* KKModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417319B92923002AE1A9 /* KKModelManager.m */; };
 		CFBB417819B92923002AE1A9 /* KKSensorDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417519B92923002AE1A9 /* KKSensorDataBuffer.m */; };
 		CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417A19B92970002AE1A9 /* GZIP.m */; };
-		CFBB417F19B933DB002AE1A9 /* GZIP.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB417919B92970002AE1A9 /* GZIP.h */; };
-		CFBB418019B933DB002AE1A9 /* NSString+KKSensing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB416C19B92902002AE1A9 /* NSString+KKSensing.h */; };
-		CFBB418119B933DB002AE1A9 /* KKBatterySensing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB415F19B928C2002AE1A9 /* KKBatterySensing.h */; };
-		CFBB418219B933DB002AE1A9 /* KKiBeaconSensing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB416119B928C2002AE1A9 /* KKiBeaconSensing.h */; };
-		CFBB418319B933DB002AE1A9 /* KKLocationSensing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB416319B928C2002AE1A9 /* KKLocationSensing.h */; };
-		CFBB418419B933DB002AE1A9 /* KKMotionSensing.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB416519B928C2002AE1A9 /* KKMotionSensing.h */; };
-		CFBB418519B933DB002AE1A9 /* KKModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB417019B92923002AE1A9 /* KKModel.h */; };
-		CFBB418619B933DB002AE1A9 /* KKModelManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB417219B92923002AE1A9 /* KKModelManager.h */; };
-		CFBB418719B933DB002AE1A9 /* KKSensorDataBuffer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB417419B92923002AE1A9 /* KKSensorDataBuffer.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,15 +43,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				CFBB417F19B933DB002AE1A9 /* GZIP.h in CopyFiles */,
-				CFBB418019B933DB002AE1A9 /* NSString+KKSensing.h in CopyFiles */,
-				CFBB418119B933DB002AE1A9 /* KKBatterySensing.h in CopyFiles */,
-				CFBB418219B933DB002AE1A9 /* KKiBeaconSensing.h in CopyFiles */,
-				CFBB418319B933DB002AE1A9 /* KKLocationSensing.h in CopyFiles */,
-				CFBB418419B933DB002AE1A9 /* KKMotionSensing.h in CopyFiles */,
-				CFBB418519B933DB002AE1A9 /* KKModel.h in CopyFiles */,
-				CFBB418619B933DB002AE1A9 /* KKModelManager.h in CopyFiles */,
-				CFBB418719B933DB002AE1A9 /* KKSensorDataBuffer.h in CopyFiles */,
 				CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
