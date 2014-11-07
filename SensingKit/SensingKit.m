@@ -100,6 +100,8 @@
 
 - (void)startSensing
 {
+    NSLog(@"Start Sensing");
+    
     // Stop app from going to sleep mode
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
@@ -125,6 +127,8 @@
 
 - (void)stopSensing
 {
+    NSLog(@"Stop Sensing");
+    
     // Let the app go to the sleep mode if required
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     
@@ -145,6 +149,16 @@
     
     // Stop AutoFlush
     [self stopAutoFlashing];
+}
+
+- (void)pauseSensing
+{
+    NSLog(@"Pause Sensing");
+}
+
+- (void)continueSensing
+{
+    NSLog(@"Continue Sensing");
 }
 
 - (void)startAutoFlashing

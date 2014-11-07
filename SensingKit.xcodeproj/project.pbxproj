@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5298951A0CFC7A002A4D54 /* UIKit.framework */; };
 		CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
 		CFBB413F19B92514002AE1A9 /* SensingKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB413E19B92514002AE1A9 /* SensingKit.h */; };
 		CFBB414119B92514002AE1A9 /* SensingKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB414019B92514002AE1A9 /* SensingKit.m */; };
-		CFBB414819B92514002AE1A9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB414719B92514002AE1A9 /* XCTest.framework */; };
 		CFBB414919B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
-		CFBB414B19B92514002AE1A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB414A19B92514002AE1A9 /* UIKit.framework */; };
 		CFBB414E19B92514002AE1A9 /* libSensingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413619B92514002AE1A9 /* libSensingKit.a */; };
 		CFBB415419B92514002AE1A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFBB415219B92514002AE1A9 /* InfoPlist.strings */; };
 		CFBB415619B92514002AE1A9 /* SensingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB415519B92514002AE1A9 /* SensingKitTests.m */; };
@@ -69,14 +68,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CF5298951A0CFC7A002A4D54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CFBB413619B92514002AE1A9 /* libSensingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSensingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBB413919B92514002AE1A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CFBB413D19B92514002AE1A9 /* SensingKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SensingKit-Prefix.pch"; sourceTree = "<group>"; };
 		CFBB413E19B92514002AE1A9 /* SensingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SensingKit.h; sourceTree = "<group>"; };
 		CFBB414019B92514002AE1A9 /* SensingKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKit.m; sourceTree = "<group>"; };
 		CFBB414619B92514002AE1A9 /* SensingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SensingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFBB414719B92514002AE1A9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CFBB414A19B92514002AE1A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		CFBB415119B92514002AE1A9 /* SensingKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SensingKitTests-Info.plist"; sourceTree = "<group>"; };
 		CFBB415319B92514002AE1A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CFBB415519B92514002AE1A9 /* SensingKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKitTests.m; sourceTree = "<group>"; };
@@ -105,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */,
 				CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,8 +113,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFBB414E19B92514002AE1A9 /* libSensingKit.a in Frameworks */,
-				CFBB414819B92514002AE1A9 /* XCTest.framework in Frameworks */,
-				CFBB414B19B92514002AE1A9 /* UIKit.framework in Frameworks */,
 				CFBB414919B92514002AE1A9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,9 +142,8 @@
 		CFBB413819B92514002AE1A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF5298951A0CFC7A002A4D54 /* UIKit.framework */,
 				CFBB413919B92514002AE1A9 /* Foundation.framework */,
-				CFBB414719B92514002AE1A9 /* XCTest.framework */,
-				CFBB414A19B92514002AE1A9 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

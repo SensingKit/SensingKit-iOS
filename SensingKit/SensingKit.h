@@ -29,5 +29,7 @@
 
 - (void)startSensing;
 - (void)stopSensing;
+- (void)pauseSensing;
+- (void)continueSensing;
 
 @end
