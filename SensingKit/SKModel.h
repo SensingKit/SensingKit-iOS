@@ -24,7 +24,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KKModel : NSObject
+@interface SKModel : NSObject
 
 - (void)addData:(NSData *)data withFilename:(NSString *)filename;
 

@@ -24,7 +24,7 @@
 
 #import "SensingKitLib.h"
 
-#import "KKModelManager.h"
+#import "SKModelManager.h"
 
 #import "SKProximitySensing.h"
 #import "SKLocationSensing.h"
@@ -33,7 +33,7 @@
 
 @interface SensingKitLib()
 
-@property (nonatomic, strong) KKModelManager *modelManager;
+@property (nonatomic, strong) SKModelManager *modelManager;
 
 @property (nonatomic, strong) SKProximitySensing  *iBeaconSensing;
 @property (nonatomic, strong) SKLocationSensing *locationSensing;
@@ -56,7 +56,7 @@
     if (self = [super init])
     {
         // init Model Manager
-        KKModelManager *modelManager = [[KKModelManager alloc] init];
+        SKModelManager *modelManager = [[SKModelManager alloc] init];
         modelManager.interval = 60;  // Default value
         self.modelManager = modelManager;
         

@@ -22,10 +22,10 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "KKModel.h"
+#import "SKModel.h"
 #import "GZIP.h"
 
-@interface KKModel ()
+@interface SKModel ()
 
 @property (nonatomic, strong) NSMutableArray  *filenames;
 
@@ -34,7 +34,7 @@
 @end
 
 
-@implementation KKModel
+@implementation SKModel
 
 - (id)init
 {

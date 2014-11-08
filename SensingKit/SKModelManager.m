@@ -22,32 +22,32 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "KKModelManager.h"
+#import "SKModelManager.h"
 #import "NSString+SKSensing.h"
-#import "KKModel.h"
+#import "SKModel.h"
 
-@interface KKModelManager ()
+@interface SKModelManager ()
 
 @property (nonatomic, strong) NSDateFormatter *dataDateformatter;
 @property (nonatomic, strong) NSDateFormatter *filenameDateFormatter;
 
-@property (nonatomic, strong) KKSensorDataBuffer *iBeaconSensingBuffer;
-@property (nonatomic, strong) KKSensorDataBuffer *locationSensingBuffer;
-@property (nonatomic, strong) KKSensorDataBuffer *accelerometerSensingBuffer;
-@property (nonatomic, strong) KKSensorDataBuffer *gyroSensingBuffer;
-@property (nonatomic, strong) KKSensorDataBuffer *magnetometerSensingBuffer;
-@property (nonatomic, strong) KKSensorDataBuffer *deviceMotionSensingBuffer;
-@property (nonatomic, strong) KKSensorDataBuffer *activitySensingBuffer;
-@property (nonatomic, strong) KKSensorDataBuffer *batterySensingBuffer;
+@property (nonatomic, strong) SKSensorDataBuffer *iBeaconSensingBuffer;
+@property (nonatomic, strong) SKSensorDataBuffer *locationSensingBuffer;
+@property (nonatomic, strong) SKSensorDataBuffer *accelerometerSensingBuffer;
+@property (nonatomic, strong) SKSensorDataBuffer *gyroSensingBuffer;
+@property (nonatomic, strong) SKSensorDataBuffer *magnetometerSensingBuffer;
+@property (nonatomic, strong) SKSensorDataBuffer *deviceMotionSensingBuffer;
+@property (nonatomic, strong) SKSensorDataBuffer *activitySensingBuffer;
+@property (nonatomic, strong) SKSensorDataBuffer *batterySensingBuffer;
 
 // TODO: Add audioSensing (using mic)
 // TODO: More sensing?
 
-@property (nonatomic, strong) KKModel *model;
+@property (nonatomic, strong) SKModel *model;
 
 @end
 
-@implementation KKModelManager
+@implementation SKModelManager
 
 - (id)init
 {
@@ -68,17 +68,17 @@
         self.filenameDateFormatter = formatter;
         
         // init model
-        self.model = [[KKModel alloc] init];
+        self.model = [[SKModel alloc] init];
         
         // init sensing buffers (default capacity: 1000)
-        self.iBeaconSensingBuffer        = [[KKSensorDataBuffer alloc] initWithLabel:@"iBeacon"       withCapacity:1000];
+        self.iBeaconSensingBuffer        = [[SKSensorDataBuffer alloc] initWithLabel:@"iBeacon"       withCapacity:1000];
         //self.locationSensingBuffer       = [[KKSensorDataBuffer alloc] initWithLabel:@"Location"      withCapacity:1000];
-        self.accelerometerSensingBuffer  = [[KKSensorDataBuffer alloc] initWithLabel:@"Accelerometer" withCapacity:1000];
-        self.gyroSensingBuffer           = [[KKSensorDataBuffer alloc] initWithLabel:@"Gyro"          withCapacity:1000];
-        self.magnetometerSensingBuffer   = [[KKSensorDataBuffer alloc] initWithLabel:@"Magnetometer"  withCapacity:1000];
-        self.deviceMotionSensingBuffer   = [[KKSensorDataBuffer alloc] initWithLabel:@"DeviceMotion"  withCapacity:1000];
-        self.activitySensingBuffer       = [[KKSensorDataBuffer alloc] initWithLabel:@"Activity"      withCapacity:1000];
-        self.batterySensingBuffer        = [[KKSensorDataBuffer alloc] initWithLabel:@"Battery"       withCapacity:1000];
+        self.accelerometerSensingBuffer  = [[SKSensorDataBuffer alloc] initWithLabel:@"Accelerometer" withCapacity:1000];
+        self.gyroSensingBuffer           = [[SKSensorDataBuffer alloc] initWithLabel:@"Gyro"          withCapacity:1000];
+        self.magnetometerSensingBuffer   = [[SKSensorDataBuffer alloc] initWithLabel:@"Magnetometer"  withCapacity:1000];
+        self.deviceMotionSensingBuffer   = [[SKSensorDataBuffer alloc] initWithLabel:@"DeviceMotion"  withCapacity:1000];
+        self.activitySensingBuffer       = [[SKSensorDataBuffer alloc] initWithLabel:@"Activity"      withCapacity:1000];
+        self.batterySensingBuffer        = [[SKSensorDataBuffer alloc] initWithLabel:@"Battery"       withCapacity:1000];
         
         // set delegates
         [self.iBeaconSensingBuffer       setDelegate:self];

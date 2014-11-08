@@ -22,16 +22,16 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "KKSensorDataBuffer.h"
+#import "SKSensorDataBuffer.h"
 
-@interface KKSensorDataBuffer ()
+@interface SKSensorDataBuffer ()
 
 @property (nonatomic, strong) NSMutableArray *buffer;
 @property (nonatomic) NSUInteger capacity;
 
 @end
 
-@implementation KKSensorDataBuffer
+@implementation SKSensorDataBuffer
 
 - (id)initWithLabel:(NSString *)label withCapacity:(NSUInteger)capacity
 {

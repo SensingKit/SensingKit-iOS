@@ -1,5 +1,5 @@
 //
-//  SKModelManager.h
+//  SKSensorDataBuffer.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -24,18 +24,20 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SKProximitySensing.h"
-#import "SKLocationSensing.h"
-#import "SKMotionSensing.h"
-#import "SKBatterySensing.h"
-#import "KKSensorDataBuffer.h"
+@protocol SKSensorDataBufferDelegate <NSObject>
 
-@interface KKModelManager : NSObject<SKProximitySensingDelegate, SKLocationSensingDelegate, SKMotionSensingDelegate, SKBatterySensingDelegate, KKSensorDataBufferDelegate>
+- (void)flushedBuffer:(NSString *)label withData:(NSData *)data;
 
-@property (nonatomic) NSTimeInterval interval;
+@end
 
-- (void)flushBuffers;
+@interface SKSensorDataBuffer : NSObject
 
-- (void)syncDataForDeviceWithId:(NSUInteger)device_id;
+@property (nonatomic, strong, readonly) NSString *label;
+@property (weak, nonatomic) id <SKSensorDataBufferDelegate> delegate;
+
+- (id)initWithLabel:(NSString *)label withCapacity:(NSUInteger)capacity;
+
+- (void)addData:(id)data;
+- (void)flush;
 
 @end
