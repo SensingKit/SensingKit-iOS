@@ -30,6 +30,9 @@
 
 @interface SensingKitLib : NSObject
 
+- (id)initWithUUID:(NSUUID *)uuid
+         serverUrl:(NSURL *)url;
+
 - (void)startSensing;
 - (void)stopSensing;
 - (void)pauseSensing;
