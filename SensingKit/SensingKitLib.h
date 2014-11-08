@@ -24,6 +24,9 @@
 
 #import <Foundation/Foundation.h>
 
+@import CoreBluetooth;
+@import CoreLocation;
+@import CoreMotion;
 
 @interface SensingKitLib : NSObject
 
