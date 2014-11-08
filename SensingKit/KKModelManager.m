@@ -1,5 +1,5 @@
 //
-//  KKModelManager.m
+//  SKModelManager.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -23,7 +23,7 @@
 //
 
 #import "KKModelManager.h"
-#import "NSString+KKSensing.h"
+#import "NSString+SKSensing.h"
 #import "KKModel.h"
 
 @interface KKModelManager ()
@@ -123,7 +123,7 @@
     NSString *timestamp = [self getTimestamp];
     
     // Create the string
-    NSString *data = [NSString stringWithBeaconSensingDataWithLabel:label
+    NSString *data = [NSString stringWithProximitySensingDataWithLabel:label
                                                          identifier:identifier
                                                            accuracy:accuracy
                                                           proximity:proximity

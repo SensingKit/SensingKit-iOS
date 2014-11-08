@@ -1,5 +1,5 @@
 //
-//  KKSensorDataBuffer.m
+//  SKSensorDataBuffer.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London

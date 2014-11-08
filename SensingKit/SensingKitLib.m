@@ -26,19 +26,19 @@
 
 #import "KKModelManager.h"
 
-#import "KKiBeaconSensing.h"
-#import "KKLocationSensing.h"
-#import "KKMotionSensing.h"
-#import "KKBatterySensing.h"
+#import "SKProximitySensing.h"
+#import "SKLocationSensing.h"
+#import "SKMotionSensing.h"
+#import "SKBatterySensing.h"
 
 @interface SensingKitLib()
 
 @property (nonatomic, strong) KKModelManager *modelManager;
 
-@property (nonatomic, strong) KKiBeaconSensing  *iBeaconSensing;
-@property (nonatomic, strong) KKLocationSensing *locationSensing;
-@property (nonatomic, strong) KKMotionSensing   *motionSensing;
-@property (nonatomic, strong) KKBatterySensing  *batterySensing;
+@property (nonatomic, strong) SKProximitySensing  *iBeaconSensing;
+@property (nonatomic, strong) SKLocationSensing *locationSensing;
+@property (nonatomic, strong) SKMotionSensing   *motionSensing;
+@property (nonatomic, strong) SKBatterySensing  *batterySensing;
 
 @property (nonatomic, strong) NSUUID *uuid;
 
@@ -75,17 +75,17 @@
     
     // init iBeacon Sensing
     NSUInteger device_id = arc4random_uniform(1000000); // Produce a random id for now. TODO: Use server to generate a unique one in the future
-    KKiBeaconSensing *iBeaconSensing = [[KKiBeaconSensing alloc] initWithUUID:self.uuid withDeviceId:device_id];
+    SKProximitySensing *iBeaconSensing = [[SKProximitySensing alloc] initWithUUID:self.uuid withDeviceId:device_id];
     iBeaconSensing.delegate = self.modelManager;  // set delegate to modelManager
     self.iBeaconSensing = iBeaconSensing;
     
     // init Location Sensing
-    KKLocationSensing *locationSensing = [[KKLocationSensing alloc] init];
+    SKLocationSensing *locationSensing = [[SKLocationSensing alloc] init];
     locationSensing.delegate = self.modelManager;  // set delegate to modelManager
     self.locationSensing = locationSensing;
     
     // init Motion Sensing
-    KKMotionSensing *motionSensing = [[KKMotionSensing alloc] init];
+    SKMotionSensing *motionSensing = [[SKMotionSensing alloc] init];
     motionSensing.delegate = self.modelManager;  // set delegate to modelManager
     motionSensing.accelerometerUpdateInterval = 1/100.0;
     motionSensing.gyroUpdateInterval = 1/100.0;
@@ -93,7 +93,7 @@
     self.motionSensing = motionSensing;
     
     // init Battery Sensing
-    KKBatterySensing *batterySensing = [[KKBatterySensing alloc] init];
+    SKBatterySensing *batterySensing = [[SKBatterySensing alloc] init];
     batterySensing.delegate = self.modelManager;  // set delegate to modelManager
     self.batterySensing = batterySensing;
 }
@@ -112,7 +112,7 @@
     [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
     
     // Start the sensing modules
-    [self.iBeaconSensing  startBeaconSensingWithPower:nil];  // nil for default power
+    [self.iBeaconSensing  startProximitySensingWithPower:nil];  // nil for default power
     [self.locationSensing startLocationSensing];
     [self.motionSensing   startAccelerometerSensing];
     [self.motionSensing   startGyroSensing];
@@ -138,7 +138,7 @@
     [[UIDevice currentDevice] setProximityMonitoringEnabled:NO];
     
     // Stop the sensing modules
-    [self.iBeaconSensing  stopBeaconSensing];
+    [self.iBeaconSensing  stopProximitySensing];
     [self.locationSensing stopLocationSensing];
     [self.motionSensing   stopAccelerometerSensing];
     [self.motionSensing   stopGyroSensing];

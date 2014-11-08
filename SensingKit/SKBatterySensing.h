@@ -1,5 +1,5 @@
 //
-//  KKBatterySensing.h
+//  SKBatterySensing.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -24,16 +24,16 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol KKBatterySensingDelegate <NSObject>
+@protocol SKBatterySensingDelegate <NSObject>
 
 - (void)batteryLevelChanged:(UIDeviceBatteryState)state level:(CGFloat)level;
 - (void)batteryStateChanged:(UIDeviceBatteryState)state level:(CGFloat)level;
 
 @end
 
-@interface KKBatterySensing : NSObject
+@interface SKBatterySensing : NSObject
 
-@property (weak, nonatomic) id <KKBatterySensingDelegate> delegate;
+@property (weak, nonatomic) id <SKBatterySensingDelegate> delegate;
 
 @property (nonatomic, readonly) CGFloat batteryLevel;
 @property (nonatomic, readonly) UIDeviceBatteryState batteryState;

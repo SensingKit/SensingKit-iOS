@@ -1,5 +1,5 @@
 //
-//  KKiBeaconSensing.m
+//  SKiBeaconSensing.m
 //  iBeaconSensing
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,9 +22,9 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "KKiBeaconSensing.h"
+#import "SKProximitySensing.h"
 
-@interface KKiBeaconSensing()
+@interface SKProximitySensing()
 
 @property (strong, nonatomic) CLBeaconRegion      *broadcast_beaconRegion;
 @property (strong, nonatomic) CLBeaconRegion      *scan_beaconRegion;
@@ -33,19 +33,19 @@
 
 @end
 
-@implementation KKiBeaconSensing
+@implementation SKProximitySensing
 
 - (id)initWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id
 {
     if (self = [super init])
     {
         // init iBeacon managers
-        [self initBeaconSensingWithUUID:UUID withDeviceId:device_id];
+        [self initProximitySensingWithUUID:UUID withDeviceId:device_id];
     }
     return self;
 }
 
-- (void)initBeaconSensingWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id
+- (void)initProximitySensingWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id
 {
     // Get a unique identifier for the device
     NSString *identifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
@@ -63,7 +63,7 @@
     self.locationManager.delegate = self;
 }
 
-- (BOOL)isBeaconSensingAvailable
+- (BOOL)isProximitySensingAvailable
 {
     return ([CLLocationManager isRangingAvailable] &&
             self.peripheralManager.state == CBPeripheralManagerStatePoweredOn);
@@ -71,15 +71,15 @@
 
 #pragma mark start / stop sensing
 
-- (void)startBeaconSensing
+- (void)startProximitySensing
 {
     // Start Sensing with the default power level
-    [self startBeaconSensingWithPower:nil];
+    [self startProximitySensingWithPower:nil];
 }
 
-- (void)startBeaconSensingWithPower:(NSNumber *)power
+- (void)startProximitySensingWithPower:(NSNumber *)power
 {
-    if ([self isBeaconSensingAvailable])
+    if ([self isProximitySensingAvailable])
     {
         // Start monitoring
         [self.locationManager startMonitoringForRegion:self.scan_beaconRegion];
@@ -96,9 +96,9 @@
     }
 }
 
-- (void)stopBeaconSensing
+- (void)stopProximitySensing
 {
-    if ([self isBeaconSensingAvailable])
+    if ([self isProximitySensingAvailable])
     {
         // Stop monitoring
         [self.locationManager stopMonitoringForRegion:self.scan_beaconRegion];

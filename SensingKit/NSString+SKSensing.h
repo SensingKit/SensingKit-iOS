@@ -1,5 +1,5 @@
 //
-//  NSString+KKSensing.h
+//  NSString+SKSensing.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -27,13 +27,13 @@
 @import CoreLocation;
 @import CoreMotion;
 
-@interface NSString (KKSensing)
+@interface NSString (SKSensing)
 
 + (NSString *)stringWithCLProximity:(CLProximity)proximity;
 + (NSString *)stringWithCMMotionActivityConfidence:(CMMotionActivityConfidence)confidence;
 + (NSString *)stringWithUIDeviceBatteryState:(UIDeviceBatteryState)state;
 
-+ (NSString *)stringWithBeaconSensingDataWithLabel:(NSString *)label
++ (NSString *)stringWithProximitySensingDataWithLabel:(NSString *)label
                                         identifier:(NSString *)identifier
                                           accuracy:(CLLocationAccuracy)accuracy
                                          proximity:(CLProximity)proximity

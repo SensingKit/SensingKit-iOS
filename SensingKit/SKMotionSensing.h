@@ -1,5 +1,5 @@
 //
-//  KKMotionSensing.h
+//  SKMotionSensing.h
 //  iBeaconSensing
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -26,7 +26,7 @@
 
 @import CoreMotion;
 
-@protocol KKMotionSensingDelegate <NSObject>
+@protocol SKMotionSensingDelegate <NSObject>
 
 - (void)accelerometerDataReceived:(CMAccelerometerData *)accelerometerData;
 - (void)gyroDataReceived:(CMGyroData *)gyroData;
@@ -36,7 +36,7 @@
 
 @end
 
-@interface KKMotionSensing : NSObject
+@interface SKMotionSensing : NSObject
 
 @property (strong, nonatomic) CMMotionManager         *motionManager;
 @property (strong, nonatomic) CMMotionActivityManager *motionActivityManager;
@@ -46,7 +46,7 @@
 @property (nonatomic) NSTimeInterval magnetometerUpdateInterval;
 @property (nonatomic) NSTimeInterval deviceMotionUpdateInterval;
 
-@property (weak, nonatomic) id <KKMotionSensingDelegate> delegate;
+@property (weak, nonatomic) id <SKMotionSensingDelegate> delegate;
 
 - (BOOL)isAccelerometerAvailable;
 - (BOOL)isGyroAvailable;

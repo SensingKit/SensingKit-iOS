@@ -1,5 +1,5 @@
 //
-//  KKLocationSensing.m
+//  SKLocationSensing.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,15 +22,15 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "KKLocationSensing.h"
+#import "SKLocationSensing.h"
 
-@interface KKLocationSensing ()
+@interface SKLocationSensing ()
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
-@implementation KKLocationSensing
+@implementation SKLocationSensing
 
 - (id)init
 {

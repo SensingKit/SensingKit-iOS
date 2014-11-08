@@ -1,6 +1,6 @@
 //
-//  KKLocationSensing.h
-//  SensingKit
+//  SKiBeaconSensing.h
+//  iBeaconSensing
 //
 //  Copyright (c) 2014. Queen Mary University of London
 //  Kleomenis Katevas, k.katevas@qmul.ac.uk
@@ -24,21 +24,31 @@
 
 #import <Foundation/Foundation.h>
 
+@import CoreBluetooth;
 @import CoreLocation;
 
-@protocol KKLocationSensingDelegate <NSObject>
+@protocol SKProximitySensingDelegate <NSObject>
 
-- (void)locationUpdateReceived:(CLLocation *)location;
+- (void)beaconFoundWithIdentifier:(NSString *)identifier;
+- (void)beaconLostWithIdentifier:(NSString *)identifier;
+
+- (void)rangingBeaconWithIdentifier:(NSString *)identifier
+                           accuracy:(CLLocationAccuracy)accuracy
+                          proximity:(CLProximity)proximity
+                               rssi:(NSInteger)rssi;
 
 @end
 
-@interface KKLocationSensing : NSObject<CLLocationManagerDelegate>
+@interface SKProximitySensing : NSObject<CBPeripheralManagerDelegate, CLLocationManagerDelegate>
 
-@property (weak, nonatomic) id <KKLocationSensingDelegate> delegate;
+@property (weak, nonatomic) id <SKProximitySensingDelegate> delegate;
 
-- (BOOL)isLocationSensingAvailable;
+- (id)initWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id;
 
-- (void)startLocationSensing;
-- (void)stopLocationSensing;
+- (BOOL)isProximitySensingAvailable;
+
+- (void)startProximitySensing;
+- (void)startProximitySensingWithPower:(NSNumber *)power;
+- (void)stopProximitySensing;
 
 @end

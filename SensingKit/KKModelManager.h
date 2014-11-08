@@ -1,5 +1,5 @@
 //
-//  KKModelManager.h
+//  SKModelManager.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -24,13 +24,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KKiBeaconSensing.h"
-#import "KKLocationSensing.h"
-#import "KKMotionSensing.h"
-#import "KKBatterySensing.h"
+#import "SKProximitySensing.h"
+#import "SKLocationSensing.h"
+#import "SKMotionSensing.h"
+#import "SKBatterySensing.h"
 #import "KKSensorDataBuffer.h"
 
-@interface KKModelManager : NSObject<KKiBeaconSensingDelegate, KKLocationSensingDelegate, KKMotionSensingDelegate, KKBatterySensingDelegate, KKSensorDataBufferDelegate>
+@interface KKModelManager : NSObject<SKProximitySensingDelegate, SKLocationSensingDelegate, SKMotionSensingDelegate, SKBatterySensingDelegate, KKSensorDataBufferDelegate>
 
 @property (nonatomic) NSTimeInterval interval;
 

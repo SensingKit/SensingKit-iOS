@@ -1,5 +1,5 @@
 //
-//  NSString+KKSensing.m
+//  NSString+SKSensing.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,9 +22,9 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NSString+KKSensing.h"
+#import "NSString+SKSensing.h"
 
-@implementation NSString (KKSensing)
+@implementation NSString (SKSensing)
 
 + (NSString *)stringWithCLProximity:(CLProximity)proximity
 {
@@ -108,7 +108,7 @@
     return string;
 }
 
-+ (NSString *)stringWithBeaconSensingDataWithLabel:(NSString *)label
++ (NSString *)stringWithProximitySensingDataWithLabel:(NSString *)label
                                         identifier:(NSString *)identifier
                                           accuracy:(CLLocationAccuracy)accuracy
                                          proximity:(CLProximity)proximity

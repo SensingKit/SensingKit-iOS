@@ -1,5 +1,5 @@
 //
-//  KKModel.m
+//  SKModel.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London

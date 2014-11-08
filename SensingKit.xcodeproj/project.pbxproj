@@ -30,11 +30,11 @@
 		CFBB414E19B92514002AE1A9 /* libSensingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413619B92514002AE1A9 /* libSensingKit.a */; };
 		CFBB415419B92514002AE1A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFBB415219B92514002AE1A9 /* InfoPlist.strings */; };
 		CFBB415619B92514002AE1A9 /* SensingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB415519B92514002AE1A9 /* SensingKitTests.m */; };
-		CFBB416719B928C2002AE1A9 /* KKBatterySensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416019B928C2002AE1A9 /* KKBatterySensing.m */; };
-		CFBB416819B928C2002AE1A9 /* KKiBeaconSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* KKiBeaconSensing.m */; };
-		CFBB416919B928C2002AE1A9 /* KKLocationSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* KKLocationSensing.m */; };
-		CFBB416A19B928C2002AE1A9 /* KKMotionSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416619B928C2002AE1A9 /* KKMotionSensing.m */; };
-		CFBB416E19B92902002AE1A9 /* NSString+KKSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416D19B92902002AE1A9 /* NSString+KKSensing.m */; };
+		CFBB416719B928C2002AE1A9 /* SKBatterySensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416019B928C2002AE1A9 /* SKBatterySensing.m */; };
+		CFBB416819B928C2002AE1A9 /* SKProximitySensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* SKProximitySensing.m */; };
+		CFBB416919B928C2002AE1A9 /* SKLocationSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* SKLocationSensing.m */; };
+		CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */; };
+		CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */; };
 		CFBB417619B92923002AE1A9 /* KKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417119B92923002AE1A9 /* KKModel.m */; };
 		CFBB417719B92923002AE1A9 /* KKModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417319B92923002AE1A9 /* KKModelManager.m */; };
 		CFBB417819B92923002AE1A9 /* KKSensorDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417519B92923002AE1A9 /* KKSensorDataBuffer.m */; };
@@ -82,16 +82,16 @@
 		CFBB415119B92514002AE1A9 /* SensingKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SensingKitTests-Info.plist"; sourceTree = "<group>"; };
 		CFBB415319B92514002AE1A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CFBB415519B92514002AE1A9 /* SensingKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKitTests.m; sourceTree = "<group>"; };
-		CFBB415F19B928C2002AE1A9 /* KKBatterySensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKBatterySensing.h; sourceTree = "<group>"; };
-		CFBB416019B928C2002AE1A9 /* KKBatterySensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKBatterySensing.m; sourceTree = "<group>"; };
-		CFBB416119B928C2002AE1A9 /* KKiBeaconSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKiBeaconSensing.h; sourceTree = "<group>"; };
-		CFBB416219B928C2002AE1A9 /* KKiBeaconSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKiBeaconSensing.m; sourceTree = "<group>"; };
-		CFBB416319B928C2002AE1A9 /* KKLocationSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKLocationSensing.h; sourceTree = "<group>"; };
-		CFBB416419B928C2002AE1A9 /* KKLocationSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKLocationSensing.m; sourceTree = "<group>"; };
-		CFBB416519B928C2002AE1A9 /* KKMotionSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKMotionSensing.h; sourceTree = "<group>"; };
-		CFBB416619B928C2002AE1A9 /* KKMotionSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKMotionSensing.m; sourceTree = "<group>"; };
-		CFBB416C19B92902002AE1A9 /* NSString+KKSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KKSensing.h"; sourceTree = "<group>"; };
-		CFBB416D19B92902002AE1A9 /* NSString+KKSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KKSensing.m"; sourceTree = "<group>"; };
+		CFBB415F19B928C2002AE1A9 /* SKBatterySensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatterySensing.h; sourceTree = "<group>"; };
+		CFBB416019B928C2002AE1A9 /* SKBatterySensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatterySensing.m; sourceTree = "<group>"; };
+		CFBB416119B928C2002AE1A9 /* SKProximitySensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProximitySensing.h; sourceTree = "<group>"; };
+		CFBB416219B928C2002AE1A9 /* SKProximitySensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximitySensing.m; sourceTree = "<group>"; };
+		CFBB416319B928C2002AE1A9 /* SKLocationSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLocationSensing.h; sourceTree = "<group>"; };
+		CFBB416419B928C2002AE1A9 /* SKLocationSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLocationSensing.m; sourceTree = "<group>"; };
+		CFBB416519B928C2002AE1A9 /* SKMotionSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMotionSensing.h; sourceTree = "<group>"; };
+		CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMotionSensing.m; sourceTree = "<group>"; };
+		CFBB416C19B92902002AE1A9 /* NSString+SKSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SKSensing.h"; sourceTree = "<group>"; };
+		CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SKSensing.m"; sourceTree = "<group>"; };
 		CFBB417019B92923002AE1A9 /* KKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKModel.h; sourceTree = "<group>"; };
 		CFBB417119B92923002AE1A9 /* KKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKModel.m; sourceTree = "<group>"; };
 		CFBB417219B92923002AE1A9 /* KKModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKModelManager.h; sourceTree = "<group>"; };
@@ -200,14 +200,14 @@
 		CFBB416B19B928CF002AE1A9 /* SensingModules */ = {
 			isa = PBXGroup;
 			children = (
-				CFBB415F19B928C2002AE1A9 /* KKBatterySensing.h */,
-				CFBB416019B928C2002AE1A9 /* KKBatterySensing.m */,
-				CFBB416119B928C2002AE1A9 /* KKiBeaconSensing.h */,
-				CFBB416219B928C2002AE1A9 /* KKiBeaconSensing.m */,
-				CFBB416319B928C2002AE1A9 /* KKLocationSensing.h */,
-				CFBB416419B928C2002AE1A9 /* KKLocationSensing.m */,
-				CFBB416519B928C2002AE1A9 /* KKMotionSensing.h */,
-				CFBB416619B928C2002AE1A9 /* KKMotionSensing.m */,
+				CFBB415F19B928C2002AE1A9 /* SKBatterySensing.h */,
+				CFBB416019B928C2002AE1A9 /* SKBatterySensing.m */,
+				CFBB416119B928C2002AE1A9 /* SKProximitySensing.h */,
+				CFBB416219B928C2002AE1A9 /* SKProximitySensing.m */,
+				CFBB416319B928C2002AE1A9 /* SKLocationSensing.h */,
+				CFBB416419B928C2002AE1A9 /* SKLocationSensing.m */,
+				CFBB416519B928C2002AE1A9 /* SKMotionSensing.h */,
+				CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */,
 			);
 			name = SensingModules;
 			sourceTree = "<group>";
@@ -215,8 +215,8 @@
 		CFBB416F19B92906002AE1A9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				CFBB416C19B92902002AE1A9 /* NSString+KKSensing.h */,
-				CFBB416D19B92902002AE1A9 /* NSString+KKSensing.m */,
+				CFBB416C19B92902002AE1A9 /* NSString+SKSensing.h */,
+				CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -275,7 +275,7 @@
 		CFBB412E19B92514002AE1A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = sensingkitlib;
+				CLASSPREFIX = SK;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Queen Mary University of London";
 				TargetAttributes = {
@@ -351,15 +351,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFBB417819B92923002AE1A9 /* KKSensorDataBuffer.m in Sources */,
-				CFBB416919B928C2002AE1A9 /* KKLocationSensing.m in Sources */,
-				CFBB416819B928C2002AE1A9 /* KKiBeaconSensing.m in Sources */,
+				CFBB416919B928C2002AE1A9 /* SKLocationSensing.m in Sources */,
+				CFBB416819B928C2002AE1A9 /* SKProximitySensing.m in Sources */,
 				CFBB417619B92923002AE1A9 /* KKModel.m in Sources */,
-				CFBB416A19B928C2002AE1A9 /* KKMotionSensing.m in Sources */,
+				CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */,
 				CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */,
-				CFBB416E19B92902002AE1A9 /* NSString+KKSensing.m in Sources */,
+				CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */,
 				CFBB417719B92923002AE1A9 /* KKModelManager.m in Sources */,
 				CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */,
-				CFBB416719B928C2002AE1A9 /* KKBatterySensing.m in Sources */,
+				CFBB416719B928C2002AE1A9 /* SKBatterySensing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
