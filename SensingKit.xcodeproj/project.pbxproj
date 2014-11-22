@@ -41,6 +41,7 @@
 		CFBB417719B92923002AE1A9 /* SKRecordingDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417319B92923002AE1A9 /* SKRecordingDataManager.m */; };
 		CFBB417819B92923002AE1A9 /* SKSensorDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */; };
 		CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417A19B92970002AE1A9 /* GZIP.m */; };
+		CFD6B3291A20DA090050B71B /* SKModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD6B3281A20DA090050B71B /* SKModelManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorDataBuffer.m; sourceTree = "<group>"; };
 		CFBB417919B92970002AE1A9 /* GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIP.h; sourceTree = "<group>"; };
 		CFBB417A19B92970002AE1A9 /* GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZIP.m; sourceTree = "<group>"; };
+		CFD6B3271A20DA090050B71B /* SKModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKModelManager.h; sourceTree = "<group>"; };
+		CFD6B3281A20DA090050B71B /* SKModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKModelManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,8 @@
 				CFBB417C19B92983002AE1A9 /* GZIP */,
 				CFBB416F19B92906002AE1A9 /* Categories */,
 				CFD6B3261A20D0A70050B71B /* Recording */,
+				CFD6B3271A20DA090050B71B /* SKModelManager.h */,
+				CFD6B3281A20DA090050B71B /* SKModelManager.m */,
 				CFBB413E19B92514002AE1A9 /* SensingKitLib.h */,
 				CFBB414019B92514002AE1A9 /* SensingKitLib.m */,
 				CFBB413C19B92514002AE1A9 /* Supporting Files */,
@@ -374,6 +379,7 @@
 				CF6B03841A0FAF2B0062DE0F /* SKRecording.m in Sources */,
 				CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */,
 				CFBB417719B92923002AE1A9 /* SKRecordingDataManager.m in Sources */,
+				CFD6B3291A20DA090050B71B /* SKModelManager.m in Sources */,
 				CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */,
 				CFBB416719B928C2002AE1A9 /* SKBatterySensing.m in Sources */,
 			);

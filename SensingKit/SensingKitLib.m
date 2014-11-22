@@ -23,8 +23,11 @@
 //
 
 #import "SensingKitLib.h"
+#import "SKModelManager.h"
 
 @interface SensingKitLib()
+
+@property (nonatomic, strong) SKModelManager* modelManager;
 
 @end
 
@@ -46,7 +49,9 @@
 {
     if (self = [super init])
     {
-        
+        // init Model Manager and assign to recordings array
+        self.modelManager = [[SKModelManager alloc] init];
+        _recordings = self.modelManager.recordings;
     }
     return self;
 }
@@ -55,14 +60,14 @@
 {
     SKRecording *recording = [[SKRecording alloc] init];
     
-    
+    [self.modelManager createRecordingWithName:nil];
     
     return recording;
 }
 
-- (void)deleteRecording:(SKRecording *)recording
+- (void)deleteRecordingWithDetails:(NSDictionary *)recordingDetails
 {
-    // Find recording and delete its record + data files
+    [self.modelManager deleteRecording:recordingDetails];
 }
 
 @end

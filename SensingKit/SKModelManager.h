@@ -1,5 +1,5 @@
 //
-//  SensingKitLib.h
+//  SKModelManager.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,23 +22,13 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-@import CoreBluetooth;
-@import CoreLocation;
-@import CoreMotion;
-
 #import <Foundation/Foundation.h>
-#import "SKRecording.h"
 
-@interface SensingKitLib : NSObject
+@interface SKModelManager : NSObject
 
-- (id)init __attribute__((unavailable("Use [SensingKitLib sharedSensingKitLib] instead.")));
+@property (readonly, nonatomic, strong) NSMutableArray *recordings;
 
-+ (id)sharedSensingKitLib;
-
-@property (readonly, nonatomic, strong) NSArray *recordings;
-
-- (SKRecording *)newRecording;
-
-- (void)deleteRecordingWithDetails:(NSDictionary *)recordingDetails;
+- (NSDictionary *)createRecordingWithName:(NSString *)name;
+- (void)deleteRecording:(NSDictionary *)recording;
 
 @end
