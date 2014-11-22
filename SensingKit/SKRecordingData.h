@@ -1,5 +1,5 @@
 //
-//  SKModel.h
+//  SKRecordingData.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -24,7 +24,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKModel : NSObject
+@interface SKRecordingData : NSObject
 
 - (void)addData:(NSData *)data withFilename:(NSString *)filename;
 

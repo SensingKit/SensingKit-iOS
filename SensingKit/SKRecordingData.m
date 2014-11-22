@@ -1,5 +1,5 @@
 //
-//  SKModel.m
+//  SKRecordingData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,10 +22,10 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKModel.h"
+#import "SKRecordingData.h"
 #import "GZIP.h"
 
-@interface SKModel ()
+@interface SKRecordingData ()
 
 @property (nonatomic, strong) NSMutableArray  *filenames;
 
@@ -34,7 +34,7 @@
 @end
 
 
-@implementation SKModel
+@implementation SKRecordingData
 
 - (id)init
 {

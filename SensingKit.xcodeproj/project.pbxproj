@@ -37,7 +37,7 @@
 		CFBB416919B928C2002AE1A9 /* SKLocationSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* SKLocationSensing.m */; };
 		CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */; };
 		CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */; };
-		CFBB417619B92923002AE1A9 /* SKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417119B92923002AE1A9 /* SKModel.m */; };
+		CFBB417619B92923002AE1A9 /* SKRecordingData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417119B92923002AE1A9 /* SKRecordingData.m */; };
 		CFBB417719B92923002AE1A9 /* SKRecordingDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417319B92923002AE1A9 /* SKRecordingDataManager.m */; };
 		CFBB417819B92923002AE1A9 /* SKSensorDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */; };
 		CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417A19B92970002AE1A9 /* GZIP.m */; };
@@ -97,8 +97,8 @@
 		CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMotionSensing.m; sourceTree = "<group>"; };
 		CFBB416C19B92902002AE1A9 /* NSString+SKSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SKSensing.h"; sourceTree = "<group>"; };
 		CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SKSensing.m"; sourceTree = "<group>"; };
-		CFBB417019B92923002AE1A9 /* SKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKModel.h; sourceTree = "<group>"; };
-		CFBB417119B92923002AE1A9 /* SKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKModel.m; sourceTree = "<group>"; };
+		CFBB417019B92923002AE1A9 /* SKRecordingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKRecordingData.h; sourceTree = "<group>"; };
+		CFBB417119B92923002AE1A9 /* SKRecordingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKRecordingData.m; sourceTree = "<group>"; };
 		CFBB417219B92923002AE1A9 /* SKRecordingDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKRecordingDataManager.h; sourceTree = "<group>"; };
 		CFBB417319B92923002AE1A9 /* SKRecordingDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKRecordingDataManager.m; sourceTree = "<group>"; };
 		CFBB417419B92923002AE1A9 /* SKSensorDataBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorDataBuffer.h; sourceTree = "<group>"; };
@@ -163,8 +163,8 @@
 				CFBB417C19B92983002AE1A9 /* GZIP */,
 				CFBB416F19B92906002AE1A9 /* Categories */,
 				CFBB416B19B928CF002AE1A9 /* SensingModules */,
-				CFBB417019B92923002AE1A9 /* SKModel.h */,
-				CFBB417119B92923002AE1A9 /* SKModel.m */,
+				CFBB417019B92923002AE1A9 /* SKRecordingData.h */,
+				CFBB417119B92923002AE1A9 /* SKRecordingData.m */,
 				CFBB417219B92923002AE1A9 /* SKRecordingDataManager.h */,
 				CFBB417319B92923002AE1A9 /* SKRecordingDataManager.m */,
 				CFBB417419B92923002AE1A9 /* SKSensorDataBuffer.h */,
@@ -360,7 +360,7 @@
 				CFBB417819B92923002AE1A9 /* SKSensorDataBuffer.m in Sources */,
 				CFBB416919B928C2002AE1A9 /* SKLocationSensing.m in Sources */,
 				CFBB416819B928C2002AE1A9 /* SKProximitySensing.m in Sources */,
-				CFBB417619B92923002AE1A9 /* SKModel.m in Sources */,
+				CFBB417619B92923002AE1A9 /* SKRecordingData.m in Sources */,
 				CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */,
 				CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */,
 				CF6B03841A0FAF2B0062DE0F /* SKRecording.m in Sources */,

@@ -24,7 +24,7 @@
 
 #import "SKRecordingDataManager.h"
 #import "NSString+SKSensing.h"
-#import "SKModel.h"
+#import "SKRecordingData.h"
 
 @interface SKRecordingDataManager ()
 
@@ -43,7 +43,7 @@
 // TODO: Add audioSensing (using mic)
 // TODO: More sensing?
 
-@property (nonatomic, strong) SKModel *model;
+@property (nonatomic, strong) SKRecordingData *recordingData;
 
 @end
 
@@ -68,7 +68,7 @@
         self.filenameDateFormatter = formatter;
         
         // init model
-        self.model = [[SKModel alloc] init];
+        self.recordingData = [[SKRecordingData alloc] init];
         
         // init sensing buffers (default capacity: 1000)
         self.iBeaconSensingBuffer        = [[SKSensorDataBuffer alloc] initWithLabel:@"iBeacon"       withCapacity:1000];
@@ -95,7 +95,7 @@
 
 - (void)syncDataForDeviceWithId:(NSUInteger)device_id
 {
-    [self.model syncDataForDeviceWithId:device_id];
+    [self.recordingData syncDataForDeviceWithId:device_id];
 }
 
 #pragma mark flush buffer methods
@@ -322,7 +322,7 @@
     NSString *filename = [NSString stringWithFormat:@"%@_%@.gz", label, [self.dataDateformatter stringFromDate:[NSDate date]]];
     
     // Add the data to the model
-    [self.model addData:data withFilename:filename];
+    [self.recordingData addData:data withFilename:filename];
 }
 
 @end
