@@ -33,7 +33,7 @@
 
 @implementation SensingKitLib
 
-+ (id)sharedSensingKitLib
++ (SensingKitLib *)sharedSensingKitLib
 {
     static SensingKitLib *sensingKitLib;
     
@@ -44,14 +44,13 @@
     return sensingKitLib;
 }
 
-
-- (id)init
+- (instancetype)init
 {
     if (self = [super init])
     {
         // init Model Manager and assign to recordings array
-        self.modelManager = [[SKModelManager alloc] init];
-        _recordings = self.modelManager.recordings;
+        self.modelManager = [SKModelManager sharedModelManager];
+        _recordings = [self.modelManager getRecordings];
     }
     return self;
 }
@@ -59,8 +58,6 @@
 - (SKRecording *)newRecording
 {
     SKRecording *recording = [[SKRecording alloc] init];
-    
-    [self.modelManager createRecordingWithName:nil];
     
     return recording;
 }

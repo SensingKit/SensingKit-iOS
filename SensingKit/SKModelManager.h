@@ -26,9 +26,16 @@
 
 @interface SKModelManager : NSObject
 
-@property (readonly, nonatomic, strong) NSMutableArray *recordings;
+- (id)init __attribute__((unavailable("Use [SKModelManager sharedModelManager] instead.")));
 
-- (NSDictionary *)createRecordingWithName:(NSString *)name;
++ (SKModelManager *)sharedModelManager;
+
+- (NSArray *)getRecordings;
+
+- (NSMutableDictionary *)createRecording;
+
 - (void)deleteRecording:(NSDictionary *)recording;
+
+- (void)save;
 
 @end

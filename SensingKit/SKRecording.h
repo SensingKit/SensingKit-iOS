@@ -11,7 +11,7 @@
 @interface SKRecording : NSObject
 
 @property (readonly, nonatomic, strong) NSArray *recordingLog;
-
+@property (nonatomic, strong) NSString *recordingName;
 @property (nonatomic, strong) NSDictionary *options;
 
 - (void)startSensing;

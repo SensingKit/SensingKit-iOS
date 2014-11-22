@@ -26,51 +26,80 @@
 
 @interface SKModelManager()
 
+@property (nonatomic, strong) NSMutableArray *recordings;
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
-@property (nonatomic) NSInteger maxId;
 
 @end
 
 @implementation SKModelManager
 
-- (id)init
++ (SKModelManager *)sharedModelManager
+{
+    static SKModelManager *modelManager;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        modelManager = [[self alloc] init];
+    });
+    return modelManager;
+}
+
+- (instancetype)init
 {
     if (self = [super init])
     {
         self.userDefaults = [NSUserDefaults standardUserDefaults];
-        [self loadRecordings];
     }
     return self;
 }
 
 - (void)save
 {
-    [self.userDefaults setInteger:self.maxId forKey:@"MaxId"];
     [self.userDefaults setObject:self.recordings forKey:@"Recordings"];
     [self.userDefaults synchronize];
 }
 
-- (void)loadRecordings
+- (NSMutableArray *)recordings
 {
-    _maxId = [self.userDefaults integerForKey:@"MaxId"];
-    _recordings = [[self.userDefaults arrayForKey:@"Recordings"] mutableCopy];
-    
     if (!_recordings)
     {
-        _recordings = [[NSMutableArray alloc] init];
-        _maxId = 0;
+        _recordings = [[self.userDefaults arrayForKey:@"Recordings"] mutableCopy];
+    
+        if (!_recordings)
+        {
+            _recordings = [[NSMutableArray alloc] init];
+        }
     }
+    return _recordings;
 }
 
-- (NSDictionary *)createRecordingWithName:(NSString *)name
+- (NSNumber *)generateRecordingId
 {
-    if (!name) name = @"New Recording";
+    NSNumber *recordingId;
     
-    NSDictionary *recording = @{@"id": [NSNumber numberWithInteger:self.maxId],
-                                @"name": name,
-                                @"create_date": [NSDate date]};
+    // Get the MaxRecordingId and Increase by 1
+    NSInteger maxRecordingId = [self.userDefaults integerForKey:@"MaxRecordingId"];
+    recordingId = @(maxRecordingId++);
     
-    [_recordings addObject:recording];
+    // Save the new MaxRecordingId
+    [self.userDefaults setObject:recordingId forKey:@"MaxRecordingId"];
+    
+    return recordingId;
+}
+
+- (NSArray *)getRecordings
+{
+    return self.recordings;
+}
+
+- (NSMutableDictionary *)createRecording
+{
+    NSMutableDictionary *recording = [@{@"id": [self generateRecordingId],
+                                        @"name": @"New Recording",
+                                        @"create_date": [NSDate date]} mutableCopy];
+    
+    [self.recordings addObject:recording];
+    
     [self save];
     
     return recording;
@@ -78,7 +107,7 @@
 
 - (void)deleteRecording:(NSDictionary *)recording
 {
-    [_recordings removeObject:recording];
+    [self.recordings removeObject:recording];
     [self save];
 }
 

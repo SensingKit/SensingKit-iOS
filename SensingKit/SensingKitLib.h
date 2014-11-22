@@ -33,7 +33,7 @@
 
 - (id)init __attribute__((unavailable("Use [SensingKitLib sharedSensingKitLib] instead.")));
 
-+ (id)sharedSensingKitLib;
++ (SensingKitLib*)sharedSensingKitLib;
 
 @property (readonly, nonatomic, strong) NSArray *recordings;
 
