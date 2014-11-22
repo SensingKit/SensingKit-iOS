@@ -22,20 +22,23 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
-
 @import CoreBluetooth;
 @import CoreLocation;
 @import CoreMotion;
 
+#import <Foundation/Foundation.h>
+#import "SKRecording.h"
+
 @interface SensingKitLib : NSObject
 
-- (id)initWithUUID:(NSUUID *)uuid
-         serverUrl:(NSURL *)url;
+- (id)init __attribute__((unavailable("Use [SensingKitLib sharedSensingKitLib] instead.")));
 
-- (void)startSensing;
-- (void)stopSensing;
-- (void)pauseSensing;
-- (void)continueSensing;
++ (id)sharedSensingKitLib;
+
+@property (readonly, nonatomic, strong) NSArray *recordings;
+
+- (SKRecording *)newRecording;
+
+- (void)deleteRecording:(SKRecording *)recording;
 
 @end

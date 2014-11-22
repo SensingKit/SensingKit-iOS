@@ -23,6 +23,8 @@
 
 /* Begin PBXBuildFile section */
 		CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5298951A0CFC7A002A4D54 /* UIKit.framework */; };
+		CF6B03841A0FAF2B0062DE0F /* SKRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B03831A0FAF2B0062DE0F /* SKRecording.m */; };
+		CF6B03851A0FB2EB0062DE0F /* SKRecording.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF6B03821A0FAF2B0062DE0F /* SKRecording.h */; };
 		CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
 		CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB413E19B92514002AE1A9 /* SensingKitLib.h */; };
 		CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB414019B92514002AE1A9 /* SensingKitLib.m */; };
@@ -65,6 +67,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CF6B03851A0FB2EB0062DE0F /* SKRecording.h in CopyFiles */,
 				CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +76,8 @@
 
 /* Begin PBXFileReference section */
 		CF5298951A0CFC7A002A4D54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CF6B03821A0FAF2B0062DE0F /* SKRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKRecording.h; sourceTree = "<group>"; };
+		CF6B03831A0FAF2B0062DE0F /* SKRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKRecording.m; sourceTree = "<group>"; };
 		CFBB413619B92514002AE1A9 /* libSensingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSensingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBB413919B92514002AE1A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CFBB413D19B92514002AE1A9 /* SensingKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SensingKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -164,6 +169,8 @@
 				CFBB417319B92923002AE1A9 /* SKModelManager.m */,
 				CFBB417419B92923002AE1A9 /* SKSensorDataBuffer.h */,
 				CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */,
+				CF6B03821A0FAF2B0062DE0F /* SKRecording.h */,
+				CF6B03831A0FAF2B0062DE0F /* SKRecording.m */,
 				CFBB413E19B92514002AE1A9 /* SensingKitLib.h */,
 				CFBB414019B92514002AE1A9 /* SensingKitLib.m */,
 				CFBB413C19B92514002AE1A9 /* Supporting Files */,
@@ -356,6 +363,7 @@
 				CFBB417619B92923002AE1A9 /* SKModel.m in Sources */,
 				CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */,
 				CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */,
+				CF6B03841A0FAF2B0062DE0F /* SKRecording.m in Sources */,
 				CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */,
 				CFBB417719B92923002AE1A9 /* SKModelManager.m in Sources */,
 				CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */,
