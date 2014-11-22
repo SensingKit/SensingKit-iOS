@@ -1,5 +1,5 @@
 //
-//  SKModelManager.m
+//  SKRecordingDataManager.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,11 +22,11 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKModelManager.h"
+#import "SKRecordingDataManager.h"
 #import "NSString+SKSensing.h"
 #import "SKModel.h"
 
-@interface SKModelManager ()
+@interface SKRecordingDataManager ()
 
 @property (nonatomic, strong) NSDateFormatter *dataDateformatter;
 @property (nonatomic, strong) NSDateFormatter *filenameDateFormatter;
@@ -47,7 +47,7 @@
 
 @end
 
-@implementation SKModelManager
+@implementation SKRecordingDataManager
 
 - (id)init
 {

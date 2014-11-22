@@ -8,7 +8,7 @@
 
 #import "SKRecording.h"
 
-#import "SKModelManager.h"
+#import "SKRecordingDataManager.h"
 
 #import "SKProximitySensing.h"
 #import "SKLocationSensing.h"
@@ -17,7 +17,7 @@
 
 @interface SKRecording()
 
-@property (nonatomic, strong) SKModelManager *modelManager;
+@property (nonatomic, strong) SKRecordingDataManager *dataManager;
 
 @property (nonatomic, strong) SKProximitySensing  *iBeaconSensing;
 @property (nonatomic, strong) SKLocationSensing *locationSensing;
@@ -39,9 +39,9 @@
     if (self = [super init])
     {
         // init Model Manager
-        SKModelManager *modelManager = [[SKModelManager alloc] init];
+        SKRecordingDataManager *modelManager = [[SKRecordingDataManager alloc] init];
         modelManager.interval = 60;  // Default value
-        self.modelManager = modelManager;
+        self.dataManager = modelManager;
         
         [self initSensing];
     }
@@ -57,17 +57,17 @@
     // init iBeacon Sensing
     NSUInteger device_id = arc4random_uniform(1000000); // Produce a random id for now. TODO: Use server to generate a unique one in the future
     SKProximitySensing *iBeaconSensing = [[SKProximitySensing alloc] initWithUUID:self.uuid withDeviceId:device_id];
-    iBeaconSensing.delegate = self.modelManager;  // set delegate to modelManager
+    iBeaconSensing.delegate = self.dataManager;  // set delegate to modelManager
     self.iBeaconSensing = iBeaconSensing;
     
     // init Location Sensing
     SKLocationSensing *locationSensing = [[SKLocationSensing alloc] init];
-    locationSensing.delegate = self.modelManager;  // set delegate to modelManager
+    locationSensing.delegate = self.dataManager;  // set delegate to modelManager
     self.locationSensing = locationSensing;
     
     // init Motion Sensing
     SKMotionSensing *motionSensing = [[SKMotionSensing alloc] init];
-    motionSensing.delegate = self.modelManager;  // set delegate to modelManager
+    motionSensing.delegate = self.dataManager;  // set delegate to modelManager
     motionSensing.accelerometerUpdateInterval = 1/100.0;
     motionSensing.gyroUpdateInterval = 1/100.0;
     motionSensing.magnetometerUpdateInterval = 1/100.0;
@@ -75,7 +75,7 @@
     
     // init Battery Sensing
     SKBatterySensing *batterySensing = [[SKBatterySensing alloc] init];
-    batterySensing.delegate = self.modelManager;  // set delegate to modelManager
+    batterySensing.delegate = self.dataManager;  // set delegate to modelManager
     self.batterySensing = batterySensing;
 }
 
@@ -180,7 +180,7 @@
 
 - (void)saveData
 {
-    [self.modelManager flushBuffers];
+    [self.dataManager flushBuffers];
 }
 
 @end

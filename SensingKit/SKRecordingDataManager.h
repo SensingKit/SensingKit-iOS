@@ -1,5 +1,5 @@
 //
-//  SKModelManager.h
+//  SKRecordingDataManager.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -30,7 +30,7 @@
 #import "SKBatterySensing.h"
 #import "SKSensorDataBuffer.h"
 
-@interface SKModelManager : NSObject<SKProximitySensingDelegate, SKLocationSensingDelegate, SKMotionSensingDelegate, SKBatterySensingDelegate, SKSensorDataBufferDelegate>
+@interface SKRecordingDataManager : NSObject<SKProximitySensingDelegate, SKLocationSensingDelegate, SKMotionSensingDelegate, SKBatterySensingDelegate, SKSensorDataBufferDelegate>
 
 @property (nonatomic) NSTimeInterval interval;
 

@@ -38,7 +38,7 @@
 		CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */; };
 		CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */; };
 		CFBB417619B92923002AE1A9 /* SKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417119B92923002AE1A9 /* SKModel.m */; };
-		CFBB417719B92923002AE1A9 /* SKModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417319B92923002AE1A9 /* SKModelManager.m */; };
+		CFBB417719B92923002AE1A9 /* SKRecordingDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417319B92923002AE1A9 /* SKRecordingDataManager.m */; };
 		CFBB417819B92923002AE1A9 /* SKSensorDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */; };
 		CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417A19B92970002AE1A9 /* GZIP.m */; };
 /* End PBXBuildFile section */
@@ -99,8 +99,8 @@
 		CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SKSensing.m"; sourceTree = "<group>"; };
 		CFBB417019B92923002AE1A9 /* SKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKModel.h; sourceTree = "<group>"; };
 		CFBB417119B92923002AE1A9 /* SKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKModel.m; sourceTree = "<group>"; };
-		CFBB417219B92923002AE1A9 /* SKModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKModelManager.h; sourceTree = "<group>"; };
-		CFBB417319B92923002AE1A9 /* SKModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKModelManager.m; sourceTree = "<group>"; };
+		CFBB417219B92923002AE1A9 /* SKRecordingDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKRecordingDataManager.h; sourceTree = "<group>"; };
+		CFBB417319B92923002AE1A9 /* SKRecordingDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKRecordingDataManager.m; sourceTree = "<group>"; };
 		CFBB417419B92923002AE1A9 /* SKSensorDataBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorDataBuffer.h; sourceTree = "<group>"; };
 		CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorDataBuffer.m; sourceTree = "<group>"; };
 		CFBB417919B92970002AE1A9 /* GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIP.h; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 				CFBB416B19B928CF002AE1A9 /* SensingModules */,
 				CFBB417019B92923002AE1A9 /* SKModel.h */,
 				CFBB417119B92923002AE1A9 /* SKModel.m */,
-				CFBB417219B92923002AE1A9 /* SKModelManager.h */,
-				CFBB417319B92923002AE1A9 /* SKModelManager.m */,
+				CFBB417219B92923002AE1A9 /* SKRecordingDataManager.h */,
+				CFBB417319B92923002AE1A9 /* SKRecordingDataManager.m */,
 				CFBB417419B92923002AE1A9 /* SKSensorDataBuffer.h */,
 				CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */,
 				CF6B03821A0FAF2B0062DE0F /* SKRecording.h */,
@@ -365,7 +365,7 @@
 				CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */,
 				CF6B03841A0FAF2B0062DE0F /* SKRecording.m in Sources */,
 				CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */,
-				CFBB417719B92923002AE1A9 /* SKModelManager.m in Sources */,
+				CFBB417719B92923002AE1A9 /* SKRecordingDataManager.m in Sources */,
 				CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */,
 				CFBB416719B928C2002AE1A9 /* SKBatterySensing.m in Sources */,
 			);
