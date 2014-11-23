@@ -43,7 +43,7 @@
 
 @property (weak, nonatomic) id <SKProximitySensingDelegate> delegate;
 
-- (id)initWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id;
+- (instancetype)initWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id;
 
 - (BOOL)isProximitySensingAvailable;
 

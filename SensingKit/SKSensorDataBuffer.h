@@ -35,7 +35,7 @@
 @property (nonatomic, strong, readonly) NSString *label;
 @property (weak, nonatomic) id <SKSensorDataBufferDelegate> delegate;
 
-- (id)initWithLabel:(NSString *)label withCapacity:(NSUInteger)capacity;
+- (instancetype)initWithLabel:(NSString *)label withCapacity:(NSUInteger)capacity;
 
 - (void)addData:(id)data;
 - (void)flush;

@@ -33,7 +33,7 @@
 
 @implementation SKSensorDataBuffer
 
-- (id)initWithLabel:(NSString *)label withCapacity:(NSUInteger)capacity
+- (instancetype)initWithLabel:(NSString *)label withCapacity:(NSUInteger)capacity
 {
     if (self = [super init])
     {

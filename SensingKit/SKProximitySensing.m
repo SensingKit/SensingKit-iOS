@@ -35,7 +35,7 @@
 
 @implementation SKProximitySensing
 
-- (id)initWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id
+- (instancetype)initWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id
 {
     if (self = [super init])
     {
