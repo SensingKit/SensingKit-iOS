@@ -31,6 +31,8 @@
 @property (strong, nonatomic) NSMutableArray *recordingEntries;  // of NSDictionary *
 @property (strong, nonatomic) NSMutableArray *recordingDetails;  // of SKRecordingDetails *
 
+@property (strong, nonatomic) NSDateFormatter *folderNameDateFormatter;
+
 @end
 
 @implementation SKModelManager
@@ -53,6 +55,12 @@
         self.userDefaults = [NSUserDefaults standardUserDefaults];
     }
     return self;
+}
+
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 - (void)saveContext
@@ -90,6 +98,17 @@
     return _recordingDetails;
 }
 
+- (NSDateFormatter *)folderNameDateFormatter
+{
+    if (!_folderNameDateFormatter)
+    {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yy.MM.dd HH.mm"];
+        _folderNameDateFormatter = dateFormatter;
+    }
+    return _folderNameDateFormatter;
+}
+
 - (NSUInteger)generateRecordingId
 {
     // Get the current MaxRecordingId and Increase by 1
@@ -103,6 +122,57 @@
     return recordingId;
 }
 
+- (NSString *)generateFolderForRecordingWithId:(NSUInteger)recordingId
+                                       andDate:(NSDate *)date
+{
+    NSString *dateFormatted = [self.folderNameDateFormatter stringFromDate:date];
+    NSString *folderName = [NSString stringWithFormat:@"%lu - %@", (unsigned long)recordingId, dateFormatted];
+    
+    [self createFolderWithName:folderName];
+    
+    return folderName;
+}
+
+- (void)createFolderWithName:(NSString *)folderName
+{
+    NSURL *directory = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:folderName isDirectory:YES];
+    
+    NSFileManager *fileManager= [NSFileManager defaultManager];
+    
+    // Check if directory already exists
+    if(![fileManager fileExistsAtPath:[directory path]])
+    {
+        // Create the directory
+        NSError *error;
+        if(![fileManager createDirectoryAtURL:directory withIntermediateDirectories:YES attributes:nil error:&error])
+        {
+            NSLog(@"Error: Create folder '%@' failed with error '%@'", folderName, error.description);
+        }
+    }
+}
+
+- (void)deleteFolderWithName:(NSString *)folderName
+{
+    NSURL *directory = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:folderName isDirectory:YES];
+    
+    NSFileManager *fileManager= [NSFileManager defaultManager];
+    
+    // Check if directory exists
+    if([fileManager fileExistsAtPath:[directory path]])
+    {
+        // Create the directory
+        NSError *error;
+        if(![fileManager removeItemAtURL:directory error:&error])
+        {
+            NSLog(@"Error: Delete folder '%@' failed with error '%@'", folderName, error.description);
+        }
+    }
+    else
+    {
+        NSLog(@"Warning: Folder '%@' didn't exist. Might has been deleted manually?", folderName);
+    }
+}
+
 - (NSArray *)getRecordings
 {
     return self.recordingDetails;
@@ -111,11 +181,15 @@
 - (SKRecordingDetails *)createNewRecording
 {
     NSUInteger recordingId = [self generateRecordingId];
+    NSDate *createDate = [NSDate date];
+
+    NSString *folderName = [self generateFolderForRecordingWithId:recordingId
+                                                          andDate:createDate];
     
     NSDictionary *entryDetails = @{@"recordingId": @(recordingId),
                                    @"name": @"New Recording",
-                                   @"createDate": [NSDate date],
-                                   @"folderName": @"tmp"};
+                                   @"createDate": createDate,
+                                   @"folderName": folderName};
     
     SKRecordingDetails *recordingDetails = [[SKRecordingDetails alloc] initWithEntryDetails:entryDetails];
     recordingDetails.delegate = self;
@@ -141,6 +215,9 @@
 
 - (void)deleteRecordingWithDetails:(SKRecordingDetails *)recordingDetails
 {
+    // Delete folder
+    [self deleteFolderWithName:recordingDetails.folderName];
+    
     // Delete from recordingEntries
     NSUInteger recordingId = recordingDetails.recordingId;
     NSUInteger index = [self findIndexOfRecordingWithId:recordingId];
