@@ -26,8 +26,10 @@
 
 @interface SKModelManager()
 
-@property (nonatomic, strong) NSMutableArray *recordings;
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
+
+@property (strong, nonatomic) NSMutableArray *recordingEntries;  // of NSDictionary *
+@property (strong, nonatomic) NSMutableArray *recordingDetails;  // of SKRecordingDetails *
 
 @end
 
@@ -53,62 +55,115 @@
     return self;
 }
 
-- (void)save
+- (void)saveContext
 {
-    [self.userDefaults setObject:self.recordings forKey:@"Recordings"];
+    [self.userDefaults setObject:self.recordingEntries forKey:@"Recordings"];
     [self.userDefaults synchronize];
 }
 
-- (NSMutableArray *)recordings
+- (NSMutableArray *)recordingEntries
 {
-    if (!_recordings)
+    if (!_recordingEntries)
     {
-        _recordings = [[self.userDefaults arrayForKey:@"Recordings"] mutableCopy];
-    
-        if (!_recordings)
-        {
-            _recordings = [[NSMutableArray alloc] init];
-        }
+        // Get a mutable copy of all recording entries from userDefaults
+        _recordingEntries = [[self.userDefaults arrayForKey:@"Recordings"] mutableCopy];
     }
-    return _recordings;
+    return _recordingEntries;
 }
 
-- (NSNumber *)generateRecordingId
+- (NSMutableArray *)recordingDetails
 {
-    NSNumber *recordingId;
-    
-    // Get the MaxRecordingId and Increase by 1
-    NSInteger maxRecordingId = [self.userDefaults integerForKey:@"MaxRecordingId"];
-    recordingId = @(maxRecordingId++);
+    if (!_recordingDetails)
+    {
+        // Prepare the SKModelRecording array
+        _recordingDetails = [[NSMutableArray alloc] initWithCapacity:self.recordingEntries.count];
+        
+        for (NSDictionary *entryDetails in self.recordingEntries)
+        {
+            // Add SKModelRecordings in the array
+            SKRecordingDetails *recording = [[SKRecordingDetails alloc] initWithEntryDetails:entryDetails];
+            recording.delegate = self;
+            
+            [_recordingDetails addObject:recording];
+        }
+    }
+    return _recordingDetails;
+}
+
+- (NSUInteger)generateRecordingId
+{
+    // Get the current MaxRecordingId and Increase by 1
+    NSUInteger recordingId = [self.userDefaults integerForKey:@"MaxRecordingId"];
+    recordingId++;
     
     // Save the new MaxRecordingId
-    [self.userDefaults setObject:recordingId forKey:@"MaxRecordingId"];
+    [self.userDefaults setObject:@(recordingId) forKey:@"MaxRecordingId"];
+    [self.userDefaults synchronize];
     
     return recordingId;
 }
 
 - (NSArray *)getRecordings
 {
-    return self.recordings;
+    return self.recordingDetails;
 }
 
-- (NSMutableDictionary *)createRecording
+- (SKRecordingDetails *)createNewRecording
 {
-    NSMutableDictionary *recording = [@{@"id": [self generateRecordingId],
-                                        @"name": @"New Recording",
-                                        @"create_date": [NSDate date]} mutableCopy];
+    NSUInteger recordingId = [self generateRecordingId];
     
-    [self.recordings addObject:recording];
+    NSDictionary *entryDetails = @{@"recordingId": @(recordingId),
+                                   @"name": @"New Recording",
+                                   @"createDate": [NSDate date],
+                                   @"folderName": @"tmp"};
     
-    [self save];
+    SKRecordingDetails *recordingDetails = [[SKRecordingDetails alloc] initWithEntryDetails:entryDetails];
+    recordingDetails.delegate = self;
     
-    return recording;
+    // Add to the NSMutableArrays
+    [self.recordingEntries addObject:entryDetails];
+    [self.recordingDetails addObject:recordingDetails];
+    
+    // Save entries
+    [self saveContext];
+    
+    return recordingDetails;
 }
 
-- (void)deleteRecording:(NSDictionary *)recording
+- (NSUInteger)findIndexOfRecordingWithId:(NSUInteger)recordingId
 {
-    [self.recordings removeObject:recording];
-    [self save];
+    NSUInteger index = [self.recordingEntries indexOfObjectPassingTest:^BOOL(id dictionary, NSUInteger idx, BOOL *stop) {
+       return [[dictionary objectForKey: @"recordingId"] isEqualToNumber:@(recordingId)];
+    }];
+    
+    return index;
+}
+
+- (void)deleteRecordingWithDetails:(SKRecordingDetails *)recordingDetails
+{
+    // Delete from recordingEntries
+    NSUInteger recordingId = recordingDetails.recordingId;
+    NSUInteger index = [self findIndexOfRecordingWithId:recordingId];
+    
+    [self.recordingEntries removeObjectAtIndex:index];
+    [self saveContext];
+    
+    // Delete from recordingDetails
+    [self.recordingDetails removeObject:recordingDetails];
+}
+
+
+- (void)updateRecordingWithDictionaryInfo:(NSDictionary *)info
+{
+    NSUInteger recordingId = [info[@"recordingId"] unsignedIntegerValue];
+    
+    NSUInteger index = [self findIndexOfRecordingWithId:recordingId];
+    
+    NSAssert(index != NSNotFound, @"Objet could not be found");
+    
+    [self.recordingEntries replaceObjectAtIndex:index withObject:info];
+    
+    [self saveContext];
 }
 
 @end

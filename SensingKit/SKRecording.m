@@ -19,7 +19,6 @@
 @interface SKRecording()
 
 @property (nonatomic, strong) SKModelManager *modelManager;
-@property (nonatomic, strong) NSMutableDictionary *recordingDetails;
 
 @property (nonatomic, strong) SKRecordingDataManager *dataManager;
 
@@ -45,8 +44,8 @@
         // Get shared ModelManager
         self.modelManager = [SKModelManager sharedModelManager];
         
-        // Create a new Recording in the ModelManager and get the generated MutableDictionary
-        self.recordingDetails = [self.modelManager createRecording];
+        // Create a new Recording in the ModelManager and get the generated RecordingDetails
+        self.recordingDetails = [self.modelManager createNewRecording];
         
         // init DataManager
         SKRecordingDataManager *dataManager = [[SKRecordingDataManager alloc] init];
@@ -87,14 +86,6 @@
     SKBatterySensing *batterySensing = [[SKBatterySensing alloc] init];
     batterySensing.delegate = self.dataManager;  // set delegate to modelManager
     self.batterySensing = batterySensing;
-}
-
-- (void)setRecordingName:(NSString *)recordingName
-{
-    self.recordingDetails[@"name"] = recordingName;
-    [self.modelManager save];
-    
-    _recordingName = recordingName;
 }
 
 - (void)startSensing

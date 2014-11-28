@@ -23,8 +23,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SKRecordingDetails.h"
 
-@interface SKModelManager : NSObject
+@interface SKModelManager : NSObject<SKModelRecordingDelegate>
 
 - (id)init __attribute__((unavailable("Use [SKModelManager sharedModelManager] instead.")));
 
@@ -32,10 +33,9 @@
 
 - (NSArray *)getRecordings;
 
-- (NSMutableDictionary *)createRecording;
+- (SKRecordingDetails *)createNewRecording;
+- (void)deleteRecordingWithDetails:(SKRecordingDetails *)recordingDetails;
 
-- (void)deleteRecording:(NSDictionary *)recording;
-
-- (void)save;
+- (void)saveContext;
 
 @end

@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SKRecordingDetails.h"
 
 @interface SKRecording : NSObject
 
 @property (readonly, nonatomic, strong) NSArray *recordingLog;
-@property (nonatomic, strong) NSString *recordingName;
 @property (nonatomic, strong) NSDictionary *options;
+
+@property (nonatomic, strong) SKRecordingDetails *recordingDetails;
 
 - (void)startSensing;
 - (void)stopSensing;

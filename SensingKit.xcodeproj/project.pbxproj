@@ -42,6 +42,8 @@
 		CFBB417819B92923002AE1A9 /* SKSensorDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */; };
 		CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417A19B92970002AE1A9 /* GZIP.m */; };
 		CFD6B3291A20DA090050B71B /* SKModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD6B3281A20DA090050B71B /* SKModelManager.m */; };
+		CFD6B32C1A21F5590050B71B /* SKRecordingDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD6B32B1A21F5590050B71B /* SKRecordingDetails.m */; };
+		CFD6B32D1A2220AE0050B71B /* SKRecordingDetails.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD6B32A1A21F5590050B71B /* SKRecordingDetails.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CFD6B32D1A2220AE0050B71B /* SKRecordingDetails.h in CopyFiles */,
 				CF6B03851A0FB2EB0062DE0F /* SKRecording.h in CopyFiles */,
 				CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */,
 			);
@@ -108,6 +111,8 @@
 		CFBB417A19B92970002AE1A9 /* GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZIP.m; sourceTree = "<group>"; };
 		CFD6B3271A20DA090050B71B /* SKModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKModelManager.h; sourceTree = "<group>"; };
 		CFD6B3281A20DA090050B71B /* SKModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKModelManager.m; sourceTree = "<group>"; };
+		CFD6B32A1A21F5590050B71B /* SKRecordingDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKRecordingDetails.h; sourceTree = "<group>"; };
+		CFD6B32B1A21F5590050B71B /* SKRecordingDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKRecordingDetails.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +173,8 @@
 				CFD6B3261A20D0A70050B71B /* Recording */,
 				CFD6B3271A20DA090050B71B /* SKModelManager.h */,
 				CFD6B3281A20DA090050B71B /* SKModelManager.m */,
+				CFD6B32A1A21F5590050B71B /* SKRecordingDetails.h */,
+				CFD6B32B1A21F5590050B71B /* SKRecordingDetails.m */,
 				CFBB413E19B92514002AE1A9 /* SensingKitLib.h */,
 				CFBB414019B92514002AE1A9 /* SensingKitLib.m */,
 				CFBB413C19B92514002AE1A9 /* Supporting Files */,
@@ -376,6 +383,7 @@
 				CFBB417619B92923002AE1A9 /* SKRecordingData.m in Sources */,
 				CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */,
 				CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */,
+				CFD6B32C1A21F5590050B71B /* SKRecordingDetails.m in Sources */,
 				CF6B03841A0FAF2B0062DE0F /* SKRecording.m in Sources */,
 				CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */,
 				CFBB417719B92923002AE1A9 /* SKRecordingDataManager.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  SensingKitLib.m
+//  SKModelRecording.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,58 +22,35 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SensingKitLib.h"
-#import "SKModelManager.h"
+#import "SKRecordingDetails.h"
 
-@interface SensingKitLib()
+@implementation SKRecordingDetails
 
-@property (nonatomic, strong) SKModelManager* modelManager;
-
-@end
-
-@implementation SensingKitLib
-
-+ (SensingKitLib *)sharedSensingKitLib
-{
-    static SensingKitLib *sensingKitLib;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sensingKitLib = [[self alloc] init];
-    });
-    return sensingKitLib;
-}
-
-- (instancetype)init
+- (instancetype)initWithEntryDetails:(NSDictionary *)entryDetails
 {
     if (self = [super init])
     {
-        // init Model Manager and assign to recordings array
-        self.modelManager = [SKModelManager sharedModelManager];
+        _recordingId = [entryDetails[@"recordingId"] unsignedIntegerValue];
+        _createDate = entryDetails[@"createDate"];
+        _name = entryDetails[@"name"];
+        _folderName = entryDetails[@"folderName"];
     }
     return self;
 }
 
-- (NSArray *)getRecordings
+- (void)saveDetails
 {
-    return [self.modelManager getRecordings];
-}
-
-- (SKRecording *)newRecording
-{
-    SKRecording *recording = [[SKRecording alloc] init];
+    NSAssert(self.delegate, @"Error: delegate cannot be nil.");
     
-    return recording;
+    [self.delegate updateRecordingWithDictionaryInfo:[self inDictionary]];
 }
 
-- (void)deleteRecordingWithDetails:(SKRecordingDetails *)recordingDetails
+- (NSDictionary *)inDictionary
 {
-    [self.modelManager deleteRecordingWithDetails:recordingDetails];
-}
-
-- (void)saveContext
-{
-    [self.modelManager saveContext];
+    return @{@"recordingId": @(self.recordingId),
+             @"createDate": self.createDate,
+             @"name": self.name,
+             @"folderName": self.folderName};
 }
 
 @end
