@@ -22,13 +22,9 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-@import CoreBluetooth;
-@import CoreLocation;
-@import CoreMotion;
-
 #import <Foundation/Foundation.h>
-#import "SKRecording.h"
-#import "SKRecordingDetails.h"
+#import "SKSensorModuleType.h"
+#import "SKSensorDataListener.h"
 
 @interface SensingKitLib : NSObject
 
@@ -36,12 +32,30 @@
 
 + (SensingKitLib*)sharedSensingKitLib;
 
-- (NSArray *)getRecordings;
 
-- (SKRecording *)newRecording;
+/** Sensor Registration */
 
-- (void)deleteRecordingWithDetails:(SKRecordingDetails *)recordingDetails;
+- (void)registerSensorModule:(SKSensorModuleType)moduleType;
 
-- (void)saveContext;
+- (void)deregisterSensorModule:(SKSensorModuleType)moduleType;
+
+- (BOOL)isSensorModuleRegistered:(SKSensorModuleType)moduleType;
+
+
+/** Continuous Sensing */
+
+- (void)subscribeSensorDataListenerToSensor:(SKSensorModuleType)moduleType
+                                withHandler:(SKSensorDataHandler)handler;
+
+- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorModuleType)moduleType
+                                      ofHandler:(SKSensorDataHandler)handler;
+
+- (void)unsubscribeAllSensorDataListeners:(SKSensorModuleType)moduleType;
+
+- (void)startContinuousSensingWithSensor:(SKSensorModuleType)moduleType;
+
+- (void)stopContinuousSensingWithSensor:(SKSensorModuleType)moduleType;
+
+- (BOOL)isSensorModuleSensing:(SKSensorModuleType)moduleType;
 
 @end

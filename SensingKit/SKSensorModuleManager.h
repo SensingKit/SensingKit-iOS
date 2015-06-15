@@ -1,5 +1,5 @@
 //
-//  SKBatterySensing.h
+//  SKSensorModuleManager.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -23,22 +23,34 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SKSensorModuleType.h"
+#import "SKSensorDataListener.h"
 
-@protocol SKBatterySensingDelegate <NSObject>
+@interface SKSensorModuleManager : NSObject
 
-- (void)batteryLevelChanged:(UIDeviceBatteryState)state level:(CGFloat)level;
-- (void)batteryStateChanged:(UIDeviceBatteryState)state level:(CGFloat)level;
+/** Sensor Registration */
 
-@end
+- (void)registerSensorModule:(SKSensorModuleType)moduleType;
 
-@interface SKBatterySensing : NSObject
+- (void)deregisterSensorModule:(SKSensorModuleType)moduleType;
 
-@property (weak, nonatomic) id <SKBatterySensingDelegate> delegate;
+- (BOOL)isSensorModuleRegistered:(SKSensorModuleType)moduleType;
 
-@property (nonatomic, readonly) CGFloat batteryLevel;
-@property (nonatomic, readonly) UIDeviceBatteryState batteryState;
 
-- (void)startBatterySensing;
-- (void)stopBatterySensing;
+/** Continuous Sensing */
+
+- (void)subscribeSensorDataListenerToSensor:(SKSensorModuleType)moduleType
+                                withHandler:(SKSensorDataHandler)handler;
+
+- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorModuleType)moduleType
+                                      ofHandler:(SKSensorDataHandler)handler;
+
+- (void)unsubscribeAllSensorDataListeners:(SKSensorModuleType)moduleType;
+
+- (void)startContinuousSensingWithSensor:(SKSensorModuleType)moduleType;
+
+- (void)stopContinuousSensingWithSensor:(SKSensorModuleType)moduleType;
+
+- (BOOL)isSensorModuleSensing:(SKSensorModuleType)moduleType;
 
 @end

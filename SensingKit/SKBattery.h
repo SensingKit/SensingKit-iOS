@@ -1,5 +1,5 @@
 //
-//  SKSensorDataBuffer.h
+//  SKBattery.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -23,21 +23,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SKAbstractSensorModule.h"
 
-@protocol SKSensorDataBufferDelegate <NSObject>
+@interface SKBattery : SKAbstractSensorModule
 
-- (void)flushedBuffer:(NSString *)label withData:(NSData *)data;
+@property (nonatomic, readonly) CGFloat batteryLevel;
+@property (nonatomic, readonly) UIDeviceBatteryState batteryState;
 
-@end
-
-@interface SKSensorDataBuffer : NSObject
-
-@property (nonatomic, strong, readonly) NSString *label;
-@property (weak, nonatomic) id <SKSensorDataBufferDelegate> delegate;
-
-- (instancetype)initWithLabel:(NSString *)label withCapacity:(NSUInteger)capacity;
-
-- (void)addData:(id)data;
-- (void)flush;
+- (void)startSensing;
+- (void)stopSensing;
 
 @end

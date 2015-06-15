@@ -1,5 +1,5 @@
 //
-//  SKModelRecording.m
+//  SKSensorDataListener.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,35 +22,7 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKRecordingDetails.h"
+#import "SKSensorData.h"
 
-@implementation SKRecordingDetails
-
-- (instancetype)initWithEntryDetails:(NSDictionary *)entryDetails
-{
-    if (self = [super init])
-    {
-        _recordingId = [entryDetails[@"recordingId"] unsignedIntegerValue];
-        _createDate = entryDetails[@"createDate"];
-        _name = entryDetails[@"name"];
-        _folderName = entryDetails[@"folderName"];
-    }
-    return self;
-}
-
-- (void)saveDetails
-{
-    NSAssert(self.delegate, @"Error: delegate cannot be nil.");
-    
-    [self.delegate updateRecordingWithDictionaryInfo:[self inDictionary]];
-}
-
-- (NSDictionary *)inDictionary
-{
-    return @{@"recordingId": @(self.recordingId),
-             @"createDate": self.createDate,
-             @"name": self.name,
-             @"folderName": self.folderName};
-}
-
-@end
+// Typedef of block to be invoked when sensor data is available.
+typedef void (^SKSensorDataHandler)(SKSensorModuleType moduleType, SKSensorData *sensorData);

@@ -1,5 +1,5 @@
 //
-//  SKRecording.h
+//  SKSensorModuleType.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,21 +22,12 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
-#import "SKRecordingDetails.h"
-
-@interface SKRecording : NSObject
-
-@property (readonly, nonatomic, strong) NSArray *recordingLog;
-@property (nonatomic, strong) NSDictionary *options;
-
-@property (nonatomic, strong) SKRecordingDetails *recordingDetails;
-
-- (void)startSensing;
-- (void)stopSensing;
-- (void)pauseSensing;
-- (void)continueSensing;
-
-- (void)saveSyncPoint;
-
-@end
+typedef NS_ENUM(NSInteger, SKSensorModuleType) {
+    Accelerometer,
+    Gravity,
+    LinearAcceleration,
+    Gyroscope,
+    Rotation,
+    Magnetometer,
+    Battery
+};

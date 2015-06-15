@@ -23,11 +23,11 @@
 //
 
 #import "SensingKitLib.h"
-#import "SKModelManager.h"
+#import "SKSensorModuleManager.h"
 
 @interface SensingKitLib()
 
-@property (nonatomic, strong) SKModelManager* modelManager;
+@property (nonatomic, strong, readonly) SKSensorModuleManager *sensorModuleManager;
 
 @end
 
@@ -48,32 +48,65 @@
 {
     if (self = [super init])
     {
-        // init Model Manager and assign to recordings array
-        self.modelManager = [SKModelManager sharedModelManager];
+        // init sensorModuleManager
+        _sensorModuleManager = [[SKSensorModuleManager alloc] init];
     }
     return self;
 }
 
-- (NSArray *)getRecordings
+
+#pragma mark Sensor Registration methods
+
+- (void)registerSensorModule:(SKSensorModuleType)moduleType
 {
-    return [self.modelManager getRecordings];
+    [self.sensorModuleManager registerSensorModule:moduleType];
 }
 
-- (SKRecording *)newRecording
+- (void)deregisterSensorModule:(SKSensorModuleType)moduleType
 {
-    SKRecording *recording = [[SKRecording alloc] init];
-    
-    return recording;
+    [self.sensorModuleManager deregisterSensorModule:moduleType];
 }
 
-- (void)deleteRecordingWithDetails:(SKRecordingDetails *)recordingDetails
+- (BOOL)isSensorModuleRegistered:(SKSensorModuleType)moduleType
 {
-    [self.modelManager deleteRecordingWithDetails:recordingDetails];
+    return [self.sensorModuleManager isSensorModuleRegistered:moduleType];;
 }
 
-- (void)saveContext
+
+#pragma mark Continuous Sensing methods
+
+- (void)subscribeSensorDataListenerToSensor:(SKSensorModuleType)moduleType
+                                withHandler:(SKSensorDataHandler)handler
 {
-    [self.modelManager saveContext];
+    [self.sensorModuleManager subscribeSensorDataListenerToSensor:moduleType
+                                                      withHandler:handler];
+}
+
+- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorModuleType)moduleType
+                                      ofHandler:(SKSensorDataHandler)handler
+{
+    [self.sensorModuleManager unsubscribeSensorDataListenerFromSensor:moduleType
+                                                            ofHandler:handler];
+}
+
+- (void)unsubscribeAllSensorDataListeners:(SKSensorModuleType)moduleType
+{
+    [self.sensorModuleManager unsubscribeAllSensorDataListeners:moduleType];
+}
+
+- (void)startContinuousSensingWithSensor:(SKSensorModuleType)moduleType
+{
+    [self.sensorModuleManager startContinuousSensingWithSensor:moduleType];
+}
+
+- (void)stopContinuousSensingWithSensor:(SKSensorModuleType)moduleType
+{
+    [self.sensorModuleManager stopContinuousSensingWithSensor:moduleType];
+}
+
+- (BOOL)isSensorModuleSensing:(SKSensorModuleType)moduleType
+{
+    return [self.sensorModuleManager isSensorModuleSensing:moduleType];
 }
 
 @end

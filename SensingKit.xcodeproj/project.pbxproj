@@ -22,9 +22,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		CF11F8821B2C6D7D0094C9DF /* SKSensorModuleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8811B2C6D7D0094C9DF /* SKSensorModuleManager.m */; };
+		CF11F8851B2C7CFE0094C9DF /* SKAbstractSensorModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8841B2C7CFE0094C9DF /* SKAbstractSensorModule.m */; };
+		CF11F8881B2D8D370094C9DF /* SKSensorData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8871B2D8D370094C9DF /* SKSensorData.m */; };
 		CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5298951A0CFC7A002A4D54 /* UIKit.framework */; };
-		CF6B03841A0FAF2B0062DE0F /* SKRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6B03831A0FAF2B0062DE0F /* SKRecording.m */; };
-		CF6B03851A0FB2EB0062DE0F /* SKRecording.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF6B03821A0FAF2B0062DE0F /* SKRecording.h */; };
 		CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
 		CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB413E19B92514002AE1A9 /* SensingKitLib.h */; };
 		CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB414019B92514002AE1A9 /* SensingKitLib.m */; };
@@ -32,18 +33,12 @@
 		CFBB414E19B92514002AE1A9 /* libSensingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413619B92514002AE1A9 /* libSensingKit.a */; };
 		CFBB415419B92514002AE1A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFBB415219B92514002AE1A9 /* InfoPlist.strings */; };
 		CFBB415619B92514002AE1A9 /* SensingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB415519B92514002AE1A9 /* SensingKitTests.m */; };
-		CFBB416719B928C2002AE1A9 /* SKBatterySensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416019B928C2002AE1A9 /* SKBatterySensing.m */; };
+		CFBB416719B928C2002AE1A9 /* SKBattery.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416019B928C2002AE1A9 /* SKBattery.m */; };
 		CFBB416819B928C2002AE1A9 /* SKProximitySensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* SKProximitySensing.m */; };
 		CFBB416919B928C2002AE1A9 /* SKLocationSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* SKLocationSensing.m */; };
 		CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */; };
 		CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */; };
-		CFBB417619B92923002AE1A9 /* SKRecordingData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417119B92923002AE1A9 /* SKRecordingData.m */; };
-		CFBB417719B92923002AE1A9 /* SKRecordingDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417319B92923002AE1A9 /* SKRecordingDataManager.m */; };
-		CFBB417819B92923002AE1A9 /* SKSensorDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */; };
 		CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB417A19B92970002AE1A9 /* GZIP.m */; };
-		CFD6B3291A20DA090050B71B /* SKModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD6B3281A20DA090050B71B /* SKModelManager.m */; };
-		CFD6B32C1A21F5590050B71B /* SKRecordingDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD6B32B1A21F5590050B71B /* SKRecordingDetails.m */; };
-		CFD6B32D1A2220AE0050B71B /* SKRecordingDetails.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD6B32A1A21F5590050B71B /* SKRecordingDetails.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +65,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				CFD6B32D1A2220AE0050B71B /* SKRecordingDetails.h in CopyFiles */,
-				CF6B03851A0FB2EB0062DE0F /* SKRecording.h in CopyFiles */,
 				CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,9 +72,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorModuleType.h; sourceTree = "<group>"; };
+		CF11F8801B2C6D7D0094C9DF /* SKSensorModuleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorModuleManager.h; sourceTree = "<group>"; };
+		CF11F8811B2C6D7D0094C9DF /* SKSensorModuleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorModuleManager.m; sourceTree = "<group>"; };
+		CF11F8831B2C7CFE0094C9DF /* SKAbstractSensorModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAbstractSensorModule.h; sourceTree = "<group>"; };
+		CF11F8841B2C7CFE0094C9DF /* SKAbstractSensorModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAbstractSensorModule.m; sourceTree = "<group>"; };
+		CF11F8861B2D8D370094C9DF /* SKSensorData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorData.h; sourceTree = "<group>"; };
+		CF11F8871B2D8D370094C9DF /* SKSensorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorData.m; sourceTree = "<group>"; };
+		CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSensorDataListener.h; sourceTree = "<group>"; };
 		CF5298951A0CFC7A002A4D54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CF6B03821A0FAF2B0062DE0F /* SKRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKRecording.h; sourceTree = "<group>"; };
-		CF6B03831A0FAF2B0062DE0F /* SKRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKRecording.m; sourceTree = "<group>"; };
 		CFBB413619B92514002AE1A9 /* libSensingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSensingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBB413919B92514002AE1A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CFBB413D19B92514002AE1A9 /* SensingKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SensingKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -91,8 +90,8 @@
 		CFBB415119B92514002AE1A9 /* SensingKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SensingKitTests-Info.plist"; sourceTree = "<group>"; };
 		CFBB415319B92514002AE1A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CFBB415519B92514002AE1A9 /* SensingKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKitTests.m; sourceTree = "<group>"; };
-		CFBB415F19B928C2002AE1A9 /* SKBatterySensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatterySensing.h; sourceTree = "<group>"; };
-		CFBB416019B928C2002AE1A9 /* SKBatterySensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatterySensing.m; sourceTree = "<group>"; };
+		CFBB415F19B928C2002AE1A9 /* SKBattery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBattery.h; sourceTree = "<group>"; };
+		CFBB416019B928C2002AE1A9 /* SKBattery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBattery.m; sourceTree = "<group>"; };
 		CFBB416119B928C2002AE1A9 /* SKProximitySensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProximitySensing.h; sourceTree = "<group>"; };
 		CFBB416219B928C2002AE1A9 /* SKProximitySensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximitySensing.m; sourceTree = "<group>"; };
 		CFBB416319B928C2002AE1A9 /* SKLocationSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLocationSensing.h; sourceTree = "<group>"; };
@@ -101,18 +100,8 @@
 		CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMotionSensing.m; sourceTree = "<group>"; };
 		CFBB416C19B92902002AE1A9 /* NSString+SKSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SKSensing.h"; sourceTree = "<group>"; };
 		CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SKSensing.m"; sourceTree = "<group>"; };
-		CFBB417019B92923002AE1A9 /* SKRecordingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKRecordingData.h; sourceTree = "<group>"; };
-		CFBB417119B92923002AE1A9 /* SKRecordingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKRecordingData.m; sourceTree = "<group>"; };
-		CFBB417219B92923002AE1A9 /* SKRecordingDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKRecordingDataManager.h; sourceTree = "<group>"; };
-		CFBB417319B92923002AE1A9 /* SKRecordingDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKRecordingDataManager.m; sourceTree = "<group>"; };
-		CFBB417419B92923002AE1A9 /* SKSensorDataBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorDataBuffer.h; sourceTree = "<group>"; };
-		CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorDataBuffer.m; sourceTree = "<group>"; };
 		CFBB417919B92970002AE1A9 /* GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIP.h; sourceTree = "<group>"; };
 		CFBB417A19B92970002AE1A9 /* GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZIP.m; sourceTree = "<group>"; };
-		CFD6B3271A20DA090050B71B /* SKModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKModelManager.h; sourceTree = "<group>"; };
-		CFD6B3281A20DA090050B71B /* SKModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKModelManager.m; sourceTree = "<group>"; };
-		CFD6B32A1A21F5590050B71B /* SKRecordingDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKRecordingDetails.h; sourceTree = "<group>"; };
-		CFD6B32B1A21F5590050B71B /* SKRecordingDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKRecordingDetails.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,13 +159,13 @@
 			children = (
 				CFBB417C19B92983002AE1A9 /* GZIP */,
 				CFBB416F19B92906002AE1A9 /* Categories */,
-				CFD6B3261A20D0A70050B71B /* Recording */,
-				CFD6B3271A20DA090050B71B /* SKModelManager.h */,
-				CFD6B3281A20DA090050B71B /* SKModelManager.m */,
-				CFD6B32A1A21F5590050B71B /* SKRecordingDetails.h */,
-				CFD6B32B1A21F5590050B71B /* SKRecordingDetails.m */,
+				CFBB416B19B928CF002AE1A9 /* SensorModules */,
+				CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */,
+				CF11F8801B2C6D7D0094C9DF /* SKSensorModuleManager.h */,
+				CF11F8811B2C6D7D0094C9DF /* SKSensorModuleManager.m */,
 				CFBB413E19B92514002AE1A9 /* SensingKitLib.h */,
 				CFBB414019B92514002AE1A9 /* SensingKitLib.m */,
+				CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */,
 				CFBB413C19B92514002AE1A9 /* Supporting Files */,
 			);
 			path = SensingKit;
@@ -208,19 +197,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CFBB416B19B928CF002AE1A9 /* SensingModules */ = {
+		CFBB416B19B928CF002AE1A9 /* SensorModules */ = {
 			isa = PBXGroup;
 			children = (
-				CFBB415F19B928C2002AE1A9 /* SKBatterySensing.h */,
-				CFBB416019B928C2002AE1A9 /* SKBatterySensing.m */,
+				CF11F8831B2C7CFE0094C9DF /* SKAbstractSensorModule.h */,
+				CF11F8841B2C7CFE0094C9DF /* SKAbstractSensorModule.m */,
+				CFBB415F19B928C2002AE1A9 /* SKBattery.h */,
+				CFBB416019B928C2002AE1A9 /* SKBattery.m */,
 				CFBB416119B928C2002AE1A9 /* SKProximitySensing.h */,
 				CFBB416219B928C2002AE1A9 /* SKProximitySensing.m */,
 				CFBB416319B928C2002AE1A9 /* SKLocationSensing.h */,
 				CFBB416419B928C2002AE1A9 /* SKLocationSensing.m */,
 				CFBB416519B928C2002AE1A9 /* SKMotionSensing.h */,
 				CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */,
+				CF11F8861B2D8D370094C9DF /* SKSensorData.h */,
+				CF11F8871B2D8D370094C9DF /* SKSensorData.m */,
 			);
-			name = SensingModules;
+			name = SensorModules;
 			sourceTree = "<group>";
 		};
 		CFBB416F19B92906002AE1A9 /* Categories */ = {
@@ -239,22 +232,6 @@
 				CFBB417A19B92970002AE1A9 /* GZIP.m */,
 			);
 			name = GZIP;
-			sourceTree = "<group>";
-		};
-		CFD6B3261A20D0A70050B71B /* Recording */ = {
-			isa = PBXGroup;
-			children = (
-				CFBB416B19B928CF002AE1A9 /* SensingModules */,
-				CFBB417019B92923002AE1A9 /* SKRecordingData.h */,
-				CFBB417119B92923002AE1A9 /* SKRecordingData.m */,
-				CFBB417219B92923002AE1A9 /* SKRecordingDataManager.h */,
-				CFBB417319B92923002AE1A9 /* SKRecordingDataManager.m */,
-				CFBB417419B92923002AE1A9 /* SKSensorDataBuffer.h */,
-				CFBB417519B92923002AE1A9 /* SKSensorDataBuffer.m */,
-				CF6B03821A0FAF2B0062DE0F /* SKRecording.h */,
-				CF6B03831A0FAF2B0062DE0F /* SKRecording.m */,
-			);
-			name = Recording;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +294,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CFBB412D19B92514002AE1A9;
 			productRefGroup = CFBB413719B92514002AE1A9 /* Products */;
@@ -377,19 +355,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFBB417819B92923002AE1A9 /* SKSensorDataBuffer.m in Sources */,
 				CFBB416919B928C2002AE1A9 /* SKLocationSensing.m in Sources */,
 				CFBB416819B928C2002AE1A9 /* SKProximitySensing.m in Sources */,
-				CFBB417619B92923002AE1A9 /* SKRecordingData.m in Sources */,
 				CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */,
+				CF11F8821B2C6D7D0094C9DF /* SKSensorModuleManager.m in Sources */,
 				CFBB417B19B92970002AE1A9 /* GZIP.m in Sources */,
-				CFD6B32C1A21F5590050B71B /* SKRecordingDetails.m in Sources */,
-				CF6B03841A0FAF2B0062DE0F /* SKRecording.m in Sources */,
 				CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */,
-				CFBB417719B92923002AE1A9 /* SKRecordingDataManager.m in Sources */,
-				CFD6B3291A20DA090050B71B /* SKModelManager.m in Sources */,
 				CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */,
-				CFBB416719B928C2002AE1A9 /* SKBatterySensing.m in Sources */,
+				CF11F8881B2D8D370094C9DF /* SKSensorData.m in Sources */,
+				CFBB416719B928C2002AE1A9 /* SKBattery.m in Sources */,
+				CF11F8851B2C7CFE0094C9DF /* SKAbstractSensorModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -504,7 +479,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

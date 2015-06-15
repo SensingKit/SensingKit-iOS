@@ -1,5 +1,5 @@
 //
-//  SKBatterySensing.m
+//  SKBattery.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,9 +22,9 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBatterySensing.h"
+#import "SKBattery.h"
 
-@implementation SKBatterySensing
+@implementation SKBattery
 
 - (instancetype)init
 {
@@ -42,14 +42,18 @@
     return self;
 }
 
-- (void)startBatterySensing
+- (void)startSensing
 {
+    [super startSensing];
+    
     [UIDevice currentDevice].batteryMonitoringEnabled = YES;
 }
 
-- (void)stopBatterySensing
+- (void)stopSensing
 {
     [UIDevice currentDevice].batteryMonitoringEnabled = NO;
+    
+    [super stopSensing];
 }
 
 - (CGFloat)batteryLevel
@@ -64,12 +68,13 @@
 
 - (void)batteryLevelChanged:(NSNotification *)notification
 {
-    [self.delegate batteryLevelChanged:[self batteryState] level:[self batteryLevel]];
+    //[self batteryState]
+    //[self batteryLevel]
 }
 
 - (void)batteryStateChanged:(NSNotification *)notification
 {
-    [self.delegate batteryStateChanged:[self batteryState] level:[self batteryLevel]];
+    
 }
 
 @end
