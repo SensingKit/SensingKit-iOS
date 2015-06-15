@@ -26,6 +26,10 @@
 		CF11F8851B2C7CFE0094C9DF /* SKAbstractSensorModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8841B2C7CFE0094C9DF /* SKAbstractSensorModule.m */; };
 		CF11F8881B2D8D370094C9DF /* SKSensorData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8871B2D8D370094C9DF /* SKSensorData.m */; };
 		CF11F8B91B2F4B0E0094C9DF /* SKBatteryData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8B81B2F4B0E0094C9DF /* SKBatteryData.m */; };
+		CF11F8BA1B2F52670094C9DF /* SKSensorModuleType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */; };
+		CF11F8BB1B2F52700094C9DF /* SKSensorDataListener.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */; };
+		CF11F8BC1B2F52A60094C9DF /* SKSensorData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8861B2D8D370094C9DF /* SKSensorData.h */; };
+		CF11F8BD1B2F52A60094C9DF /* SKBatteryData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8B71B2F4B0E0094C9DF /* SKBatteryData.h */; };
 		CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5298951A0CFC7A002A4D54 /* UIKit.framework */; };
 		CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
 		CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB413E19B92514002AE1A9 /* SensingKitLib.h */; };
@@ -66,6 +70,10 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CF11F8BC1B2F52A60094C9DF /* SKSensorData.h in CopyFiles */,
+				CF11F8BD1B2F52A60094C9DF /* SKBatteryData.h in CopyFiles */,
+				CF11F8BB1B2F52700094C9DF /* SKSensorDataListener.h in CopyFiles */,
+				CF11F8BA1B2F52670094C9DF /* SKSensorModuleType.h in CopyFiles */,
 				CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
