@@ -30,7 +30,4 @@
 @property (nonatomic, readonly) CGFloat batteryLevel;
 @property (nonatomic, readonly) UIDeviceBatteryState batteryState;
 
-- (void)startSensing;
-- (void)stopSensing;
-
 @end
