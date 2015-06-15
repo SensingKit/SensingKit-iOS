@@ -26,4 +26,14 @@
 
 @implementation SKSensorData
 
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        // Save current timestamp
+        _timestamp = [NSDate date];
+    }
+    return self;
+}
+
 @end

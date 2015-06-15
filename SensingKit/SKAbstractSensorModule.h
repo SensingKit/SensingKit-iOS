@@ -41,4 +41,6 @@
 
 - (void)stopSensing;
 
+- (void)submitSensorData:(SKSensorData *)data;
+
 @end

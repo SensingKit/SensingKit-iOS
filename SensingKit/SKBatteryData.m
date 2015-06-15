@@ -1,5 +1,5 @@
 //
-//  SKSensorData.h
+//  SKBatteryData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,10 +22,18 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
+#import "SKBatteryData.h"
 
-@interface SKSensorData : NSObject
+@implementation SKBatteryData
 
-@property (nonatomic, readonly, strong) NSDate *timestamp;
+- (instancetype)initWithLevel:(CGFloat)level withState:(UIDeviceBatteryState)state
+{
+    if (self = [super init])
+    {
+        _level = level;
+        _state = state;
+    }
+    return self;
+}
 
 @end

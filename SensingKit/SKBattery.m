@@ -23,6 +23,7 @@
 //
 
 #import "SKBattery.h"
+#import "SKBatteryData.h"
 
 @implementation SKBattery
 
@@ -68,13 +69,16 @@
 
 - (void)batteryLevelChanged:(NSNotification *)notification
 {
-    //[self batteryState]
-    //[self batteryLevel]
+    SKBatteryData *data = [[SKBatteryData alloc] initWithLevel:[self batteryLevel]
+                                                     withState:[self batteryState]];
+    [self submitSensorData:data];
 }
 
 - (void)batteryStateChanged:(NSNotification *)notification
 {
-    
+    SKBatteryData *data = [[SKBatteryData alloc] initWithLevel:[self batteryLevel]
+                                                     withState:[self batteryState]];
+    [self submitSensorData:data];
 }
 
 @end
