@@ -1,5 +1,5 @@
 //
-//  SKLocationSensing.h
+//  SKLocation.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -23,22 +23,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SKAbstractSensorModule.h"
 
 @import CoreLocation;
 
-@protocol SKLocationSensingDelegate <NSObject>
-
-- (void)locationUpdateReceived:(CLLocation *)location;
-
-@end
-
-@interface SKLocationSensing : NSObject<CLLocationManagerDelegate>
-
-@property (weak, nonatomic) id <SKLocationSensingDelegate> delegate;
+@interface SKLocation : SKAbstractSensorModule<CLLocationManagerDelegate>
 
 - (BOOL)isLocationSensingAvailable;
-
-- (void)startLocationSensing;
-- (void)stopLocationSensing;
 
 @end

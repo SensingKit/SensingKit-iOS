@@ -26,6 +26,9 @@
 
 @interface SKSensorData : NSObject
 
+- (instancetype)init;
+- (instancetype)initWithTimestamp:(NSDate *)timestamp;
+
 @property (nonatomic, readonly, strong) NSDate *timestamp;
 
 @end

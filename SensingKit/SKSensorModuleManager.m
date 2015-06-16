@@ -24,7 +24,10 @@
 
 #import "SKSensorModuleManager.h"
 #import "SKAbstractSensorModule.h"
+
+// SensorModules
 #import "SKBattery.h"
+#import "SKLocation.h"
 
 #define TOTAL_SENSOR_MODULES 16
 
@@ -200,6 +203,10 @@
             sensorModule = [[SKBattery alloc] init];
             break;
             
+        case Location:
+            sensorModule = [[SKLocation alloc] init];
+            break;
+            
         default:
             NSLog(@"Unknown SensorModule: %li", (long)moduleType);
             abort();
@@ -232,6 +239,9 @@
             
         case Battery:
             return @"Battery";
+            
+        case Location:
+            return @"Location";
             
         default:
             return [NSString stringWithFormat:@"Unknown SensorModule: %li", (long)moduleType];

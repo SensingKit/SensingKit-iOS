@@ -29,5 +29,6 @@ typedef NS_ENUM(NSInteger, SKSensorModuleType) {
     Gyroscope,
     Rotation,
     Magnetometer,
-    Battery
+    Battery,
+    Location
 };

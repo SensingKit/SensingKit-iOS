@@ -36,4 +36,13 @@
     return self;
 }
 
+- (instancetype)initWithTimestamp:(NSDate *)timestamp
+{
+    if (self = [super init])
+    {
+        _timestamp = timestamp;
+    }
+    return self;
+}
+
 @end

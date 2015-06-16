@@ -1,5 +1,5 @@
 //
-//  SKLocationSensing.m
+//  SKLocation.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,15 +22,16 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKLocationSensing.h"
+#import "SKLocation.h"
+#import "SKLocationData.h"
 
-@interface SKLocationSensing ()
+@interface SKLocation ()
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
-@implementation SKLocationSensing
+@implementation SKLocation
 
 - (instancetype)init
 {
@@ -40,6 +41,10 @@
         self.locationManager.delegate = self;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;  // kCLLocationAccuracyBestForNavigation??
         self.locationManager.distanceFilter = kCLDistanceFilterNone;
+        
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [self.locationManager requestWhenInUseAuthorization];
+        }
     }
     return self;
 }
@@ -51,28 +56,50 @@
 
 #pragma mark start / stop sensing
 
-- (void)startLocationSensing
+- (void)startSensing
 {
+    [super startSensing];
+    
     if ([self isLocationSensingAvailable])
     {
         [self.locationManager startUpdatingLocation];
     }
+    else
+    {
+        NSLog(@"Location Sensing is not available.");
+        abort();
+    }
 }
 
-- (void)stopLocationSensing
+- (void)stopSensing
 {
     if ([self isLocationSensingAvailable])
     {
         [self.locationManager stopUpdatingLocation];
     }
+    else
+    {
+        NSLog(@"Location Sensing is not available.");
+        abort();
+    }
+    
+    [super stopSensing];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     for (CLLocation *location in locations)
     {
-        [self.delegate locationUpdateReceived:location];
+        SKLocationData *data = [[SKLocationData alloc] initWithLocation:location];
+        
+        [self submitSensorData:data];
     }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Error: %@", error.description);
+    abort();
 }
 
 @end
