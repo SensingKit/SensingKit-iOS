@@ -55,7 +55,8 @@ The following sensor modules are currently supported in SensingKit-Android, (lis
 - Subscribe a sensor data listener. You can cast the data object into the actual sensor data object in order to access all the sensor data properties:
 
 ```objectivec
-[self.sensingKit subscribeSensorDataListenerToSensor:Battery withHandler:^(SKSensorModuleType moduleType, SKSensorData *sensorData) {
+[self.sensingKit subscribeSensorDataListenerToSensor:Battery
+                                         withHandler:^(SKSensorModuleType moduleType, SKSensorData *sensorData) {
         
         SKBatteryData *batteryData = (SKBatteryData *)sensorData;
         NSLog(@“Battery Level: %f”, batteryData.level);
@@ -67,8 +68,10 @@ The following sensor modules are currently supported in SensingKit-Android, (lis
 - You can Start and Stop the Continuous Sensing using the following commands:
 
 ```objectivec
+// Start
 [self.sensingKit startContinuousSensingWithSensor:Battery];
 
+// Stop
 [self.sensingKit stopContinuousSensingWithSensor:Battery];
 ```
 
