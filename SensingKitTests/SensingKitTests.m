@@ -24,6 +24,7 @@
 
 #import <XCTest/XCTest.h>
 #import "SensingKitLib.h"
+@import CoreBluetooth;
 
 @interface SensingKitTests : XCTestCase
 

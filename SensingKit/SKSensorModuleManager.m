@@ -28,6 +28,7 @@
 // SensorModules
 #import "SKBattery.h"
 #import "SKLocation.h"
+#import "SKProximity.h"
 
 #define TOTAL_SENSOR_MODULES 16
 
@@ -207,6 +208,12 @@
             sensorModule = [[SKLocation alloc] init];
             break;
             
+        case Proximity:
+            sensorModule = [[SKProximity alloc] initWithUUID:[[NSUUID alloc] initWithUUIDString:@"d45a1046-15b0-11e5-b60b-1697f925ec7b"]
+                                                withDeviceId:arc4random_uniform(65535)];
+            break;
+            
+            // Don't forget to break!
         default:
             NSLog(@"Unknown SensorModule: %li", (long)moduleType);
             abort();
@@ -242,6 +249,9 @@
             
         case Location:
             return @"Location";
+            
+        case Proximity:
+            return @"Proximity";
             
         default:
             return [NSString stringWithFormat:@"Unknown SensorModule: %li", (long)moduleType];

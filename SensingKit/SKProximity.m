@@ -22,9 +22,10 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKProximitySensing.h"
+#import "SKProximity.h"
+#import "SKProximityData.h"
 
-@interface SKProximitySensing()
+@interface SKProximity()
 
 @property (strong, nonatomic) CLBeaconRegion      *broadcast_beaconRegion;
 @property (strong, nonatomic) CLBeaconRegion      *scan_beaconRegion;
@@ -33,9 +34,10 @@
 
 @end
 
-@implementation SKProximitySensing
+@implementation SKProximity
 
-- (instancetype)initWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id
+- (instancetype)initWithUUID:(NSUUID *)UUID
+                withDeviceId:(NSUInteger)device_id
 {
     if (self = [super init])
     {
@@ -45,7 +47,8 @@
     return self;
 }
 
-- (void)initProximitySensingWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id
+- (void)initProximitySensingWithUUID:(NSUUID *)UUID
+                        withDeviceId:(NSUInteger)device_id
 {
     // Get a unique identifier for the device
     NSString *identifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
@@ -63,27 +66,11 @@
     self.locationManager.delegate = self;
 }
 
-- (BOOL)isProximitySensingAvailable
-{
-    return ([CLLocationManager isRangingAvailable] &&
-            self.peripheralManager.state == CBPeripheralManagerStatePoweredOn);
-}
-
 #pragma mark start / stop sensing
 
-- (void)startProximitySensing
+- (void)startAdvertisingWithPower:(NSNumber *)power
 {
-    // Start Sensing with the default power level
-    [self startProximitySensingWithPower:nil];
-}
-
-- (void)startProximitySensingWithPower:(NSNumber *)power
-{
-    if ([self isProximitySensingAvailable])
-    {
-        // Start monitoring
-        [self.locationManager startMonitoringForRegion:self.scan_beaconRegion];
-        [self.locationManager startRangingBeaconsInRegion:self.scan_beaconRegion];
+    if (self.peripheralManager.state == CBPeripheralManagerStatePoweredOn) {
         
         // Start advertising
         NSDictionary *payload = [self.broadcast_beaconRegion peripheralDataWithMeasuredPower:power];
@@ -94,19 +81,53 @@
         // This value represents the measured strength of the beacon from one meter away and is used during ranging.
         // Specify nil to use the default value for the device.
     }
+    else {
+        NSLog(@"CBPeripheralManager state is %li", (long)self.peripheralManager.state);
+        abort();
+    }
 }
 
-- (void)stopProximitySensing
+- (void)stopAdvertising
 {
-    if ([self isProximitySensingAvailable])
-    {
-        // Stop monitoring
-        [self.locationManager stopMonitoringForRegion:self.scan_beaconRegion];
-        [self.locationManager stopRangingBeaconsInRegion:self.scan_beaconRegion];
+    // Stop advertising
+    [self.peripheralManager stopAdvertising];
+}
+
+- (void)startMonitoring
+{
+    if ([CLLocationManager isRangingAvailable]) {
         
-        // Stop advertising
-        [self.peripheralManager stopAdvertising];
+        // Start monitoring
+        [self.locationManager startMonitoringForRegion:self.scan_beaconRegion];
+        [self.locationManager startRangingBeaconsInRegion:self.scan_beaconRegion];
     }
+    else {
+        NSLog(@"Ranging is not available.");
+        abort();
+    }
+}
+
+- (void)stopMonitoring
+{
+    // Stop monitoring
+    [self.locationManager stopMonitoringForRegion:self.scan_beaconRegion];
+    [self.locationManager stopRangingBeaconsInRegion:self.scan_beaconRegion];
+}
+
+- (void)startSensing
+{
+    [super startSensing];
+    
+    [self startMonitoring];
+    [self startAdvertisingWithPower:nil];
+}
+
+- (void)stopSensing
+{
+    [self stopAdvertising];
+    [self stopMonitoring];
+    
+    [super stopSensing];
 }
 
 #pragma mark delegate methods
@@ -115,31 +136,8 @@
 {
     if (peripheral.state != CBPeripheralManagerStatePoweredOn)
     {
-        NSLog(@"Warning: Bluetooth is not available with state: %d", (int)peripheral.state);
+        NSLog(@"Warning: Bluetooth is not available. (State: %d)", (int)peripheral.state);
     }
-}
-
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
-{
-    NSLog(@"Beacon Found");
-    [self.locationManager startRangingBeaconsInRegion:self.scan_beaconRegion];
-    
-    NSString *identifier = region.identifier;
-    [self.delegate beaconFoundWithIdentifier:identifier];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
-{
-    NSLog(@"Beacon Lost");
-    [self.locationManager stopRangingBeaconsInRegion:self.scan_beaconRegion];
-    
-    NSString *identifier = region.identifier;
-    [self.delegate beaconLostWithIdentifier:identifier];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
-{
-    NSLog(@"didDetermineState: %li", (long)state);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
@@ -148,14 +146,12 @@
     {
         if (beacon)
         {
-            [self.delegate rangingBeaconWithIdentifier:beacon.major.stringValue
-                                              accuracy:beacon.accuracy
-                                             proximity:beacon.proximity
-                                                  rssi:beacon.rssi];
-        }
-        else
-        {
-            NSLog(@"Invalid Beacon");
+            SKProximityData *data = [[SKProximityData alloc] initWithIdentifier:beacon.major.stringValue
+                                                                   withAccuracy:beacon.accuracy
+                                                                  withProximity:beacon.proximity
+                                                                       withRssi:beacon.rssi];
+            
+            [self submitSensorData:data];
         }
     }
 }

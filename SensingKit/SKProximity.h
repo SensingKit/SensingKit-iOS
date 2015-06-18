@@ -23,32 +23,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SKAbstractSensorModule.h"
 
 @import CoreBluetooth;
 @import CoreLocation;
 
-@protocol SKProximitySensingDelegate <NSObject>
+@interface SKProximity : SKAbstractSensorModule<CBPeripheralManagerDelegate, CLLocationManagerDelegate>
 
-- (void)beaconFoundWithIdentifier:(NSString *)identifier;
-- (void)beaconLostWithIdentifier:(NSString *)identifier;
-
-- (void)rangingBeaconWithIdentifier:(NSString *)identifier
-                           accuracy:(CLLocationAccuracy)accuracy
-                          proximity:(CLProximity)proximity
-                               rssi:(NSInteger)rssi;
-
-@end
-
-@interface SKProximitySensing : NSObject<CBPeripheralManagerDelegate, CLLocationManagerDelegate>
-
-@property (weak, nonatomic) id <SKProximitySensingDelegate> delegate;
-
-- (instancetype)initWithUUID:(NSUUID *)UUID withDeviceId:(NSUInteger)device_id;
-
-- (BOOL)isProximitySensingAvailable;
-
-- (void)startProximitySensing;
-- (void)startProximitySensingWithPower:(NSNumber *)power;
-- (void)stopProximitySensing;
+- (instancetype)initWithUUID:(NSUUID *)UUID
+                withDeviceId:(NSUInteger)device_id;
 
 @end

@@ -30,5 +30,6 @@ typedef NS_ENUM(NSInteger, SKSensorModuleType) {
     Rotation,
     Magnetometer,
     Battery,
-    Location
+    Location,
+    Proximity
 };

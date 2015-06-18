@@ -34,6 +34,10 @@
 		CF11F8C31B2F77940094C9DF /* SKLocationData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8C21B2F77940094C9DF /* SKLocationData.m */; };
 		CF11F8C41B2F77EC0094C9DF /* SKLocationData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8C11B2F77940094C9DF /* SKLocationData.h */; };
 		CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5298951A0CFC7A002A4D54 /* UIKit.framework */; };
+		CF8E9BD01B3200E7005AC2FC /* SKProximityData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9BCF1B3200E7005AC2FC /* SKProximityData.m */; };
+		CF8E9BD11B32E420005AC2FC /* SKProximityData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF8E9BCE1B3200E7005AC2FC /* SKProximityData.h */; };
+		CF8E9BD21B32E9D3005AC2FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF11F8BE1B2F76160094C9DF /* CoreLocation.framework */; };
+		CF8E9BD41B32EA04005AC2FC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8E9BD31B32EA04005AC2FC /* CoreBluetooth.framework */; };
 		CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
 		CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB413E19B92514002AE1A9 /* SensingKitLib.h */; };
 		CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB414019B92514002AE1A9 /* SensingKitLib.m */; };
@@ -42,7 +46,7 @@
 		CFBB415419B92514002AE1A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFBB415219B92514002AE1A9 /* InfoPlist.strings */; };
 		CFBB415619B92514002AE1A9 /* SensingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB415519B92514002AE1A9 /* SensingKitTests.m */; };
 		CFBB416719B928C2002AE1A9 /* SKBattery.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416019B928C2002AE1A9 /* SKBattery.m */; };
-		CFBB416819B928C2002AE1A9 /* SKProximitySensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* SKProximitySensing.m */; };
+		CFBB416819B928C2002AE1A9 /* SKProximity.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* SKProximity.m */; };
 		CFBB416919B928C2002AE1A9 /* SKLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* SKLocation.m */; };
 		CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */; };
 		CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */; };
@@ -73,6 +77,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CF8E9BD11B32E420005AC2FC /* SKProximityData.h in CopyFiles */,
 				CF11F8C41B2F77EC0094C9DF /* SKLocationData.h in CopyFiles */,
 				CF11F8BC1B2F52A60094C9DF /* SKSensorData.h in CopyFiles */,
 				CF11F8BD1B2F52A60094C9DF /* SKBatteryData.h in CopyFiles */,
@@ -99,6 +104,9 @@
 		CF11F8C11B2F77940094C9DF /* SKLocationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLocationData.h; sourceTree = "<group>"; };
 		CF11F8C21B2F77940094C9DF /* SKLocationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLocationData.m; sourceTree = "<group>"; };
 		CF5298951A0CFC7A002A4D54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CF8E9BCE1B3200E7005AC2FC /* SKProximityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProximityData.h; sourceTree = "<group>"; };
+		CF8E9BCF1B3200E7005AC2FC /* SKProximityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximityData.m; sourceTree = "<group>"; };
+		CF8E9BD31B32EA04005AC2FC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		CFBB413619B92514002AE1A9 /* libSensingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSensingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBB413919B92514002AE1A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CFBB413D19B92514002AE1A9 /* SensingKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SensingKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -110,8 +118,8 @@
 		CFBB415519B92514002AE1A9 /* SensingKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKitTests.m; sourceTree = "<group>"; };
 		CFBB415F19B928C2002AE1A9 /* SKBattery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBattery.h; sourceTree = "<group>"; };
 		CFBB416019B928C2002AE1A9 /* SKBattery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBattery.m; sourceTree = "<group>"; };
-		CFBB416119B928C2002AE1A9 /* SKProximitySensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProximitySensing.h; sourceTree = "<group>"; };
-		CFBB416219B928C2002AE1A9 /* SKProximitySensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximitySensing.m; sourceTree = "<group>"; };
+		CFBB416119B928C2002AE1A9 /* SKProximity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProximity.h; sourceTree = "<group>"; };
+		CFBB416219B928C2002AE1A9 /* SKProximity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximity.m; sourceTree = "<group>"; };
 		CFBB416319B928C2002AE1A9 /* SKLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLocation.h; sourceTree = "<group>"; };
 		CFBB416419B928C2002AE1A9 /* SKLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLocation.m; sourceTree = "<group>"; };
 		CFBB416519B928C2002AE1A9 /* SKMotionSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMotionSensing.h; sourceTree = "<group>"; };
@@ -127,6 +135,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF8E9BD41B32EA04005AC2FC /* CoreBluetooth.framework in Frameworks */,
+				CF8E9BD21B32E9D3005AC2FC /* CoreLocation.framework in Frameworks */,
 				CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */,
 				CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */,
 			);
@@ -154,6 +164,8 @@
 				CF11F8B81B2F4B0E0094C9DF /* SKBatteryData.m */,
 				CF11F8C11B2F77940094C9DF /* SKLocationData.h */,
 				CF11F8C21B2F77940094C9DF /* SKLocationData.m */,
+				CF8E9BCE1B3200E7005AC2FC /* SKProximityData.h */,
+				CF8E9BCF1B3200E7005AC2FC /* SKProximityData.m */,
 			);
 			name = SensorData;
 			sourceTree = "<group>";
@@ -180,9 +192,10 @@
 		CFBB413819B92514002AE1A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CF11F8BE1B2F76160094C9DF /* CoreLocation.framework */,
 				CF5298951A0CFC7A002A4D54 /* UIKit.framework */,
 				CFBB413919B92514002AE1A9 /* Foundation.framework */,
+				CF8E9BD31B32EA04005AC2FC /* CoreBluetooth.framework */,
+				CF11F8BE1B2F76160094C9DF /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -240,8 +253,8 @@
 				CFBB416019B928C2002AE1A9 /* SKBattery.m */,
 				CFBB416319B928C2002AE1A9 /* SKLocation.h */,
 				CFBB416419B928C2002AE1A9 /* SKLocation.m */,
-				CFBB416119B928C2002AE1A9 /* SKProximitySensing.h */,
-				CFBB416219B928C2002AE1A9 /* SKProximitySensing.m */,
+				CFBB416119B928C2002AE1A9 /* SKProximity.h */,
+				CFBB416219B928C2002AE1A9 /* SKProximity.m */,
 				CFBB416519B928C2002AE1A9 /* SKMotionSensing.h */,
 				CFBB416619B928C2002AE1A9 /* SKMotionSensing.m */,
 			);
@@ -389,7 +402,8 @@
 			files = (
 				CF11F8C31B2F77940094C9DF /* SKLocationData.m in Sources */,
 				CFBB416919B928C2002AE1A9 /* SKLocation.m in Sources */,
-				CFBB416819B928C2002AE1A9 /* SKProximitySensing.m in Sources */,
+				CFBB416819B928C2002AE1A9 /* SKProximity.m in Sources */,
+				CF8E9BD01B3200E7005AC2FC /* SKProximityData.m in Sources */,
 				CFBB416A19B928C2002AE1A9 /* SKMotionSensing.m in Sources */,
 				CF11F8B91B2F4B0E0094C9DF /* SKBatteryData.m in Sources */,
 				CF11F8821B2C6D7D0094C9DF /* SKSensorModuleManager.m in Sources */,
