@@ -1,5 +1,5 @@
 //
-//  SKLocationData.m
+//  SKMagnetometerData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,15 +22,15 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKLocationData.h"
+#import "SKMagnetometerData.h"
 
-@implementation SKLocationData
+@implementation SKMagnetometerData
 
-- (instancetype)initWithLocation:(CLLocation *)location
+- (instancetype)initWithMagneticField:(CMMagneticField)magneticField
 {
-    if (self = [super initWithTimestamp:location.timestamp])
+    if (self = [super init])
     {
-        _location = location;
+        _magneticField = magneticField;
     }
     return self;
 }

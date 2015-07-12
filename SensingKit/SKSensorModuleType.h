@@ -24,11 +24,10 @@
 
 typedef NS_ENUM(NSInteger, SKSensorModuleType) {
     Accelerometer,
-    Gravity,
-    LinearAcceleration,
     Gyroscope,
-    Rotation,
     Magnetometer,
+    DeviceMotion,
+    Activity,
     Battery,
     Location,
     Proximity

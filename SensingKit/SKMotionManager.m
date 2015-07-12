@@ -1,5 +1,5 @@
 //
-//  SKLocationData.m
+//  SKMotionManager.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,17 +22,23 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKLocationData.h"
+#import "SKMotionManager.h"
 
-@implementation SKLocationData
+@implementation SKMotionManager
 
-- (instancetype)initWithLocation:(CLLocation *)location
++ (CMMotionManager *)sharedMotionManager
 {
-    if (self = [super initWithTimestamp:location.timestamp])
+    static CMMotionManager *sharedMotionManager;
+    @synchronized(self)
     {
-        _location = location;
+        if (!sharedMotionManager)
+        {
+            sharedMotionManager = [[CMMotionManager alloc] init];
+        }
+        
+        return sharedMotionManager;
     }
-    return self;
+    return sharedMotionManager;
 }
 
 @end

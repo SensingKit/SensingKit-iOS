@@ -1,5 +1,5 @@
 //
-//  SKLocationData.m
+//  SKActivityData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,15 +22,15 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKLocationData.h"
+#import "SKActivityData.h"
 
-@implementation SKLocationData
+@implementation SKActivityData
 
-- (instancetype)initWithLocation:(CLLocation *)location
+- (instancetype)initWithActivity:(CMMotionActivity *)activity
 {
-    if (self = [super initWithTimestamp:location.timestamp])
+    if (self = [super init])
     {
-        _location = location;
+        _activity = activity;
     }
     return self;
 }

@@ -30,7 +30,7 @@
 
 - (id)init __attribute__((unavailable("Use [SensingKitLib sharedSensingKitLib] instead.")));
 
-+ (SensingKitLib*)sharedSensingKitLib;
++ (SensingKitLib *)sharedSensingKitLib;
 
 
 /** Sensor Registration */

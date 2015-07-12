@@ -1,5 +1,5 @@
 //
-//  SKLocationData.m
+//  SKDeviceMotionData.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,17 +22,21 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKLocationData.h"
+#import "SKSensorData.h"
+@import CoreMotion;
 
-@implementation SKLocationData
+@interface SKDeviceMotionData : SKSensorData
 
-- (instancetype)initWithLocation:(CLLocation *)location
-{
-    if (self = [super initWithTimestamp:location.timestamp])
-    {
-        _location = location;
-    }
-    return self;
-}
+@property (nonatomic, strong, readonly) CMAttitude *attitude;
+@property (nonatomic, readonly) CMAcceleration gravity;
+@property (nonatomic, readonly) CMCalibratedMagneticField magneticField;
+@property (nonatomic, readonly) CMRotationRate rotationRate;
+@property (nonatomic, readonly) CMAcceleration userAcceleration;
+
+- (instancetype)initWithAattitude:(CMAttitude *)attitude
+                      withGravity:(CMAcceleration)gravity
+                withMagneticField:(CMCalibratedMagneticField)magneticField
+                 withRotationRate:(CMRotationRate)rotationRate
+             withUserAcceleration:(CMAcceleration)userAcceleration;
 
 @end

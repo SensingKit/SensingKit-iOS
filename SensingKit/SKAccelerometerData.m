@@ -1,5 +1,5 @@
 //
-//  SKLocationData.m
+//  SKAccelerometerData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,15 +22,15 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKLocationData.h"
+#import "SKAccelerometerData.h"
 
-@implementation SKLocationData
+@implementation SKAccelerometerData
 
-- (instancetype)initWithLocation:(CLLocation *)location
+- (instancetype)initWithAcceleration:(CMAcceleration)acceleration
 {
-    if (self = [super initWithTimestamp:location.timestamp])
+    if (self = [super init])
     {
-        _location = location;
+        _acceleration = acceleration;
     }
     return self;
 }

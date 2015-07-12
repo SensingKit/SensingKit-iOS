@@ -29,8 +29,13 @@
 #import "SKBattery.h"
 #import "SKLocation.h"
 #import "SKProximity.h"
+#import "SKAccelerometer.h"
+#import "SKGyroscope.h"
+#import "SKMagnetometer.h"
+#import "SKDeviceMotion.h"
+#import "SKActivity.h"
 
-#define TOTAL_SENSOR_MODULES 16
+#define TOTAL_SENSOR_MODULES 8
 
 @interface SKSensorModuleManager()
 
@@ -177,27 +182,23 @@
     switch (moduleType) {
             
         case Accelerometer:
-            //sensorModule = [[SKAccelerometer alloc] init];
-            break;
-            
-        case Gravity:
-            //sensorModule = [[SKAccelerometer alloc] init];
-            break;
-            
-        case LinearAcceleration:
-            //sensorModule = [[SKAccelerometer alloc] init];
+            sensorModule = [[SKAccelerometer alloc] init];
             break;
             
         case Gyroscope:
-            //sensorModule = [[SKAccelerometer alloc] init];
-            break;
-            
-        case Rotation:
-            //sensorModule = [[SKAccelerometer alloc] init];
+            sensorModule = [[SKGyroscope alloc] init];
             break;
             
         case Magnetometer:
-            //sensorModule = [[SKAccelerometer alloc] init];
+            sensorModule = [[SKMagnetometer alloc] init];
+            break;
+            
+        case DeviceMotion:
+            sensorModule = [[SKDeviceMotion alloc] init];
+            break;
+            
+        case Activity:
+            sensorModule = [[SKActivity alloc] init];
             break;
             
         case Battery:
@@ -210,10 +211,11 @@
             
         case Proximity:
             sensorModule = [[SKProximity alloc] initWithUUID:[[NSUUID alloc] initWithUUIDString:@"d45a1046-15b0-11e5-b60b-1697f925ec7b"]
-                                                withDeviceId:arc4random_uniform(65535)];
+                                                withDeviceId:arc4random_uniform(65535)];  // Random id
             break;
             
             // Don't forget to break!
+            
         default:
             NSLog(@"Unknown SensorModule: %li", (long)moduleType);
             abort();
@@ -229,20 +231,17 @@
         case Accelerometer:
             return @"Accelerometer";
             
-        case Gravity:
-            return @"Gravity";
-            
-        case LinearAcceleration:
-            return @"LinearAcceleration";
-            
         case Gyroscope:
             return @"Gyroscope";
             
-        case Rotation:
-            return @"Rotation";
-            
         case Magnetometer:
             return @"Magnetometer";
+            
+        case DeviceMotion:
+            return @"DeviceMotion";
+            
+        case Activity:
+            return @"Activity";
             
         case Battery:
             return @"Battery";

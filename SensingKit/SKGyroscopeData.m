@@ -1,5 +1,5 @@
 //
-//  SKLocationData.m
+//  SKGyroscopeData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,15 +22,15 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKLocationData.h"
+#import "SKGyroscopeData.h"
 
-@implementation SKLocationData
+@implementation SKGyroscopeData
 
-- (instancetype)initWithLocation:(CLLocation *)location
+- (instancetype)initWithRotationRate:(CMRotationRate)rotationRate
 {
-    if (self = [super initWithTimestamp:location.timestamp])
+    if (self = [super init])
     {
-        _location = location;
+        _rotationRate = rotationRate;
     }
     return self;
 }
