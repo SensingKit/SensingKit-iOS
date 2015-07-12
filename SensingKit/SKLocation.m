@@ -73,15 +73,7 @@
 
 - (void)stopSensing
 {
-    if ([self isLocationSensingAvailable])
-    {
-        [self.locationManager stopUpdatingLocation];
-    }
-    else
-    {
-        NSLog(@"Location Sensing is not available.");
-        abort();
-    }
+    [self.locationManager stopUpdatingLocation];
     
     [super stopSensing];
 }
