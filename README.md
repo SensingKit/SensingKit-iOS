@@ -10,7 +10,7 @@ The following sensor modules are currently supported in SensingKit-Android, (lis
 - Accelerometer
 - Gyroscope
 - Magnetometer
-- DeviceMotion
+- Device Motion (senses Attitude, Gravity, User Acceleration, Magnetic Field, Rotation)
 - Activity
 - Battery
 - Location
