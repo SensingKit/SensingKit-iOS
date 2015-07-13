@@ -8,14 +8,12 @@ An iOS library that provides Continuous Sensing functionality to your applicatio
 The following sensor modules are currently supported in SensingKit-Android, (listed in [SKSensorModuleType](SensingKit/SKSensorModuleType.h) enum):
 
 - Accelerometer
-- Gravity
-- Linear Acceleration
 - Gyroscope
-- Rotation
 - Magnetometer
-- Location
+- DeviceMotion
 - Activity
 - Battery
+- Location
 - Proximity (using iBeacon technology)
 
 
