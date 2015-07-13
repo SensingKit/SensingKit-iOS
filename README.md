@@ -28,7 +28,7 @@ The following sensor modules are currently supported in SensingKit-Android, (lis
 
 ## How to Use this Library
 
-- import and init SensingKit into your Activity class as shown bellow:
+- Import and init SensingKit into your Activity class as shown bellow:
 
 ```objectivec
 #import <SensingKit/SensingKitLib.h>
