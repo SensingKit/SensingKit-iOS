@@ -78,4 +78,27 @@
     XCTAssertFalse([self.sensingKit isSensorModuleRegistered:Battery], @"SensorModule should not be registered.");
 }
 
+- (void)testSensorRegistrationDeregistration
+{
+    // test registration
+    [self.sensingKit registerSensorModule:Accelerometer];
+    [self.sensingKit registerSensorModule:Gyroscope];
+    [self.sensingKit registerSensorModule:Magnetometer];
+    [self.sensingKit registerSensorModule:DeviceMotion];
+    [self.sensingKit registerSensorModule:Activity];
+    [self.sensingKit registerSensorModule:Battery];
+    [self.sensingKit registerSensorModule:Location];
+    [self.sensingKit registerSensorModule:Proximity];
+    
+    // test deregistration
+    [self.sensingKit deregisterSensorModule:Accelerometer];
+    [self.sensingKit deregisterSensorModule:Gyroscope];
+    [self.sensingKit deregisterSensorModule:Magnetometer];
+    [self.sensingKit deregisterSensorModule:DeviceMotion];
+    [self.sensingKit deregisterSensorModule:Activity];
+    [self.sensingKit deregisterSensorModule:Battery];
+    [self.sensingKit deregisterSensorModule:Location];
+    [self.sensingKit deregisterSensorModule:Proximity];
+}
+
 @end
