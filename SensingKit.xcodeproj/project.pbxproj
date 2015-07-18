@@ -66,7 +66,6 @@
 		CFBB416719B928C2002AE1A9 /* SKBattery.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416019B928C2002AE1A9 /* SKBattery.m */; };
 		CFBB416819B928C2002AE1A9 /* SKProximity.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* SKProximity.m */; };
 		CFBB416919B928C2002AE1A9 /* SKLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* SKLocation.m */; };
-		CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,8 +165,6 @@
 		CFBB416219B928C2002AE1A9 /* SKProximity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximity.m; sourceTree = "<group>"; };
 		CFBB416319B928C2002AE1A9 /* SKLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLocation.h; sourceTree = "<group>"; };
 		CFBB416419B928C2002AE1A9 /* SKLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLocation.m; sourceTree = "<group>"; };
-		CFBB416C19B92902002AE1A9 /* NSString+SKSensing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SKSensing.h"; sourceTree = "<group>"; };
-		CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SKSensing.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,7 +253,6 @@
 		CFBB413B19B92514002AE1A9 /* SensingKit */ = {
 			isa = PBXGroup;
 			children = (
-				CFBB416F19B92906002AE1A9 /* Categories */,
 				CFBB416B19B928CF002AE1A9 /* SensorModules */,
 				CF11F8B41B2F4A910094C9DF /* SensorData */,
 				CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */,
@@ -321,15 +317,6 @@
 				CFBB416219B928C2002AE1A9 /* SKProximity.m */,
 			);
 			name = SensorModules;
-			sourceTree = "<group>";
-		};
-		CFBB416F19B92906002AE1A9 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				CFBB416C19B92902002AE1A9 /* NSString+SKSensing.h */,
-				CFBB416D19B92902002AE1A9 /* NSString+SKSensing.m */,
-			);
-			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -466,7 +453,6 @@
 				CFB0D93A1B4FF7E000A7982B /* SKMotionManager.m in Sources */,
 				CF11F8B91B2F4B0E0094C9DF /* SKBatteryData.m in Sources */,
 				CF11F8821B2C6D7D0094C9DF /* SKSensorModuleManager.m in Sources */,
-				CFBB416E19B92902002AE1A9 /* NSString+SKSensing.m in Sources */,
 				CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */,
 				CF11F8881B2D8D370094C9DF /* SKSensorData.m in Sources */,
 				CFB0D9581B5269BD00A7982B /* SKActivity.m in Sources */,
