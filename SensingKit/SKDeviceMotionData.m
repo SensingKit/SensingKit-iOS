@@ -45,7 +45,7 @@
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %d, %f, %f, %f, %f, %f, %f",
+    return [NSString stringWithFormat:@"%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%d,%f,%f,%f,%f,%f,%f",
             [self timestampEpoch],
             _attitude.roll,
             _attitude.pitch,

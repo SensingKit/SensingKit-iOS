@@ -59,7 +59,7 @@
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f, %@, %f",
+    return [NSString stringWithFormat:@"%f,%@,%f",
             [self timestampEpoch],
             [self stateString],
             _level];
