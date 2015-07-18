@@ -43,4 +43,26 @@
     return self;
 }
 
+- (NSString *)csvString
+{
+    return [NSString stringWithFormat:@"%f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %d, %f, %f, %f, %f, %f, %f",
+            [self timestampEpoch],
+            _attitude.roll,
+            _attitude.pitch,
+            _attitude.yaw,
+            _gravity.x,
+            _gravity.y,
+            _gravity.z,
+            _magneticField.field.x,
+            _magneticField.field.y,
+            _magneticField.field.z,
+            _magneticField.accuracy,
+            _rotationRate.x,
+            _rotationRate.y,
+            _rotationRate.z,
+            _userAcceleration.x,
+            _userAcceleration.y,
+            _userAcceleration.z];
+}
+
 @end

@@ -39,4 +39,6 @@
                  withRotationRate:(CMRotationRate)rotationRate
              withUserAcceleration:(CMAcceleration)userAcceleration;
 
+- (NSString *)csvString;
+
 @end

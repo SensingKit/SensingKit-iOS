@@ -41,4 +41,35 @@
     return self;
 }
 
+- (NSString *)proximityString
+{
+    switch (_proximity) {
+        case CLProximityImmediate:
+            return @"Immediate";
+
+        case CLProximityNear:
+            return @"Near";
+            
+        case CLProximityFar:
+            return @"Far";
+            
+        case CLProximityUnknown:
+            return @"Unknown";
+            
+        default:
+            NSLog(@"Warning: Unknown proximity: %d", (int)_proximity);
+            return @"Unknown";
+    }
+}
+
+- (NSString *)csvString
+{
+    return [NSString stringWithFormat:@"%f, %@, %f, %@, %ld",
+            [self timestampEpoch],
+            _identifier,
+            _accuracy,
+            [self proximityString],
+            (long)_rssi];
+}
+
 @end

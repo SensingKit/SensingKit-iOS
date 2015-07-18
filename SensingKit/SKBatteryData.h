@@ -31,4 +31,8 @@
 @property (nonatomic, readonly) CGFloat level;
 @property (nonatomic, readonly) UIDeviceBatteryState state;
 
+- (NSString *)stateString;
+
+- (NSString *)csvString;
+
 @end
