@@ -31,4 +31,9 @@
 
 @property (nonatomic, readonly, strong) NSDate *timestamp;
 
+- (NSString *)timestampString;
+- (double)timestampEpoch;
+
+- (NSString *)csvString;
+
 @end

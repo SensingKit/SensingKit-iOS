@@ -35,4 +35,35 @@
     return self;
 }
 
+- (NSString *)confidenceString
+{
+    switch (_activity.confidence) {
+        case CMMotionActivityConfidenceHigh:
+            return @"High";
+            
+        case CMMotionActivityConfidenceMedium:
+            return @"Medium";
+            
+        case CMMotionActivityConfidenceLow:
+            return @"Low";
+            
+        default:
+            NSLog(@"Warning: Unknown confidence: %d", (int)_activity.confidence);
+            return @"Unknown";
+    }
+}
+
+- (NSString *)csvString
+{
+    return [NSString stringWithFormat:@"%f,%f,%d,%d,%d,%d,%d,%@",
+            [self timestampEpoch],
+            _activity.timestamp,
+            _activity.stationary,
+            _activity.walking,
+            _activity.running,
+            _activity.automotive,
+            _activity.unknown,
+            [self confidenceString]];
+}
+
 @end

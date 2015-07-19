@@ -96,7 +96,7 @@
     [[self getSensorModule:moduleType] unsubscribeAllSensorDataListeners];
     
     // Deregister the SensorModule
-    [self.sensorModules removeObjectAtIndex:moduleType];
+    [self.sensorModules replaceObjectAtIndex:moduleType withObject:[NSNull null]];
 }
 
 - (BOOL)isSensorModuleRegistered:(SKSensorModuleType)moduleType

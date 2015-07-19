@@ -31,4 +31,6 @@
 
 - (instancetype)initWithRotationRate:(CMRotationRate)rotationRate;
 
+- (NSString *)csvString;
+
 @end

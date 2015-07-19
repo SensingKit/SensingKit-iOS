@@ -36,4 +36,33 @@
     return self;
 }
 
+- (NSString *)stateString
+{
+    switch (_state) {
+        case UIDeviceBatteryStateCharging:
+            return @"Charging";
+            
+        case UIDeviceBatteryStateFull:
+            return @"Full";
+            
+        case UIDeviceBatteryStateUnplugged:
+            return @"Unplugged";
+            
+        case UIDeviceBatteryStateUnknown:
+            return @"Unknown";
+            
+        default:
+            NSLog(@"Warning: Unknown state: %d", (int)_state);
+            return @"Unknown";
+    }
+}
+
+- (NSString *)csvString
+{
+    return [NSString stringWithFormat:@"%f,%@,%f",
+            [self timestampEpoch],
+            [self stateString],
+            _level];
+}
+
 @end

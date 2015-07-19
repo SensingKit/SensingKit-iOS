@@ -31,4 +31,6 @@
 
 - (instancetype)initWithAcceleration:(CMAcceleration)acceleration;
 
+- (NSString *)csvString;
+
 @end

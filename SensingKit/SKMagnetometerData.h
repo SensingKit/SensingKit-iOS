@@ -31,4 +31,6 @@
 
 - (instancetype)initWithMagneticField:(CMMagneticField)magneticField;
 
+- (NSString *)csvString;
+
 @end

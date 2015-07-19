@@ -35,4 +35,13 @@
     return self;
 }
 
+- (NSString *)csvString
+{
+    return [NSString stringWithFormat:@"%f,%f,%f,%f",
+            [self timestampEpoch],
+            _magneticField.x,
+            _magneticField.y,
+            _magneticField.z];
+}
+
 @end
