@@ -35,4 +35,17 @@
     return self;
 }
 
+- (NSString *)csvString
+{
+    return [NSString stringWithFormat:@"%f,%f,%f,%f,%f,%f,%f,%f",
+            [self timestampEpoch],
+            _location.coordinate.latitude,
+            _location.coordinate.longitude,
+            _location.altitude,
+            _location.horizontalAccuracy,
+            _location.verticalAccuracy,
+            _location.speed,
+            _location.course];
+}
+
 @end

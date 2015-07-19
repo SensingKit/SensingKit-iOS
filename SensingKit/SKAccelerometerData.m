@@ -35,4 +35,13 @@
     return self;
 }
 
+- (NSString *)csvString
+{
+    return [NSString stringWithFormat:@"%f,%f,%f,%f",
+            [self timestampEpoch],
+            _acceleration.x,
+            _acceleration.y,
+            _acceleration.z];
+}
+
 @end

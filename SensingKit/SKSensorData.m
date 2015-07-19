@@ -45,4 +45,33 @@
     return self;
 }
 
++ (NSDateFormatter *)dateFormatter
+{
+    static NSDateFormatter *dateFormatter = nil;
+    
+    if (dateFormatter == nil)
+    {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+        dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss.SSS";
+    }
+    return dateFormatter;
+}
+
+- (NSString *)timestampString
+{
+    return [[SKSensorData dateFormatter] stringFromDate:_timestamp];
+}
+
+- (double)timestampEpoch
+{
+    return _timestamp.timeIntervalSince1970;
+}
+
+- (NSString *)csvString
+{
+    NSLog(@"Error: csvString method has not be implemented in the parent SKSensorData file.");
+    abort();
+}
+
 @end

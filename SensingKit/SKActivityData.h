@@ -31,4 +31,6 @@
 
 - (instancetype)initWithActivity:(CMMotionActivity *)activity;
 
+- (NSString *)csvString;
+
 @end
