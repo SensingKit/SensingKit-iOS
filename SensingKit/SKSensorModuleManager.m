@@ -73,7 +73,7 @@
     }
     
     SKAbstractSensorModule *sensorModule = [self createSensorModule:moduleType];
-    [self.sensorModules insertObject:sensorModule atIndex:moduleType];
+    [self.sensorModules replaceObjectAtIndex:moduleType withObject:sensorModule];
 }
 
 - (void)deregisterSensorModule:(SKSensorModuleType)moduleType
