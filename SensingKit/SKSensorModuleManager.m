@@ -28,7 +28,7 @@
 // SensorModules
 #import "SKBattery.h"
 #import "SKLocation.h"
-#import "SKProximity.h"
+#import "SKBeacon.h"
 #import "SKAccelerometer.h"
 #import "SKGyroscope.h"
 #import "SKMagnetometer.h"
@@ -209,9 +209,9 @@
             sensorModule = [[SKLocation alloc] init];
             break;
             
-        case Proximity:
-            sensorModule = [[SKProximity alloc] initWithUUID:[[NSUUID alloc] initWithUUIDString:@"d45a1046-15b0-11e5-b60b-1697f925ec7b"]
-                                                withDeviceId:arc4random_uniform(65535)];  // Random id
+        case Beacon:
+            sensorModule = [[SKBeacon alloc] initWithUUID:[[NSUUID alloc] initWithUUIDString:@"d45a1046-15b0-11e5-b60b-1697f925ec7b"]
+                                             withDeviceId:arc4random_uniform(65535)];  // Random id
             break;
             
             // Don't forget to break!
@@ -249,8 +249,8 @@
         case Location:
             return @"Location";
             
-        case Proximity:
-            return @"Proximity";
+        case Beacon:
+            return @"Beacon";
             
         default:
             return [NSString stringWithFormat:@"Unknown SensorModule: %li", (long)moduleType];

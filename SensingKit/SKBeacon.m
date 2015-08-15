@@ -1,6 +1,6 @@
 //
-//  SKiBeaconSensing.m
-//  iBeaconSensing
+//  SKBeacon.m
+//  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
 //  Kleomenis Katevas, k.katevas@qmul.ac.uk
@@ -22,10 +22,10 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKProximity.h"
-#import "SKProximityData.h"
+#import "SKBeacon.h"
+#import "SKBeaconData.h"
 
-@interface SKProximity()
+@interface SKBeacon()
 
 @property (strong, nonatomic) CLBeaconRegion      *broadcast_beaconRegion;
 @property (strong, nonatomic) CLBeaconRegion      *scan_beaconRegion;
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation SKProximity
+@implementation SKBeacon
 
 - (instancetype)initWithUUID:(NSUUID *)UUID
                 withDeviceId:(NSUInteger)device_id
@@ -42,13 +42,13 @@
     if (self = [super init])
     {
         // init iBeacon managers
-        [self initProximitySensingWithUUID:UUID withDeviceId:device_id];
+        [self initBeaconSensingWithUUID:UUID withDeviceId:device_id];
     }
     return self;
 }
 
-- (void)initProximitySensingWithUUID:(NSUUID *)UUID
-                        withDeviceId:(NSUInteger)device_id
+- (void)initBeaconSensingWithUUID:(NSUUID *)UUID
+                     withDeviceId:(NSUInteger)device_id
 {
     // Get a unique identifier for the device
     NSString *identifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
@@ -146,10 +146,10 @@
     {
         if (beacon)
         {
-            SKProximityData *data = [[SKProximityData alloc] initWithIdentifier:beacon.major.stringValue
-                                                                   withAccuracy:beacon.accuracy
-                                                                  withProximity:beacon.proximity
-                                                                       withRssi:beacon.rssi];
+            SKBeaconData *data = [[SKBeaconData alloc] initWithIdentifier:beacon.major.stringValue
+                                                             withAccuracy:beacon.accuracy
+                                                            withProximity:beacon.proximity
+                                                                 withRssi:beacon.rssi];
             
             [self submitSensorData:data];
         }

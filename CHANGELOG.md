@@ -1,5 +1,8 @@
 # Changelog
 
+### Next
+	- Renamed Proximity sensor to Beacon.
+
 ### 0.1.2
   - Fix crash with error message “SensorModule is already registered”.
 

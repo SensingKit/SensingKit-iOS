@@ -1,5 +1,5 @@
 //
-//  SKProximityData.m
+//  SKiBeaconData.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,54 +22,24 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKProximityData.h"
+#import <Foundation/Foundation.h>
+#import "SKSensorData.h"
+@import CoreLocation;
 
-@implementation SKProximityData
+@interface SKBeaconData : SKSensorData
+
+@property (nonatomic, strong, readonly) NSString *identifier;
+@property (nonatomic, readonly) CLLocationAccuracy accuracy;
+@property (nonatomic, readonly) CLProximity proximity;
+@property (nonatomic, readonly) NSInteger rssi;
 
 - (instancetype)initWithIdentifier:(NSString *)identifier
                       withAccuracy:(CLLocationAccuracy)accuracy
                      withProximity:(CLProximity)proximity
-                          withRssi:(NSInteger)rssi
-{
-    if (self = [super init])
-    {
-        _identifier = identifier;
-        _accuracy = accuracy;
-        _proximity = proximity;
-        _rssi = rssi;
-    }
-    return self;
-}
+                          withRssi:(NSInteger)rssi;
 
-- (NSString *)proximityString
-{
-    switch (_proximity) {
-        case CLProximityImmediate:
-            return @"Immediate";
+- (NSString *)proximityString;
 
-        case CLProximityNear:
-            return @"Near";
-            
-        case CLProximityFar:
-            return @"Far";
-            
-        case CLProximityUnknown:
-            return @"Unknown";
-            
-        default:
-            NSLog(@"Warning: Unknown proximity: %d", (int)_proximity);
-            return @"Unknown";
-    }
-}
-
-- (NSString *)csvString
-{
-    return [NSString stringWithFormat:@"%f,%@,%f,%@,%ld",
-            [self timestampEpoch],
-            _identifier,
-            _accuracy,
-            [self proximityString],
-            (long)_rssi];
-}
+- (NSString *)csvString;
 
 @end

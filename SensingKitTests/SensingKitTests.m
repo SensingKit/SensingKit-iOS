@@ -88,7 +88,7 @@
     [self.sensingKit registerSensorModule:Activity];
     [self.sensingKit registerSensorModule:Battery];
     [self.sensingKit registerSensorModule:Location];
-    [self.sensingKit registerSensorModule:Proximity];
+    [self.sensingKit registerSensorModule:Beacon];
     
     // test deregistration
     [self.sensingKit deregisterSensorModule:Accelerometer];
@@ -98,7 +98,7 @@
     [self.sensingKit deregisterSensorModule:Activity];
     [self.sensingKit deregisterSensorModule:Battery];
     [self.sensingKit deregisterSensorModule:Location];
-    [self.sensingKit deregisterSensorModule:Proximity];
+    [self.sensingKit deregisterSensorModule:Beacon];
 }
 
 @end
