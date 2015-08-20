@@ -64,7 +64,7 @@
 		CFBB415419B92514002AE1A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFBB415219B92514002AE1A9 /* InfoPlist.strings */; };
 		CFBB415619B92514002AE1A9 /* SensingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB415519B92514002AE1A9 /* SensingKitTests.m */; };
 		CFBB416719B928C2002AE1A9 /* SKBattery.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416019B928C2002AE1A9 /* SKBattery.m */; };
-		CFBB416819B928C2002AE1A9 /* SKBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* SKBeacon.m */; };
+		CFBB416819B928C2002AE1A9 /* SKiBeaconProximity.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* SKiBeaconProximity.m */; };
 		CFBB416919B928C2002AE1A9 /* SKLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* SKLocation.m */; };
 /* End PBXBuildFile section */
 
@@ -161,8 +161,8 @@
 		CFBB415519B92514002AE1A9 /* SensingKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKitTests.m; sourceTree = "<group>"; };
 		CFBB415F19B928C2002AE1A9 /* SKBattery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBattery.h; sourceTree = "<group>"; };
 		CFBB416019B928C2002AE1A9 /* SKBattery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBattery.m; sourceTree = "<group>"; };
-		CFBB416119B928C2002AE1A9 /* SKBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBeacon.h; sourceTree = "<group>"; };
-		CFBB416219B928C2002AE1A9 /* SKBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBeacon.m; sourceTree = "<group>"; };
+		CFBB416119B928C2002AE1A9 /* SKiBeaconProximity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKiBeaconProximity.h; sourceTree = "<group>"; };
+		CFBB416219B928C2002AE1A9 /* SKiBeaconProximity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKiBeaconProximity.m; sourceTree = "<group>"; };
 		CFBB416319B928C2002AE1A9 /* SKLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLocation.h; sourceTree = "<group>"; };
 		CFBB416419B928C2002AE1A9 /* SKLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,8 +313,8 @@
 				CFBB416019B928C2002AE1A9 /* SKBattery.m */,
 				CFBB416319B928C2002AE1A9 /* SKLocation.h */,
 				CFBB416419B928C2002AE1A9 /* SKLocation.m */,
-				CFBB416119B928C2002AE1A9 /* SKBeacon.h */,
-				CFBB416219B928C2002AE1A9 /* SKBeacon.m */,
+				CFBB416119B928C2002AE1A9 /* SKiBeaconProximity.h */,
+				CFBB416219B928C2002AE1A9 /* SKiBeaconProximity.m */,
 			);
 			name = SensorModules;
 			sourceTree = "<group>";
@@ -446,7 +446,7 @@
 				CFB0D9491B5268FC00A7982B /* SKGyroscopeData.m in Sources */,
 				CFBB416919B928C2002AE1A9 /* SKLocation.m in Sources */,
 				CFB0D93D1B4FFA1D00A7982B /* SKGyroscope.m in Sources */,
-				CFBB416819B928C2002AE1A9 /* SKBeacon.m in Sources */,
+				CFBB416819B928C2002AE1A9 /* SKiBeaconProximity.m in Sources */,
 				CF8E9BD01B3200E7005AC2FC /* SKBeaconData.m in Sources */,
 				CFB0D94C1B52690500A7982B /* SKMagnetometerData.m in Sources */,
 				CFB0D94F1B52698C00A7982B /* SKDeviceMotionData.m in Sources */,
@@ -586,6 +586,10 @@
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/SensingKit.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -602,6 +606,10 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/SensingKit.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";

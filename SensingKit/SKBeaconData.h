@@ -28,15 +28,17 @@
 
 @interface SKBeaconData : SKSensorData
 
-@property (nonatomic, strong, readonly) NSString *identifier;
+@property (nonatomic, readonly) NSUInteger major;
+@property (nonatomic, readonly) NSUInteger minor;
 @property (nonatomic, readonly) CLLocationAccuracy accuracy;
 @property (nonatomic, readonly) CLProximity proximity;
 @property (nonatomic, readonly) NSInteger rssi;
 
-- (instancetype)initWithIdentifier:(NSString *)identifier
-                      withAccuracy:(CLLocationAccuracy)accuracy
-                     withProximity:(CLProximity)proximity
-                          withRssi:(NSInteger)rssi;
+- (instancetype)initWithMajor:(NSUInteger)major
+                    withMinor:(NSUInteger)minor
+                 withAccuracy:(CLLocationAccuracy)accuracy
+                withProximity:(CLProximity)proximity
+                     withRssi:(NSInteger)rssi;
 
 - (NSString *)proximityString;
 

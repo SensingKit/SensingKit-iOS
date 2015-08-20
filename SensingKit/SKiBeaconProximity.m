@@ -1,5 +1,5 @@
 //
-//  SKBeacon.m
+//  SKiBeaconProximity.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,10 +22,10 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBeacon.h"
+#import "SKiBeaconProximity.h"
 #import "SKBeaconData.h"
 
-@interface SKBeacon()
+@interface SKiBeaconProximity()
 
 @property (strong, nonatomic) CLBeaconRegion      *broadcast_beaconRegion;
 @property (strong, nonatomic) CLBeaconRegion      *scan_beaconRegion;
@@ -34,27 +34,32 @@
 
 @end
 
-@implementation SKBeacon
+@implementation SKiBeaconProximity
 
 - (instancetype)initWithUUID:(NSUUID *)UUID
-                withDeviceId:(NSUInteger)device_id
+                   withMajor:(NSUInteger)major
+                   withMinor:(NSUInteger)minor
 {
     if (self = [super init])
     {
         // init iBeacon managers
-        [self initBeaconSensingWithUUID:UUID withDeviceId:device_id];
+        [self initBeaconSensingWithUUID:UUID
+                              withMajor:major
+                              withMinor:minor];
     }
     return self;
 }
 
 - (void)initBeaconSensingWithUUID:(NSUUID *)UUID
-                     withDeviceId:(NSUInteger)device_id
+                        withMajor:(NSUInteger)major
+                        withMinor:(NSUInteger)minor
 {
     // Get a unique identifier for the device
     NSString *identifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
     self.broadcast_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:UUID
-                                                                          major:device_id
+                                                                          major:major
+                                                                          minor:minor
                                                                      identifier:identifier];
     
     self.scan_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:UUID
@@ -146,10 +151,11 @@
     {
         if (beacon)
         {
-            SKBeaconData *data = [[SKBeaconData alloc] initWithIdentifier:beacon.major.stringValue
-                                                             withAccuracy:beacon.accuracy
-                                                            withProximity:beacon.proximity
-                                                                 withRssi:beacon.rssi];
+            SKBeaconData *data = [[SKBeaconData alloc] initWithMajor:beacon.major.unsignedIntegerValue
+                                                           withMinor:beacon.minor.unsignedIntegerValue
+                                                        withAccuracy:beacon.accuracy
+                                                       withProximity:beacon.proximity
+                                                            withRssi:beacon.rssi];
             
             [self submitSensorData:data];
         }

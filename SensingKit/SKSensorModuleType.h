@@ -30,5 +30,5 @@ typedef NS_ENUM(NSInteger, SKSensorModuleType) {
     Activity,
     Battery,
     Location,
-    Beacon
+    iBeaconProximity
 };

@@ -1,5 +1,5 @@
 //
-//  SKBeacon.h
+//  SKiBeaconProximity.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -28,9 +28,10 @@
 @import CoreBluetooth;
 @import CoreLocation;
 
-@interface SKBeacon : SKAbstractSensorModule<CBPeripheralManagerDelegate, CLLocationManagerDelegate>
+@interface SKiBeaconProximity : SKAbstractSensorModule<CBPeripheralManagerDelegate, CLLocationManagerDelegate>
 
 - (instancetype)initWithUUID:(NSUUID *)UUID
-                withDeviceId:(NSUInteger)device_id;
+                   withMajor:(NSUInteger)major
+                   withMinor:(NSUInteger)minor;
 
 @end

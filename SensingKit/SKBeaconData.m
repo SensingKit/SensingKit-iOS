@@ -26,14 +26,16 @@
 
 @implementation SKBeaconData
 
-- (instancetype)initWithIdentifier:(NSString *)identifier
-                      withAccuracy:(CLLocationAccuracy)accuracy
-                     withProximity:(CLProximity)proximity
-                          withRssi:(NSInteger)rssi
+- (instancetype)initWithMajor:(NSUInteger)major
+                    withMinor:(NSUInteger)minor
+                 withAccuracy:(CLLocationAccuracy)accuracy
+                withProximity:(CLProximity)proximity
+                     withRssi:(NSInteger)rssi
 {
     if (self = [super init])
     {
-        _identifier = identifier;
+        _major = major;
+        _minor = minor;
         _accuracy = accuracy;
         _proximity = proximity;
         _rssi = rssi;
@@ -64,9 +66,10 @@
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%@,%f,%@,%ld",
+    return [NSString stringWithFormat:@"%f,%lu,%lu,%f,%@,%ld",
             [self timestampEpoch],
-            _identifier,
+            (unsigned long)_major,
+            (unsigned long)_minor,
             _accuracy,
             [self proximityString],
             (long)_rssi];
