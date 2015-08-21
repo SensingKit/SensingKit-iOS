@@ -76,4 +76,25 @@
             (long)_rssi];
 }
 
+- (NSDictionary *)dictionaryData
+{
+    return @{
+             @"sensorType": @(self.moduleType),
+             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"timestamp": @{
+                     @"timestamp": self.timestamp,
+                     @"timestampEpoch": @(self.timestampEpoch),
+                     @"timestampString": self.timestampString
+                     },
+             @"iBeacon": @{
+                     @"major": @(_major),
+                     @"minor": @(_minor),
+                     @"accuracy": @(_accuracy),
+                     @"proximity": @(_proximity),
+                     @"proximityString": self.proximityString,
+                     @"rssi": @(_rssi)
+                     }
+             };
+}
+
 @end

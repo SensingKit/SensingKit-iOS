@@ -67,6 +67,7 @@
 		CFBB416819B928C2002AE1A9 /* SKiBeaconProximity.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* SKiBeaconProximity.m */; };
 		CFBB416919B928C2002AE1A9 /* SKLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* SKLocation.m */; };
 		CFD450221B8738DC00E2E78D /* SKProximityData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450211B8738DC00E2E78D /* SKProximityData.m */; };
+		CFD450251B875B5A00E2E78D /* NSString+SensorModuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,8 @@
 		CFBB416419B928C2002AE1A9 /* SKLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLocation.m; sourceTree = "<group>"; };
 		CFD450201B8738DC00E2E78D /* SKProximityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProximityData.h; sourceTree = "<group>"; };
 		CFD450211B8738DC00E2E78D /* SKProximityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximityData.m; sourceTree = "<group>"; };
+		CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SensorModuleType.h"; sourceTree = "<group>"; };
+		CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SensorModuleType.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +264,8 @@
 				CFBB416B19B928CF002AE1A9 /* SensorModules */,
 				CF11F8B41B2F4A910094C9DF /* SensorData */,
 				CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */,
+				CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */,
+				CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */,
 				CF11F8801B2C6D7D0094C9DF /* SKSensorModuleManager.h */,
 				CF11F8811B2C6D7D0094C9DF /* SKSensorModuleManager.m */,
 				CFBB413E19B92514002AE1A9 /* SensingKitLib.h */,
@@ -447,6 +452,7 @@
 			files = (
 				CFB0D9461B5268EF00A7982B /* SKAccelerometerData.m in Sources */,
 				CF11F8C31B2F77940094C9DF /* SKLocationData.m in Sources */,
+				CFD450251B875B5A00E2E78D /* NSString+SensorModuleType.m in Sources */,
 				CFB0D9401B4FFA2700A7982B /* SKMagnetometer.m in Sources */,
 				CFB0D9491B5268FC00A7982B /* SKGyroscopeData.m in Sources */,
 				CFBB416919B928C2002AE1A9 /* SKLocation.m in Sources */,

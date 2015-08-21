@@ -42,4 +42,25 @@
     return [[self.devices valueForKey:@"description"] componentsJoinedByString:@"\n"];
 }
 
+- (NSDictionary *)dictionaryData
+{
+    // Get the dictionaries of all devices
+    NSMutableArray *dictionaries = [[NSMutableArray alloc] initWithCapacity:self.devices.count];
+    
+    for (SKSensorData *device in self.devices) {
+        [dictionaries addObject:[device dictionaryData]];
+    }
+    
+    return @{
+             @"sensorType": @(self.moduleType),
+             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"timestamp": @{
+                     @"timestamp": self.timestamp,
+                     @"timestampEpoch": @(self.timestampEpoch),
+                     @"timestampString": self.timestampString
+                     },
+             @"devices": dictionaries
+             };
+}
+
 @end

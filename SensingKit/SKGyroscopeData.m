@@ -44,4 +44,22 @@
             _rotationRate.z];
 }
 
+- (NSDictionary *)dictionaryData
+{
+    return @{
+             @"sensorType": @(self.moduleType),
+             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"timestamp": @{
+                     @"timestamp": self.timestamp,
+                     @"timestampEpoch": @(self.timestampEpoch),
+                     @"timestampString": self.timestampString
+                     },
+             @"rotationRate": @{
+                     @"x": @(_rotationRate.x),
+                     @"y": @(_rotationRate.y),
+                     @"z": @(_rotationRate.z)
+                     }
+             };
+}
+
 @end

@@ -44,4 +44,22 @@
             _magneticField.z];
 }
 
+- (NSDictionary *)dictionaryData
+{
+    return @{
+             @"sensorType": @(self.moduleType),
+             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"timestamp": @{
+                     @"timestamp": self.timestamp,
+                     @"timestampEpoch": @(self.timestampEpoch),
+                     @"timestampString": self.timestampString
+                     },
+             @"magneticField": @{
+                     @"x": @(_magneticField.x),
+                     @"y": @(_magneticField.y),
+                     @"z": @(_magneticField.z)
+                     }
+             };
+}
+
 @end

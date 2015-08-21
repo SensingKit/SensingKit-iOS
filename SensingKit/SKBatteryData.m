@@ -65,4 +65,22 @@
             _level];
 }
 
+- (NSDictionary *)dictionaryData
+{
+    return @{
+             @"sensorType": @(self.moduleType),
+             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"timestamp": @{
+                     @"timestamp": self.timestamp,
+                     @"timestampEpoch": @(self.timestampEpoch),
+                     @"timestampString": self.timestampString
+                     },
+             @"battery": @{
+                     @"level": @(_level),
+                     @"state": @(_state),
+                     @"stateString": self.stateString
+                     }
+             };
+}
+
 @end

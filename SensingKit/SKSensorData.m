@@ -78,4 +78,10 @@
     abort();
 }
 
+- (NSDictionary *)dictionaryData
+{
+    NSLog(@"Error: dictionaryData method has not be implemented in the parent SKSensorData file.");
+    abort();
+}
+
 @end

@@ -55,15 +55,38 @@
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%f,%d,%d,%d,%d,%d,%@",
+    return [NSString stringWithFormat:@"%f,%f,%d,%d,%d,%d,%d,%d,%@",
             [self timestampEpoch],
             _activity.timestamp,
             _activity.stationary,
             _activity.walking,
             _activity.running,
             _activity.automotive,
+            _activity.cycling,
             _activity.unknown,
             [self confidenceString]];
+}
+
+- (NSDictionary *)dictionaryData
+{
+    return @{
+             @"sensorType": @(self.moduleType),
+             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"timestamp": @{
+                     @"timestamp": self.timestamp,
+                     @"timestampEpoch": @(self.timestampEpoch),
+                     @"timestampString": self.timestampString
+                     },
+             @"startDate": _activity.startDate,
+             @"activity": @{
+                     @"stationary": @(_activity.stationary),
+                     @"walking": @(_activity.walking),
+                     @"running": @(_activity.running),
+                     @"automotive": @(_activity.automotive),
+                     @"cycling": @(_activity.cycling),
+                     @"unknown": @(_activity.unknown)
+                     }
+             };
 }
 
 @end

@@ -1,6 +1,7 @@
 # Changelog
 
 ### Next
+	- Add dictionaryData method for returning all sensor data as an NSDictionary.
 	- Add moduleType property in SKSensorData.
 	- Rename Proximity sensor into iBeaconProximity.
 	- Add generic SKProximityData that encapsulates multiple SKBeaconDeviceData.

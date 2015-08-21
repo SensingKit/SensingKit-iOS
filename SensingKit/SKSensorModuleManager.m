@@ -24,6 +24,7 @@
 
 #import "SKSensorModuleManager.h"
 #import "SKAbstractSensorModule.h"
+#import "NSString+SensorModuleType.h"
 
 // SensorModules
 #import "SKBattery.h"
@@ -64,7 +65,7 @@
 
 - (void)registerSensorModule:(SKSensorModuleType)moduleType
 {
-    NSLog(@"Register sensor: %@.", [self getSensorModuleInString:moduleType]);
+    NSLog(@"Register sensor: %@.", [NSString stringWithSensorModuleType:moduleType]);
     
     if ([self isSensorModuleRegistered:moduleType]) {
         
@@ -78,7 +79,7 @@
 
 - (void)deregisterSensorModule:(SKSensorModuleType)moduleType
 {
-    NSLog(@"Deregister sensor: %@.", [self getSensorModuleInString:moduleType]);
+    NSLog(@"Deregister sensor: %@.", [NSString stringWithSensorModuleType:moduleType]);
     
     if (![self isSensorModuleRegistered:moduleType]) {
         
@@ -110,7 +111,7 @@
 - (void)subscribeSensorDataListenerToSensor:(SKSensorModuleType)moduleType
                                 withHandler:(SKSensorDataHandler)handler {
     
-    NSLog(@"Subscribe to sensor: %@.", [self getSensorModuleInString:moduleType]);
+    NSLog(@"Subscribe to sensor: %@.", [NSString stringWithSensorModuleType:moduleType]);
     
     [[self getSensorModule:moduleType] subscribeSensorDataListener:handler];
 }
@@ -118,7 +119,7 @@
 - (void)unsubscribeSensorDataListenerFromSensor:(SKSensorModuleType)moduleType
                                       ofHandler:(SKSensorDataHandler)handler
 {
-    NSLog(@"Unsubscribe from sensor: %@.", [self getSensorModuleInString:moduleType]);
+    NSLog(@"Unsubscribe from sensor: %@.", [NSString stringWithSensorModuleType:moduleType]);
     
     [[self getSensorModule:moduleType] unsubscribeSensorDataListener:handler];
 }
@@ -132,11 +133,11 @@
 
 - (void)startContinuousSensingWithSensor:(SKSensorModuleType)moduleType
 {
-    NSLog(@"Start sensing with sensor: %@.", [self getSensorModuleInString:moduleType]);
+    NSLog(@"Start sensing with sensor: %@.", [NSString stringWithSensorModuleType:moduleType]);
     
     if ([self isSensorModuleSensing:moduleType]) {
         
-        NSLog(@"SensorModule '%@' is already sensing.", [self getSensorModuleInString:moduleType]);
+        NSLog(@"SensorModule '%@' is already sensing.", [NSString stringWithSensorModuleType:moduleType]);
         abort();
     }
     
@@ -146,11 +147,11 @@
 
 - (void)stopContinuousSensingWithSensor:(SKSensorModuleType)moduleType
 {
-    NSLog(@"Stop sensing with sensor: %@.", [self getSensorModuleInString:moduleType]);
+    NSLog(@"Stop sensing with sensor: %@.", [NSString stringWithSensorModuleType:moduleType]);
     
     if (![self isSensorModuleSensing:moduleType]) {
         
-        NSLog(@"SensorModule '%@' is already not sensing.", [self getSensorModuleInString:moduleType]);
+        NSLog(@"SensorModule '%@' is already not sensing.", [NSString stringWithSensorModuleType:moduleType]);
         abort();
     }
     
@@ -168,7 +169,7 @@
 {
     if (![self isSensorModuleRegistered:moduleType]) {
         
-        NSLog(@"SensorModule '%@' is not registered.", [self getSensorModuleInString:moduleType]);
+        NSLog(@"SensorModule '%@' is not registered.", [NSString stringWithSensorModuleType:moduleType]);
         abort();
     }
     
@@ -223,39 +224,6 @@
     }
     
     return sensorModule;
-}
-
-- (NSString *)getSensorModuleInString:(SKSensorModuleType)moduleType
-{
-    switch (moduleType) {
-            
-        case Accelerometer:
-            return @"Accelerometer";
-            
-        case Gyroscope:
-            return @"Gyroscope";
-            
-        case Magnetometer:
-            return @"Magnetometer";
-            
-        case DeviceMotion:
-            return @"DeviceMotion";
-            
-        case Activity:
-            return @"Activity";
-            
-        case Battery:
-            return @"Battery";
-            
-        case Location:
-            return @"Location";
-            
-        case iBeaconProximity:
-            return @"iBeaconProximity";
-            
-        default:
-            return [NSString stringWithFormat:@"Unknown SensorModule: %li", (long)moduleType];
-    }
 }
 
 @end

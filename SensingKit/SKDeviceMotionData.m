@@ -65,4 +65,45 @@
             _userAcceleration.z];
 }
 
+- (NSDictionary *)dictionaryData
+{
+    return @{
+             @"sensorType": @(self.moduleType),
+             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"timestamp": @{
+                     @"timestamp": self.timestamp,
+                     @"timestampEpoch": @(self.timestampEpoch),
+                     @"timestampString": self.timestampString
+                     },
+             @"attitude": @{
+                     @"roll": @(_attitude.roll),
+                     @"pitch": @(_attitude.pitch),
+                     @"yaw": @(_attitude.yaw)
+                     },
+             @"gravity": @{
+                     @"x": @(_gravity.x),
+                     @"y": @(_gravity.y),
+                     @"z": @(_gravity.z)
+                     },
+             @"calibratedMagneticField": @{
+                     @"field": @{
+                             @"x": @(_magneticField.field.x),
+                             @"y": @(_magneticField.field.y),
+                             @"z": @(_magneticField.field.z)
+                             },
+                     @"accuracy" : @(_magneticField.accuracy)
+                     },
+             @"rotationRate": @{
+                     @"x": @(_rotationRate.x),
+                     @"y": @(_rotationRate.y),
+                     @"z": @(_rotationRate.z)
+                     },
+             @"userAcceleration": @{
+                     @"x": @(_userAcceleration.x),
+                     @"y": @(_userAcceleration.y),
+                     @"z": @(_userAcceleration.z)
+                     }
+             };
+}
+
 @end

@@ -48,4 +48,28 @@
             _location.course];
 }
 
+- (NSDictionary *)dictionaryData
+{
+    return @{
+             @"sensorType": @(self.moduleType),
+             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"timestamp": @{
+                     @"timestamp": self.timestamp,
+                     @"timestampEpoch": @(self.timestampEpoch),
+                     @"timestampString": self.timestampString
+                     },
+             @"location": @{
+                     @"coordinate": @{
+                             @"latitude": @(_location.coordinate.latitude),
+                             @"longitude": @(_location.coordinate.longitude)
+                             },
+                     @"altitude": @(_location.altitude),
+                     @"horizontalAccuracy": @(_location.horizontalAccuracy),
+                     @"verticalAccuracy": @(_location.verticalAccuracy),
+                     @"speed": @(_location.speed),
+                     @"course": @(_location.course)
+                     }
+             };
+}
+
 @end

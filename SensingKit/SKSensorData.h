@@ -24,6 +24,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SKSensorModuleType.h"
+#import "NSString+SensorModuleType.h"
 
 @interface SKSensorData : NSObject
 
@@ -41,5 +42,6 @@
 - (double)timestampEpoch;
 
 - (NSString *)csvString;
+- (NSDictionary *)dictionaryData;
 
 @end
