@@ -51,6 +51,10 @@
 
 - (void)stopContinuousSensingWithSensor:(SKSensorModuleType)moduleType;
 
+- (void)startContinuousSensingWithAllRegisteredSensors;
+
+- (void)stopContinuousSensingWithAllRegisteredSensors;
+
 - (BOOL)isSensorModuleSensing:(SKSensorModuleType)moduleType;
 
 @end

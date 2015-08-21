@@ -159,6 +159,30 @@
     [[self getSensorModule:moduleType] stopSensing];
 }
 
+- (void)startContinuousSensingWithAllRegisteredSensors
+{
+    for (NSInteger i = 0; i < TOTAL_SENSOR_MODULES; i++) {
+        
+        SKSensorModuleType moduleType = i;
+        
+        if ([self isSensorModuleRegistered:moduleType]) {
+            [self startContinuousSensingWithSensor:moduleType];
+        }
+    }
+}
+
+- (void)stopContinuousSensingWithAllRegisteredSensors
+{
+    for (NSInteger i = 0; i < TOTAL_SENSOR_MODULES; i++) {
+        
+        SKSensorModuleType moduleType = i;
+        
+        if ([self isSensorModuleRegistered:moduleType]) {
+            [self stopContinuousSensingWithSensor:moduleType];
+        }
+    }
+}
+
 - (BOOL)isSensorModuleSensing:(SKSensorModuleType)moduleType
 {
     return [[self getSensorModule:moduleType] isSensing];

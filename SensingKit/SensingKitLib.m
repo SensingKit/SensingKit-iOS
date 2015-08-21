@@ -104,6 +104,16 @@
     [self.sensorModuleManager stopContinuousSensingWithSensor:moduleType];
 }
 
+- (void)startContinuousSensingWithAllRegisteredSensors
+{
+    [self.sensorModuleManager startContinuousSensingWithAllRegisteredSensors];
+}
+
+- (void)stopContinuousSensingWithAllRegisteredSensors
+{
+    [self.sensorModuleManager stopContinuousSensingWithAllRegisteredSensors];
+}
+
 - (BOOL)isSensorModuleSensing:(SKSensorModuleType)moduleType
 {
     return [self.sensorModuleManager isSensorModuleSensing:moduleType];
