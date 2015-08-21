@@ -68,6 +68,7 @@
 		CFBB416919B928C2002AE1A9 /* SKLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* SKLocation.m */; };
 		CFD450221B8738DC00E2E78D /* SKProximityData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450211B8738DC00E2E78D /* SKProximityData.m */; };
 		CFD450251B875B5A00E2E78D /* NSString+SensorModuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */; };
+		CFD450261B878A6900E2E78D /* NSString+SensorModuleType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CFD450261B878A6900E2E78D /* NSString+SensorModuleType.h in CopyFiles */,
 				CFB0D9591B52AD7500A7982B /* SKAccelerometerData.h in CopyFiles */,
 				CFB0D95A1B52AD7500A7982B /* SKGyroscopeData.h in CopyFiles */,
 				CFB0D95B1B52AD7500A7982B /* SKMagnetometerData.h in CopyFiles */,
