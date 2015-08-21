@@ -23,7 +23,8 @@
 //
 
 #import "SKiBeaconProximity.h"
-#import "SKiBeaconProximityData.h"
+#import "SKProximityData.h"
+#import "SKBeaconDeviceData.h"
 
 @interface SKiBeaconProximity()
 
@@ -144,19 +145,31 @@
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
+    // Get current timestamp
+    NSDate *timestamp = [NSDate date];
+    
+    // Create an array that will hold the SKBeaconDeviceData objects
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:beacons.count];
+    
+    // Add the objects
     for (CLBeacon *beacon in beacons)
     {
         if (beacon)
         {
-            SKiBeaconProximityData *data = [[SKiBeaconProximityData alloc] initWithMajor:beacon.major.unsignedIntegerValue
-                                                                               withMinor:beacon.minor.unsignedIntegerValue
-                                                                            withAccuracy:beacon.accuracy
-                                                                           withProximity:beacon.proximity
-                                                                                withRssi:beacon.rssi];
+            SKBeaconDeviceData *deviceData = [[SKBeaconDeviceData alloc] initWithTimestamp:timestamp
+                                                                                 withMajor:beacon.major.unsignedIntegerValue
+                                                                                 withMinor:beacon.minor.unsignedIntegerValue
+                                                                              withAccuracy:beacon.accuracy
+                                                                             withProximity:beacon.proximity
+                                                                                  withRssi:beacon.rssi];
             
-            [self submitSensorData:data];
+            [array addObject:deviceData];
         }
     }
+    
+    // Create and submit the SKProximityData object
+    SKProximityData *data = [[SKProximityData alloc] initWithTimestamp:timestamp withDevices:array];
+    [self submitSensorData:data];
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error

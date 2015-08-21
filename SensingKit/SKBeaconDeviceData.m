@@ -1,5 +1,5 @@
 //
-//  SKBeaconData.m
+//  SKBeaconDeviceData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,17 +22,18 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKiBeaconProximityData.h"
+#import "SKBeaconDeviceData.h"
 
-@implementation SKiBeaconProximityData
+@implementation SKBeaconDeviceData
 
-- (instancetype)initWithMajor:(NSUInteger)major
-                    withMinor:(NSUInteger)minor
-                 withAccuracy:(CLLocationAccuracy)accuracy
-                withProximity:(CLProximity)proximity
-                     withRssi:(NSInteger)rssi
+- (instancetype)initWithTimestamp:(NSDate *)timestamp
+                        withMajor:(NSUInteger)major
+                        withMinor:(NSUInteger)minor
+                     withAccuracy:(CLLocationAccuracy)accuracy
+                    withProximity:(CLProximity)proximity
+                         withRssi:(NSInteger)rssi
 {
-    if (self = [super init])
+    if (self = [super initWithTimestamp:timestamp])
     {
         _major = major;
         _minor = minor;

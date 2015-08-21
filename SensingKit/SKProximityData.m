@@ -1,5 +1,5 @@
 //
-//  SKiBeaconData.h
+//  SKProximityData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,26 +22,23 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
-#import "SKSensorData.h"
-@import CoreLocation;
+#import "SKProximityData.h"
 
-@interface SKiBeaconProximityData : SKSensorData
+@implementation SKProximityData
 
-@property (nonatomic, readonly) NSUInteger major;
-@property (nonatomic, readonly) NSUInteger minor;
-@property (nonatomic, readonly) CLLocationAccuracy accuracy;
-@property (nonatomic, readonly) CLProximity proximity;
-@property (nonatomic, readonly) NSInteger rssi;
+- (instancetype)initWithTimestamp:(NSDate *)timestamp
+                      withDevices:(NSArray *)devices
+{
+    if (self = [super initWithTimestamp:timestamp])
+    {
+        _devices = devices;
+    }
+    return self;
+}
 
-- (instancetype)initWithMajor:(NSUInteger)major
-                    withMinor:(NSUInteger)minor
-                 withAccuracy:(CLLocationAccuracy)accuracy
-                withProximity:(CLProximity)proximity
-                     withRssi:(NSInteger)rssi;
-
-- (NSString *)proximityString;
-
-- (NSString *)csvString;
+- (NSString *)csvString
+{
+    return [[self.devices valueForKey:@"description"] componentsJoinedByString:@"\n"];
+}
 
 @end
