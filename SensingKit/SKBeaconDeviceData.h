@@ -43,6 +43,4 @@
 
 - (NSString *)proximityString;
 
-- (NSString *)csvString;
-
 @end

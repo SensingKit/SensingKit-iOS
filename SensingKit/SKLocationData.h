@@ -31,6 +31,4 @@
 
 - (instancetype)initWithLocation:(CLLocation *)location;
 
-- (NSString *)csvString;
-
 @end

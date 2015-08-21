@@ -33,6 +33,4 @@
 
 - (NSString *)stateString;
 
-- (NSString *)csvString;
-
 @end
