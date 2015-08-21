@@ -145,34 +145,42 @@
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    // Get current timestamp
-    NSDate *timestamp = [NSDate date];
-    
-    // Create an array that will hold the SKBeaconDeviceData objects
-    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:beacons.count];
-    
-    // Add the objects
-    for (CLBeacon *beacon in beacons)
-    {
-        if (beacon)
+    // Only if beacons exist
+    if (beacons.count) {
+        
+        // Get current timestamp
+        NSDate *timestamp = [NSDate date];
+        
+        // Create an array that will hold the SKBeaconDeviceData objects
+        NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:beacons.count];
+        
+        // Add the objects
+        for (CLBeacon *beacon in beacons)
         {
-            SKBeaconDeviceData *deviceData = [[SKBeaconDeviceData alloc] initWithTimestamp:timestamp
-                                                                                 withMajor:beacon.major.unsignedIntegerValue
-                                                                                 withMinor:beacon.minor.unsignedIntegerValue
-                                                                              withAccuracy:beacon.accuracy
-                                                                             withProximity:beacon.proximity
-                                                                                  withRssi:beacon.rssi];
+            if (beacon)
+            {
+                SKBeaconDeviceData *deviceData = [[SKBeaconDeviceData alloc] initWithTimestamp:timestamp
+                                                                                     withMajor:beacon.major.unsignedIntegerValue
+                                                                                     withMinor:beacon.minor.unsignedIntegerValue
+                                                                                  withAccuracy:beacon.accuracy
+                                                                                 withProximity:beacon.proximity
+                                                                                      withRssi:beacon.rssi];
+                
+                [array addObject:deviceData];
+            }
+        }
+        
+        // Only if beacons exist
+        if (array.count) {
             
-            [array addObject:deviceData];
+            // Create and submit the SKProximityData object
+            SKProximityData *data = [[SKProximityData alloc] initWithSensorModuleType:iBeaconProximity
+                                                                        withTimestamp:timestamp
+                                                                          withDevices:array];
+            
+            [self submitSensorData:data];
         }
     }
-    
-    // Create and submit the SKProximityData object
-    SKProximityData *data = [[SKProximityData alloc] initWithSensorModuleType:iBeaconProximity
-                                                                withTimestamp:timestamp
-                                                                  withDevices:array];
-    
-    [self submitSensorData:data];
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
