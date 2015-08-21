@@ -54,8 +54,7 @@
                         withMajor:(NSUInteger)major
                         withMinor:(NSUInteger)minor
 {
-    // Get a unique identifier for the device
-    NSString *identifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSString *identifier = @"org.sensingkit.iBeaconIdentifier";
     
     self.broadcast_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:UUID
                                                                           major:major
