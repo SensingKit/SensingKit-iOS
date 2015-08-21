@@ -1,5 +1,5 @@
 //
-//  SKBeaconData.m
+//  SKiBeaconData.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,57 +22,26 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBeaconData.h"
+#import <Foundation/Foundation.h>
+#import "SKSensorData.h"
+@import CoreLocation;
 
-@implementation SKBeaconData
+@interface SKiBeaconProximityData : SKSensorData
+
+@property (nonatomic, readonly) NSUInteger major;
+@property (nonatomic, readonly) NSUInteger minor;
+@property (nonatomic, readonly) CLLocationAccuracy accuracy;
+@property (nonatomic, readonly) CLProximity proximity;
+@property (nonatomic, readonly) NSInteger rssi;
 
 - (instancetype)initWithMajor:(NSUInteger)major
                     withMinor:(NSUInteger)minor
                  withAccuracy:(CLLocationAccuracy)accuracy
                 withProximity:(CLProximity)proximity
-                     withRssi:(NSInteger)rssi
-{
-    if (self = [super init])
-    {
-        _major = major;
-        _minor = minor;
-        _accuracy = accuracy;
-        _proximity = proximity;
-        _rssi = rssi;
-    }
-    return self;
-}
+                     withRssi:(NSInteger)rssi;
 
-- (NSString *)proximityString
-{
-    switch (_proximity) {
-        case CLProximityImmediate:
-            return @"Immediate";
+- (NSString *)proximityString;
 
-        case CLProximityNear:
-            return @"Near";
-            
-        case CLProximityFar:
-            return @"Far";
-            
-        case CLProximityUnknown:
-            return @"Unknown";
-            
-        default:
-            NSLog(@"Warning: Unknown proximity: %d", (int)_proximity);
-            return @"Unknown";
-    }
-}
-
-- (NSString *)csvString
-{
-    return [NSString stringWithFormat:@"%f,%lu,%lu,%f,%@,%ld",
-            [self timestampEpoch],
-            (unsigned long)_major,
-            (unsigned long)_minor,
-            _accuracy,
-            [self proximityString],
-            (long)_rssi];
-}
+- (NSString *)csvString;
 
 @end

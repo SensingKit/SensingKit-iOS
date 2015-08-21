@@ -23,7 +23,7 @@
 //
 
 #import "SKiBeaconProximity.h"
-#import "SKBeaconData.h"
+#import "SKiBeaconProximityData.h"
 
 @interface SKiBeaconProximity()
 
@@ -151,11 +151,11 @@
     {
         if (beacon)
         {
-            SKBeaconData *data = [[SKBeaconData alloc] initWithMajor:beacon.major.unsignedIntegerValue
-                                                           withMinor:beacon.minor.unsignedIntegerValue
-                                                        withAccuracy:beacon.accuracy
-                                                       withProximity:beacon.proximity
-                                                            withRssi:beacon.rssi];
+            SKiBeaconProximityData *data = [[SKiBeaconProximityData alloc] initWithMajor:beacon.major.unsignedIntegerValue
+                                                                               withMinor:beacon.minor.unsignedIntegerValue
+                                                                            withAccuracy:beacon.accuracy
+                                                                           withProximity:beacon.proximity
+                                                                                withRssi:beacon.rssi];
             
             [self submitSensorData:data];
         }
