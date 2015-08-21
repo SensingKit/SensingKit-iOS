@@ -28,7 +28,8 @@
 
 @property (nonatomic, strong, readonly) NSArray *devices;
 
-- (instancetype)initWithTimestamp:(NSDate *)timestamp
-                      withDevices:(NSArray *)devices;
+- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
+                           withTimestamp:(NSDate *)timestamp
+                             withDevices:(NSArray *)devices;
 
 @end

@@ -23,12 +23,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SKSensorModuleType.h"
 
 @interface SKSensorData : NSObject
 
-- (instancetype)init;
-- (instancetype)initWithTimestamp:(NSDate *)timestamp;
+- (id)init __attribute__((unavailable("SKSensorModuleType is required. Use initWithSensorModuleType: instead.")));
 
+- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType;
+
+- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
+                           withTimestamp:(NSDate *)timestamp;
+
+@property (nonatomic, readonly) SKSensorModuleType moduleType;
 @property (nonatomic, readonly, strong) NSDate *timestamp;
 
 - (NSString *)timestampString;

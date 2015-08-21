@@ -28,7 +28,7 @@
 
 - (instancetype)initWithLocation:(CLLocation *)location
 {
-    if (self = [super initWithTimestamp:location.timestamp])
+    if (self = [super initWithSensorModuleType:Location withTimestamp:location.timestamp])
     {
         _location = location;
     }

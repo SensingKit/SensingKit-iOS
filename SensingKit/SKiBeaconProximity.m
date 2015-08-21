@@ -168,7 +168,10 @@
     }
     
     // Create and submit the SKProximityData object
-    SKProximityData *data = [[SKProximityData alloc] initWithTimestamp:timestamp withDevices:array];
+    SKProximityData *data = [[SKProximityData alloc] initWithSensorModuleType:iBeaconProximity
+                                                                withTimestamp:timestamp
+                                                                  withDevices:array];
+    
     [self submitSensorData:data];
 }
 

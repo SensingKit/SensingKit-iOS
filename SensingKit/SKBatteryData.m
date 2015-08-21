@@ -28,7 +28,7 @@
 
 - (instancetype)initWithLevel:(CGFloat)level withState:(UIDeviceBatteryState)state
 {
-    if (self = [super init])
+    if (self = [super initWithSensorModuleType:Battery])
     {
         _level = level;
         _state = state;

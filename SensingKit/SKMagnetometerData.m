@@ -28,7 +28,7 @@
 
 - (instancetype)initWithMagneticField:(CMMagneticField)magneticField
 {
-    if (self = [super init])
+    if (self = [super initWithSensorModuleType:Magnetometer])
     {
         _magneticField = magneticField;
     }

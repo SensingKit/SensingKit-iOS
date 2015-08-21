@@ -32,7 +32,7 @@
                  withRotationRate:(CMRotationRate)rotationRate
              withUserAcceleration:(CMAcceleration)userAcceleration
 {
-    if (self = [super init])
+    if (self = [super initWithSensorModuleType:DeviceMotion])
     {
         _attitude = attitude;
         _gravity = gravity;

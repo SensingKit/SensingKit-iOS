@@ -28,7 +28,7 @@
 
 - (instancetype)initWithActivity:(CMMotionActivity *)activity
 {
-    if (self = [super init])
+    if (self = [super initWithSensorModuleType:Activity])
     {
         _activity = activity;
     }

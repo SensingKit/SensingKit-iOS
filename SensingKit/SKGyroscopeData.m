@@ -28,7 +28,7 @@
 
 - (instancetype)initWithRotationRate:(CMRotationRate)rotationRate
 {
-    if (self = [super init])
+    if (self = [super initWithSensorModuleType:Gyroscope])
     {
         _rotationRate = rotationRate;
     }

@@ -26,20 +26,24 @@
 
 @implementation SKSensorData
 
-- (instancetype)init
+- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
 {
     if (self = [super init])
     {
+        _moduleType = moduleType;
+        
         // Save current timestamp
         _timestamp = [NSDate date];
     }
     return self;
 }
 
-- (instancetype)initWithTimestamp:(NSDate *)timestamp
+- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
+                           withTimestamp:(NSDate *)timestamp
 {
     if (self = [super init])
     {
+        _moduleType = moduleType;
         _timestamp = timestamp;
     }
     return self;

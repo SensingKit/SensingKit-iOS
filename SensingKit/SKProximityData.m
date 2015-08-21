@@ -26,10 +26,11 @@
 
 @implementation SKProximityData
 
-- (instancetype)initWithTimestamp:(NSDate *)timestamp
-                      withDevices:(NSArray *)devices
+- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
+                           withTimestamp:(NSDate *)timestamp
+                             withDevices:(NSArray *)devices
 {
-    if (self = [super initWithTimestamp:timestamp])
+    if (self = [super initWithSensorModuleType:moduleType withTimestamp:timestamp])
     {
         _devices = devices;
     }

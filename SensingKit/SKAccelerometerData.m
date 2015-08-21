@@ -28,7 +28,7 @@
 
 - (instancetype)initWithAcceleration:(CMAcceleration)acceleration
 {
-    if (self = [super init])
+    if (self = [super initWithSensorModuleType:Accelerometer])
     {
         _acceleration = acceleration;
     }

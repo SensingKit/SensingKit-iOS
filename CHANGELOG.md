@@ -1,7 +1,9 @@
 # Changelog
 
 ### Next
-	- Rename Proximity sensor to iBeaconProximity.
+	- Add moduleType property in SKSensorData.
+	- Rename Proximity sensor into iBeaconProximity.
+	- Add generic SKProximityData that encapsulates multiple SKBeaconDeviceData.
 	- Further improvements in iBeacon Proximity Sensing.
 
 ### 0.1.2

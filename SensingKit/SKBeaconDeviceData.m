@@ -33,7 +33,7 @@
                     withProximity:(CLProximity)proximity
                          withRssi:(NSInteger)rssi
 {
-    if (self = [super initWithTimestamp:timestamp])
+    if (self = [super initWithSensorModuleType:iBeaconProximity withTimestamp:timestamp])
     {
         _major = major;
         _minor = minor;
