@@ -103,7 +103,6 @@
     if ([CLLocationManager isRangingAvailable]) {
         
         // Start monitoring
-        [self.locationManager startMonitoringForRegion:self.scan_beaconRegion];
         [self.locationManager startRangingBeaconsInRegion:self.scan_beaconRegion];
     }
     else {
@@ -115,7 +114,6 @@
 - (void)stopMonitoring
 {
     // Stop monitoring
-    [self.locationManager stopMonitoringForRegion:self.scan_beaconRegion];
     [self.locationManager stopRangingBeaconsInRegion:self.scan_beaconRegion];
 }
 
