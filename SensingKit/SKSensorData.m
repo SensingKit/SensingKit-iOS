@@ -84,4 +84,9 @@
     abort();
 }
 
+- (NSString *)description
+{
+    return [self csvString];
+}
+
 @end
