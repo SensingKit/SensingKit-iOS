@@ -1,5 +1,5 @@
 //
-//  SKSensorModuleType.h
+//  SKEddystoneProximity.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,14 +22,12 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-typedef NS_ENUM(NSInteger, SKSensorModuleType) {
-    Accelerometer,
-    Gyroscope,
-    Magnetometer,
-    DeviceMotion,
-    Activity,
-    Battery,
-    Location,
-    iBeaconProximity,
-    EddystoneProximity
-};
+#import "SKAbstractSensorModule.h"
+
+@interface SKEddystoneProximity : SKAbstractSensorModule
+
+@property (nonatomic, strong, readonly) NSString *namespaceFilter;
+
+- (id)initWithNamespace:(NSString *)namespaceFilter;
+
+@end

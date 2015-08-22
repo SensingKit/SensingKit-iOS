@@ -54,6 +54,9 @@
         case iBeaconProximity:
             return @"iBeaconProximity";
             
+        case EddystoneProximity:
+            return @"EddystoneProximity";
+            
         default:
             return [NSString stringWithFormat:@"Unknown SensorModule: %li", (long)moduleType];
     }

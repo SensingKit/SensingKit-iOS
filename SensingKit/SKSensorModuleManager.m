@@ -30,13 +30,14 @@
 #import "SKBattery.h"
 #import "SKLocation.h"
 #import "SKiBeaconProximity.h"
+#import "SKEddystoneProximity.h"
 #import "SKAccelerometer.h"
 #import "SKGyroscope.h"
 #import "SKMagnetometer.h"
 #import "SKDeviceMotion.h"
 #import "SKActivity.h"
 
-#define TOTAL_SENSOR_MODULES 8
+#define TOTAL_SENSOR_MODULES 9
 
 @interface SKSensorModuleManager()
 
@@ -238,6 +239,10 @@
             sensorModule = [[SKiBeaconProximity alloc] initWithUUID:[[NSUUID alloc] initWithUUIDString:@"d45a1046-15b0-11e5-b60b-1697f925ec7b"]
                                                           withMajor:arc4random_uniform(65535)    // Random Major
                                                           withMinor:arc4random_uniform(65535)];  // Random Minor
+            break;
+            
+        case EddystoneProximity:
+            sensorModule = [[SKEddystoneProximity alloc] initWithNamespace:@"2f234454f4911ba9ffa6"];
             break;
             
             // Don't forget to break!

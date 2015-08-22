@@ -1,6 +1,7 @@
 # Changelog
 
-### Next
+### 0.2.0
+  - Added support for Eddystone™ Proximity sensor.
 	- Added [start/stop]ContinuousSensingWithAllRegisteredSensors in SensingKit API.
 	- Added dictionaryData method for returning all sensor data as an NSDictionary.
 	- Added moduleType property in SKSensorData.
