@@ -26,13 +26,13 @@
 
 @interface SKEddystoneProximityData : SKSensorData
 
-@property (nonatomic, strong, readonly) NSString *namespace;
+@property (nonatomic, strong, readonly) NSString *namespaceId;
 @property (nonatomic, readonly) NSUInteger instanceId;
 @property (nonatomic, readonly) NSInteger rssi;
 @property (nonatomic, readonly) NSInteger txPower;
 
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
-                    withNamespace:(NSString *)namespace
+                  withNamespaceId:(NSString *)namespaceId
                    withInstanceId:(NSUInteger)instanceId
                          withRssi:(NSInteger)rssi
                       withTxPower:(NSInteger)txPower;

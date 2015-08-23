@@ -27,14 +27,14 @@
 @implementation SKEddystoneProximityData
 
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
-                    withNamespace:(NSString *)namespace
+                  withNamespaceId:(NSString *)namespaceId
                    withInstanceId:(NSUInteger)instanceId
                          withRssi:(NSInteger)rssi
                       withTxPower:(NSInteger)txPower
 {
     if (self = [super initWithSensorModuleType:EddystoneProximity withTimestamp:timestamp])
     {
-        _namespace = namespace;
+        _namespaceId = [namespaceId lowercaseString];
         _instanceId = instanceId;
         _rssi = rssi;
         _txPower = txPower;
@@ -46,7 +46,7 @@
 {
     return [NSString stringWithFormat:@"%f,%@,%lu,%ld,%ld",
             [self timestampEpoch],
-            _namespace,
+            _namespaceId,
             (unsigned long)_instanceId,
             (long)_rssi,
             (long)_txPower];
@@ -63,7 +63,7 @@
                      @"timestampString": self.timestampString
                      },
              @"Eddystone": @{
-                     @"namespace": _namespace,
+                     @"namespace": _namespaceId,
                      @"instanceId": @(_instanceId),
                      @"rssi": @(_rssi),
                      @"txPower": @(_txPower)

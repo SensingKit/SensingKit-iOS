@@ -30,6 +30,7 @@
 @interface SKEddystoneProximity () <ESSBeaconScannerDelegate>
 
 @property (strong, nonatomic) ESSBeaconScanner *beaconScanner;
+@property (strong, nonatomic, readonly) NSData *namespaceFilterData;
 
 @end
 
@@ -37,14 +38,16 @@
 
 - (id)init
 {
-    return [self initWithNamespace:nil];
+    return [self initWithNamespaceFilter:nil];
 }
 
-- (id)initWithNamespace:(NSString *)namespaceFilter;
+- (id)initWithNamespaceFilter:(NSString *)namespaceFilter;
 {
     if (self = [super init])
     {
-        _namespaceFilter = namespaceFilter;
+        // Save the hex filter in lowercase
+        _namespaceFilter = [namespaceFilter lowercaseString];
+        _namespaceFilterData = [SKEddystoneProximity dataFromHexString:_namespaceFilter];
         
         // init ESSBeaconScanner
         self.beaconScanner = [[ESSBeaconScanner alloc] init];
@@ -81,21 +84,22 @@
 {
     if (beaconInfo.beaconID.beaconType == kESSBeaconTypeEddystone) {
         
-        // 16 bytes long data. 10byte namespace + 6byte instance ID
+        // 16 bytes long data. 10byte namespaceId + 6byte instanceId
         NSData *beaconId = beaconInfo.beaconID.beaconID;
-        NSData *namespaceData = [beaconId subdataWithRange:NSMakeRange(0, 10)];
-
-        // Separate the namespace (10 bytes)
-        NSString *namespaceString = [self hexadecimalStringFromData:namespaceData];
         
-        if (!self.namespaceFilter || [self.namespaceFilter isEqualToString:namespaceString]) {
+        // Separate the namespaceId (10 bytes)
+        NSData *namespaceData = [beaconId subdataWithRange:NSMakeRange(0, 10)];
+        
+        if (!self.namespaceFilter || [self.namespaceFilterData isEqualToData:namespaceData]) {
+            
+            // Convert NSData bytes into NSString
+            NSString *namespaceId = [SKEddystoneProximity hexStringFromData:namespaceData];
             
             // Separate the instanceId (6 bytes)
             NSData *instanceIdData = [beaconId subdataWithRange:NSMakeRange(10, 6)];
             
             // Convert NSData bytes into NSUInteger (quick and dirty way for now!)
-            NSString *instanceIdString = [self hexadecimalStringFromData:instanceIdData];
-            NSUInteger instanceId = instanceIdString.integerValue;
+            NSUInteger instanceId = [SKEddystoneProximity hexStringFromData:instanceIdData].integerValue;
             
             // Get all remaining properties
             NSInteger  rssi = beaconInfo.RSSI.integerValue;
@@ -103,7 +107,7 @@
             
             // Create and submit the data
             SKEddystoneProximityData *data = [[SKEddystoneProximityData alloc] initWithTimestamp:[NSDate date]
-                                                                                   withNamespace:namespaceString
+                                                                                 withNamespaceId:namespaceId
                                                                                   withInstanceId:instanceId
                                                                                         withRssi:rssi
                                                                                      withTxPower:txPower];
@@ -115,7 +119,7 @@
 
 // Serialize an NSData into a hexadeximal string
 // Thanks to http://stackoverflow.com/questions/1305225/best-way-to-serialize-a-nsdata-into-an-hexadeximal-string
-- (NSString *)hexadecimalStringFromData:(NSData *)data
++ (NSString *)hexStringFromData:(NSData *)data
 {
     const unsigned char *dataBuffer = (const unsigned char *)[data bytes];
     
@@ -129,6 +133,25 @@
         [hexString appendString:[NSString stringWithFormat:@"%02hhx", dataBuffer[i]]];
     
     return [NSString stringWithString:hexString];
+}
+
+// Convert a NSString hex into NSData
+// Thanks to ESSEddystone.m
++ (NSData *)dataFromHexString:(NSString *)hexString
+{
+    NSMutableData *data = [[NSMutableData alloc] init];
+    unsigned char whole_byte;
+    char byte_chars[3] = {'\0','\0','\0'};
+    
+    int i;
+    for (i = 0; i < [hexString length]/2; i++) {
+        byte_chars[0] = [hexString characterAtIndex:i * 2];
+        byte_chars[1] = [hexString characterAtIndex:i * 2 + 1];
+        whole_byte = strtol(byte_chars, NULL, 16);
+        [data appendBytes:&whole_byte length:1];
+    }
+    
+    return data;
 }
 
 @end

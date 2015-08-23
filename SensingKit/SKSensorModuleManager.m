@@ -242,7 +242,8 @@
             break;
             
         case EddystoneProximity:
-            sensorModule = [[SKEddystoneProximity alloc] initWithNamespace:@"2f234454f4911ba9ffa6"];
+            // First 10 bytes of SHA1 'org.sensingkit.EddystoneIdentifier'
+            sensorModule = [[SKEddystoneProximity alloc] initWithNamespaceFilter:@"90643f1a5253bff747fa"];
             break;
             
             // Don't forget to break!

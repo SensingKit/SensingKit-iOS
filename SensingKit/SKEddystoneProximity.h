@@ -28,6 +28,6 @@
 
 @property (nonatomic, strong, readonly) NSString *namespaceFilter;
 
-- (id)initWithNamespace:(NSString *)namespaceFilter;
+- (id)initWithNamespaceFilter:(NSString *)namespaceFilter;
 
 @end
