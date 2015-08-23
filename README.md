@@ -14,7 +14,8 @@ The following sensor modules are currently supported in SensingKit-Android, (lis
 - Activity
 - Battery
 - Location
-- Beacon (using Apple iBeacon technology)
+- iBeacon™ Proximity
+- Eddystone™ Proximity
 
 
 ## Configuring the Library
