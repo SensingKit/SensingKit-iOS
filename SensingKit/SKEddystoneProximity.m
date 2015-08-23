@@ -82,6 +82,7 @@
 
 - (void)beaconFoundWithInfo:(ESSBeaconInfo *)beaconInfo
 {
+    // If this is an Eddystone beacon
     if (beaconInfo.beaconID.beaconType == kESSBeaconTypeEddystone) {
         
         // 16 bytes long data. 10byte namespaceId + 6byte instanceId
@@ -90,7 +91,8 @@
         // Separate the namespaceId (10 bytes)
         NSData *namespaceData = [beaconId subdataWithRange:NSMakeRange(0, 10)];
         
-        if (!self.namespaceFilter || [self.namespaceFilterData isEqualToData:namespaceData]) {
+        // If filter doesn't exist at all OR filter equals with the device's namespaceId
+        if (!self.namespaceFilterData || [self.namespaceFilterData isEqualToData:namespaceData]) {
             
             // Convert NSData bytes into NSString
             NSString *namespaceId = [SKEddystoneProximity hexStringFromData:namespaceData];
