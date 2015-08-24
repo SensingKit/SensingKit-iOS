@@ -14,7 +14,7 @@
 
 ### 0.1.1
 - Supported csv format in sensor data.
-- Fixed crash when deregistering multiple sensors modules.
+- Fixed crash when deregistering multiple sensor modules.
 
 ### 0.1.0
 - Initial Release.
