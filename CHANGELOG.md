@@ -7,7 +7,7 @@
 - Added moduleType property in SKSensorData.
 - Renamed Proximity sensor into iBeaconProximity.
 - Added generic SKProximityData that encapsulates multiple SKBeaconDeviceData.
-- Further improvements in iBeacon Proximity Sensing.
+- Further improvements in iBeacon™ Proximity sensor.
 
 ### 0.1.2
 - Fixed crash with error message “SensorModule is already registered”.
