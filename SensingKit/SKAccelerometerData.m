@@ -49,11 +49,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": @{
-                     @"timestamp": self.timestamp,
-                     @"timestampEpoch": @(self.timestampEpoch),
-                     @"timestampString": self.timestampString
-                     },
+             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
              @"acceleration": @{
                         @"x": @(_acceleration.x),
                         @"y": @(_acceleration.y),

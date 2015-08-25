@@ -49,11 +49,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": @{
-                     @"timestamp": self.timestamp,
-                     @"timestampEpoch": @(self.timestampEpoch),
-                     @"timestampString": self.timestampString
-                     },
+             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
              @"magneticField": @{
                      @"x": @(_magneticField.x),
                      @"y": @(_magneticField.y),
