@@ -27,15 +27,16 @@
 #import "NSString+SensorModuleType.h"
 
 // SensorModules
-#import "SKBattery.h"
-#import "SKLocation.h"
-#import "SKiBeaconProximity.h"
-#import "SKEddystoneProximity.h"
 #import "SKAccelerometer.h"
 #import "SKGyroscope.h"
 #import "SKMagnetometer.h"
 #import "SKDeviceMotion.h"
 #import "SKActivity.h"
+#import "SKPedometer.h"
+#import "SKBattery.h"
+#import "SKLocation.h"
+#import "SKiBeaconProximity.h"
+#import "SKEddystoneProximity.h"
 
 #define TOTAL_SENSOR_MODULES 10
 
@@ -228,7 +229,7 @@
             break;
             
         case Pedometer:
-            // ???
+            sensorModule = [[SKPedometer alloc] init];
             break;
             
         case Battery:
