@@ -44,6 +44,11 @@
     return self;
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    return [CMMotionActivityManager isActivityAvailable];
+}
+
 - (void)startSensing
 {
     [super startSensing];

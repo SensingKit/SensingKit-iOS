@@ -27,4 +27,6 @@
 
 @interface SKBattery : SKAbstractSensorModule
 
++ (BOOL)isSensorModuleAvailable;
+
 @end

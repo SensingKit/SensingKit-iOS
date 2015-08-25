@@ -44,6 +44,11 @@
     return self;
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    return [SKMotionManager sharedMotionManager].isMagnetometerAvailable;
+}
+
 - (void)startSensing
 {
     [super startSensing];

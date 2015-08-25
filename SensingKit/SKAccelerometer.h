@@ -26,4 +26,6 @@
 
 @interface SKAccelerometer : SKAbstractSensorModule
 
++ (BOOL)isSensorModuleAvailable;
+
 @end

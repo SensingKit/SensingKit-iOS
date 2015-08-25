@@ -54,6 +54,10 @@
     return self;
 }
 
+- (BOOL)isSensorModuleAvailable:(SKSensorModuleType)moduleType
+{
+    return [self.sensorModuleManager isSensorModuleAvailable:moduleType];
+}
 
 #pragma mark Sensor Registration methods
 

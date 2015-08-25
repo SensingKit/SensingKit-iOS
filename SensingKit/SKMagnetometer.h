@@ -26,4 +26,6 @@
 
 @interface SKMagnetometer : SKAbstractSensorModule
 
++ (BOOL)isSensorModuleAvailable;
+
 @end

@@ -29,6 +29,6 @@
 
 @interface SKLocation : SKAbstractSensorModule<CLLocationManagerDelegate>
 
-- (BOOL)isLocationSensingAvailable;
++ (BOOL)isSensorModuleAvailable;
 
 @end

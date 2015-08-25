@@ -44,6 +44,11 @@
     return self;
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    return [SKMotionManager sharedMotionManager].isGyroAvailable;
+}
+
 - (void)startSensing
 {
     [super startSensing];

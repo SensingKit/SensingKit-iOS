@@ -44,6 +44,11 @@
     return self;
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    return [CMPedometer isStepCountingAvailable];
+}
+
 - (void)startSensing
 {
     [super startSensing];

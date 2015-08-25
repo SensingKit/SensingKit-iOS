@@ -30,6 +30,8 @@
 
 @interface SKiBeaconProximity : SKAbstractSensorModule<CBPeripheralManagerDelegate, CLLocationManagerDelegate>
 
++ (BOOL)isSensorModuleAvailable;
+
 - (instancetype)initWithUUID:(NSUUID *)UUID
                    withMajor:(NSUInteger)major
                    withMinor:(NSUInteger)minor;

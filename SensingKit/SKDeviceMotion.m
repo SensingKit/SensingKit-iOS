@@ -44,6 +44,11 @@
     return self;
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    return [SKMotionManager sharedMotionManager].isDeviceMotionAvailable;
+}
+
 - (void)startSensing
 {
     [super startSensing];

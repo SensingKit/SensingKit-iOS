@@ -26,6 +26,7 @@
 #import "ESSBeaconScanner.h"
 #import "ESSEddystone.h"
 #import "SKEddystoneProximityData.h"
+@import CoreLocation;
 
 @interface SKEddystoneProximity () <ESSBeaconScannerDelegate>
 
@@ -54,6 +55,12 @@
         self.beaconScanner.delegate = self;
     }
     return self;
+}
+
++ (BOOL)isSensorModuleAvailable
+{
+    // Bluetooth 4 supports monitoring, so device should have a Bluetooth Smart HW.
+    return [CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]];
 }
 
 - (void)startSensing

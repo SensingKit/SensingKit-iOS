@@ -44,6 +44,11 @@
     return self;
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    return [CMAltimeter isRelativeAltitudeAvailable];
+}
+
 - (void)startSensing
 {
     [super startSensing];

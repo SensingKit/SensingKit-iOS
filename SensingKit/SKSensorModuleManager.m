@@ -64,6 +64,51 @@
     return self;
 }
 
+- (BOOL)isSensorModuleAvailable:(SKSensorModuleType)moduleType
+{
+    switch (moduleType) {
+            
+        case Accelerometer:
+            return [SKAccelerometer isSensorModuleAvailable];
+            
+        case Gyroscope:
+            return [SKGyroscope isSensorModuleAvailable];
+            
+        case Magnetometer:
+            return [SKMagnetometer isSensorModuleAvailable];
+            
+        case DeviceMotion:
+            return [SKDeviceMotion isSensorModuleAvailable];
+            
+        case Activity:
+            return [SKActivity isSensorModuleAvailable];
+            
+        case Pedometer:
+            return [SKPedometer isSensorModuleAvailable];
+            
+        case Altimeter:
+            return [SKAltimeter isSensorModuleAvailable];
+            
+        case Battery:
+            return [SKBattery isSensorModuleAvailable];
+            
+        case Location:
+            return [SKLocation isSensorModuleAvailable];
+            
+        case iBeaconProximity:
+            return [SKiBeaconProximity isSensorModuleAvailable];
+            
+        case EddystoneProximity:
+            return [SKEddystoneProximity isSensorModuleAvailable];
+            
+        default:
+            NSLog(@"Unknown SensorModule: %li", (long)moduleType);
+            abort();
+    }
+    
+    return NO;
+}
+
 #pragma mark Sensor Registration methods
 
 - (void)registerSensorModule:(SKSensorModuleType)moduleType

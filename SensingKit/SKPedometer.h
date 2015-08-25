@@ -26,4 +26,6 @@
 
 @interface SKPedometer : SKAbstractSensorModule
 
++ (BOOL)isSensorModuleAvailable;
+
 @end

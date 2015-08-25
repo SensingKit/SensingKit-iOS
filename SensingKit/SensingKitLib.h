@@ -33,6 +33,9 @@
 + (SensingKitLib *)sharedSensingKitLib;
 
 
+- (BOOL)isSensorModuleAvailable:(SKSensorModuleType)moduleType;
+
+
 /** Sensor Registration */
 
 - (void)registerSensorModule:(SKSensorModuleType)moduleType;

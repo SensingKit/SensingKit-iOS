@@ -3,6 +3,7 @@
 ### Next
 - Added support for Pedometer sensor.
 - Added support for Altimeter sensor.
+- Added isSensorModuleAvailable method to check for the availability of the sensor in the device.
 
 ### 0.2.0
 - Added support for Eddystone™ Proximity sensor.

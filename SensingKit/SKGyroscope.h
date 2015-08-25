@@ -26,4 +26,6 @@
 
 @interface SKGyroscope : SKAbstractSensorModule
 
++ (BOOL)isSensorModuleAvailable;
+
 @end

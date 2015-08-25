@@ -26,4 +26,6 @@
 
 @interface SKAltimeter : SKAbstractSensorModule
 
++ (BOOL)isSensorModuleAvailable;
+
 @end
