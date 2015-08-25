@@ -52,10 +52,16 @@
     {
         [self.pedometer startPedometerUpdatesFromDate:[NSDate date]
                                           withHandler:^(CMPedometerData *pedometerData, NSError *error) {
-                                              SKPedometerData *data = [[SKPedometerData alloc] initWithPedometerData:pedometerData];
-                                              [self submitSensorData:data];
-            
-        }];
+                                              
+                                              if (!error) {
+                                                  SKPedometerData *data = [[SKPedometerData alloc] initWithPedometerData:pedometerData];
+                                                  [self submitSensorData:data];
+                                              }
+                                              else {
+                                                  NSLog(@"%@", error.localizedDescription);
+                                              }
+                                              
+                                          }];
     }
     else
     {
