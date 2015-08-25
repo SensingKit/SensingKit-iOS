@@ -45,6 +45,9 @@
         case Activity:
             return @"Activity";
             
+        case Pedometer:
+            return @"Pedometer";
+            
         case Battery:
             return @"Battery";
             

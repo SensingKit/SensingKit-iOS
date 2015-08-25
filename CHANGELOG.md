@@ -1,5 +1,8 @@
 # Changelog
 
+### Next
+- Added support for Pedometer sensor.
+
 ### 0.2.0
 - Added support for Eddystone™ Proximity sensor.
 - Added [start/stop]ContinuousSensingWithAllRegisteredSensors in SensingKit API.

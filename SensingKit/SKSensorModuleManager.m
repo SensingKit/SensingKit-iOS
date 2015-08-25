@@ -37,7 +37,7 @@
 #import "SKDeviceMotion.h"
 #import "SKActivity.h"
 
-#define TOTAL_SENSOR_MODULES 9
+#define TOTAL_SENSOR_MODULES 10
 
 @interface SKSensorModuleManager()
 
@@ -225,6 +225,10 @@
             
         case Activity:
             sensorModule = [[SKActivity alloc] init];
+            break;
+            
+        case Pedometer:
+            // ???
             break;
             
         case Battery:

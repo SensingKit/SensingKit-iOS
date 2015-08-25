@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, SKSensorModuleType) {
     Magnetometer,
     DeviceMotion,
     Activity,
+    Pedometer,
     Battery,
     Location,
     iBeaconProximity,

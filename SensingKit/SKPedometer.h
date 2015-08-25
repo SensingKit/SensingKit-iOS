@@ -1,5 +1,5 @@
 //
-//  SKSensorData.h
+//  SKPedometer.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,28 +22,8 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
-#import "SKSensorModuleType.h"
-#import "NSString+SensorModuleType.h"
+#import "SKAbstractSensorModule.h"
 
-@interface SKSensorData : NSObject
-
-- (id)init __attribute__((unavailable("SKSensorModuleType is required. Use initWithSensorModuleType: instead.")));
-
-- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType;
-
-- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
-                           withTimestamp:(NSDate *)timestamp;
-
-@property (nonatomic, readonly) SKSensorModuleType moduleType;
-@property (nonatomic, readonly, strong) NSDate *timestamp;
-
-- (NSString *)timestampString;
-- (double)timestampEpoch;
-
-- (NSString *)csvString;
-- (NSDictionary *)dictionaryData;
-
-+ (NSDictionary *)timestampDictionaryFromData:(NSDate *)date;
+@interface SKPedometer : SKAbstractSensorModule
 
 @end

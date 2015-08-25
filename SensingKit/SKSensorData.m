@@ -89,4 +89,13 @@
     return [self csvString];
 }
 
++ (NSDictionary *)timestampDictionaryFromData:(NSDate *)date
+{
+    return  @{
+              @"timestamp": date,
+              @"timestampEpoch": @(date.timeIntervalSince1970),
+              @"timestampString": [[SKSensorData dateFormatter] stringFromDate:date]
+              };
+}
+
 @end
