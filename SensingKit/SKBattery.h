@@ -27,7 +27,4 @@
 
 @interface SKBattery : SKAbstractSensorModule
 
-@property (nonatomic, readonly) CGFloat batteryLevel;
-@property (nonatomic, readonly) UIDeviceBatteryState batteryState;
-
 @end
