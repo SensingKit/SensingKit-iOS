@@ -48,6 +48,9 @@
         case Pedometer:
             return @"Pedometer";
             
+        case Altimeter:
+            return @"Altimeter";
+            
         case Battery:
             return @"Battery";
             

@@ -33,12 +33,13 @@
 #import "SKDeviceMotion.h"
 #import "SKActivity.h"
 #import "SKPedometer.h"
+#import "SKAltimeter.h"
 #import "SKBattery.h"
 #import "SKLocation.h"
 #import "SKiBeaconProximity.h"
 #import "SKEddystoneProximity.h"
 
-#define TOTAL_SENSOR_MODULES 10
+#define TOTAL_SENSOR_MODULES 11
 
 @interface SKSensorModuleManager()
 
@@ -230,6 +231,10 @@
             
         case Pedometer:
             sensorModule = [[SKPedometer alloc] init];
+            break;
+            
+        case Altimeter:
+            sensorModule = [[SKAltimeter alloc] init];
             break;
             
         case Battery:

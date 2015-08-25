@@ -2,6 +2,7 @@
 
 ### Next
 - Added support for Pedometer sensor.
+- Added support for Altimeter sensor.
 
 ### 0.2.0
 - Added support for Eddystone™ Proximity sensor.

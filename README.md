@@ -13,6 +13,7 @@ The following sensor modules are currently supported in SensingKit-Android, (lis
 - Device Motion (senses Attitude, Gravity, User Acceleration, Magnetic Field, Rotation)
 - Activity
 - Pedometer
+- Altimeter
 - Battery
 - Location
 - iBeacon™ Proximity

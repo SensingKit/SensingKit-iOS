@@ -1,0 +1,59 @@
+//
+//  SKAltimeterData.m
+//  SensingKit
+//
+//  Copyright (c) 2014. Queen Mary University of London
+//  Kleomenis Katevas, k.katevas@qmul.ac.uk
+//
+//  This file is part of SensingKit-iOS library.
+//  For more information, please visit http://www.sensingkit.org
+//
+//  SensingKit-iOS is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU Lesser General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  SensingKit-iOS is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU Lesser General Public License for more details.
+//
+//  You should have received a copy of the GNU Lesser General Public License
+//  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
+//
+
+#import "SKAltimeterData.h"
+
+@implementation SKAltimeterData
+
+- (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData
+{
+    if (self = [super initWithSensorModuleType:Altimeter])
+    {
+        _altitudeData = altitudeData;
+    }
+    return self;
+}
+
+- (NSString *)csvString
+{
+    return [NSString stringWithFormat:@"%f,%ld,%lu",
+            [self timestampEpoch],
+            (long)_altitudeData.relativeAltitude.integerValue,
+            (unsigned long)_altitudeData.pressure.unsignedIntegerValue];
+}
+
+- (NSDictionary *)dictionaryData
+{
+    return @{
+             @"sensorType": @(self.moduleType),
+             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
+             @"altitudeData": @{
+                     @"relativeAltitude": _altitudeData.relativeAltitude,
+                     @"pressure": _altitudeData.pressure
+                     }
+             };
+}
+
+@end
