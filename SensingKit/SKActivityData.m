@@ -55,7 +55,7 @@
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,activityTimestamp,walking,running,automotive,cycling,unknown,confidence";
+    return @"timestamp,activityTimestamp,stationary,walking,running,automotive,cycling,unknown,confidence";
 }
 
 - (NSString *)csvString
