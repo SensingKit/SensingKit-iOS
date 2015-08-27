@@ -41,7 +41,7 @@
 - (NSString *)timestampString;
 - (double)timestampEpoch;
 
-+ (NSString *)csvHeader;
+- (NSString *)csvHeader;
 - (NSString *)csvString;
 
 - (NSDictionary *)dictionaryData;

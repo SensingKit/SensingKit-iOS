@@ -43,7 +43,7 @@
     return self;
 }
 
-+ (NSString *)csvHeader
+- (NSString *)csvHeader
 {
     return @"timestamp,attitude.roll,attitude.pitch,attitude.yaw,gravity.x,gravity.y,gravity.z,magneticField.x,magneticField.y,magneticField.z,magneticField.accuracy,rotationRate.x,rotationRate.y,rotationRate.z,userAcceleration.x,userAcceleration.y,userAcceleration.z";
 }

@@ -72,7 +72,7 @@
     return _timestamp.timeIntervalSince1970;
 }
 
-+ (NSString *)csvHeader
+- (NSString *)csvHeader
 {
     NSLog(@"Error: csvHeader method has not be implemented in the inherited SKSensorData file.");
     abort();

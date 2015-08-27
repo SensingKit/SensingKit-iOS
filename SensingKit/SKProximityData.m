@@ -37,10 +37,9 @@
     return self;
 }
 
-+ (NSString *)csvHeader
+- (NSString *)csvHeader
 {
-    NSLog(@"csvHeader depends on the DeviceData class.");
-    return nil;
+    return [self.devices.firstObject csvHeader];
 }
 
 - (NSString *)csvString

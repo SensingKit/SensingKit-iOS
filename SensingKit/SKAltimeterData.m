@@ -35,7 +35,7 @@
     return self;
 }
 
-+ (NSString *)csvHeader
+- (NSString *)csvHeader
 {
     return @"timestamp,relativeAltitude,pressure";
 }

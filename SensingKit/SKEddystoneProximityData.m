@@ -42,7 +42,7 @@
     return self;
 }
 
-+ (NSString *)csvHeader
+- (NSString *)csvHeader
 {
     return @"timestamp,namespaceID,instanceID,rssi,txPower";
 }
