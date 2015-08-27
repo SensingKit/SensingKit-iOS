@@ -24,7 +24,10 @@
 
 #import <XCTest/XCTest.h>
 #import "SensingKitLib.h"
+#import "NSString+SensorModuleType.h"
+
 @import CoreBluetooth;
+
 
 @interface SensingKitTests : XCTestCase
 
@@ -47,6 +50,21 @@
 {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+}
+
+- (void)testSensorModuleStrings
+{
+    XCTAssertTrue([[NSString stringWithSensorModuleType:Accelerometer]      isEqualToString:@"Accelerometer"],      @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorModuleType:Gyroscope]          isEqualToString:@"Gyroscope"],          @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorModuleType:Magnetometer]       isEqualToString:@"Magnetometer"],       @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorModuleType:DeviceMotion]       isEqualToString:@"DeviceMotion"],       @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorModuleType:Activity]           isEqualToString:@"Activity"],           @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorModuleType:Pedometer]          isEqualToString:@"Pedometer"],          @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorModuleType:Altimeter]          isEqualToString:@"Altimeter"],          @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorModuleType:Battery]            isEqualToString:@"Battery"],            @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorModuleType:Location]           isEqualToString:@"Location"],           @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorModuleType:iBeaconProximity]   isEqualToString:@"iBeaconProximity"],   @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorModuleType:EddystoneProximity] isEqualToString:@"EddystoneProximity"], @"SensorModule name is wrong.");
 }
 
 - (void)testSensingKitLib
@@ -86,9 +104,12 @@
     [self.sensingKit registerSensorModule:Magnetometer];
     [self.sensingKit registerSensorModule:DeviceMotion];
     [self.sensingKit registerSensorModule:Activity];
+    [self.sensingKit registerSensorModule:Pedometer];
+    [self.sensingKit registerSensorModule:Altimeter];
     [self.sensingKit registerSensorModule:Battery];
     [self.sensingKit registerSensorModule:Location];
     [self.sensingKit registerSensorModule:iBeaconProximity];
+    [self.sensingKit registerSensorModule:EddystoneProximity];
     
     // test deregistration
     [self.sensingKit deregisterSensorModule:Accelerometer];
@@ -96,9 +117,12 @@
     [self.sensingKit deregisterSensorModule:Magnetometer];
     [self.sensingKit deregisterSensorModule:DeviceMotion];
     [self.sensingKit deregisterSensorModule:Activity];
+    [self.sensingKit deregisterSensorModule:Pedometer];
+    [self.sensingKit deregisterSensorModule:Altimeter];
     [self.sensingKit deregisterSensorModule:Battery];
     [self.sensingKit deregisterSensorModule:Location];
     [self.sensingKit deregisterSensorModule:iBeaconProximity];
+    [self.sensingKit deregisterSensorModule:EddystoneProximity];
 }
 
 @end
