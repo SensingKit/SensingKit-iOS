@@ -43,6 +43,11 @@
     return self;
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,attitude.roll,attitude.pitch,attitude.yaw,gravity.x,gravity.y,gravity.z,magneticField.x,magneticField.y,magneticField.z,magneticField.accuracy,rotationRate.x,rotationRate.y,rotationRate.z,userAcceleration.x,userAcceleration.y,userAcceleration.z";
+}
+
 - (NSString *)csvString
 {
     return [NSString stringWithFormat:@"%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%d,%f,%f,%f,%f,%f,%f",

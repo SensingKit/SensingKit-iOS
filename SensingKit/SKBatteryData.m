@@ -57,6 +57,11 @@
     }
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,state,level";
+}
+
 - (NSString *)csvString
 {
     return [NSString stringWithFormat:@"%f,%@,%f",

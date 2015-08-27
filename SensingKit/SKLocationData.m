@@ -35,6 +35,11 @@
     return self;
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,latitude,longitude,altitude,horizontalAccuracy,verticalAccuracy,speed,course";
+}
+
 - (NSString *)csvString
 {
     return [NSString stringWithFormat:@"%f,%f,%f,%f,%f,%f,%f,%f",

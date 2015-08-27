@@ -35,6 +35,11 @@
     return self;
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,x,y,z";
+}
+
 - (NSString *)csvString
 {
     return [NSString stringWithFormat:@"%f,%f,%f,%f",

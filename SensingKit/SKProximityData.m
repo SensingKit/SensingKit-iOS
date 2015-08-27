@@ -37,6 +37,12 @@
     return self;
 }
 
++ (NSString *)csvHeader
+{
+    NSLog(@"csvHeader depends on the DeviceData class.");
+    return nil;
+}
+
 - (NSString *)csvString
 {
     return [[self.devices valueForKey:@"description"] componentsJoinedByString:@"\n"];

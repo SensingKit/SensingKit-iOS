@@ -35,6 +35,11 @@
     return self;
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,relativeAltitude,pressure";
+}
+
 - (NSString *)csvString
 {
     return [NSString stringWithFormat:@"%f,%ld,%lu",

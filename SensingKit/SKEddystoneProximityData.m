@@ -42,6 +42,11 @@
     return self;
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,namespaceID,instanceID,rssi,txPower";
+}
+
 - (NSString *)csvString
 {
     return [NSString stringWithFormat:@"%f,%@,%lu,%ld,%ld",

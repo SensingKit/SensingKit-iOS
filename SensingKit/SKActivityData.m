@@ -53,6 +53,11 @@
     }
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,activityTimestamp,walking,running,automotive,cycling,unknown,confidence";
+}
+
 - (NSString *)csvString
 {
     return [NSString stringWithFormat:@"%f,%f,%d,%d,%d,%d,%d,%d,%@",

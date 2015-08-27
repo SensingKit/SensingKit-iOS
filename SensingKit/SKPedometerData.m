@@ -35,6 +35,11 @@
     return self;
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,startDate,endDate,numberOfSteps,distance,floorsAscended,floorsDescended.";
+}
+
 - (NSString *)csvString
 {
     return [NSString stringWithFormat:@"%f,%f,%f,%lu,%lu,%lu,%lu",

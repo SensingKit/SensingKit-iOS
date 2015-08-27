@@ -72,15 +72,21 @@
     return _timestamp.timeIntervalSince1970;
 }
 
++ (NSString *)csvHeader
+{
+    NSLog(@"Error: csvHeader method has not be implemented in the inherited SKSensorData file.");
+    abort();
+}
+
 - (NSString *)csvString
 {
-    NSLog(@"Error: csvString method has not be implemented in the parent SKSensorData file.");
+    NSLog(@"Error: csvString method has not be implemented in the inherited SKSensorData file.");
     abort();
 }
 
 - (NSDictionary *)dictionaryData
 {
-    NSLog(@"Error: dictionaryData method has not be implemented in the parent SKSensorData file.");
+    NSLog(@"Error: dictionaryData method has not be implemented in the inherited SKSensorData file.");
     abort();
 }
 
