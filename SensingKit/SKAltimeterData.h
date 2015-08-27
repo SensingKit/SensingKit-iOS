@@ -31,4 +31,6 @@
 
 - (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData;
 
++ (NSString *)csvHeader;
+
 @end

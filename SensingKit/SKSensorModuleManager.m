@@ -39,6 +39,19 @@
 #import "SKiBeaconProximity.h"
 #import "SKEddystoneProximity.h"
 
+// SensorData
+#import "SKAccelerometerData.h"
+#import "SKGyroscopeData.h"
+#import "SKMagnetometerData.h"
+#import "SKDeviceMotionData.h"
+#import "SKActivityData.h"
+#import "SKPedometerData.h"
+#import "SKAltimeterData.h"
+#import "SKBatteryData.h"
+#import "SKLocationData.h"
+#import "SKBeaconDeviceData.h"
+#import "SKEddystoneProximityData.h"
+
 #define TOTAL_SENSOR_MODULES 11
 
 @interface SKSensorModuleManager()
@@ -62,6 +75,49 @@
         }
     }
     return self;
+}
+
+- (NSString *)csvHeaderForSensorModule:(SKSensorModuleType)moduleType
+{
+    switch (moduleType) {
+            
+        case Accelerometer:
+            return [SKAccelerometerData csvHeader];
+            
+        case Gyroscope:
+            return [SKGyroscopeData csvHeader];
+            
+        case Magnetometer:
+            return [SKMagnetometerData csvHeader];
+            
+        case DeviceMotion:
+            return [SKDeviceMotionData csvHeader];
+            
+        case Activity:
+            return [SKActivityData csvHeader];
+            
+        case Pedometer:
+            return [SKPedometerData csvHeader];
+            
+        case Altimeter:
+            return [SKAltimeterData csvHeader];
+            
+        case Battery:
+            return [SKBatteryData csvHeader];
+            
+        case Location:
+            return [SKLocationData csvHeader];
+            
+        case iBeaconProximity:
+            return [SKBeaconDeviceData csvHeader];
+            
+        case EddystoneProximity:
+            return [SKEddystoneProximityData csvHeader];
+            
+        default:
+            NSLog(@"Unknown SensorModule: %li", (long)moduleType);
+            abort();
+    }
 }
 
 - (BOOL)isSensorModuleAvailable:(SKSensorModuleType)moduleType

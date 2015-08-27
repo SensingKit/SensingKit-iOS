@@ -41,6 +41,8 @@
                     withProximity:(CLProximity)proximity
                          withRssi:(NSInteger)rssi;
 
++ (NSString *)csvHeader;
+
 - (NSString *)proximityString;
 
 @end

@@ -32,4 +32,6 @@
                            withTimestamp:(NSDate *)timestamp
                              withDevices:(NSArray *)devices;
 
++ (NSString *)csvHeader;
+
 @end

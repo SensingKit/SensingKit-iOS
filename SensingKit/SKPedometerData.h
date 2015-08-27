@@ -31,4 +31,6 @@
 
 - (instancetype)initWithPedometerData:(CMPedometerData *)pedometerData;
 
++ (NSString *)csvHeader;
+
 @end

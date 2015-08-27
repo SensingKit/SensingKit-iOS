@@ -57,7 +57,7 @@
     }
 }
 
-- (NSString *)csvHeader
++ (NSString *)csvHeader
 {
     return @"timestamp,state,level";
 }

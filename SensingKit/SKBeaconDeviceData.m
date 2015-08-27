@@ -65,7 +65,7 @@
     }
 }
 
-- (NSString *)csvHeader
++ (NSString *)csvHeader
 {
     return @"timestamp,major,minor,accuracy,proximity,rssi";
 }
