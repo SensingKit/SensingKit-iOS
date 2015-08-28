@@ -28,7 +28,8 @@
 
 - (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData
 {
-    if (self = [super initWithSensorModuleType:Altimeter])
+    if (self = [super initWithSensorModuleType:Altimeter
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:altitudeData.timestamp]])
     {
         _altitudeData = altitudeData;
     }
@@ -37,13 +38,14 @@
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,relativeAltitude,pressure";
+    return @"timestamp,timeIntervalSince1970,relativeAltitude,pressure";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%ld,%lu",
-            [self timestampEpoch],
+    return [NSString stringWithFormat:@"\"%@\",%f,%ld,%lu",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
             (long)_altitudeData.relativeAltitude.integerValue,
             (unsigned long)_altitudeData.pressure.unsignedIntegerValue];
 }
@@ -53,7 +55,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
+            @"timestamp": self.timestamp.timestampDictionary,
              @"altitudeData": @{
                      @"relativeAltitude": _altitudeData.relativeAltitude,
                      @"pressure": _altitudeData.pressure

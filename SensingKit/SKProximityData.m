@@ -30,7 +30,8 @@
                            withTimestamp:(NSDate *)timestamp
                              withDevices:(NSArray *)devices
 {
-    if (self = [super initWithSensorModuleType:moduleType withTimestamp:timestamp])
+    if (self = [super initWithSensorModuleType:moduleType
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
     {
         _devices = devices;
     }
@@ -60,7 +61,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
+             @"timestamp": self.timestamp.timestampDictionary,
              @"devices": dictionaries
              };
 }

@@ -27,19 +27,7 @@
 @implementation SKSensorData
 
 - (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
-{
-    if (self = [super init])
-    {
-        _moduleType = moduleType;
-        
-        // Save current timestamp
-        _timestamp = [NSDate date];
-    }
-    return self;
-}
-
-- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
-                           withTimestamp:(NSDate *)timestamp
+                           withTimestamp:(SKSensorTimestamp *)timestamp
 {
     if (self = [super init])
     {
@@ -47,29 +35,6 @@
         _timestamp = timestamp;
     }
     return self;
-}
-
-+ (NSDateFormatter *)dateFormatter
-{
-    static NSDateFormatter *dateFormatter = nil;
-    
-    if (dateFormatter == nil)
-    {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-        dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss.SSS";
-    }
-    return dateFormatter;
-}
-
-- (NSString *)timestampString
-{
-    return [[SKSensorData dateFormatter] stringFromDate:_timestamp];
-}
-
-- (double)timestampEpoch
-{
-    return _timestamp.timeIntervalSince1970;
 }
 
 - (NSString *)csvString
@@ -87,15 +52,6 @@
 - (NSString *)description
 {
     return [self csvString];
-}
-
-+ (NSDictionary *)timestampDictionaryFromData:(NSDate *)date
-{
-    return  @{
-              @"timestamp": date,
-              @"timestampEpoch": @(date.timeIntervalSince1970),
-              @"timestampString": [[SKSensorData dateFormatter] stringFromDate:date]
-              };
 }
 
 @end

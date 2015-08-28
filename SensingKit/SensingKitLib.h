@@ -28,7 +28,7 @@
 
 @interface SensingKitLib : NSObject
 
-- (id)init __attribute__((unavailable("Use [SensingKitLib sharedSensingKitLib] instead.")));
+- (instancetype)init __attribute__((unavailable("Use [SensingKitLib sharedSensingKitLib] instead.")));
 
 + (SensingKitLib *)sharedSensingKitLib;
 

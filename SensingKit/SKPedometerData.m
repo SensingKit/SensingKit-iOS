@@ -28,8 +28,12 @@
 
 - (instancetype)initWithPedometerData:(CMPedometerData *)pedometerData
 {
-    if (self = [super initWithSensorModuleType:Pedometer])
+    if (self = [super initWithSensorModuleType:Pedometer
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:pedometerData.startDate]])
     {
+        // No need to have two instances of the same timestamp. We point startDate to self.timestamp
+        _startDate = self.timestamp;
+        _endDate = [SKSensorTimestamp sensorTimestampFromDate:pedometerData.endDate];
         _pedometerData = pedometerData;
     }
     return self;
@@ -37,15 +41,16 @@
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,startDate,endDate,numberOfSteps,distance,floorsAscended,floorsDescended";
+    return @"startTimestamp,startTimeIntervalSince1970,endTimestamp,endTimeIntervalSince1970,numberOfSteps,distance,floorsAscended,floorsDescended";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%f,%f,%lu,%lu,%lu,%lu",
-            [self timestampEpoch],
-            _pedometerData.startDate.timeIntervalSince1970,
-            _pedometerData.endDate.timeIntervalSince1970,
+    return [NSString stringWithFormat:@"\"%@\",%f,\"%@\",%f,%lu,%lu,%lu,%lu",
+            self.startDate.timestampString,
+            self.startDate.timeIntervalSince1970,
+            self.endDate.timestampString,
+            self.endDate.timeIntervalSince1970,
             (unsigned long)_pedometerData.numberOfSteps.unsignedIntegerValue,
             (unsigned long)_pedometerData.distance.unsignedIntegerValue,
             (unsigned long)_pedometerData.floorsAscended.unsignedIntegerValue,
@@ -57,10 +62,9 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
+             @"startDate": self.startDate.timestampDictionary,
+             @"endDate": self.endDate.timestampDictionary,
              @"pedometerData": @{
-                     @"startDate": [SKSensorData timestampDictionaryFromData:_pedometerData.startDate],
-                     @"endDate": [SKSensorData timestampDictionaryFromData:_pedometerData.endDate],
                      @"numberOfSteps": @(_pedometerData.numberOfSteps.unsignedIntegerValue),
                      @"distance": @(_pedometerData.distance.unsignedIntegerValue),
                      @"floorsAscended": @(_pedometerData.floorsAscended.unsignedIntegerValue),

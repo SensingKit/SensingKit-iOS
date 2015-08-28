@@ -61,7 +61,7 @@
                                             if (error) {
                                                 NSLog(@"%@", error.localizedDescription);
                                             } else {
-                                                SKGyroscopeData *data = [[SKGyroscopeData alloc] initWithRotationRate:gyroData.rotationRate];
+                                                SKGyroscopeData *data = [[SKGyroscopeData alloc] initWithGyroData:gyroData];
                                                 [self submitSensorData:data];
                                             }
                                             

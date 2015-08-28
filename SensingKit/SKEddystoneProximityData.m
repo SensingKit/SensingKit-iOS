@@ -32,7 +32,8 @@
                          withRssi:(NSInteger)rssi
                       withTxPower:(NSInteger)txPower
 {
-    if (self = [super initWithSensorModuleType:EddystoneProximity withTimestamp:timestamp])
+    if (self = [super initWithSensorModuleType:EddystoneProximity
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
     {
         _namespaceId = [namespaceId lowercaseString];
         _instanceId = instanceId;
@@ -44,13 +45,14 @@
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,namespaceID,instanceID,rssi,txPower";
+    return @"timestamp,timeIntervalSince1970,namespaceID,instanceID,rssi,txPower";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%@,%lu,%ld,%ld",
-            [self timestampEpoch],
+    return [NSString stringWithFormat:@"\"%@\",%f,%@,%lu,%ld,%ld",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
             _namespaceId,
             (unsigned long)_instanceId,
             (long)_rssi,
@@ -62,7 +64,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
+             @"timestamp": self.timestamp.timestampDictionary,
              @"Eddystone": @{
                      @"namespace": _namespaceId,
                      @"instanceId": @(_instanceId),

@@ -28,7 +28,8 @@
 
 - (instancetype)initWithActivity:(CMMotionActivity *)activity
 {
-    if (self = [super initWithSensorModuleType:Activity])
+    if (self = [super initWithSensorModuleType:Activity
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:activity.timestamp]])
     {
         _activity = activity;
     }
@@ -55,13 +56,14 @@
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,activityTimestamp,stationary,walking,running,automotive,cycling,unknown,confidence";
+    return @"timestamp,timeIntervalSince1970,activityTimestamp,stationary,walking,running,automotive,cycling,unknown,confidence";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%f,%d,%d,%d,%d,%d,%d,%@",
-            [self timestampEpoch],
+    return [NSString stringWithFormat:@"\"%@\",%f,%f,%d,%d,%d,%d,%d,%d,%@",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
             _activity.timestamp,
             _activity.stationary,
             _activity.walking,
@@ -77,7 +79,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
+             @"timestamp": self.timestamp.timestampDictionary,
              @"startDate": _activity.startDate,
              @"activity": @{
                      @"stationary": @(_activity.stationary),

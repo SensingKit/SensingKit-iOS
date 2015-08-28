@@ -26,24 +26,26 @@
 
 @implementation SKAccelerometerData
 
-- (instancetype)initWithAcceleration:(CMAcceleration)acceleration
+- (instancetype)initWithAccelerometerData:(CMAccelerometerData *)accelerometerData
 {
-    if (self = [super initWithSensorModuleType:Accelerometer])
+    if (self = [super initWithSensorModuleType:Accelerometer
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:accelerometerData.timestamp]])
     {
-        _acceleration = acceleration;
+        _acceleration = accelerometerData.acceleration;
     }
     return self;
 }
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,x,y,z";
+    return @"timestamp,timeIntervalSince1970,x,y,z";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%f,%f,%f",
-            [self timestampEpoch],
+    return [NSString stringWithFormat:@"\"%@\",%f,%f,%f,%f",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
             _acceleration.x,
             _acceleration.y,
             _acceleration.z];
@@ -54,7 +56,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
+             @"timestamp": self.timestamp.timestampDictionary,
              @"acceleration": @{
                         @"x": @(_acceleration.x),
                         @"y": @(_acceleration.y),

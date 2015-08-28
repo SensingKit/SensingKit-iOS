@@ -71,6 +71,8 @@
 		CFBB416719B928C2002AE1A9 /* SKBattery.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416019B928C2002AE1A9 /* SKBattery.m */; };
 		CFBB416819B928C2002AE1A9 /* SKiBeaconProximity.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416219B928C2002AE1A9 /* SKiBeaconProximity.m */; };
 		CFBB416919B928C2002AE1A9 /* SKLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB416419B928C2002AE1A9 /* SKLocation.m */; };
+		CFBC059E1B9060A600B9CA6D /* SKSensorTimestamp.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBC059D1B9060A600B9CA6D /* SKSensorTimestamp.m */; };
+		CFBC059F1B90610700B9CA6D /* SKSensorTimestamp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBC059C1B9060A600B9CA6D /* SKSensorTimestamp.h */; };
 		CFD450221B8738DC00E2E78D /* SKProximityData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450211B8738DC00E2E78D /* SKProximityData.m */; };
 		CFD450251B875B5A00E2E78D /* NSString+SensorModuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */; };
 		CFD450261B878A6900E2E78D /* NSString+SensorModuleType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */; };
@@ -106,6 +108,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CFBC059F1B90610700B9CA6D /* SKSensorTimestamp.h in CopyFiles */,
 				CF1DFA191B8C822000D7B182 /* SKPedometer.h in CopyFiles */,
 				CFD4503B1B88DCD900E2E78D /* SKEddystoneProximityData.h in CopyFiles */,
 				CFD450261B878A6900E2E78D /* NSString+SensorModuleType.h in CopyFiles */,
@@ -190,6 +193,8 @@
 		CFBB416219B928C2002AE1A9 /* SKiBeaconProximity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKiBeaconProximity.m; sourceTree = "<group>"; };
 		CFBB416319B928C2002AE1A9 /* SKLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLocation.h; sourceTree = "<group>"; };
 		CFBB416419B928C2002AE1A9 /* SKLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLocation.m; sourceTree = "<group>"; };
+		CFBC059C1B9060A600B9CA6D /* SKSensorTimestamp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorTimestamp.h; sourceTree = "<group>"; };
+		CFBC059D1B9060A600B9CA6D /* SKSensorTimestamp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorTimestamp.m; sourceTree = "<group>"; };
 		CFD450201B8738DC00E2E78D /* SKProximityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProximityData.h; sourceTree = "<group>"; };
 		CFD450211B8738DC00E2E78D /* SKProximityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximityData.m; sourceTree = "<group>"; };
 		CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SensorModuleType.h"; sourceTree = "<group>"; };
@@ -236,6 +241,8 @@
 		CF11F8B41B2F4A910094C9DF /* SensorData */ = {
 			isa = PBXGroup;
 			children = (
+				CFBC059C1B9060A600B9CA6D /* SKSensorTimestamp.h */,
+				CFBC059D1B9060A600B9CA6D /* SKSensorTimestamp.m */,
 				CF11F8861B2D8D370094C9DF /* SKSensorData.h */,
 				CF11F8871B2D8D370094C9DF /* SKSensorData.m */,
 				CFB0D9441B5268EF00A7982B /* SKAccelerometerData.h */,
@@ -520,6 +527,7 @@
 				CFD450371B88D8C600E2E78D /* SKEddystoneProximity.m in Sources */,
 				CFB0D93D1B4FFA1D00A7982B /* SKGyroscope.m in Sources */,
 				CFBB416819B928C2002AE1A9 /* SKiBeaconProximity.m in Sources */,
+				CFBC059E1B9060A600B9CA6D /* SKSensorTimestamp.m in Sources */,
 				CF1DFA1F1B8CC01900D7B182 /* SKAltimeterData.m in Sources */,
 				CF1DFA151B8C7F1E00D7B182 /* SKPedometer.m in Sources */,
 				CF8E9BD01B3200E7005AC2FC /* SKBeaconDeviceData.m in Sources */,

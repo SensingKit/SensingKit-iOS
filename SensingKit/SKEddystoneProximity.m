@@ -37,12 +37,12 @@
 
 @implementation SKEddystoneProximity
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithNamespaceFilter:nil];
 }
 
-- (id)initWithNamespaceFilter:(NSString *)namespaceFilter;
+- (instancetype)initWithNamespaceFilter:(NSString *)namespaceFilter;
 {
     if (self = [super init])
     {

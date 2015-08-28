@@ -26,24 +26,26 @@
 
 @implementation SKGyroscopeData
 
-- (instancetype)initWithRotationRate:(CMRotationRate)rotationRate
+- (instancetype)initWithGyroData:(CMGyroData *)gyroData
 {
-    if (self = [super initWithSensorModuleType:Gyroscope])
+    if (self = [super initWithSensorModuleType:Gyroscope
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:gyroData.timestamp]])
     {
-        _rotationRate = rotationRate;
+        _rotationRate = gyroData.rotationRate;
     }
     return self;
 }
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,x,y,z";
+    return @"timestamp,timeIntervalSince1970,x,y,z";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%f,%f,%f",
-            [self timestampEpoch],
+    return [NSString stringWithFormat:@"\"%@\",%f,%f,%f,%f",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
             _rotationRate.x,
             _rotationRate.y,
             _rotationRate.z];
@@ -54,7 +56,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
+             @"timestamp": self.timestamp.timestampDictionary,
              @"rotationRate": @{
                      @"x": @(_rotationRate.x),
                      @"y": @(_rotationRate.y),

@@ -30,6 +30,6 @@
 
 + (BOOL)isSensorModuleAvailable;
 
-- (id)initWithNamespaceFilter:(NSString *)namespaceFilter;
+- (instancetype)initWithNamespaceFilter:(NSString *)namespaceFilter;
 
 @end

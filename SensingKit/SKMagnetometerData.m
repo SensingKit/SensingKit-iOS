@@ -26,24 +26,26 @@
 
 @implementation SKMagnetometerData
 
-- (instancetype)initWithMagneticField:(CMMagneticField)magneticField
+- (instancetype)initWithMagnetometerData:(CMMagnetometerData *)magnetometerData
 {
-    if (self = [super initWithSensorModuleType:Magnetometer])
+    if (self = [super initWithSensorModuleType:Magnetometer
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:magnetometerData.timestamp]])
     {
-        _magneticField = magneticField;
+        _magneticField = magnetometerData.magneticField;
     }
     return self;
 }
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,x,y,z";
+    return @"timestamp,timeIntervalSince1970,x,y,z";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%f,%f,%f",
-            [self timestampEpoch],
+    return [NSString stringWithFormat:@"\"%@\",%f,%f,%f,%f",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
             _magneticField.x,
             _magneticField.y,
             _magneticField.z];
@@ -54,7 +56,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
+             @"timestamp": self.timestamp.timestampDictionary,
              @"magneticField": @{
                      @"x": @(_magneticField.x),
                      @"y": @(_magneticField.y),

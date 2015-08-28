@@ -28,7 +28,7 @@
 
 @interface SKMotionManager : NSObject
 
-- (id)init __attribute__((unavailable("Use [SKMotionManager sharedMotionManager] instead.")));
+- (instancetype)init __attribute__((unavailable("Use [SKMotionManager sharedMotionManager] instead.")));
 
 + (CMMotionManager *)sharedMotionManager;
 

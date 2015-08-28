@@ -61,7 +61,7 @@
                                                     if (error) {
                                                         NSLog(@"%@", error.localizedDescription);
                                                     } else {
-                                                        SKMagnetometerData *data = [[SKMagnetometerData alloc] initWithMagneticField:magnetometerData.magneticField];
+                                                        SKMagnetometerData *data = [[SKMagnetometerData alloc] initWithMagnetometerData:magnetometerData];
                                                         [self submitSensorData:data];
                                                     }
                                                     

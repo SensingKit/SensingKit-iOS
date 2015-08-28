@@ -28,7 +28,8 @@
 
 - (instancetype)initWithLevel:(CGFloat)level withState:(UIDeviceBatteryState)state
 {
-    if (self = [super initWithSensorModuleType:Battery])
+    if (self = [super initWithSensorModuleType:Battery
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
     {
         _level = level;
         _state = state;
@@ -59,13 +60,14 @@
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,state,level";
+    return @"timestamp,timeIntervalSince1970,state,level";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%@,%f",
-            [self timestampEpoch],
+    return [NSString stringWithFormat:@"\"%@\",%f,%@,%f",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
             [self stateString],
             _level];
 }
@@ -75,7 +77,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": [SKSensorData timestampDictionaryFromData:self.timestamp],
+             @"timestamp": self.timestamp.timestampDictionary,
              @"battery": @{
                      @"level": @(_level),
                      @"state": @(_state),
