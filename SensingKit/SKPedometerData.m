@@ -65,10 +65,10 @@
              @"startDate": self.startDate.timestampDictionary,
              @"endDate": self.endDate.timestampDictionary,
              @"pedometerData": @{
-                     @"numberOfSteps": @(_pedometerData.numberOfSteps.unsignedIntegerValue),
-                     @"distance": @(_pedometerData.distance.unsignedIntegerValue),
-                     @"floorsAscended": @(_pedometerData.floorsAscended.unsignedIntegerValue),
-                     @"floorsDescended": @(_pedometerData.floorsDescended.unsignedIntegerValue)
+                     @"numberOfSteps": _pedometerData.numberOfSteps,
+                     @"distance": _pedometerData.distance,
+                     @"floorsAscended": _pedometerData.floorsAscended,
+                     @"floorsDescended": _pedometerData.floorsDescended
                      }
              };
 }
