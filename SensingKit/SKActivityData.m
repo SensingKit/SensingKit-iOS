@@ -31,6 +31,7 @@
     if (self = [super initWithSensorModuleType:Activity
                                  withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:activity.timestamp]])
     {
+        _startDate = [SKSensorTimestamp sensorTimestampFromDate:activity.startDate];
         _activity = activity;
     }
     return self;
@@ -56,15 +57,16 @@
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,timeIntervalSince1970,activityTimestamp,stationary,walking,running,automotive,cycling,unknown,confidence";
+    return @"timestamp,timeIntervalSince1970,createDate,createDateSince1970,activityTimestamp,stationary,walking,running,automotive,cycling,unknown,confidence";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"\"%@\",%f,%f,%d,%d,%d,%d,%d,%d,%@",
+    return [NSString stringWithFormat:@"\"%@\",%f,\"%@\",%f,%d,%d,%d,%d,%d,%d,%@",
             self.timestamp.timestampString,
             self.timestamp.timeIntervalSince1970,
-            _activity.timestamp,
+            _startDate.timestampString,
+            _startDate.timeIntervalSince1970,
             _activity.stationary,
             _activity.walking,
             _activity.running,
@@ -80,7 +82,7 @@
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
              @"timestamp": self.timestamp.timestampDictionary,
-             @"startDate": _activity.startDate,
+             @"startDate": self.startDate.timestampDictionary,
              @"activity": @{
                      @"stationary": @(_activity.stationary),
                      @"walking": @(_activity.walking),
