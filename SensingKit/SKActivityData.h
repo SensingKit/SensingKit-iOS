@@ -28,7 +28,10 @@
 @interface SKActivityData : SKSensorData
 
 @property (nonatomic, strong, readonly) CMMotionActivity *activity;
+@property (nonatomic, readonly, strong) SKSensorTimestamp *startDate;
 
 - (instancetype)initWithActivity:(CMMotionActivity *)activity;
+
++ (NSString *)csvHeader;
 
 @end

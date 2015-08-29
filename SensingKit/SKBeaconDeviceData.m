@@ -33,7 +33,8 @@
                     withProximity:(CLProximity)proximity
                          withRssi:(NSInteger)rssi
 {
-    if (self = [super initWithSensorModuleType:iBeaconProximity withTimestamp:timestamp])
+    if (self = [super initWithSensorModuleType:iBeaconProximity
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
     {
         _major = major;
         _minor = minor;
@@ -65,10 +66,16 @@
     }
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,timeIntervalSince1970,major,minor,accuracy,proximity,rssi";
+}
+
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%lu,%lu,%f,%@,%ld",
-            [self timestampEpoch],
+    return [NSString stringWithFormat:@"\"%@\",%f,%lu,%lu,%f,%@,%ld",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
             (unsigned long)_major,
             (unsigned long)_minor,
             _accuracy,
@@ -81,11 +88,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": @{
-                     @"timestamp": self.timestamp,
-                     @"timestampEpoch": @(self.timestampEpoch),
-                     @"timestampString": self.timestampString
-                     },
+             @"timestamp": self.timestamp.timestampDictionary,
              @"iBeacon": @{
                      @"major": @(_major),
                      @"minor": @(_minor),

@@ -43,6 +43,12 @@
     return self;
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    // Always available
+    return YES;
+}
+
 - (void)startSensing
 {
     [super startSensing];

@@ -26,4 +26,6 @@
 
 @interface SKDeviceMotion : SKAbstractSensorModule
 
++ (BOOL)isSensorModuleAvailable;
+
 @end

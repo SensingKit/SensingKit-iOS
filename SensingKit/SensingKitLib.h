@@ -28,9 +28,14 @@
 
 @interface SensingKitLib : NSObject
 
-- (id)init __attribute__((unavailable("Use [SensingKitLib sharedSensingKitLib] instead.")));
+- (instancetype)init __attribute__((unavailable("Use [SensingKitLib sharedSensingKitLib] instead.")));
 
 + (SensingKitLib *)sharedSensingKitLib;
+
+
+- (BOOL)isSensorModuleAvailable:(SKSensorModuleType)moduleType;
+
+- (NSString *)csvHeaderForSensorModule:(SKSensorModuleType)moduleType;
 
 
 /** Sensor Registration */

@@ -30,11 +30,18 @@
                            withTimestamp:(NSDate *)timestamp
                              withDevices:(NSArray *)devices
 {
-    if (self = [super initWithSensorModuleType:moduleType withTimestamp:timestamp])
+    if (self = [super initWithSensorModuleType:moduleType
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
     {
         _devices = devices;
     }
     return self;
+}
+
++ (NSString *)csvHeader
+{
+    NSLog(@"csvHeader depends on the DeviceData class.");
+    return nil;
 }
 
 - (NSString *)csvString
@@ -54,11 +61,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": @{
-                     @"timestamp": self.timestamp,
-                     @"timestampEpoch": @(self.timestampEpoch),
-                     @"timestampString": self.timestampString
-                     },
+             @"timestamp": self.timestamp.timestampDictionary,
              @"devices": dictionaries
              };
 }

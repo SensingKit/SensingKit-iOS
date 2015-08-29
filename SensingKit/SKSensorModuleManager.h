@@ -28,6 +28,10 @@
 
 @interface SKSensorModuleManager : NSObject
 
+- (BOOL)isSensorModuleAvailable:(SKSensorModuleType)moduleType;
+
+- (NSString *)csvHeaderForSensorModule:(SKSensorModuleType)moduleType;
+
 /** Sensor Registration */
 
 - (void)registerSensorModule:(SKSensorModuleType)moduleType;

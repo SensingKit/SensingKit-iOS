@@ -44,6 +44,11 @@
     return self;
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    return [SKMotionManager sharedMotionManager].isAccelerometerAvailable;
+}
+
 - (void)startSensing
 {
     [super startSensing];
@@ -56,7 +61,7 @@
                                                      if (error) {
                                                          NSLog(@"%@", error.localizedDescription);
                                                      } else {
-                                                         SKAccelerometerData *data = [[SKAccelerometerData alloc] initWithAcceleration:accelerometerData.acceleration];
+                                                         SKAccelerometerData *data = [[SKAccelerometerData alloc] initWithAccelerometerData:accelerometerData];
                                                          [self submitSensorData:data];
                                                      }
                                                      

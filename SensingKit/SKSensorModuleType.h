@@ -22,12 +22,15 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-typedef NS_ENUM(NSInteger, SKSensorModuleType) {
-    Accelerometer,
+typedef NS_ENUM(NSUInteger, SKSensorModuleType)
+{
+    Accelerometer = 0,
     Gyroscope,
     Magnetometer,
     DeviceMotion,
     Activity,
+    Pedometer,
+    Altimeter,
     Battery,
     Location,
     iBeaconProximity,

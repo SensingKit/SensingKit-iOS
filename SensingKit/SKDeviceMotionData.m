@@ -26,27 +26,30 @@
 
 @implementation SKDeviceMotionData
 
-- (instancetype)initWithAattitude:(CMAttitude *)attitude
-                      withGravity:(CMAcceleration)gravity
-                withMagneticField:(CMCalibratedMagneticField)magneticField
-                 withRotationRate:(CMRotationRate)rotationRate
-             withUserAcceleration:(CMAcceleration)userAcceleration
+- (instancetype)initWithDeviceMotion:(CMDeviceMotion *)motion
 {
-    if (self = [super initWithSensorModuleType:DeviceMotion])
+    if (self = [super initWithSensorModuleType:DeviceMotion
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:motion.timestamp]])
     {
-        _attitude = attitude;
-        _gravity = gravity;
-        _magneticField = magneticField;
-        _rotationRate = rotationRate;
-        _userAcceleration = userAcceleration;
+        _attitude = motion.attitude;
+        _gravity = motion.gravity;
+        _magneticField = motion.magneticField;
+        _rotationRate = motion.rotationRate;
+        _userAcceleration = motion.userAcceleration;
     }
     return self;
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,timeIntervalSince1970,attitude.roll,attitude.pitch,attitude.yaw,gravity.x,gravity.y,gravity.z,magneticField.x,magneticField.y,magneticField.z,magneticField.accuracy,rotationRate.x,rotationRate.y,rotationRate.z,userAcceleration.x,userAcceleration.y,userAcceleration.z";
+}
+
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%d,%f,%f,%f,%f,%f,%f",
-            [self timestampEpoch],
+    return [NSString stringWithFormat:@"\"%@\",%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%d,%f,%f,%f,%f,%f,%f",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
             _attitude.roll,
             _attitude.pitch,
             _attitude.yaw,
@@ -70,11 +73,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": @{
-                     @"timestamp": self.timestamp,
-                     @"timestampEpoch": @(self.timestampEpoch),
-                     @"timestampString": self.timestampString
-                     },
+             @"timestamp": self.timestamp.timestampDictionary,
              @"attitude": @{
                      @"roll": @(_attitude.roll),
                      @"pitch": @(_attitude.pitch),

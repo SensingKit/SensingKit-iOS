@@ -28,6 +28,8 @@
 
 @property (nonatomic, strong, readonly) NSString *namespaceFilter;
 
-- (id)initWithNamespaceFilter:(NSString *)namespaceFilter;
++ (BOOL)isSensorModuleAvailable;
+
+- (instancetype)initWithNamespaceFilter:(NSString *)namespaceFilter;
 
 @end

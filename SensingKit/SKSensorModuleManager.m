@@ -27,17 +27,32 @@
 #import "NSString+SensorModuleType.h"
 
 // SensorModules
-#import "SKBattery.h"
-#import "SKLocation.h"
-#import "SKiBeaconProximity.h"
-#import "SKEddystoneProximity.h"
 #import "SKAccelerometer.h"
 #import "SKGyroscope.h"
 #import "SKMagnetometer.h"
 #import "SKDeviceMotion.h"
 #import "SKActivity.h"
+#import "SKPedometer.h"
+#import "SKAltimeter.h"
+#import "SKBattery.h"
+#import "SKLocation.h"
+#import "SKiBeaconProximity.h"
+#import "SKEddystoneProximity.h"
 
-#define TOTAL_SENSOR_MODULES 9
+// SensorData
+#import "SKAccelerometerData.h"
+#import "SKGyroscopeData.h"
+#import "SKMagnetometerData.h"
+#import "SKDeviceMotionData.h"
+#import "SKActivityData.h"
+#import "SKPedometerData.h"
+#import "SKAltimeterData.h"
+#import "SKBatteryData.h"
+#import "SKLocationData.h"
+#import "SKBeaconDeviceData.h"
+#import "SKEddystoneProximityData.h"
+
+#define TOTAL_SENSOR_MODULES 11
 
 @interface SKSensorModuleManager()
 
@@ -60,6 +75,94 @@
         }
     }
     return self;
+}
+
+- (NSString *)csvHeaderForSensorModule:(SKSensorModuleType)moduleType
+{
+    switch (moduleType) {
+            
+        case Accelerometer:
+            return [SKAccelerometerData csvHeader];
+            
+        case Gyroscope:
+            return [SKGyroscopeData csvHeader];
+            
+        case Magnetometer:
+            return [SKMagnetometerData csvHeader];
+            
+        case DeviceMotion:
+            return [SKDeviceMotionData csvHeader];
+            
+        case Activity:
+            return [SKActivityData csvHeader];
+            
+        case Pedometer:
+            return [SKPedometerData csvHeader];
+            
+        case Altimeter:
+            return [SKAltimeterData csvHeader];
+            
+        case Battery:
+            return [SKBatteryData csvHeader];
+            
+        case Location:
+            return [SKLocationData csvHeader];
+            
+        case iBeaconProximity:
+            return [SKBeaconDeviceData csvHeader];
+            
+        case EddystoneProximity:
+            return [SKEddystoneProximityData csvHeader];
+            
+        default:
+            NSLog(@"Unknown SensorModule: %li", (long)moduleType);
+            abort();
+    }
+}
+
+- (BOOL)isSensorModuleAvailable:(SKSensorModuleType)moduleType
+{
+    switch (moduleType) {
+            
+        case Accelerometer:
+            return [SKAccelerometer isSensorModuleAvailable];
+            
+        case Gyroscope:
+            return [SKGyroscope isSensorModuleAvailable];
+            
+        case Magnetometer:
+            return [SKMagnetometer isSensorModuleAvailable];
+            
+        case DeviceMotion:
+            return [SKDeviceMotion isSensorModuleAvailable];
+            
+        case Activity:
+            return [SKActivity isSensorModuleAvailable];
+            
+        case Pedometer:
+            return [SKPedometer isSensorModuleAvailable];
+            
+        case Altimeter:
+            return [SKAltimeter isSensorModuleAvailable];
+            
+        case Battery:
+            return [SKBattery isSensorModuleAvailable];
+            
+        case Location:
+            return [SKLocation isSensorModuleAvailable];
+            
+        case iBeaconProximity:
+            return [SKiBeaconProximity isSensorModuleAvailable];
+            
+        case EddystoneProximity:
+            return [SKEddystoneProximity isSensorModuleAvailable];
+            
+        default:
+            NSLog(@"Unknown SensorModule: %li", (long)moduleType);
+            abort();
+    }
+    
+    return NO;
 }
 
 #pragma mark Sensor Registration methods
@@ -225,6 +328,14 @@
             
         case Activity:
             sensorModule = [[SKActivity alloc] init];
+            break;
+            
+        case Pedometer:
+            sensorModule = [[SKPedometer alloc] init];
+            break;
+            
+        case Altimeter:
+            sensorModule = [[SKAltimeter alloc] init];
             break;
             
         case Battery:

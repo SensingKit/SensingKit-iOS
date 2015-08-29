@@ -44,10 +44,15 @@
     return self;
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    return [SKMotionManager sharedMotionManager].isDeviceMotionAvailable;
+}
+
 - (void)startSensing
 {
     [super startSensing];
-    
+
     if ([self.motionManager isDeviceMotionAvailable])
     {
         [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue]
@@ -56,11 +61,7 @@
                                                     if (error) {
                                                         NSLog(@"%@", error.localizedDescription);
                                                     } else {
-                                                        SKDeviceMotionData *data = [[SKDeviceMotionData alloc] initWithAattitude:motion.attitude
-                                                                                                                     withGravity:motion.gravity
-                                                                                                               withMagneticField:motion.magneticField
-                                                                                                                withRotationRate:motion.rotationRate
-                                                                                                            withUserAcceleration:motion.userAcceleration];
+                                                        SKDeviceMotionData *data = [[SKDeviceMotionData alloc] initWithDeviceMotion:motion];
                                                         [self submitSensorData:data];
                                                     }
                                                     

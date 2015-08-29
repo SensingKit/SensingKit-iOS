@@ -27,19 +27,7 @@
 @implementation SKSensorData
 
 - (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
-{
-    if (self = [super init])
-    {
-        _moduleType = moduleType;
-        
-        // Save current timestamp
-        _timestamp = [NSDate date];
-    }
-    return self;
-}
-
-- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
-                           withTimestamp:(NSDate *)timestamp
+                           withTimestamp:(SKSensorTimestamp *)timestamp
 {
     if (self = [super init])
     {
@@ -49,38 +37,15 @@
     return self;
 }
 
-+ (NSDateFormatter *)dateFormatter
-{
-    static NSDateFormatter *dateFormatter = nil;
-    
-    if (dateFormatter == nil)
-    {
-        dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-        dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss.SSS";
-    }
-    return dateFormatter;
-}
-
-- (NSString *)timestampString
-{
-    return [[SKSensorData dateFormatter] stringFromDate:_timestamp];
-}
-
-- (double)timestampEpoch
-{
-    return _timestamp.timeIntervalSince1970;
-}
-
 - (NSString *)csvString
 {
-    NSLog(@"Error: csvString method has not be implemented in the parent SKSensorData file.");
+    NSLog(@"Error: csvString method has not be implemented in the inherited SKSensorData file.");
     abort();
 }
 
 - (NSDictionary *)dictionaryData
 {
-    NSLog(@"Error: dictionaryData method has not be implemented in the parent SKSensorData file.");
+    NSLog(@"Error: dictionaryData method has not be implemented in the inherited SKSensorData file.");
     abort();
 }
 

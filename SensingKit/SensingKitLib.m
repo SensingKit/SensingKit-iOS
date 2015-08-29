@@ -54,6 +54,15 @@
     return self;
 }
 
+- (BOOL)isSensorModuleAvailable:(SKSensorModuleType)moduleType
+{
+    return [self.sensorModuleManager isSensorModuleAvailable:moduleType];
+}
+
+- (NSString *)csvHeaderForSensorModule:(SKSensorModuleType)moduleType
+{
+    return [self.sensorModuleManager csvHeaderForSensorModule:moduleType];
+}
 
 #pragma mark Sensor Registration methods
 

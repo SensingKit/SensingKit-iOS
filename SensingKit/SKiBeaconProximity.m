@@ -75,6 +75,11 @@
     }
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    return [CLLocationManager isRangingAvailable];
+}
+
 #pragma mark start / stop sensing
 
 - (void)startAdvertisingWithPower:(NSNumber *)power
@@ -104,7 +109,7 @@
 
 - (void)startMonitoring
 {
-    if ([CLLocationManager isRangingAvailable]) {
+    if ([SKiBeaconProximity isSensorModuleAvailable]) {
         
         // Start monitoring
         [self.locationManager startRangingBeaconsInRegion:self.scan_beaconRegion];

@@ -42,14 +42,14 @@
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;  // kCLLocationAccuracyBestForNavigation??
         self.locationManager.distanceFilter = kCLDistanceFilterNone;
         
-        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-            [self.locationManager requestWhenInUseAuthorization];
+        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+            [self.locationManager requestAlwaysAuthorization];
         }
     }
     return self;
 }
 
-- (BOOL)isLocationSensingAvailable
++ (BOOL)isSensorModuleAvailable
 {
     return [CLLocationManager locationServicesEnabled];
 }
@@ -60,7 +60,7 @@
 {
     [super startSensing];
     
-    if ([self isLocationSensingAvailable])
+    if ([SKLocation isSensorModuleAvailable])
     {
         [self.locationManager startUpdatingLocation];
     }

@@ -37,4 +37,6 @@
                          withRssi:(NSInteger)rssi
                       withTxPower:(NSInteger)txPower;
 
++ (NSString *)csvHeader;
+
 @end

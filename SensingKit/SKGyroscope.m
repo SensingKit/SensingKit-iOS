@@ -44,6 +44,11 @@
     return self;
 }
 
++ (BOOL)isSensorModuleAvailable
+{
+    return [SKMotionManager sharedMotionManager].isGyroAvailable;
+}
+
 - (void)startSensing
 {
     [super startSensing];
@@ -56,7 +61,7 @@
                                             if (error) {
                                                 NSLog(@"%@", error.localizedDescription);
                                             } else {
-                                                SKGyroscopeData *data = [[SKGyroscopeData alloc] initWithRotationRate:gyroData.rotationRate];
+                                                SKGyroscopeData *data = [[SKGyroscopeData alloc] initWithGyroData:gyroData];
                                                 [self submitSensorData:data];
                                             }
                                             

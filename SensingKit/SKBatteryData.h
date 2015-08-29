@@ -33,4 +33,6 @@
 
 - (NSString *)stateString;
 
++ (NSString *)csvHeader;
+
 @end

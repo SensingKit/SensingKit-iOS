@@ -29,6 +29,8 @@
 
 @property (nonatomic, readonly) CMMagneticField magneticField;
 
-- (instancetype)initWithMagneticField:(CMMagneticField)magneticField;
+- (instancetype)initWithMagnetometerData:(CMMagnetometerData *)magnetometerData;
+
++ (NSString *)csvHeader;
 
 @end

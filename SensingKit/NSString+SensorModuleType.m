@@ -26,40 +26,23 @@
 
 @implementation NSString (SensorModuleType)
 
+static NSString *MODULE_STRINGS[] = {
+    @"Accelerometer",
+    @"Gyroscope",
+    @"Magnetometer",
+    @"DeviceMotion",
+    @"Activity",
+    @"Pedometer",
+    @"Altimeter",
+    @"Battery",
+    @"Location",
+    @"iBeaconProximity",
+    @"EddystoneProximity"
+};
+
 + (NSString *)stringWithSensorModuleType:(SKSensorModuleType)moduleType
 {
-    switch (moduleType) {
-            
-        case Accelerometer:
-            return @"Accelerometer";
-            
-        case Gyroscope:
-            return @"Gyroscope";
-            
-        case Magnetometer:
-            return @"Magnetometer";
-            
-        case DeviceMotion:
-            return @"DeviceMotion";
-            
-        case Activity:
-            return @"Activity";
-            
-        case Battery:
-            return @"Battery";
-            
-        case Location:
-            return @"Location";
-            
-        case iBeaconProximity:
-            return @"iBeaconProximity";
-            
-        case EddystoneProximity:
-            return @"EddystoneProximity";
-            
-        default:
-            return [NSString stringWithFormat:@"Unknown SensorModule: %li", (long)moduleType];
-    }
+    return MODULE_STRINGS[moduleType];
 }
 
 @end

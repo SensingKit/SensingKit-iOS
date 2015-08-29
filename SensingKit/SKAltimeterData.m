@@ -1,5 +1,5 @@
 //
-//  SKBatteryData.m
+//  SKAltimeterData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,54 +22,32 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBatteryData.h"
+#import "SKAltimeterData.h"
 
-@implementation SKBatteryData
+@implementation SKAltimeterData
 
-- (instancetype)initWithLevel:(CGFloat)level withState:(UIDeviceBatteryState)state
+- (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData
 {
-    if (self = [super initWithSensorModuleType:Battery
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
+    if (self = [super initWithSensorModuleType:Altimeter
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:altitudeData.timestamp]])
     {
-        _level = level;
-        _state = state;
+        _altitudeData = altitudeData;
     }
     return self;
 }
 
-- (NSString *)stateString
-{
-    switch (_state) {
-        case UIDeviceBatteryStateCharging:
-            return @"Charging";
-            
-        case UIDeviceBatteryStateFull:
-            return @"Full";
-            
-        case UIDeviceBatteryStateUnplugged:
-            return @"Unplugged";
-            
-        case UIDeviceBatteryStateUnknown:
-            return @"Unknown";
-            
-        default:
-            NSLog(@"Warning: Unknown state: %d", (int)_state);
-            return @"Unknown";
-    }
-}
-
 + (NSString *)csvHeader
 {
-    return @"timestamp,timeIntervalSince1970,state,level";
+    return @"timestamp,timeIntervalSince1970,relativeAltitude,pressure";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"\"%@\",%f,%@,%f",
+    return [NSString stringWithFormat:@"\"%@\",%f,%ld,%lu",
             self.timestamp.timestampString,
             self.timestamp.timeIntervalSince1970,
-            [self stateString],
-            _level];
+            (long)_altitudeData.relativeAltitude.integerValue,
+            (unsigned long)_altitudeData.pressure.unsignedIntegerValue];
 }
 
 - (NSDictionary *)dictionaryData
@@ -77,11 +55,10 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": self.timestamp.timestampDictionary,
-             @"battery": @{
-                     @"level": @(_level),
-                     @"state": @(_state),
-                     @"stateString": self.stateString
+            @"timestamp": self.timestamp.timestampDictionary,
+             @"altitudeData": @{
+                     @"relativeAltitude": _altitudeData.relativeAltitude,
+                     @"pressure": _altitudeData.pressure
                      }
              };
 }

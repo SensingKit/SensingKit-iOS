@@ -1,5 +1,5 @@
 //
-//  SKActivity.m
+//  SKAltimeter.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,55 +22,62 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKActivity.h"
-#import "SKActivityData.h"
+#import "SKAltimeter.h"
+#import "SKAltimeterData.h"
 
 @import CoreMotion;
 
-@interface SKActivity ()
+@interface SKAltimeter ()
 
-@property (nonatomic, strong) CMMotionActivityManager *motionActivityManager;
+@property (nonatomic, strong) CMAltimeter *altemeter;
 
 @end
 
-@implementation SKActivity
+@implementation SKAltimeter
 
 - (instancetype)init
 {
     if (self = [super init])
     {
-        self.motionActivityManager = [[CMMotionActivityManager alloc] init];
+        self.altemeter = [[CMAltimeter alloc] init];
     }
     return self;
 }
 
 + (BOOL)isSensorModuleAvailable
 {
-    return [CMMotionActivityManager isActivityAvailable];
+    return [CMAltimeter isRelativeAltitudeAvailable];
 }
 
 - (void)startSensing
 {
     [super startSensing];
     
-    if ([CMMotionActivityManager isActivityAvailable])
+    if ([CMAltimeter isRelativeAltitudeAvailable])
     {
-        [self.motionActivityManager startActivityUpdatesToQueue:[NSOperationQueue currentQueue]
-                                                    withHandler:^(CMMotionActivity *activity) {
-                                                        SKActivityData *data = [[SKActivityData alloc] initWithActivity:activity];
+        [self.altemeter startRelativeAltitudeUpdatesToQueue:[NSOperationQueue currentQueue]
+                                                withHandler:^(CMAltitudeData *altitudeData, NSError *error) {
+                                                    
+                                                    if (!error) {
+                                                        SKAltimeterData *data = [[SKAltimeterData alloc] initWithAltitudeData:altitudeData];
                                                         [self submitSensorData:data];
-                                                    }];
+                                                    }
+                                                    else {
+                                                        NSLog(@"%@", error.localizedDescription);
+                                                    }
+
+                                                }];
     }
     else
     {
-        NSLog(@"DeviceMotion Sensing is not available.");
+        NSLog(@"Altimeter is not available.");
         abort();
     }
 }
 
 - (void)stopSensing
 {
-    [self.motionActivityManager stopActivityUpdates];
+    [self.altemeter stopRelativeAltitudeUpdates];
     
     [super stopSensing];
 }

@@ -28,17 +28,24 @@
 
 - (instancetype)initWithLocation:(CLLocation *)location
 {
-    if (self = [super initWithSensorModuleType:Location withTimestamp:location.timestamp])
+    if (self = [super initWithSensorModuleType:Location
+                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:location.timestamp]])
     {
         _location = location;
     }
     return self;
 }
 
++ (NSString *)csvHeader
+{
+    return @"timestamp,timeIntervalSince1970,latitude,longitude,altitude,horizontalAccuracy,verticalAccuracy,speed,course";
+}
+
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"%f,%f,%f,%f,%f,%f,%f,%f",
-            [self timestampEpoch],
+    return [NSString stringWithFormat:@"\"%@\",%f,%f,%f,%f,%f,%f,%f,%f",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
             _location.coordinate.latitude,
             _location.coordinate.longitude,
             _location.altitude,
@@ -53,11 +60,7 @@
     return @{
              @"sensorType": @(self.moduleType),
              @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
-             @"timestamp": @{
-                     @"timestamp": self.timestamp,
-                     @"timestampEpoch": @(self.timestampEpoch),
-                     @"timestampString": self.timestampString
-                     },
+             @"timestamp": self.timestamp.timestampDictionary,
              @"location": @{
                      @"coordinate": @{
                              @"latitude": @(_location.coordinate.latitude),

@@ -26,4 +26,6 @@
 
 @interface SKActivity : SKAbstractSensorModule
 
++ (BOOL)isSensorModuleAvailable;
+
 @end

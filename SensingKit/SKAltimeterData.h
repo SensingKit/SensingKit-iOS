@@ -1,5 +1,5 @@
 //
-//  SKDeviceMotionData.h
+//  SKAltimeterData.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -25,15 +25,11 @@
 #import "SKSensorData.h"
 @import CoreMotion;
 
-@interface SKDeviceMotionData : SKSensorData
+@interface SKAltimeterData : SKSensorData
 
-@property (nonatomic, strong, readonly) CMAttitude *attitude;
-@property (nonatomic, readonly) CMAcceleration gravity;
-@property (nonatomic, readonly) CMCalibratedMagneticField magneticField;
-@property (nonatomic, readonly) CMRotationRate rotationRate;
-@property (nonatomic, readonly) CMAcceleration userAcceleration;
+@property (strong, nonatomic, readonly) CMAltitudeData *altitudeData;
 
-- (instancetype)initWithDeviceMotion:(CMDeviceMotion *)motion;
+- (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData;
 
 + (NSString *)csvHeader;
 

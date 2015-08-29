@@ -1,5 +1,5 @@
 //
-//  SKDeviceMotionData.h
+//  SKSensorTimestamp.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,19 +22,21 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKSensorData.h"
-@import CoreMotion;
+#import <Foundation/Foundation.h>
 
-@interface SKDeviceMotionData : SKSensorData
+@interface SKSensorTimestamp : NSObject
 
-@property (nonatomic, strong, readonly) CMAttitude *attitude;
-@property (nonatomic, readonly) CMAcceleration gravity;
-@property (nonatomic, readonly) CMCalibratedMagneticField magneticField;
-@property (nonatomic, readonly) CMRotationRate rotationRate;
-@property (nonatomic, readonly) CMAcceleration userAcceleration;
+@property (strong, nonatomic, readonly) NSDate *timestamp;
+@property (nonatomic, readonly) NSTimeInterval timeIntervalSinceLastBoot;
 
-- (instancetype)initWithDeviceMotion:(CMDeviceMotion *)motion;
+- (instancetype)init __attribute__((unavailable("Use [SKSensorTimestamp sensorTimestampFromDate:] or [SKSensorTimestamp sensorTimestampFromTimeInterval:] instead.")));
 
-+ (NSString *)csvHeader;
++ (instancetype)sensorTimestampFromDate:(NSDate *)date;
+
++ (instancetype)sensorTimestampFromTimeInterval:(NSTimeInterval)timeInterval;
+
+- (NSDictionary *)timestampDictionary;
+- (NSString *)timestampString;
+- (NSTimeInterval)timeIntervalSince1970;
 
 @end
