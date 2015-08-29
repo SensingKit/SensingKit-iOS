@@ -1,6 +1,6 @@
 # Changelog
 
-### 0.3.0
+### 0.3.0 (August 29, 2015)
 - Added support for Pedometer sensor.
 - Added support for Altimeter sensor.
 - Added isSensorModuleAvailable: method to check for the availability of the sensor in the device.
