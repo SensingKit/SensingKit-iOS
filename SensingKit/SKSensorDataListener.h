@@ -25,4 +25,4 @@
 #import "SKSensorData.h"
 
 // Typedef of block to be invoked when sensor data is available.
-typedef void (^SKSensorDataHandler)(SKSensorModuleType moduleType, SKSensorData *sensorData);
+typedef void (^SKSensorDataHandler)(SKSensorType sensorType, SKSensorData *sensorData);

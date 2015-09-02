@@ -1,5 +1,5 @@
 //
-//  SKSensorModuleManager.h
+//  SKSensorManager.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -23,42 +23,42 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SKSensorModuleType.h"
+#import "SKSensorType.h"
 #import "SKSensorDataListener.h"
 
-@interface SKSensorModuleManager : NSObject
+@interface SKSensorManager : NSObject
 
-- (BOOL)isSensorModuleAvailable:(SKSensorModuleType)moduleType;
+- (BOOL)isSensorAvailable:(SKSensorType)sensorType;
 
-- (NSString *)csvHeaderForSensorModule:(SKSensorModuleType)moduleType;
+- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
 
 /** Sensor Registration */
 
-- (void)registerSensorModule:(SKSensorModuleType)moduleType;
+- (void)registerSensor:(SKSensorType)sensorType;
 
-- (void)deregisterSensorModule:(SKSensorModuleType)moduleType;
+- (void)deregisterSensor:(SKSensorType)sensorType;
 
-- (BOOL)isSensorModuleRegistered:(SKSensorModuleType)moduleType;
+- (BOOL)isSensorRegistered:(SKSensorType)sensorType;
 
 
 /** Continuous Sensing */
 
-- (void)subscribeSensorDataListenerToSensor:(SKSensorModuleType)moduleType
+- (void)subscribeSensorDataListenerToSensor:(SKSensorType)sensorType
                                 withHandler:(SKSensorDataHandler)handler;
 
-- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorModuleType)moduleType
+- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorType)sensorType
                                       ofHandler:(SKSensorDataHandler)handler;
 
-- (void)unsubscribeAllSensorDataListeners:(SKSensorModuleType)moduleType;
+- (void)unsubscribeAllSensorDataListeners:(SKSensorType)sensorType;
 
-- (void)startContinuousSensingWithSensor:(SKSensorModuleType)moduleType;
+- (void)startContinuousSensingWithSensor:(SKSensorType)sensorType;
 
-- (void)stopContinuousSensingWithSensor:(SKSensorModuleType)moduleType;
+- (void)stopContinuousSensingWithSensor:(SKSensorType)sensorType;
 
 - (void)startContinuousSensingWithAllRegisteredSensors;
 
 - (void)stopContinuousSensingWithAllRegisteredSensors;
 
-- (BOOL)isSensorModuleSensing:(SKSensorModuleType)moduleType;
+- (BOOL)isSensorSensing:(SKSensorType)sensorType;
 
 @end

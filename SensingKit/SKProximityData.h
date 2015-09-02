@@ -28,9 +28,9 @@
 
 @property (nonatomic, strong, readonly) NSArray *devices;
 
-- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
-                           withTimestamp:(NSDate *)timestamp
-                             withDevices:(NSArray *)devices;
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(NSDate *)timestamp
+                       withDevices:(NSArray *)devices;
 
 + (NSString *)csvHeader;
 

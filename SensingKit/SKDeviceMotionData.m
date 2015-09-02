@@ -28,8 +28,8 @@
 
 - (instancetype)initWithDeviceMotion:(CMDeviceMotion *)motion
 {
-    if (self = [super initWithSensorModuleType:DeviceMotion
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:motion.timestamp]])
+    if (self = [super initWithSensorType:DeviceMotion
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:motion.timestamp]])
     {
         _attitude = motion.attitude;
         _gravity = motion.gravity;
@@ -71,8 +71,8 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"timestamp": self.timestamp.timestampDictionary,
              @"attitude": @{
                      @"roll": @(_attitude.roll),

@@ -28,8 +28,8 @@
 
 - (instancetype)initWithLevel:(CGFloat)level withState:(UIDeviceBatteryState)state
 {
-    if (self = [super initWithSensorModuleType:Battery
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
+    if (self = [super initWithSensorType:Battery
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
     {
         _level = level;
         _state = state;
@@ -75,8 +75,8 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"timestamp": self.timestamp.timestampDictionary,
              @"battery": @{
                      @"level": @(_level),

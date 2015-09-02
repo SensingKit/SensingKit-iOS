@@ -75,7 +75,7 @@
     }
 }
 
-+ (BOOL)isSensorModuleAvailable
++ (BOOL)isSensorAvailable
 {
     return [CLLocationManager isRangingAvailable];
 }
@@ -109,7 +109,7 @@
 
 - (void)startMonitoring
 {
-    if ([SKiBeaconProximity isSensorModuleAvailable]) {
+    if ([SKiBeaconProximity isSensorAvailable]) {
         
         // Start monitoring
         [self.locationManager startRangingBeaconsInRegion:self.scan_beaconRegion];
@@ -183,9 +183,9 @@
         if (array.count) {
             
             // Create and submit the SKProximityData object
-            SKProximityData *data = [[SKProximityData alloc] initWithSensorModuleType:iBeaconProximity
-                                                                        withTimestamp:timestamp
-                                                                          withDevices:array];
+            SKProximityData *data = [[SKProximityData alloc] initWithSensorType:iBeaconProximity
+                                                                  withTimestamp:timestamp
+                                                                    withDevices:array];
             
             [self submitSensorData:data];
         }

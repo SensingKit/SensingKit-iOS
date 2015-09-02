@@ -23,11 +23,11 @@
 //
 
 #import "SensingKitLib.h"
-#import "SKSensorModuleManager.h"
+#import "SKSensorManager.h"
 
 @interface SensingKitLib()
 
-@property (nonatomic, strong, readonly) SKSensorModuleManager *sensorModuleManager;
+@property (nonatomic, strong, readonly) SKSensorManager *sensorManager;
 
 @end
 
@@ -48,83 +48,83 @@
 {
     if (self = [super init])
     {
-        // init sensorModuleManager
-        _sensorModuleManager = [[SKSensorModuleManager alloc] init];
+        // init sensorManager
+        _sensorManager = [[SKSensorManager alloc] init];
     }
     return self;
 }
 
-- (BOOL)isSensorModuleAvailable:(SKSensorModuleType)moduleType
+- (BOOL)isSensorAvailable:(SKSensorType)sensorType
 {
-    return [self.sensorModuleManager isSensorModuleAvailable:moduleType];
+    return [self.sensorManager isSensorAvailable:sensorType];
 }
 
-- (NSString *)csvHeaderForSensorModule:(SKSensorModuleType)moduleType
+- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
 {
-    return [self.sensorModuleManager csvHeaderForSensorModule:moduleType];
+    return [self.sensorManager csvHeaderForSensor:sensorType];
 }
 
 #pragma mark Sensor Registration methods
 
-- (void)registerSensorModule:(SKSensorModuleType)moduleType
+- (void)registerSensor:(SKSensorType)sensorType
 {
-    [self.sensorModuleManager registerSensorModule:moduleType];
+    [self.sensorManager registerSensor:sensorType];
 }
 
-- (void)deregisterSensorModule:(SKSensorModuleType)moduleType
+- (void)deregisterSensor:(SKSensorType)sensorType
 {
-    [self.sensorModuleManager deregisterSensorModule:moduleType];
+    [self.sensorManager deregisterSensor:sensorType];
 }
 
-- (BOOL)isSensorModuleRegistered:(SKSensorModuleType)moduleType
+- (BOOL)isSensorRegistered:(SKSensorType)sensorType
 {
-    return [self.sensorModuleManager isSensorModuleRegistered:moduleType];
+    return [self.sensorManager isSensorRegistered:sensorType];
 }
 
 #pragma mark Continuous Sensing methods
 
-- (void)subscribeSensorDataListenerToSensor:(SKSensorModuleType)moduleType
+- (void)subscribeSensorDataListenerToSensor:(SKSensorType)sensorType
                                 withHandler:(SKSensorDataHandler)handler
 {
-    [self.sensorModuleManager subscribeSensorDataListenerToSensor:moduleType
+    [self.sensorManager subscribeSensorDataListenerToSensor:sensorType
                                                       withHandler:handler];
 }
 
-- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorModuleType)moduleType
+- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorType)sensorType
                                       ofHandler:(SKSensorDataHandler)handler
 {
-    [self.sensorModuleManager unsubscribeSensorDataListenerFromSensor:moduleType
+    [self.sensorManager unsubscribeSensorDataListenerFromSensor:sensorType
                                                             ofHandler:handler];
 }
 
-- (void)unsubscribeAllSensorDataListeners:(SKSensorModuleType)moduleType
+- (void)unsubscribeAllSensorDataListeners:(SKSensorType)sensorType
 {
-    [self.sensorModuleManager unsubscribeAllSensorDataListeners:moduleType];
+    [self.sensorManager unsubscribeAllSensorDataListeners:sensorType];
 }
 
-- (void)startContinuousSensingWithSensor:(SKSensorModuleType)moduleType
+- (void)startContinuousSensingWithSensor:(SKSensorType)sensorType
 {
-    [self.sensorModuleManager startContinuousSensingWithSensor:moduleType];
+    [self.sensorManager startContinuousSensingWithSensor:sensorType];
 }
 
-- (void)stopContinuousSensingWithSensor:(SKSensorModuleType)moduleType
+- (void)stopContinuousSensingWithSensor:(SKSensorType)sensorType
 {
-    [self.sensorModuleManager stopContinuousSensingWithSensor:moduleType];
+    [self.sensorManager stopContinuousSensingWithSensor:sensorType];
 }
 
 - (void)startContinuousSensingWithAllRegisteredSensors
 {
-    [self.sensorModuleManager startContinuousSensingWithAllRegisteredSensors];
+    [self.sensorManager startContinuousSensingWithAllRegisteredSensors];
 }
 
 - (void)stopContinuousSensingWithAllRegisteredSensors
 {
-    [self.sensorModuleManager stopContinuousSensingWithAllRegisteredSensors];
+    [self.sensorManager stopContinuousSensingWithAllRegisteredSensors];
 }
 
-- (BOOL)isSensorModuleSensing:(SKSensorModuleType)moduleType
+- (BOOL)isSensorSensing:(SKSensorType)sensorType
 {
-    return [self.sensorModuleManager isSensorModuleSensing:moduleType];
+    return [self.sensorManager isSensorSensing:sensorType];
 }
 
 @end

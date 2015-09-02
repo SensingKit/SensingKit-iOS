@@ -26,12 +26,12 @@
 
 @implementation SKSensorData
 
-- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
-                           withTimestamp:(SKSensorTimestamp *)timestamp
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(SKSensorTimestamp *)timestamp
 {
     if (self = [super init])
     {
-        _moduleType = moduleType;
+        _sensorType = sensorType;
         _timestamp = timestamp;
     }
     return self;

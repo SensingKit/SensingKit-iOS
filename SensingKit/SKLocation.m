@@ -49,7 +49,7 @@
     return self;
 }
 
-+ (BOOL)isSensorModuleAvailable
++ (BOOL)isSensorAvailable
 {
     return [CLLocationManager locationServicesEnabled];
 }
@@ -60,7 +60,7 @@
 {
     [super startSensing];
     
-    if ([SKLocation isSensorModuleAvailable])
+    if ([SKLocation isSensorAvailable])
     {
         [self.locationManager startUpdatingLocation];
     }

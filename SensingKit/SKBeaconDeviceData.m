@@ -33,8 +33,8 @@
                     withProximity:(CLProximity)proximity
                          withRssi:(NSInteger)rssi
 {
-    if (self = [super initWithSensorModuleType:iBeaconProximity
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
+    if (self = [super initWithSensorType:iBeaconProximity
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
     {
         _major = major;
         _minor = minor;
@@ -86,8 +86,8 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"timestamp": self.timestamp.timestampDictionary,
              @"iBeacon": @{
                      @"major": @(_major),

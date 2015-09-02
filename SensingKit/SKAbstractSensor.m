@@ -1,5 +1,5 @@
 //
-//  SKAbstractSensorModule.m
+//  SKAbstractSensor.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -21,15 +21,15 @@
 //  You should have received a copy of the GNU Lesser General Public License
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
-#import "SKAbstractSensorModule.h"
+#import "SKAbstractSensor.h"
 
-@interface SKAbstractSensorModule()
+@interface SKAbstractSensor()
 
 @property (nonatomic, strong) NSMutableArray *sensorDataListeners;
 
 @end
 
-@implementation SKAbstractSensorModule
+@implementation SKAbstractSensor
 
 - (void)subscribeSensorDataListener:(SKSensorDataHandler)handler
 {
@@ -88,7 +88,7 @@
             
             // CallBack with data as parameter
             for (SKSensorDataHandler handler in self.sensorDataListeners) {
-                handler(self.moduleType, data);
+                handler(self.sensorType, data);
             }
             
         }

@@ -22,11 +22,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		CF11F8821B2C6D7D0094C9DF /* SKSensorModuleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8811B2C6D7D0094C9DF /* SKSensorModuleManager.m */; };
-		CF11F8851B2C7CFE0094C9DF /* SKAbstractSensorModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8841B2C7CFE0094C9DF /* SKAbstractSensorModule.m */; };
+		CF11F8821B2C6D7D0094C9DF /* SKSensorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8811B2C6D7D0094C9DF /* SKSensorManager.m */; };
+		CF11F8851B2C7CFE0094C9DF /* SKAbstractSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8841B2C7CFE0094C9DF /* SKAbstractSensor.m */; };
 		CF11F8881B2D8D370094C9DF /* SKSensorData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8871B2D8D370094C9DF /* SKSensorData.m */; };
 		CF11F8B91B2F4B0E0094C9DF /* SKBatteryData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8B81B2F4B0E0094C9DF /* SKBatteryData.m */; };
-		CF11F8BA1B2F52670094C9DF /* SKSensorModuleType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */; };
+		CF11F8BA1B2F52670094C9DF /* SKSensorType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F87F1B2C688B0094C9DF /* SKSensorType.h */; };
 		CF11F8BB1B2F52700094C9DF /* SKSensorDataListener.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */; };
 		CF11F8BC1B2F52A60094C9DF /* SKSensorData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8861B2D8D370094C9DF /* SKSensorData.h */; };
 		CF11F8BD1B2F52A60094C9DF /* SKBatteryData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8B71B2F4B0E0094C9DF /* SKBatteryData.h */; };
@@ -74,8 +74,8 @@
 		CFBC059E1B9060A600B9CA6D /* SKSensorTimestamp.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBC059D1B9060A600B9CA6D /* SKSensorTimestamp.m */; };
 		CFBC059F1B90610700B9CA6D /* SKSensorTimestamp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBC059C1B9060A600B9CA6D /* SKSensorTimestamp.h */; };
 		CFD450221B8738DC00E2E78D /* SKProximityData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450211B8738DC00E2E78D /* SKProximityData.m */; };
-		CFD450251B875B5A00E2E78D /* NSString+SensorModuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */; };
-		CFD450261B878A6900E2E78D /* NSString+SensorModuleType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */; };
+		CFD450251B875B5A00E2E78D /* NSString+SensorType.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450241B875B5A00E2E78D /* NSString+SensorType.m */; };
+		CFD450261B878A6900E2E78D /* NSString+SensorType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD450231B875B5A00E2E78D /* NSString+SensorType.h */; };
 		CFD450321B88D86500E2E78D /* ESSBeaconScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4502D1B88D86500E2E78D /* ESSBeaconScanner.m */; };
 		CFD450331B88D86500E2E78D /* ESSEddystone.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4502F1B88D86500E2E78D /* ESSEddystone.m */; };
 		CFD450341B88D86500E2E78D /* ESSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450311B88D86500E2E78D /* ESSTimer.m */; };
@@ -111,7 +111,7 @@
 				CFBC059F1B90610700B9CA6D /* SKSensorTimestamp.h in CopyFiles */,
 				CF1DFA191B8C822000D7B182 /* SKPedometer.h in CopyFiles */,
 				CFD4503B1B88DCD900E2E78D /* SKEddystoneProximityData.h in CopyFiles */,
-				CFD450261B878A6900E2E78D /* NSString+SensorModuleType.h in CopyFiles */,
+				CFD450261B878A6900E2E78D /* NSString+SensorType.h in CopyFiles */,
 				CFB0D9591B52AD7500A7982B /* SKAccelerometerData.h in CopyFiles */,
 				CFB0D95A1B52AD7500A7982B /* SKGyroscopeData.h in CopyFiles */,
 				CFB0D95B1B52AD7500A7982B /* SKMagnetometerData.h in CopyFiles */,
@@ -122,7 +122,7 @@
 				CF11F8BC1B2F52A60094C9DF /* SKSensorData.h in CopyFiles */,
 				CF11F8BD1B2F52A60094C9DF /* SKBatteryData.h in CopyFiles */,
 				CF11F8BB1B2F52700094C9DF /* SKSensorDataListener.h in CopyFiles */,
-				CF11F8BA1B2F52670094C9DF /* SKSensorModuleType.h in CopyFiles */,
+				CF11F8BA1B2F52670094C9DF /* SKSensorType.h in CopyFiles */,
 				CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,11 +130,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorModuleType.h; sourceTree = "<group>"; };
-		CF11F8801B2C6D7D0094C9DF /* SKSensorModuleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorModuleManager.h; sourceTree = "<group>"; };
-		CF11F8811B2C6D7D0094C9DF /* SKSensorModuleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorModuleManager.m; sourceTree = "<group>"; };
-		CF11F8831B2C7CFE0094C9DF /* SKAbstractSensorModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAbstractSensorModule.h; sourceTree = "<group>"; };
-		CF11F8841B2C7CFE0094C9DF /* SKAbstractSensorModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAbstractSensorModule.m; sourceTree = "<group>"; };
+		CF11F87F1B2C688B0094C9DF /* SKSensorType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorType.h; sourceTree = "<group>"; };
+		CF11F8801B2C6D7D0094C9DF /* SKSensorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorManager.h; sourceTree = "<group>"; };
+		CF11F8811B2C6D7D0094C9DF /* SKSensorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorManager.m; sourceTree = "<group>"; };
+		CF11F8831B2C7CFE0094C9DF /* SKAbstractSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAbstractSensor.h; sourceTree = "<group>"; };
+		CF11F8841B2C7CFE0094C9DF /* SKAbstractSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAbstractSensor.m; sourceTree = "<group>"; };
 		CF11F8861B2D8D370094C9DF /* SKSensorData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorData.h; sourceTree = "<group>"; };
 		CF11F8871B2D8D370094C9DF /* SKSensorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorData.m; sourceTree = "<group>"; };
 		CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSensorDataListener.h; sourceTree = "<group>"; };
@@ -197,8 +197,8 @@
 		CFBC059D1B9060A600B9CA6D /* SKSensorTimestamp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorTimestamp.m; sourceTree = "<group>"; };
 		CFD450201B8738DC00E2E78D /* SKProximityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProximityData.h; sourceTree = "<group>"; };
 		CFD450211B8738DC00E2E78D /* SKProximityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximityData.m; sourceTree = "<group>"; };
-		CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SensorModuleType.h"; sourceTree = "<group>"; };
-		CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SensorModuleType.m"; sourceTree = "<group>"; };
+		CFD450231B875B5A00E2E78D /* NSString+SensorType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SensorType.h"; sourceTree = "<group>"; };
+		CFD450241B875B5A00E2E78D /* NSString+SensorType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SensorType.m"; sourceTree = "<group>"; };
 		CFD4502C1B88D86500E2E78D /* ESSBeaconScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBeaconScanner.h; sourceTree = "<group>"; };
 		CFD4502D1B88D86500E2E78D /* ESSBeaconScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSBeaconScanner.m; sourceTree = "<group>"; };
 		CFD4502E1B88D86500E2E78D /* ESSEddystone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSEddystone.h; sourceTree = "<group>"; };
@@ -310,11 +310,11 @@
 			children = (
 				CFBB416B19B928CF002AE1A9 /* SensorModules */,
 				CF11F8B41B2F4A910094C9DF /* SensorData */,
-				CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */,
-				CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */,
-				CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */,
-				CF11F8801B2C6D7D0094C9DF /* SKSensorModuleManager.h */,
-				CF11F8811B2C6D7D0094C9DF /* SKSensorModuleManager.m */,
+				CF11F87F1B2C688B0094C9DF /* SKSensorType.h */,
+				CFD450231B875B5A00E2E78D /* NSString+SensorType.h */,
+				CFD450241B875B5A00E2E78D /* NSString+SensorType.m */,
+				CF11F8801B2C6D7D0094C9DF /* SKSensorManager.h */,
+				CF11F8811B2C6D7D0094C9DF /* SKSensorManager.m */,
 				CFBB413E19B92514002AE1A9 /* SensingKitLib.h */,
 				CFBB414019B92514002AE1A9 /* SensingKitLib.m */,
 				CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */,
@@ -352,8 +352,8 @@
 		CFBB416B19B928CF002AE1A9 /* SensorModules */ = {
 			isa = PBXGroup;
 			children = (
-				CF11F8831B2C7CFE0094C9DF /* SKAbstractSensorModule.h */,
-				CF11F8841B2C7CFE0094C9DF /* SKAbstractSensorModule.m */,
+				CF11F8831B2C7CFE0094C9DF /* SKAbstractSensor.h */,
+				CF11F8841B2C7CFE0094C9DF /* SKAbstractSensor.m */,
 				CFB0D9381B4FF7E000A7982B /* SKMotionManager.h */,
 				CFB0D9391B4FF7E000A7982B /* SKMotionManager.m */,
 				CFB0D9351B4FEE7900A7982B /* SKAccelerometer.h */,
@@ -518,7 +518,7 @@
 			files = (
 				CFB0D9461B5268EF00A7982B /* SKAccelerometerData.m in Sources */,
 				CF11F8C31B2F77940094C9DF /* SKLocationData.m in Sources */,
-				CFD450251B875B5A00E2E78D /* NSString+SensorModuleType.m in Sources */,
+				CFD450251B875B5A00E2E78D /* NSString+SensorType.m in Sources */,
 				CFB0D9401B4FFA2700A7982B /* SKMagnetometer.m in Sources */,
 				CFB0D9491B5268FC00A7982B /* SKGyroscopeData.m in Sources */,
 				CFD4503A1B88D90A00E2E78D /* SKEddystoneProximityData.m in Sources */,
@@ -537,7 +537,7 @@
 				CFB0D93A1B4FF7E000A7982B /* SKMotionManager.m in Sources */,
 				CF1DFA181B8C821000D7B182 /* SKPedometerData.m in Sources */,
 				CF11F8B91B2F4B0E0094C9DF /* SKBatteryData.m in Sources */,
-				CF11F8821B2C6D7D0094C9DF /* SKSensorModuleManager.m in Sources */,
+				CF11F8821B2C6D7D0094C9DF /* SKSensorManager.m in Sources */,
 				CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */,
 				CFD450331B88D86500E2E78D /* ESSEddystone.m in Sources */,
 				CF11F8881B2D8D370094C9DF /* SKSensorData.m in Sources */,
@@ -545,7 +545,7 @@
 				CFB0D9551B5269AF00A7982B /* SKDeviceMotion.m in Sources */,
 				CFB0D9521B52699700A7982B /* SKActivityData.m in Sources */,
 				CFBB416719B928C2002AE1A9 /* SKBattery.m in Sources */,
-				CF11F8851B2C7CFE0094C9DF /* SKAbstractSensorModule.m in Sources */,
+				CF11F8851B2C7CFE0094C9DF /* SKAbstractSensor.m in Sources */,
 				CFB0D9371B4FEE7900A7982B /* SKAccelerometer.m in Sources */,
 				CF1DFA1C1B8CBE5500D7B182 /* SKAltimeter.m in Sources */,
 				CFD450221B8738DC00E2E78D /* SKProximityData.m in Sources */,

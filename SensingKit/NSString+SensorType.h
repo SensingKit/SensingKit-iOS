@@ -1,5 +1,5 @@
 //
-//  SKSensorModuleType.h
+//  NSString+SKSensorType.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,17 +22,11 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-typedef NS_ENUM(NSUInteger, SKSensorModuleType)
-{
-    Accelerometer = 0,
-    Gyroscope,
-    Magnetometer,
-    DeviceMotion,
-    Activity,
-    Pedometer,
-    Altimeter,
-    Battery,
-    Location,
-    iBeaconProximity,
-    EddystoneProximity
-};
+#import <Foundation/Foundation.h>
+#import "SKSensorType.h"
+
+@interface NSString (SKSensorType)
+
++ (NSString *)stringWithSensorType:(SKSensorType)sensorType;
+
+@end

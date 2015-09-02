@@ -23,14 +23,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SKAbstractSensorModule.h"
+#import "SKAbstractSensor.h"
 
 @import CoreBluetooth;
 @import CoreLocation;
 
-@interface SKiBeaconProximity : SKAbstractSensorModule<CBPeripheralManagerDelegate, CLLocationManagerDelegate>
+@interface SKiBeaconProximity : SKAbstractSensor<CBPeripheralManagerDelegate, CLLocationManagerDelegate>
 
-+ (BOOL)isSensorModuleAvailable;
++ (BOOL)isSensorAvailable;
 
 - (instancetype)initWithUUID:(NSUUID *)UUID
                    withMajor:(NSUInteger)major

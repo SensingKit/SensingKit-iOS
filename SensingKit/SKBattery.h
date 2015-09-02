@@ -23,10 +23,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SKAbstractSensorModule.h"
+#import "SKAbstractSensor.h"
 
-@interface SKBattery : SKAbstractSensorModule
+@interface SKBattery : SKAbstractSensor
 
-+ (BOOL)isSensorModuleAvailable;
++ (BOOL)isSensorAvailable;
 
 @end

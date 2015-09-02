@@ -22,13 +22,13 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKAbstractSensorModule.h"
+#import "SKAbstractSensor.h"
 
-@interface SKEddystoneProximity : SKAbstractSensorModule
+@interface SKEddystoneProximity : SKAbstractSensor
 
 @property (nonatomic, strong, readonly) NSString *namespaceFilter;
 
-+ (BOOL)isSensorModuleAvailable;
++ (BOOL)isSensorAvailable;
 
 - (instancetype)initWithNamespaceFilter:(NSString *)namespaceFilter;
 

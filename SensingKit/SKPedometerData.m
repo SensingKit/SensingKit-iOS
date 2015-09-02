@@ -28,8 +28,8 @@
 
 - (instancetype)initWithPedometerData:(CMPedometerData *)pedometerData
 {
-    if (self = [super initWithSensorModuleType:Pedometer
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:pedometerData.startDate]])
+    if (self = [super initWithSensorType:Pedometer
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:pedometerData.startDate]])
     {
         // No need to have two instances of the same timestamp. We point startDate to self.timestamp
         _startDate = self.timestamp;
@@ -60,8 +60,8 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"startDate": self.startDate.timestampDictionary,
              @"endDate": self.endDate.timestampDictionary,
              @"pedometerData": @{

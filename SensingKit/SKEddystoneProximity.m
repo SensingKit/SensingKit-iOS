@@ -57,7 +57,7 @@
     return self;
 }
 
-+ (BOOL)isSensorModuleAvailable
++ (BOOL)isSensorAvailable
 {
     // Bluetooth 4 supports monitoring, so device should have a Bluetooth Smart HW.
     return [CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]];

@@ -5,7 +5,7 @@ An iOS library that provides Continuous Sensing functionality to your applicatio
 
 ## Supported Sensors
 
-The following sensor modules are currently supported in SensingKit-Android, (listed in [SKSensorModuleType](SensingKit/SKSensorModuleType.h) enum):
+The following mobile sensors are currently supported in SensingKit-iOS, (listed in [SKSensorType](SensingKit/SKSensorType.h) enum):
 
 - Accelerometer
 - Gyroscope
@@ -46,10 +46,10 @@ The following sensor modules are currently supported in SensingKit-Android, (lis
 ```
 
 
-- Register a sensor module (e.g. a Battery sensor) as shown bellow:
+- Register a sensor (e.g. a Battery sensor) as shown bellow:
 
 ```objectivec
-[self.sensingKit registerSensorModule:Battery];
+[self.sensingKit registerSensor:Battery];
 ```
 
 
@@ -57,7 +57,7 @@ The following sensor modules are currently supported in SensingKit-Android, (lis
 
 ```objectivec
 [self.sensingKit subscribeSensorDataListenerToSensor:Battery
-                                         withHandler:^(SKSensorModuleType moduleType, SKSensorData *sensorData) {
+                                         withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
         
         SKBatteryData *batteryData = (SKBatteryData *)sensorData;
         NSLog(@“Battery Level: %f”, batteryData.level);

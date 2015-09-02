@@ -28,8 +28,8 @@
 
 - (instancetype)initWithLocation:(CLLocation *)location
 {
-    if (self = [super initWithSensorModuleType:Location
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:location.timestamp]])
+    if (self = [super initWithSensorType:Location
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:location.timestamp]])
     {
         _location = location;
     }
@@ -58,8 +58,8 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"timestamp": self.timestamp.timestampDictionary,
              @"location": @{
                      @"coordinate": @{

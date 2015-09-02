@@ -43,7 +43,7 @@
     return self;
 }
 
-+ (BOOL)isSensorModuleAvailable
++ (BOOL)isSensorAvailable
 {
     // Always available
     return YES;

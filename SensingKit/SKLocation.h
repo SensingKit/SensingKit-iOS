@@ -23,12 +23,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SKAbstractSensorModule.h"
+#import "SKAbstractSensor.h"
 
 @import CoreLocation;
 
-@interface SKLocation : SKAbstractSensorModule<CLLocationManagerDelegate>
+@interface SKLocation : SKAbstractSensor<CLLocationManagerDelegate>
 
-+ (BOOL)isSensorModuleAvailable;
++ (BOOL)isSensorAvailable;
 
 @end

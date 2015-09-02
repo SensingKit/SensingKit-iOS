@@ -1,5 +1,5 @@
 //
-//  SKAbstractSensorModule.h
+//  SKAbstractSensor.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -23,12 +23,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SKSensorModuleType.h"
+#import "SKSensorType.h"
 #import "SKSensorDataListener.h"
 
-@interface SKAbstractSensorModule : NSObject
+@interface SKAbstractSensor : NSObject
 
-@property (nonatomic, readonly) SKSensorModuleType moduleType;
+@property (nonatomic, readonly) SKSensorType sensorType;
 @property (nonatomic, readonly, getter=isSensing) BOOL sensing;
 
 - (void)subscribeSensorDataListener:(SKSensorDataHandler)handler;

@@ -28,8 +28,8 @@
 
 - (instancetype)initWithActivity:(CMMotionActivity *)activity
 {
-    if (self = [super initWithSensorModuleType:Activity
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:activity.timestamp]])
+    if (self = [super initWithSensorType:Activity
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:activity.timestamp]])
     {
         _startDate = [SKSensorTimestamp sensorTimestampFromDate:activity.startDate];
         _activity = activity;
@@ -79,8 +79,8 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"timestamp": self.timestamp.timestampDictionary,
              @"startDate": self.startDate.timestampDictionary,
              @"activity": @{

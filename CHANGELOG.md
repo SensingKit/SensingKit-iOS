@@ -1,5 +1,8 @@
 # Changelog
 
+### Next
+- Updated API.
+
 ### 0.3.0 (August 29, 2015)
 - Added support for Pedometer sensor.
 - Added support for Altimeter sensor.

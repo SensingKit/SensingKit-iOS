@@ -44,7 +44,7 @@
     return self;
 }
 
-+ (BOOL)isSensorModuleAvailable
++ (BOOL)isSensorAvailable
 {
     return [SKMotionManager sharedMotionManager].isAccelerometerAvailable;
 }
