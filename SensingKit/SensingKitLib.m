@@ -78,9 +78,8 @@
 
 - (BOOL)isSensorModuleRegistered:(SKSensorModuleType)moduleType
 {
-    return [self.sensorModuleManager isSensorModuleRegistered:moduleType];;
+    return [self.sensorModuleManager isSensorModuleRegistered:moduleType];
 }
-
 
 #pragma mark Continuous Sensing methods
 
