@@ -27,7 +27,7 @@
 		CF11F8881B2D8D370094C9DF /* SKSensorData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8871B2D8D370094C9DF /* SKSensorData.m */; };
 		CF11F8B91B2F4B0E0094C9DF /* SKBatteryData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8B81B2F4B0E0094C9DF /* SKBatteryData.m */; };
 		CF11F8BA1B2F52670094C9DF /* SKSensorType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F87F1B2C688B0094C9DF /* SKSensorType.h */; };
-		CF11F8BB1B2F52700094C9DF /* SKSensorDataListener.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */; };
+		CF11F8BB1B2F52700094C9DF /* SKSensorDataHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8891B2D909F0094C9DF /* SKSensorDataHandler.h */; };
 		CF11F8BC1B2F52A60094C9DF /* SKSensorData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8861B2D8D370094C9DF /* SKSensorData.h */; };
 		CF11F8BD1B2F52A60094C9DF /* SKBatteryData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8B71B2F4B0E0094C9DF /* SKBatteryData.h */; };
 		CF11F8C01B2F769B0094C9DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF11F8BE1B2F76160094C9DF /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -121,7 +121,7 @@
 				CF11F8C41B2F77EC0094C9DF /* SKLocationData.h in CopyFiles */,
 				CF11F8BC1B2F52A60094C9DF /* SKSensorData.h in CopyFiles */,
 				CF11F8BD1B2F52A60094C9DF /* SKBatteryData.h in CopyFiles */,
-				CF11F8BB1B2F52700094C9DF /* SKSensorDataListener.h in CopyFiles */,
+				CF11F8BB1B2F52700094C9DF /* SKSensorDataHandler.h in CopyFiles */,
 				CF11F8BA1B2F52670094C9DF /* SKSensorType.h in CopyFiles */,
 				CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */,
 			);
@@ -137,7 +137,7 @@
 		CF11F8841B2C7CFE0094C9DF /* SKAbstractSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAbstractSensor.m; sourceTree = "<group>"; };
 		CF11F8861B2D8D370094C9DF /* SKSensorData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorData.h; sourceTree = "<group>"; };
 		CF11F8871B2D8D370094C9DF /* SKSensorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorData.m; sourceTree = "<group>"; };
-		CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSensorDataListener.h; sourceTree = "<group>"; };
+		CF11F8891B2D909F0094C9DF /* SKSensorDataHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSensorDataHandler.h; sourceTree = "<group>"; };
 		CF11F8B71B2F4B0E0094C9DF /* SKBatteryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryData.h; sourceTree = "<group>"; };
 		CF11F8B81B2F4B0E0094C9DF /* SKBatteryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryData.m; sourceTree = "<group>"; };
 		CF11F8BE1B2F76160094C9DF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -317,7 +317,7 @@
 				CF11F8811B2C6D7D0094C9DF /* SKSensorManager.m */,
 				CFBB413E19B92514002AE1A9 /* SensingKitLib.h */,
 				CFBB414019B92514002AE1A9 /* SensingKitLib.m */,
-				CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */,
+				CF11F8891B2D909F0094C9DF /* SKSensorDataHandler.h */,
 				CFBB413C19B92514002AE1A9 /* Supporting Files */,
 			);
 			path = SensingKit;

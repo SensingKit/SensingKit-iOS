@@ -80,8 +80,8 @@
     XCTAssertFalse([self.sensingKit isSensorSensing:Battery], @"Sensor should not be sensing.");
     
     // Subscribe a sensor data listener
-    [self.sensingKit subscribeSensorDataListenerToSensor:Battery
-                                             withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
+    [self.sensingKit subscribeToSensor:Battery
+                           withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
                                                          // Do nothing
                                                      }];
     

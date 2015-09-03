@@ -195,7 +195,7 @@
     }
     
     // Clear all Callbacks from that sensor
-    [[self getSensor:sensorType] unsubscribeAllSensorDataListeners];
+    [[self getSensor:sensorType] unsubscribeAllHandlers];
     
     // Deregister the Sensor
     [self.sensors replaceObjectAtIndex:sensorType withObject:[NSNull null]];
@@ -209,27 +209,27 @@
 
 #pragma mark Continuous Sensing methods
 
-- (void)subscribeSensorDataListenerToSensor:(SKSensorType)sensorType
-                                withHandler:(SKSensorDataHandler)handler {
+- (void)subscribeToSensor:(SKSensorType)sensorType
+              withHandler:(SKSensorDataHandler)handler {
     
     NSLog(@"Subscribe to sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
-    [[self getSensor:sensorType] subscribeSensorDataListener:handler];
+    [[self getSensor:sensorType] subscribeHandler:handler];
 }
 
-- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorType)sensorType
-                                      ofHandler:(SKSensorDataHandler)handler
+- (void)unsubscribeFromSensor:(SKSensorType)sensorType
+                      handler:(SKSensorDataHandler)handler
 {
     NSLog(@"Unsubscribe from sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
-    [[self getSensor:sensorType] unsubscribeSensorDataListener:handler];
+    [[self getSensor:sensorType] unsubscribeHandler:handler];
 }
 
-- (void)unsubscribeAllSensorDataListeners:(SKSensorType)sensorType
+- (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType
 {
-    NSLog(@"Unsubscribe from all sensors.");
+    NSLog(@"Unsubscribe all handlers from sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
-    [[self getSensor:sensorType] unsubscribeAllSensorDataListeners];
+    [[self getSensor:sensorType] unsubscribeAllHandlers];
 }
 
 - (void)startContinuousSensingWithSensor:(SKSensorType)sensorType

@@ -83,23 +83,23 @@
 
 #pragma mark Continuous Sensing methods
 
-- (void)subscribeSensorDataListenerToSensor:(SKSensorType)sensorType
-                                withHandler:(SKSensorDataHandler)handler
+- (void)subscribeToSensor:(SKSensorType)sensorType
+              withHandler:(SKSensorDataHandler)handler
 {
-    [self.sensorManager subscribeSensorDataListenerToSensor:sensorType
-                                                      withHandler:handler];
+    [self.sensorManager subscribeToSensor:sensorType
+                              withHandler:handler];
 }
 
-- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorType)sensorType
-                                      ofHandler:(SKSensorDataHandler)handler
+- (void)unsubscribeFromSensor:(SKSensorType)sensorType
+                      handler:(SKSensorDataHandler)handler
 {
-    [self.sensorManager unsubscribeSensorDataListenerFromSensor:sensorType
-                                                            ofHandler:handler];
+    [self.sensorManager unsubscribeFromSensor:sensorType
+                                      handler:handler];
 }
 
-- (void)unsubscribeAllSensorDataListeners:(SKSensorType)sensorType
+- (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType
 {
-    [self.sensorManager unsubscribeAllSensorDataListeners:sensorType];
+    [self.sensorManager unsubscribeAllHandlersFromSensor:sensorType];
 }
 
 - (void)startContinuousSensingWithSensor:(SKSensorType)sensorType

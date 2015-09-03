@@ -31,7 +31,7 @@
 
 @implementation SKAbstractSensor
 
-- (void)subscribeSensorDataListener:(SKSensorDataHandler)handler
+- (void)subscribeHandler:(SKSensorDataHandler)handler
 {
     // Register the callback
     if ([self.sensorDataListeners containsObject:handler]) {
@@ -41,7 +41,7 @@
     [self.sensorDataListeners addObject:handler];
 }
 
-- (void)unsubscribeSensorDataListener:(SKSensorDataHandler)handler
+- (void)unsubscribeHandler:(SKSensorDataHandler)handler
 {
     // Unregister the callback
     if (![self.sensorDataListeners containsObject:handler]) {
@@ -51,7 +51,7 @@
     [self.sensorDataListeners removeObject:handler];
 }
 
-- (void)unsubscribeAllSensorDataListeners
+- (void)unsubscribeAllHandlers
 {
     [self.sensorDataListeners removeAllObjects];
 }

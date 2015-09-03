@@ -46,6 +46,15 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 ```
 
 
+- Check if a sensor is available in the device:
+
+```objectivec
+if ([self.sensingKit isSensorAvailable:Battery]) {
+    // You can access the sensor
+}
+```
+
+
 - Register a sensor (e.g. a Battery sensor) as shown bellow:
 
 ```objectivec
@@ -56,8 +65,8 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 - Subscribe a sensor data listener. You can cast the data object into the actual sensor data object in order to access all the sensor data properties:
 
 ```objectivec
-[self.sensingKit subscribeSensorDataListenerToSensor:Battery
-                                         withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
+[self.sensingKit subscribeToSensor:Battery
+                       withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
         
         SKBatteryData *batteryData = (SKBatteryData *)sensorData;
         NSLog(@“Battery Level: %f”, batteryData.level);

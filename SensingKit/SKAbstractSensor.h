@@ -24,18 +24,18 @@
 
 #import <Foundation/Foundation.h>
 #import "SKSensorType.h"
-#import "SKSensorDataListener.h"
+#import "SKSensorDataHandler.h"
 
 @interface SKAbstractSensor : NSObject
 
 @property (nonatomic, readonly) SKSensorType sensorType;
 @property (nonatomic, readonly, getter=isSensing) BOOL sensing;
 
-- (void)subscribeSensorDataListener:(SKSensorDataHandler)handler;
+- (void)subscribeHandler:(SKSensorDataHandler)handler;
 
-- (void)unsubscribeSensorDataListener:(SKSensorDataHandler)handler;
+- (void)unsubscribeHandler:(SKSensorDataHandler)handler;
 
-- (void)unsubscribeAllSensorDataListeners;
+- (void)unsubscribeAllHandlers;
 
 - (void)startSensing;
 

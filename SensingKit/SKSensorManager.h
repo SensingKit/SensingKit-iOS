@@ -24,32 +24,40 @@
 
 #import <Foundation/Foundation.h>
 #import "SKSensorType.h"
-#import "SKSensorDataListener.h"
+#import "SKSensorDataHandler.h"
 
 @interface SKSensorManager : NSObject
 
+/** @name Sensor Status */
+
 - (BOOL)isSensorAvailable:(SKSensorType)sensorType;
 
-- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
+- (BOOL)isSensorRegistered:(SKSensorType)sensorType;
 
-/** Sensor Registration */
+- (BOOL)isSensorSensing:(SKSensorType)sensorType;
+
+
+/** @name Sensor Registration */
 
 - (void)registerSensor:(SKSensorType)sensorType;
 
 - (void)deregisterSensor:(SKSensorType)sensorType;
 
-- (BOOL)isSensorRegistered:(SKSensorType)sensorType;
+
+/** @name Sensor Subscription */
+
+- (void)subscribeToSensor:(SKSensorType)sensorType
+              withHandler:(SKSensorDataHandler)handler;
+
+- (void)unsubscribeFromSensor:(SKSensorType)sensorType
+                      handler:(SKSensorDataHandler)handler;
+
+- (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType;
+
+- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
 
 
-/** Continuous Sensing */
-
-- (void)subscribeSensorDataListenerToSensor:(SKSensorType)sensorType
-                                withHandler:(SKSensorDataHandler)handler;
-
-- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorType)sensorType
-                                      ofHandler:(SKSensorDataHandler)handler;
-
-- (void)unsubscribeAllSensorDataListeners:(SKSensorType)sensorType;
+/** @name Continuous Sensing */
 
 - (void)startContinuousSensingWithSensor:(SKSensorType)sensorType;
 
@@ -58,7 +66,5 @@
 - (void)startContinuousSensingWithAllRegisteredSensors;
 
 - (void)stopContinuousSensingWithAllRegisteredSensors;
-
-- (BOOL)isSensorSensing:(SKSensorType)sensorType;
 
 @end

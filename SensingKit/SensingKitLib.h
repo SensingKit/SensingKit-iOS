@@ -24,7 +24,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SKSensorType.h"
-#import "SKSensorDataListener.h"
+#import "SKSensorDataHandler.h"
 
 /**
  * The 'SensingKitLib' class is the main class of SensingKit library that manages all supported sensors.
@@ -43,29 +43,36 @@
 + (SensingKitLib * )sharedSensingKitLib;
 
 
+/** @name Sensor Status */
+
 - (BOOL)isSensorAvailable:(SKSensorType)sensorType;
 
-- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
+- (BOOL)isSensorRegistered:(SKSensorType)sensorType;
+
+- (BOOL)isSensorSensing:(SKSensorType)sensorType;
 
 
-/** Sensor Registration */
+/** @name Sensor Registration */
 
 - (void)registerSensor:(SKSensorType)sensorType;
 
 - (void)deregisterSensor:(SKSensorType)sensorType;
 
-- (BOOL)isSensorRegistered:(SKSensorType)sensorType;
+
+/** @name Sensor Data Listener */
+
+- (void)subscribeToSensor:(SKSensorType)sensorType
+              withHandler:(SKSensorDataHandler)handler;
+
+- (void)unsubscribeFromSensor:(SKSensorType)sensorType
+                      handler:(SKSensorDataHandler)handler;
+
+- (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType;
+
+- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
 
 
-/** Continuous Sensing */
-
-- (void)subscribeSensorDataListenerToSensor:(SKSensorType)sensorType
-                                withHandler:(SKSensorDataHandler)handler;
-
-- (void)unsubscribeSensorDataListenerFromSensor:(SKSensorType)sensorType
-                                      ofHandler:(SKSensorDataHandler)handler;
-
-- (void)unsubscribeAllSensorDataListeners:(SKSensorType)sensorType;
+/** @name Continuous Sensing */
 
 - (void)startContinuousSensingWithSensor:(SKSensorType)sensorType;
 
@@ -74,7 +81,5 @@
 - (void)startContinuousSensingWithAllRegisteredSensors;
 
 - (void)stopContinuousSensingWithAllRegisteredSensors;
-
-- (BOOL)isSensorSensing:(SKSensorType)sensorType;
 
 @end
