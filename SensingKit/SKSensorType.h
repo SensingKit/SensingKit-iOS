@@ -22,6 +22,9 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+/**
+ *  These constants indicate the type of the sensor.
+ */
 typedef NS_ENUM(NSUInteger, SKSensorType)
 {
     Accelerometer = 0,

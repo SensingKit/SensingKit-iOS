@@ -25,8 +25,18 @@
 #import <Foundation/Foundation.h>
 #import "SKSensorType.h"
 
+/**
+ *  NSString+SKSensorType is a category responsible for converting an SKSensorType enum into string.
+ */
 @interface NSString (SKSensorType)
 
+/**
+ *  Converts an SKSensorType enum into a non-spaced string.
+ *
+ *  @param sensorType The type of the sensor (e.g. Accelerometer).
+ *
+ *  @return A non-spaced string with the sensor name. (e.g. DeviceMotion).
+ */
 + (NSString *)stringWithSensorType:(SKSensorType)sensorType;
 
 @end

@@ -26,11 +26,21 @@
 #import "SKSensorType.h"
 #import "SKSensorDataListener.h"
 
+/**
+ * The 'SensingKitLib' class is the main class of SensingKit library that manages all supported sensors.
+ * It uses the Singleton design pattern so that only one instance of the library exists in the application.
+ * To init it, you can use [SensingKitLib sharedSensingKitLib].
+ */
 @interface SensingKitLib : NSObject
 
 - (instancetype)init __attribute__((unavailable("Use [SensingKitLib sharedSensingKitLib] instead.")));
 
-+ (SensingKitLib *)sharedSensingKitLib;
+/**
+ *  Returns the shared `SensingKitLib` instance, creating it if necessary.
+ *
+ *  @return The shared `SensingKitLib` instance.
+ */
++ (SensingKitLib * )sharedSensingKitLib;
 
 
 - (BOOL)isSensorAvailable:(SKSensorType)sensorType;

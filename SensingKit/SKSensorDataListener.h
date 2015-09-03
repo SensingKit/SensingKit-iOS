@@ -24,5 +24,11 @@
 
 #import "SKSensorData.h"
 
-// Typedef of block to be invoked when sensor data is available.
+/**
+ *  Βlock to be invoked when new sensor data is available. You can cast the sensorData object
+ *  into the actual sensor data (e.g. SKAccelerometerData), based on the reported sensorType.
+ *
+ *  @param sensorType The type of the sensor producing the SKSensorData object.
+ *  @param sensorData The new sensor data produced by the SKSensorType sensor.
+ */
 typedef void (^SKSensorDataHandler)(SKSensorType sensorType, SKSensorData *sensorData);
