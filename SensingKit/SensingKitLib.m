@@ -59,9 +59,9 @@
     return [self.sensorManager isSensorAvailable:sensorType];
 }
 
-- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
++ (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
 {
-    return [self.sensorManager csvHeaderForSensor:sensorType];
+    return [SKSensorManager csvHeaderForSensor:sensorType];
 }
 
 #pragma mark Sensor Registration methods

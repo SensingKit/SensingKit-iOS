@@ -74,7 +74,7 @@
     return self;
 }
 
-- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
++ (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
 {
     switch (sensorType) {
             

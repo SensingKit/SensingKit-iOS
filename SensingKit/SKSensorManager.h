@@ -54,7 +54,7 @@
 
 - (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType;
 
-- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
++ (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
 
 
 /** @name Continuous Sensing */
