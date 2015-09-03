@@ -23,6 +23,11 @@
 //
 
 /**
+ *  Total number of sensors supported by SensingKit-iOS.
+ */
+#define TOTAL_SENSORS 11
+
+/**
  *  These constants indicate the type of the sensor.
  */
 typedef NS_ENUM(NSUInteger, SKSensorType)

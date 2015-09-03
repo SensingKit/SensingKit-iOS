@@ -52,14 +52,11 @@
 #import "SKBeaconDeviceData.h"
 #import "SKEddystoneProximityData.h"
 
-#define TOTAL_SENSORS 11
-
 @interface SKSensorManager()
 
 @property (nonatomic, strong, readonly) NSMutableArray *sensors;
 
 @end
-
 
 @implementation SKSensorManager
 
