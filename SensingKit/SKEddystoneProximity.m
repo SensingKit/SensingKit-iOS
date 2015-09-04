@@ -132,14 +132,16 @@
 {
     const unsigned char *dataBuffer = (const unsigned char *)[data bytes];
     
-    if (!dataBuffer)
+    if (!dataBuffer) {
         return [NSString string];
+    }
     
-    NSUInteger          dataLength  = [data length];
-    NSMutableString     *hexString  = [NSMutableString stringWithCapacity:(dataLength * 2)];
+    NSUInteger dataLength = [data length];
+    NSMutableString *hexString = [NSMutableString stringWithCapacity:(dataLength * 2)];
     
-    for (int i = 0; i < dataLength; ++i)
+    for (int i = 0; i < dataLength; ++i) {
         [hexString appendString:[NSString stringWithFormat:@"%02hhx", dataBuffer[i]]];
+    }
     
     return [NSString stringWithString:hexString];
 }
@@ -149,11 +151,11 @@
 + (NSData *)dataFromHexString:(NSString *)hexString
 {
     NSMutableData *data = [[NSMutableData alloc] init];
+    
     unsigned char whole_byte;
     char byte_chars[3] = {'\0','\0','\0'};
     
-    int i;
-    for (i = 0; i < [hexString length]/2; i++) {
+    for (int i = 0; i < [hexString length]/2; i++) {
         byte_chars[0] = [hexString characterAtIndex:i * 2];
         byte_chars[1] = [hexString characterAtIndex:i * 2 + 1];
         whole_byte = strtol(byte_chars, NULL, 16);
