@@ -23,9 +23,12 @@
 //
 
 #import "SKAbstractSensor.h"
+#import "SKAltimeterConfiguration.h"
 
 @interface SKAltimeter : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
+
+- (instancetype)initWithConfiguration:(SKAltimeterConfiguration *)configuration;
 
 @end

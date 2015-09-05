@@ -25,6 +25,7 @@
 #import <Foundation/Foundation.h>
 #import "SKSensorType.h"
 #import "SKSensorDataHandler.h"
+#import "SKConfiguration.h"
 
 /**
  * The 'SensingKitLib' class is the main class of SensingKit library that manages all supported sensors.
@@ -52,14 +53,20 @@
 - (BOOL)isSensorSensing:(SKSensorType)sensorType;
 
 
-/** @name Sensor Registration */
+/** @name Sensor Registration and Configuration */
 
 - (void)registerSensor:(SKSensorType)sensorType;
 
+- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration;
+
 - (void)deregisterSensor:(SKSensorType)sensorType;
 
+- (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
 
-/** @name Sensor Data Listener */
+- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType;
+
+
+/** @name Sensor Subscription and Unsubscription */
 
 - (void)subscribeToSensor:(SKSensorType)sensorType
               withHandler:(SKSensorDataHandler)handler;

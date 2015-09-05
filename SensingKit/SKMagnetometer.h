@@ -23,9 +23,12 @@
 //
 
 #import "SKAbstractSensor.h"
+#import "SKMagnetometerConfiguration.h"
 
 @interface SKMagnetometer : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
+
+- (instancetype)initWithConfiguration:(SKMagnetometerConfiguration *)configuration;
 
 @end

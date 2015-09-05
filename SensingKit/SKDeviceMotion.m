@@ -26,23 +26,54 @@
 #import "SKMotionManager.h"
 #import "SKDeviceMotionData.h"
 
+
 @interface SKDeviceMotion ()
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
 @end
 
+
 @implementation SKDeviceMotion
 
-- (instancetype)init
+- (instancetype)initWithConfiguration:(SKDeviceMotionConfiguration *)configuration
 {
     if (self = [super init])
     {
         self.motionManager = [SKMotionManager sharedMotionManager];
-        self.motionManager.magnetometerUpdateInterval = 1.0/100;
+        
+        // Set the configuration
+        [self setConfiguration:configuration];
     }
     return self;
 }
+
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKDeviceMotionConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor DeviceMotion.", configuration.class);
+        abort();
+    }
+    
+    if (self.configuration != configuration)
+    {
+        [super setConfiguration:configuration];
+        
+        // Case the configuration instance
+        SKDeviceMotionConfiguration *deviceMotionConfiguration = (SKDeviceMotionConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        self.motionManager.deviceMotionUpdateInterval = 1.0 / deviceMotionConfiguration.samplingRate;  // Convert Hz into interval
+    }
+}
+
+
+#pragma mark Sensing
 
 + (BOOL)isSensorAvailable
 {

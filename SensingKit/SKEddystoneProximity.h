@@ -23,13 +23,12 @@
 //
 
 #import "SKAbstractSensor.h"
+#import "SKEddystoneProximityConfiguration.h"
 
 @interface SKEddystoneProximity : SKAbstractSensor
 
-@property (nonatomic, strong, readonly) NSString *namespaceFilter;
-
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithNamespaceFilter:(NSString *)namespaceFilter;
+- (instancetype)initWithConfiguration:(SKEddystoneProximityConfiguration *)configuration;
 
 @end

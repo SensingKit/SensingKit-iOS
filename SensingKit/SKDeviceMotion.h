@@ -23,9 +23,12 @@
 //
 
 #import "SKAbstractSensor.h"
+#import "SKDeviceMotionConfiguration.h"
 
 @interface SKDeviceMotion : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
+
+- (instancetype)initWithConfiguration:(SKDeviceMotionConfiguration *)configuration;
 
 @end

@@ -23,9 +23,12 @@
 //
 
 #import "SKAbstractSensor.h"
+#import "SKGyroscopeConfiguration.h"
 
 @interface SKGyroscope : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
+
+- (instancetype)initWithConfiguration:(SKGyroscopeConfiguration *)configuration;
 
 @end

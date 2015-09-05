@@ -22,11 +22,13 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
 #import "SKAbstractSensor.h"
+#import "SKBatteryConfiguration.h"
 
 @interface SKBattery : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
+
+- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration;
 
 @end

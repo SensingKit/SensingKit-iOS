@@ -25,9 +25,10 @@
 #import "SKBattery.h"
 #import "SKBatteryData.h"
 
+
 @implementation SKBattery
 
-- (instancetype)init
+- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration
 {
     if (self = [super init])
     {
@@ -39,9 +40,39 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(batteryStateChanged:)
                                                      name:UIDeviceBatteryStateDidChangeNotification object:nil];
+        
+        // Set the configuration
+        [self setConfiguration:configuration];
     }
     return self;
 }
+
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKBatteryConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Battery.", configuration.class);
+        abort();
+    }
+    
+    if (self.configuration != configuration)
+    {
+        [super setConfiguration:configuration];
+        
+        // Case the configuration instance
+        // SKBatteryConfiguration *batteryConfiguration = (SKBatteryConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        //
+    }
+}
+
+
+#pragma mark Sensing
 
 + (BOOL)isSensorAvailable
 {

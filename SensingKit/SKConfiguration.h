@@ -1,5 +1,5 @@
 //
-//  SKActivity.h
+//  SKConfiguration.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,13 +22,6 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKAbstractSensor.h"
-#import "SKActivityConfiguration.h"
-
-@interface SKActivity : SKAbstractSensor
-
-+ (BOOL)isSensorAvailable;
-
-- (instancetype)initWithConfiguration:(SKActivityConfiguration *)configuration;
+@interface SKConfiguration : NSObject
 
 @end

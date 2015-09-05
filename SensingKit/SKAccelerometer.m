@@ -26,23 +26,54 @@
 #import "SKMotionManager.h"
 #import "SKAccelerometerData.h"
 
+
 @interface SKAccelerometer ()
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
 @end
 
+
 @implementation SKAccelerometer
 
-- (instancetype)init
+- (instancetype)initWithConfiguration:(SKAccelerometerConfiguration *)configuration
 {
     if (self = [super init])
     {
         self.motionManager = [SKMotionManager sharedMotionManager];
-        self.motionManager.accelerometerUpdateInterval = 1.0/100;
+        
+        // Set the configuration
+        [self setConfiguration:configuration];
     }
     return self;
 }
+
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKAccelerometerConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Accelerometer.", configuration.class);
+        abort();
+    }
+    
+    if (self.configuration != configuration)
+    {
+        [super setConfiguration:configuration];
+        
+        // Case the configuration instance
+        SKAccelerometerConfiguration *accelerometerConfiguration = (SKAccelerometerConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        self.motionManager.accelerometerUpdateInterval = 1.0 / accelerometerConfiguration.samplingRate;  // Convert Hz into interval
+    }
+}
+
+
+#pragma mark Sensing
 
 + (BOOL)isSensorAvailable
 {

@@ -1,5 +1,5 @@
 //
-//  SKActivity.h
+//  SKPedometerConfiguration.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,13 +22,17 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKAbstractSensor.h"
-#import "SKActivityConfiguration.h"
+#import "SKPedometerConfiguration.h"
 
-@interface SKActivity : SKAbstractSensor
+@implementation SKPedometerConfiguration
 
-+ (BOOL)isSensorAvailable;
-
-- (instancetype)initWithConfiguration:(SKActivityConfiguration *)configuration;
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        // Set default values
+    }
+    return self;
+}
 
 @end

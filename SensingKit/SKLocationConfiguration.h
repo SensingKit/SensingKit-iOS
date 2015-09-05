@@ -1,5 +1,5 @@
 //
-//  SKActivity.h
+//  SKLocationConfiguration.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,13 +22,29 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKAbstractSensor.h"
-#import "SKActivityConfiguration.h"
+#import "SKConfiguration.h"
 
-@interface SKActivity : SKAbstractSensor
+typedef NS_ENUM(NSUInteger, SKLocationAccuracy)
+{
+    SKLocationAccuracyBestForNavigation,
+    SKLocationAccuracyBest,
+    SKLocationAccuracyNearestTenMeters,
+    SKLocationAccuracyHundredMeters,
+    SKLocationAccuracyKilometer,
+    SKLocationAccuracyThreeKilometers
+};
 
-+ (BOOL)isSensorAvailable;
+typedef NS_ENUM(NSUInteger, SKLocationAuthorization)
+{
+    SKLocationAuthorizationWhenInUse,
+    SKLocationAuthorizationAlways
+};
 
-- (instancetype)initWithConfiguration:(SKActivityConfiguration *)configuration;
+
+@interface SKLocationConfiguration : SKConfiguration
+
+@property (nonatomic) SKLocationAccuracy locationAccuracy;
+@property (nonatomic) SKLocationAuthorization locationAuthorization;
+@property (nonatomic) double distanceFilter;
 
 @end

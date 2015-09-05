@@ -54,26 +54,12 @@
     return self;
 }
 
+
+#pragma mark Sensor Status methods
+
 - (BOOL)isSensorAvailable:(SKSensorType)sensorType
 {
     return [self.sensorManager isSensorAvailable:sensorType];
-}
-
-+ (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
-{
-    return [SKSensorManager csvHeaderForSensor:sensorType];
-}
-
-#pragma mark Sensor Registration methods
-
-- (void)registerSensor:(SKSensorType)sensorType
-{
-    [self.sensorManager registerSensor:sensorType];
-}
-
-- (void)deregisterSensor:(SKSensorType)sensorType
-{
-    [self.sensorManager deregisterSensor:sensorType];
 }
 
 - (BOOL)isSensorRegistered:(SKSensorType)sensorType
@@ -81,7 +67,41 @@
     return [self.sensorManager isSensorRegistered:sensorType];
 }
 
-#pragma mark Continuous Sensing methods
+- (BOOL)isSensorSensing:(SKSensorType)sensorType
+{
+    return [self.sensorManager isSensorSensing:sensorType];
+}
+
+
+#pragma mark Sensor Registration and Configuration methods
+
+- (void)registerSensor:(SKSensorType)sensorType
+{
+    [self registerSensor:sensorType withConfiguration:nil];
+}
+
+- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration
+{
+    [self.sensorManager registerSensor:sensorType withConfiguration:configuration];
+}
+
+- (void)deregisterSensor:(SKSensorType)sensorType
+{
+    [self.sensorManager deregisterSensor:sensorType];
+}
+
+- (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType
+{
+    [self.sensorManager setConfiguration:configuration toSensor:sensorType];
+}
+
+- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType
+{
+    return [self.sensorManager getConfigurationFromSensor:sensorType];
+}
+
+
+#pragma mark Sensor Subscription and Unsubscription methods
 
 - (void)subscribeToSensor:(SKSensorType)sensorType
               withHandler:(SKSensorDataHandler)handler
@@ -102,6 +122,14 @@
     [self.sensorManager unsubscribeAllHandlersFromSensor:sensorType];
 }
 
++ (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
+{
+    return [SKSensorManager csvHeaderForSensor:sensorType];
+}
+
+
+#pragma mark Continuous Sensing methods
+
 - (void)startContinuousSensingWithSensor:(SKSensorType)sensorType
 {
     [self.sensorManager startContinuousSensingWithSensor:sensorType];
@@ -120,11 +148,6 @@
 - (void)stopContinuousSensingWithAllRegisteredSensors
 {
     [self.sensorManager stopContinuousSensingWithAllRegisteredSensors];
-}
-
-- (BOOL)isSensorSensing:(SKSensorType)sensorType
-{
-    return [self.sensorManager isSensorSensing:sensorType];
 }
 
 @end

@@ -26,74 +26,140 @@
 #import "SKProximityData.h"
 #import "SKBeaconDeviceData.h"
 
-@interface SKiBeaconProximity()
+@import CoreBluetooth;
+@import CoreLocation;
+
+#define SKiBeaconIdentifier @"org.sensingkit.iBeaconIdentifier"
+
+
+@interface SKiBeaconProximity() <CBPeripheralManagerDelegate, CLLocationManagerDelegate>
+
+@property (nonatomic) SKiBeaconProximityMode mode;
 
 @property (strong, nonatomic) CLBeaconRegion      *broadcast_beaconRegion;
 @property (strong, nonatomic) CLBeaconRegion      *scan_beaconRegion;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 @property (strong, nonatomic) CLLocationManager   *locationManager;
 
+@property (strong, nonatomic) NSDictionary *broadcastPayload;
+
 @end
+
 
 @implementation SKiBeaconProximity
 
-- (instancetype)initWithUUID:(NSUUID *)UUID
-                   withMajor:(NSUInteger)major
-                   withMinor:(NSUInteger)minor
+- (instancetype)initWithConfiguration:(SKiBeaconProximityConfiguration *)configuration
 {
     if (self = [super init])
     {
-        // init iBeacon managers
-        [self initBeaconSensingWithUUID:UUID
-                              withMajor:major
-                              withMinor:minor];
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        
+        // Set the configuration
+        [self setConfiguration:configuration];
     }
     return self;
 }
 
-- (void)initBeaconSensingWithUUID:(NSUUID *)UUID
-                        withMajor:(NSUInteger)major
-                        withMinor:(NSUInteger)minor
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
 {
-    NSString *identifier = @"org.sensingkit.iBeaconIdentifier";
+    // Check if the correct configuration type provided
+    if (configuration.class != SKiBeaconProximityConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor iBeaconProximity.", configuration.class);
+        abort();
+    }
     
-    self.broadcast_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:UUID
-                                                                          major:major
-                                                                          minor:minor
-                                                                     identifier:identifier];
-    
-    self.scan_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:UUID
-                                                                identifier:identifier];
-    
-    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
-    
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
+    if (self.configuration != configuration)
+    {
+        [super setConfiguration:configuration];
+        
+        // Case the configuration instance
+        SKiBeaconProximityConfiguration *beaconConfiguration = (SKiBeaconProximityConfiguration *)configuration;
+        
+        // Save mode
+        self.mode = beaconConfiguration.mode;
+        
+        // Make the required updates on the sensor
+        switch (self.mode)
+        {
+            case SKiBeaconProximityModeScanOnly:
+                [self enableScanningWithConfiguration:beaconConfiguration];
+                [self disableBroadcasting];
+                break;
+                
+            case SKiBeaconProximityModeBroadcastOnly:
+                [self disableScanning];
+                [self enableBroadcastingWithConfiguration:beaconConfiguration];
+                break;
+                
+            case SKiBeaconProximityModeScanAndBroadcast:
+                [self enableScanningWithConfiguration:beaconConfiguration];
+                [self enableBroadcastingWithConfiguration:beaconConfiguration];
+                break;
+                
+            default:
+                NSLog(@"Unknown SKiBeaconProximityMode: %lu", (unsigned long)beaconConfiguration.mode);
+                abort();
+        }
     }
 }
+
+- (void)enableScanningWithConfiguration:(SKiBeaconProximityConfiguration *)configuration
+{
+    // Request authorization. Only WhenInUse is required for proximity scanning.
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+    {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
+    self.scan_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:configuration.uuid
+                                                                identifier:SKiBeaconIdentifier];
+}
+
+- (void)disableScanning
+{
+    self.scan_beaconRegion = nil;
+}
+
+- (void)enableBroadcastingWithConfiguration:(SKiBeaconProximityConfiguration *)configuration
+{
+    if (!self.peripheralManager)  // No need to init it again
+    {
+        self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
+                                                                     queue:nil];
+    }
+    
+    self.broadcast_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:configuration.uuid
+                                                                          major:configuration.major
+                                                                          minor:configuration.minor
+                                                                     identifier:SKiBeaconIdentifier];
+    
+    self.broadcastPayload = [self.broadcast_beaconRegion peripheralDataWithMeasuredPower:configuration.measuredPower];
+}
+
+- (void)disableBroadcasting
+{
+    self.peripheralManager = nil;
+    self.broadcast_beaconRegion = nil;
+    self.broadcastPayload = nil;
+}
+
+#pragma mark Sensing
 
 + (BOOL)isSensorAvailable
 {
     return [CLLocationManager isRangingAvailable];
 }
 
-#pragma mark start / stop sensing
-
-- (void)startAdvertisingWithPower:(NSNumber *)power
+- (void)startBroadcasting
 {
     if (self.peripheralManager.state == CBPeripheralManagerStatePoweredOn) {
         
         // Start advertising
-        NSDictionary *payload = [self.broadcast_beaconRegion peripheralDataWithMeasuredPower:power];
-        [self.peripheralManager startAdvertising:payload];
-        
-        // What is the MeasuredPower?
-        // The received signal strength indicator (RSSI) value (measured in decibels) for the device.
-        // This value represents the measured strength of the beacon from one meter away and is used during ranging.
-        // Specify nil to use the default value for the device.
+        [self.peripheralManager startAdvertising:self.broadcastPayload];
     }
     else {
         NSLog(@"CBPeripheralManager state is %li", (long)self.peripheralManager.state);
@@ -101,13 +167,13 @@
     }
 }
 
-- (void)stopAdvertising
+- (void)stopBroadcasting
 {
     // Stop advertising
     [self.peripheralManager stopAdvertising];
 }
 
-- (void)startMonitoring
+- (void)startScanning
 {
     if ([SKiBeaconProximity isSensorAvailable]) {
         
@@ -120,7 +186,7 @@
     }
 }
 
-- (void)stopMonitoring
+- (void)stopScanning
 {
     // Stop monitoring
     [self.locationManager stopRangingBeaconsInRegion:self.scan_beaconRegion];
@@ -130,14 +196,28 @@
 {
     [super startSensing];
     
-    [self startMonitoring];
-    [self startAdvertisingWithPower:nil];
+    if (self.mode != SKiBeaconProximityModeBroadcastOnly)
+    {
+        [self startScanning];
+    }
+    
+    if (self.mode != SKiBeaconProximityModeScanOnly)
+    {
+        [self startBroadcasting];
+    }
 }
 
 - (void)stopSensing
 {
-    [self stopAdvertising];
-    [self stopMonitoring];
+    if (self.mode != SKiBeaconProximityModeBroadcastOnly)
+    {
+        [self stopScanning];
+    }
+    
+    if (self.mode != SKiBeaconProximityModeScanOnly)
+    {
+        [self stopBroadcasting];
+    }
     
     [super stopSensing];
 }
@@ -148,7 +228,7 @@
 {
     if (peripheral.state != CBPeripheralManagerStatePoweredOn)
     {
-        NSLog(@"Warning: Bluetooth is not available. (State: %d)", (int)peripheral.state);
+        NSLog(@"Warning: Bluetooth radio is not available. (State: %d)", (int)peripheral.state);
     }
 }
 

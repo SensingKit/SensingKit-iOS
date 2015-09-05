@@ -26,23 +26,54 @@
 #import "SKMotionManager.h"
 #import "SKGyroscopeData.h"
 
+
 @interface SKGyroscope ()
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
 @end
 
+
 @implementation SKGyroscope
 
-- (instancetype)init
+- (instancetype)initWithConfiguration:(SKGyroscopeConfiguration *)configuration
 {
     if (self = [super init])
     {
         self.motionManager = [SKMotionManager sharedMotionManager];
-        self.motionManager.gyroUpdateInterval = 1.0/100;
+        
+        // Set the configuration
+        [self setConfiguration:configuration];
     }
     return self;
 }
+
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKGyroscopeConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Gyroscope.", configuration.class);
+        abort();
+    }
+    
+    if (self.configuration != configuration)
+    {
+        [super setConfiguration:configuration];
+        
+        // Case the configuration instance
+        SKGyroscopeConfiguration *gyroscopeConfiguration = (SKGyroscopeConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        self.motionManager.gyroUpdateInterval = 1.0 / gyroscopeConfiguration.samplingRate;  // Convert Hz into interval
+    }
+}
+
+
+#pragma mark Sensing
 
 + (BOOL)isSensorAvailable
 {

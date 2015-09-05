@@ -23,11 +23,13 @@
 //
 #import "SKAbstractSensor.h"
 
+
 @interface SKAbstractSensor()
 
 @property (nonatomic, strong) NSMutableArray *sensorDataListeners;
 
 @end
+
 
 @implementation SKAbstractSensor
 

@@ -52,6 +52,19 @@
 #import "SKBeaconDeviceData.h"
 #import "SKEddystoneProximityData.h"
 
+// SensorConfiguration
+#import "SKAccelerometerConfiguration.h"
+#import "SKGyroscopeConfiguration.h"
+#import "SKMagnetometerConfiguration.h"
+#import "SKDeviceMotionConfiguration.h"
+#import "SKActivityConfiguration.h"
+#import "SKPedometerConfiguration.h"
+#import "SKAltimeterConfiguration.h"
+#import "SKBatteryConfiguration.h"
+#import "SKLocationConfiguration.h"
+#import "SKiBeaconProximityConfiguration.h"
+#import "SKEddystoneProximityConfiguration.h"
+
 @interface SKSensorManager()
 
 @property (nonatomic, strong, readonly) NSMutableArray *sensors;
@@ -74,48 +87,8 @@
     return self;
 }
 
-+ (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
-{
-    switch (sensorType) {
-            
-        case Accelerometer:
-            return [SKAccelerometerData csvHeader];
-            
-        case Gyroscope:
-            return [SKGyroscopeData csvHeader];
-            
-        case Magnetometer:
-            return [SKMagnetometerData csvHeader];
-            
-        case DeviceMotion:
-            return [SKDeviceMotionData csvHeader];
-            
-        case Activity:
-            return [SKActivityData csvHeader];
-            
-        case Pedometer:
-            return [SKPedometerData csvHeader];
-            
-        case Altimeter:
-            return [SKAltimeterData csvHeader];
-            
-        case Battery:
-            return [SKBatteryData csvHeader];
-            
-        case Location:
-            return [SKLocationData csvHeader];
-            
-        case iBeaconProximity:
-            return [SKBeaconDeviceData csvHeader];
-            
-        case EddystoneProximity:
-            return [SKEddystoneProximityData csvHeader];
-            
-        default:
-            NSLog(@"Unknown Sensor: %li", (long)sensorType);
-            abort();
-    }
-}
+
+#pragma mark Sensor Status methods
 
 - (BOOL)isSensorAvailable:(SKSensorType)sensorType
 {
@@ -162,9 +135,20 @@
     return NO;
 }
 
-#pragma mark Sensor Registration methods
+- (BOOL)isSensorRegistered:(SKSensorType)sensorType
+{
+    return ([self.sensors objectAtIndex:sensorType] != [NSNull null]);
+}
 
-- (void)registerSensor:(SKSensorType)sensorType
+- (BOOL)isSensorSensing:(SKSensorType)sensorType
+{
+    return [[self getSensor:sensorType] isSensing];
+}
+
+
+#pragma mark Sensor Registration and Configuration methods
+
+- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration
 {
     NSLog(@"Register sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
@@ -174,7 +158,12 @@
         abort();
     }
     
-    SKAbstractSensor *sensor = [self createSensor:sensorType];
+    // If configuration was not provided, get the Default
+    if (!configuration) {
+        configuration = [SKSensorManager defaultConfigurationForSensor:sensorType];
+    }
+    
+    SKAbstractSensor *sensor = [self createSensor:sensorType withConfiguration:configuration];
     [self.sensors replaceObjectAtIndex:sensorType withObject:sensor];
 }
 
@@ -201,13 +190,23 @@
     [self.sensors replaceObjectAtIndex:sensorType withObject:[NSNull null]];
 }
 
-- (BOOL)isSensorRegistered:(SKSensorType)sensorType
+- (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType
 {
-    return ([self.sensors objectAtIndex:sensorType] != [NSNull null]);
+    // If configuration was not provided, get the Default
+    if (!configuration) {
+        configuration = [SKSensorManager defaultConfigurationForSensor:sensorType];
+    }
+    
+    [[self getSensor:sensorType] setConfiguration:configuration];
+}
+
+- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType
+{
+    return [self getSensor:sensorType].configuration;
 }
 
 
-#pragma mark Continuous Sensing methods
+#pragma mark Sensor Subscription and Unsubscription methods
 
 - (void)subscribeToSensor:(SKSensorType)sensorType
               withHandler:(SKSensorDataHandler)handler {
@@ -231,6 +230,52 @@
     
     [[self getSensor:sensorType] unsubscribeAllHandlers];
 }
+
++ (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
+{
+    switch (sensorType) {
+            
+        case Accelerometer:
+            return [SKAccelerometerData csvHeader];
+            
+        case Gyroscope:
+            return [SKGyroscopeData csvHeader];
+            
+        case Magnetometer:
+            return [SKMagnetometerData csvHeader];
+            
+        case DeviceMotion:
+            return [SKDeviceMotionData csvHeader];
+            
+        case Activity:
+            return [SKActivityData csvHeader];
+            
+        case Pedometer:
+            return [SKPedometerData csvHeader];
+            
+        case Altimeter:
+            return [SKAltimeterData csvHeader];
+            
+        case Battery:
+            return [SKBatteryData csvHeader];
+            
+        case Location:
+            return [SKLocationData csvHeader];
+            
+        case iBeaconProximity:
+            return [SKBeaconDeviceData csvHeader];
+            
+        case EddystoneProximity:
+            return [SKEddystoneProximityData csvHeader];
+            
+        default:
+            NSLog(@"Unknown Sensor: %li", (long)sensorType);
+            abort();
+    }
+}
+
+
+#pragma mark Continuous Sensing methods
 
 - (void)startContinuousSensingWithSensor:(SKSensorType)sensorType
 {
@@ -284,11 +329,8 @@
     }
 }
 
-- (BOOL)isSensorSensing:(SKSensorType)sensorType
-{
-    return [[self getSensor:sensorType] isSensing];
-}
 
+#pragma mark private methods
 
 - (SKAbstractSensor *)getSensor:(SKSensorType)sensorType
 {
@@ -301,57 +343,55 @@
     return [self.sensors objectAtIndex:sensorType];
 }
 
-- (SKAbstractSensor *)createSensor:(SKSensorType)sensorType
+- (SKAbstractSensor *)createSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration
 {
     SKAbstractSensor *sensor;
     
     switch (sensorType) {
             
         case Accelerometer:
-            sensor = [[SKAccelerometer alloc] init];
+            sensor = [[SKAccelerometer alloc] initWithConfiguration:(SKAccelerometerConfiguration *)configuration];
+            
             break;
             
         case Gyroscope:
-            sensor = [[SKGyroscope alloc] init];
+            sensor = [[SKGyroscope alloc] initWithConfiguration:(SKGyroscopeConfiguration *)configuration];
             break;
             
         case Magnetometer:
-            sensor = [[SKMagnetometer alloc] init];
+            sensor = [[SKMagnetometer alloc] initWithConfiguration:(SKMagnetometerConfiguration *)configuration];
             break;
             
         case DeviceMotion:
-            sensor = [[SKDeviceMotion alloc] init];
+            sensor = [[SKDeviceMotion alloc] initWithConfiguration:(SKDeviceMotionConfiguration *)configuration];
             break;
             
         case Activity:
-            sensor = [[SKActivity alloc] init];
+            sensor = [[SKActivity alloc] initWithConfiguration:(SKActivityConfiguration *)configuration];
             break;
             
         case Pedometer:
-            sensor = [[SKPedometer alloc] init];
+            sensor = [[SKPedometer alloc] initWithConfiguration:(SKPedometerConfiguration *)configuration];
             break;
             
         case Altimeter:
-            sensor = [[SKAltimeter alloc] init];
+            sensor = [[SKAltimeter alloc] initWithConfiguration:(SKAltimeterConfiguration *)configuration];
             break;
             
         case Battery:
-            sensor = [[SKBattery alloc] init];
+            sensor = [[SKBattery alloc] initWithConfiguration:(SKBatteryConfiguration *)configuration];
             break;
             
         case Location:
-            sensor = [[SKLocation alloc] init];
+            sensor = [[SKLocation alloc] initWithConfiguration:(SKLocationConfiguration *)configuration];
             break;
             
         case iBeaconProximity:
-            sensor = [[SKiBeaconProximity alloc] initWithUUID:[[NSUUID alloc] initWithUUIDString:@"d45a1046-15b0-11e5-b60b-1697f925ec7b"]
-                                                    withMajor:arc4random_uniform(65535)    // Random Major
-                                                    withMinor:arc4random_uniform(65535)];  // Random Minor
+            sensor = [[SKiBeaconProximity alloc] initWithConfiguration:(SKiBeaconProximityConfiguration *)configuration];
             break;
             
         case EddystoneProximity:
-            // First 10 bytes of SHA1 'org.sensingkit.EddystoneIdentifier'
-            sensor = [[SKEddystoneProximity alloc] initWithNamespaceFilter:@"90643f1a5253bff747fa"];
+            sensor = [[SKEddystoneProximity alloc] initWithConfiguration:(SKEddystoneProximityConfiguration *)configuration];
             break;
             
             // Don't forget to break!
@@ -362,6 +402,66 @@
     }
     
     return sensor;
+}
+
++ (SKConfiguration *)defaultConfigurationForSensor:(SKSensorType)sensorType
+{
+    SKConfiguration *configuration;
+    
+    switch (sensorType) {
+            
+        case Accelerometer:
+            configuration = [[SKAccelerometerConfiguration alloc] init];
+            break;
+            
+        case Gyroscope:
+            configuration = [[SKGyroscopeConfiguration alloc] init];
+            break;
+            
+        case Magnetometer:
+            configuration = [[SKMagnetometerConfiguration alloc] init];
+            break;
+            
+        case DeviceMotion:
+            configuration = [[SKDeviceMotionConfiguration alloc] init];
+            break;
+            
+        case Activity:
+            configuration = [[SKActivityConfiguration alloc] init];
+            break;
+            
+        case Pedometer:
+            configuration = [[SKPedometerConfiguration alloc] init];
+            break;
+            
+        case Altimeter:
+            configuration = [[SKAltimeterConfiguration alloc] init];
+            break;
+            
+        case Battery:
+            configuration = [[SKBatteryConfiguration alloc] init];
+            break;
+            
+        case Location:
+            configuration = [[SKLocationConfiguration alloc] init];
+            break;
+            
+        case iBeaconProximity:
+            configuration = [[SKiBeaconProximityConfiguration alloc] init];
+            break;
+            
+        case EddystoneProximity:
+            configuration = [[SKEddystoneProximityConfiguration alloc] init];
+            break;
+            
+            // Don't forget to break!
+            
+        default:
+            NSLog(@"Unknown Sensor: %li", (long)sensorType);
+            abort();
+    }
+    
+    return configuration;
 }
 
 @end

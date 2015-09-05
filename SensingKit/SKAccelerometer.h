@@ -23,9 +23,12 @@
 //
 
 #import "SKAbstractSensor.h"
+#import "SKAccelerometerConfiguration.h"
 
 @interface SKAccelerometer : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
+
+- (instancetype)initWithConfiguration:(SKAccelerometerConfiguration *)configuration;
 
 @end

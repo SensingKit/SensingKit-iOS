@@ -27,22 +27,54 @@
 
 @import CoreMotion;
 
+
 @interface SKPedometer ()
 
 @property (nonatomic, strong) CMPedometer *pedometer;
 
 @end
 
+
 @implementation SKPedometer
 
-- (instancetype)init
+- (instancetype)initWithConfiguration:(SKPedometerConfiguration *)configuration
 {
     if (self = [super init])
     {
         self.pedometer = [[CMPedometer alloc] init];
+        
+        // Set the configuration
+        [self setConfiguration:configuration];
     }
     return self;
 }
+
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKPedometerConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Pedometer.", configuration.class);
+        abort();
+    }
+    
+    if (self.configuration != configuration)
+    {
+        [super setConfiguration:configuration];
+        
+        // Case the configuration instance
+        // SKPedometerConfiguration *pedometerConfiguration = (SKPedometerConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        //
+    }
+}
+
+
+#pragma mark Sensing
 
 + (BOOL)isSensorAvailable
 {

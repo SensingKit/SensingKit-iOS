@@ -25,8 +25,11 @@
 #import <Foundation/Foundation.h>
 #import "SKSensorType.h"
 #import "SKSensorDataHandler.h"
+#import "SKConfiguration.h"
 
 @interface SKAbstractSensor : NSObject
+
+@property (nonatomic, strong) SKConfiguration *configuration;
 
 @property (nonatomic, readonly) SKSensorType sensorType;
 @property (nonatomic, readonly, getter=isSensing) BOOL sensing;

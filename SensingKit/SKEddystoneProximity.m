@@ -28,6 +28,7 @@
 #import "SKEddystoneProximityData.h"
 @import CoreLocation;
 
+
 @interface SKEddystoneProximity () <ESSBeaconScannerDelegate>
 
 @property (strong, nonatomic) ESSBeaconScanner *beaconScanner;
@@ -35,27 +36,50 @@
 
 @end
 
+
 @implementation SKEddystoneProximity
 
-- (instancetype)init
-{
-    return [self initWithNamespaceFilter:nil];
-}
-
-- (instancetype)initWithNamespaceFilter:(NSString *)namespaceFilter;
+- (instancetype)initWithConfiguration:(SKEddystoneProximityConfiguration *)configuration
 {
     if (self = [super init])
     {
-        // Save the hex filter in lowercase
-        _namespaceFilter = [namespaceFilter lowercaseString];
-        _namespaceFilterData = [SKEddystoneProximity dataFromHexString:_namespaceFilter];
-        
-        // init ESSBeaconScanner
         self.beaconScanner = [[ESSBeaconScanner alloc] init];
         self.beaconScanner.delegate = self;
+        
+        // Set the configuration
+        [self setConfiguration:configuration];
     }
     return self;
 }
+
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKEddystoneProximityConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor EddystoneProximity.", configuration.class);
+        abort();
+    }
+    
+    if (self.configuration != configuration)
+    {
+        [super setConfiguration:configuration];
+        
+        // Case the configuration instance
+        SKEddystoneProximityConfiguration *eddystoneConfiguration = (SKEddystoneProximityConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        
+        // Save the hex filter in lowercase
+        _namespaceFilterData = [SKEddystoneProximity dataFromHexString:eddystoneConfiguration.namespaceFilter];
+    }
+}
+
+
+#pragma mark Sensing
 
 + (BOOL)isSensorAvailable
 {

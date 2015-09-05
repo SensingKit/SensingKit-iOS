@@ -24,6 +24,7 @@
 
 #import "SKMotionManager.h"
 
+
 @implementation SKMotionManager
 
 + (CMMotionManager *)sharedMotionManager

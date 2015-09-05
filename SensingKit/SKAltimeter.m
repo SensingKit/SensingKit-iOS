@@ -27,22 +27,54 @@
 
 @import CoreMotion;
 
+
 @interface SKAltimeter ()
 
 @property (nonatomic, strong) CMAltimeter *altemeter;
 
 @end
 
+
 @implementation SKAltimeter
 
-- (instancetype)init
+- (instancetype)initWithConfiguration:(SKAltimeterConfiguration *)configuration
 {
     if (self = [super init])
     {
         self.altemeter = [[CMAltimeter alloc] init];
+        
+        // Set the configuration
+        [self setConfiguration:configuration];
     }
     return self;
 }
+
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKAltimeterConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Altimeter.", configuration.class);
+        abort();
+    }
+    
+    if (self.configuration != configuration)
+    {
+        [super setConfiguration:configuration];
+        
+        // Case the configuration instance
+        // SKAltimeterConfiguration *altimeterConfiguration = (SKAltimeterConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        //
+    }
+}
+
+
+#pragma mark Sensing
 
 + (BOOL)isSensorAvailable
 {

@@ -23,9 +23,12 @@
 //
 
 #import "SKAbstractSensor.h"
+#import "SKPedometerConfiguration.h"
 
 @interface SKPedometer : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
+
+- (instancetype)initWithConfiguration:(SKPedometerConfiguration *)configuration;
 
 @end

@@ -25,6 +25,7 @@
 #import <Foundation/Foundation.h>
 #import "SKSensorType.h"
 #import "SKSensorDataHandler.h"
+#import "SKConfiguration.h"
 
 @interface SKSensorManager : NSObject
 
@@ -37,14 +38,18 @@
 - (BOOL)isSensorSensing:(SKSensorType)sensorType;
 
 
-/** @name Sensor Registration */
+/** @name Sensor Registration and Configuration */
 
-- (void)registerSensor:(SKSensorType)sensorType;
+- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration;
 
 - (void)deregisterSensor:(SKSensorType)sensorType;
 
+- (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
 
-/** @name Sensor Subscription */
+- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType;
+
+
+/** @name Sensor Subscription and Unsubscription */
 
 - (void)subscribeToSensor:(SKSensorType)sensorType
               withHandler:(SKSensorDataHandler)handler;

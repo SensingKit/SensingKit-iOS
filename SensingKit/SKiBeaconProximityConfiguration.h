@@ -1,5 +1,5 @@
 //
-//  SKActivity.h
+//  SKiBeaconProximityConfiguration.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,13 +22,24 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKAbstractSensor.h"
-#import "SKActivityConfiguration.h"
+#import "SKConfiguration.h"
 
-@interface SKActivity : SKAbstractSensor
+typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode)
+{
+    SKiBeaconProximityModeScanOnly,
+    SKiBeaconProximityModeBroadcastOnly,
+    SKiBeaconProximityModeScanAndBroadcast
+};
 
-+ (BOOL)isSensorAvailable;
+@interface SKiBeaconProximityConfiguration : SKConfiguration
 
-- (instancetype)initWithConfiguration:(SKActivityConfiguration *)configuration;
+@property (nonatomic, strong) NSUUID *uuid;
+
+@property (nonatomic) SKiBeaconProximityMode mode;
+
+@property (nonatomic) uint16_t major;
+@property (nonatomic) uint16_t minor;
+
+@property (nonatomic, strong) NSNumber *measuredPower;
 
 @end

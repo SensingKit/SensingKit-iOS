@@ -1,5 +1,5 @@
 //
-//  SKActivity.h
+//  SKEddystoneProximityConfiguration.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,13 +22,18 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKAbstractSensor.h"
-#import "SKActivityConfiguration.h"
+#import "SKConfiguration.h"
 
-@interface SKActivity : SKAbstractSensor
+typedef NS_ENUM(NSUInteger, SKEddystoneProximityMode)
+{
+    SKEddystoneProximityModeScanOnly
+    // Broadcast mode is not supported at the moment
+};
 
-+ (BOOL)isSensorAvailable;
+@interface SKEddystoneProximityConfiguration : SKConfiguration
 
-- (instancetype)initWithConfiguration:(SKActivityConfiguration *)configuration;
+@property (nonatomic) SKEddystoneProximityMode mode;
+
+@property (nonatomic, strong) NSString *namespaceFilter;
 
 @end

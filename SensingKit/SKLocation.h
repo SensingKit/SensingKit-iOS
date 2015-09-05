@@ -22,13 +22,13 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
 #import "SKAbstractSensor.h"
+#import "SKLocationConfiguration.h"
 
-@import CoreLocation;
-
-@interface SKLocation : SKAbstractSensor<CLLocationManagerDelegate>
+@interface SKLocation : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
+
+- (instancetype)initWithConfiguration:(SKLocationConfiguration *)configuration;
 
 @end
