@@ -1,6 +1,6 @@
 # Changelog
 
-### Next
+### 0.4.0
 - Updated SensingKit-iOS API.
 - Added Microphone Sensor.
 - Added Configuration for all sensors.
