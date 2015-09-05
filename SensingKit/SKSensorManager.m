@@ -90,7 +90,7 @@
 
 #pragma mark Sensor Status methods
 
-- (BOOL)isSensorAvailable:(SKSensorType)sensorType
++ (BOOL)isSensorAvailable:(SKSensorType)sensorType
 {
     switch (sensorType) {
             
@@ -163,7 +163,7 @@
         configuration = [SKSensorManager defaultConfigurationForSensor:sensorType];
     }
     
-    SKAbstractSensor *sensor = [self createSensor:sensorType withConfiguration:configuration];
+    SKAbstractSensor *sensor = [SKSensorManager createSensor:sensorType withConfiguration:configuration];
     [self.sensors replaceObjectAtIndex:sensorType withObject:sensor];
 }
 
@@ -343,7 +343,7 @@
     return [self.sensors objectAtIndex:sensorType];
 }
 
-- (SKAbstractSensor *)createSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration
++ (SKAbstractSensor *)createSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration
 {
     SKAbstractSensor *sensor;
     

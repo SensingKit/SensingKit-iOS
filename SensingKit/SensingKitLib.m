@@ -59,7 +59,7 @@
 
 - (BOOL)isSensorAvailable:(SKSensorType)sensorType
 {
-    return [self.sensorManager isSensorAvailable:sensorType];
+    return [SKSensorManager isSensorAvailable:sensorType];
 }
 
 - (BOOL)isSensorRegistered:(SKSensorType)sensorType
@@ -122,7 +122,7 @@
     [self.sensorManager unsubscribeAllHandlersFromSensor:sensorType];
 }
 
-+ (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
+- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
 {
     return [SKSensorManager csvHeaderForSensor:sensorType];
 }

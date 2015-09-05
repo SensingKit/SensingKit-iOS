@@ -31,7 +31,7 @@
 
 /** @name Sensor Status */
 
-- (BOOL)isSensorAvailable:(SKSensorType)sensorType;
++ (BOOL)isSensorAvailable:(SKSensorType)sensorType;
 
 - (BOOL)isSensorRegistered:(SKSensorType)sensorType;
 
