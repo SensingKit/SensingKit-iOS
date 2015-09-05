@@ -49,7 +49,7 @@
 #import "SKAltimeterData.h"
 #import "SKBatteryData.h"
 #import "SKLocationData.h"
-#import "SKBeaconDeviceData.h"
+#import "SKiBeaconDeviceData.h"
 #import "SKEddystoneProximityData.h"
 
 // SensorConfiguration
@@ -263,7 +263,7 @@
             return [SKLocationData csvHeader];
             
         case iBeaconProximity:
-            return [SKBeaconDeviceData csvHeader];
+            return [SKiBeaconDeviceData csvHeader];
             
         case EddystoneProximity:
             return [SKEddystoneProximityData csvHeader];

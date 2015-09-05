@@ -24,7 +24,7 @@
 
 #import "SKiBeaconProximity.h"
 #import "SKProximityData.h"
-#import "SKBeaconDeviceData.h"
+#import "SKiBeaconDeviceData.h"
 
 @import CoreBluetooth;
 @import CoreLocation;
@@ -248,12 +248,12 @@
         {
             if (beacon)
             {
-                SKBeaconDeviceData *deviceData = [[SKBeaconDeviceData alloc] initWithTimestamp:timestamp
-                                                                                     withMajor:beacon.major.unsignedIntegerValue
-                                                                                     withMinor:beacon.minor.unsignedIntegerValue
-                                                                                  withAccuracy:beacon.accuracy
-                                                                                 withProximity:beacon.proximity
-                                                                                      withRssi:beacon.rssi];
+                SKiBeaconDeviceData *deviceData = [[SKiBeaconDeviceData alloc] initWithTimestamp:timestamp
+                                                                                       withMajor:beacon.major.unsignedIntegerValue
+                                                                                       withMinor:beacon.minor.unsignedIntegerValue
+                                                                                    withAccuracy:beacon.accuracy
+                                                                                   withProximity:beacon.proximity
+                                                                                        withRssi:beacon.rssi];
                 
                 [array addObject:deviceData];
             }

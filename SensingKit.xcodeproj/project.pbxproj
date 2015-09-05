@@ -39,8 +39,8 @@
 		CF1DFA1C1B8CBE5500D7B182 /* SKAltimeter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1DFA1B1B8CBE5500D7B182 /* SKAltimeter.m */; };
 		CF1DFA1F1B8CC01900D7B182 /* SKAltimeterData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1DFA1E1B8CC01900D7B182 /* SKAltimeterData.m */; };
 		CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5298951A0CFC7A002A4D54 /* UIKit.framework */; };
-		CF8E9BD01B3200E7005AC2FC /* SKBeaconDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9BCF1B3200E7005AC2FC /* SKBeaconDeviceData.m */; };
-		CF8E9BD11B32E420005AC2FC /* SKBeaconDeviceData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF8E9BCE1B3200E7005AC2FC /* SKBeaconDeviceData.h */; };
+		CF8E9BD01B3200E7005AC2FC /* SKiBeaconDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9BCF1B3200E7005AC2FC /* SKiBeaconDeviceData.m */; };
+		CF8E9BD11B32E420005AC2FC /* SKiBeaconDeviceData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF8E9BCE1B3200E7005AC2FC /* SKiBeaconDeviceData.h */; };
 		CF8E9BD21B32E9D3005AC2FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF11F8BE1B2F76160094C9DF /* CoreLocation.framework */; };
 		CF8E9BD41B32EA04005AC2FC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8E9BD31B32EA04005AC2FC /* CoreBluetooth.framework */; };
 		CF960F1B1B99CC5200F989EA /* SKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F1A1B99CC5200F989EA /* SKConfiguration.m */; };
@@ -153,7 +153,7 @@
 				CFB0D95B1B52AD7500A7982B /* SKMagnetometerData.h in CopyFiles */,
 				CFB0D95C1B52AD7500A7982B /* SKDeviceMotionData.h in CopyFiles */,
 				CFB0D95D1B52AD7500A7982B /* SKActivityData.h in CopyFiles */,
-				CF8E9BD11B32E420005AC2FC /* SKBeaconDeviceData.h in CopyFiles */,
+				CF8E9BD11B32E420005AC2FC /* SKiBeaconDeviceData.h in CopyFiles */,
 				CF11F8C41B2F77EC0094C9DF /* SKLocationData.h in CopyFiles */,
 				CF11F8BC1B2F52A60094C9DF /* SKSensorData.h in CopyFiles */,
 				CF11F8BD1B2F52A60094C9DF /* SKBatteryData.h in CopyFiles */,
@@ -188,8 +188,8 @@
 		CF1DFA1D1B8CC01900D7B182 /* SKAltimeterData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAltimeterData.h; sourceTree = "<group>"; };
 		CF1DFA1E1B8CC01900D7B182 /* SKAltimeterData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAltimeterData.m; sourceTree = "<group>"; };
 		CF5298951A0CFC7A002A4D54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CF8E9BCE1B3200E7005AC2FC /* SKBeaconDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBeaconDeviceData.h; sourceTree = "<group>"; };
-		CF8E9BCF1B3200E7005AC2FC /* SKBeaconDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBeaconDeviceData.m; sourceTree = "<group>"; };
+		CF8E9BCE1B3200E7005AC2FC /* SKiBeaconDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKiBeaconDeviceData.h; sourceTree = "<group>"; };
+		CF8E9BCF1B3200E7005AC2FC /* SKiBeaconDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKiBeaconDeviceData.m; sourceTree = "<group>"; };
 		CF8E9BD31B32EA04005AC2FC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		CF960F191B99CC5200F989EA /* SKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKConfiguration.h; sourceTree = "<group>"; };
 		CF960F1A1B99CC5200F989EA /* SKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKConfiguration.m; sourceTree = "<group>"; };
@@ -325,8 +325,8 @@
 				CF11F8C21B2F77940094C9DF /* SKLocationData.m */,
 				CFD450201B8738DC00E2E78D /* SKProximityData.h */,
 				CFD450211B8738DC00E2E78D /* SKProximityData.m */,
-				CF8E9BCE1B3200E7005AC2FC /* SKBeaconDeviceData.h */,
-				CF8E9BCF1B3200E7005AC2FC /* SKBeaconDeviceData.m */,
+				CF8E9BCE1B3200E7005AC2FC /* SKiBeaconDeviceData.h */,
+				CF8E9BCF1B3200E7005AC2FC /* SKiBeaconDeviceData.m */,
 				CFD450381B88D90A00E2E78D /* SKEddystoneProximityData.h */,
 				CFD450391B88D90A00E2E78D /* SKEddystoneProximityData.m */,
 			);
@@ -626,7 +626,7 @@
 				CF1DFA1F1B8CC01900D7B182 /* SKAltimeterData.m in Sources */,
 				CF1DFA151B8C7F1E00D7B182 /* SKPedometer.m in Sources */,
 				CF960F201B99D13100F989EA /* SKAccelerometerConfiguration.m in Sources */,
-				CF8E9BD01B3200E7005AC2FC /* SKBeaconDeviceData.m in Sources */,
+				CF8E9BD01B3200E7005AC2FC /* SKiBeaconDeviceData.m in Sources */,
 				CF960F261B9A06B800F989EA /* SKMagnetometerConfiguration.m in Sources */,
 				CFB0D94C1B52690500A7982B /* SKMagnetometerData.m in Sources */,
 				CF960F1B1B99CC5200F989EA /* SKConfiguration.m in Sources */,

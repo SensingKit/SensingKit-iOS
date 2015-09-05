@@ -1,5 +1,5 @@
 //
-//  SKBeaconDeviceData.h
+//  SKiBeaconDeviceData.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -26,7 +26,7 @@
 #import "SKSensorData.h"
 @import CoreLocation;
 
-@interface SKBeaconDeviceData : SKSensorData
+@interface SKiBeaconDeviceData : SKSensorData
 
 @property (nonatomic, readonly) NSUInteger major;
 @property (nonatomic, readonly) NSUInteger minor;

@@ -1,5 +1,5 @@
 //
-//  SKBeaconDeviceData.m
+//  SKiBeaconDeviceData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,9 +22,9 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBeaconDeviceData.h"
+#import "SKiBeaconDeviceData.h"
 
-@implementation SKBeaconDeviceData
+@implementation SKiBeaconDeviceData
 
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
                         withMajor:(NSUInteger)major
