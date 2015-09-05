@@ -1,7 +1,10 @@
 # Changelog
 
 ### Next
-- Updated API.
+- Updated SensingKit-iOS API.
+- Added Microphone Sensor.
+- Added Configuration for all sensors.
+- SensorModules have been renamed into Sensors.
 
 ### 0.3.0 (August 29, 2015)
 - Added support for Pedometer sensor.

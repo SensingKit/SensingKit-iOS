@@ -18,6 +18,7 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 - Location
 - iBeacon™ Proximity
 - Eddystone™ Proximity
+- Microphone
 
 
 ## Configuring the Library
