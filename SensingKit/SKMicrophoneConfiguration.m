@@ -1,5 +1,5 @@
 //
-//  NSString+SensorType.h
+//  SKMicrophoneConfiguration.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,28 +22,8 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NSString+SensorType.h"
+#import "SKMicrophoneConfiguration.h"
 
-@implementation NSString (SensorType)
-
-static NSString *SENSOR_STRINGS[] = {
-    @"Accelerometer",
-    @"Gyroscope",
-    @"Magnetometer",
-    @"DeviceMotion",
-    @"Activity",
-    @"Pedometer",
-    @"Altimeter",
-    @"Battery",
-    @"Location",
-    @"iBeaconProximity",
-    @"EddystoneProximity",
-    @"Microphone"
-};
-
-+ (NSString *)stringWithSensorType:(SKSensorType)sensorType
-{
-    return SENSOR_STRINGS[sensorType];
-}
+@implementation SKMicrophoneConfiguration
 
 @end

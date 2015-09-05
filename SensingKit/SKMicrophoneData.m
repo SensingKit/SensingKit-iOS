@@ -1,5 +1,5 @@
 //
-//  NSString+SensorType.h
+//  SKMicrophoneData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,28 +22,14 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NSString+SensorType.h"
+#import "SKMicrophoneData.h"
 
-@implementation NSString (SensorType)
+@implementation SKMicrophoneData
 
-static NSString *SENSOR_STRINGS[] = {
-    @"Accelerometer",
-    @"Gyroscope",
-    @"Magnetometer",
-    @"DeviceMotion",
-    @"Activity",
-    @"Pedometer",
-    @"Altimeter",
-    @"Battery",
-    @"Location",
-    @"iBeaconProximity",
-    @"EddystoneProximity",
-    @"Microphone"
-};
-
-+ (NSString *)stringWithSensorType:(SKSensorType)sensorType
++ (NSString *)csvHeader
 {
-    return SENSOR_STRINGS[sensorType];
+    // TODO
+    return nil;//@"timestamp,timeIntervalSince1970,namespaceID,instanceID,rssi,txPower";
 }
 
 @end

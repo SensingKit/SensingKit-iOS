@@ -67,6 +67,11 @@
 		CF960F471B9A08A700F989EA /* SKLocationConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F361B9A06FA00F989EA /* SKLocationConfiguration.h */; };
 		CF960F481B9A08A700F989EA /* SKiBeaconProximityConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F391B9A070100F989EA /* SKiBeaconProximityConfiguration.h */; };
 		CF960F491B9A08A700F989EA /* SKEddystoneProximityConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F3C1B9A070800F989EA /* SKEddystoneProximityConfiguration.h */; };
+		CF960F4C1B9B816F00F989EA /* SKMicrophone.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F4B1B9B816F00F989EA /* SKMicrophone.m */; };
+		CF960F4F1B9B818600F989EA /* SKMicrophoneData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F4E1B9B818600F989EA /* SKMicrophoneData.m */; };
+		CF960F521B9B81A600F989EA /* SKMicrophoneConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F511B9B81A600F989EA /* SKMicrophoneConfiguration.m */; };
+		CF960F531B9B81C200F989EA /* SKMicrophoneData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F4D1B9B818600F989EA /* SKMicrophoneData.h */; };
+		CF960F541B9B81C200F989EA /* SKMicrophoneConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F501B9B81A600F989EA /* SKMicrophoneConfiguration.h */; };
 		CFB0D9371B4FEE7900A7982B /* SKAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D9361B4FEE7900A7982B /* SKAccelerometer.m */; };
 		CFB0D93A1B4FF7E000A7982B /* SKMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D9391B4FF7E000A7982B /* SKMotionManager.m */; };
 		CFB0D93D1B4FFA1D00A7982B /* SKGyroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D93C1B4FFA1D00A7982B /* SKGyroscope.m */; };
@@ -132,6 +137,8 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CF960F531B9B81C200F989EA /* SKMicrophoneData.h in CopyFiles */,
+				CF960F541B9B81C200F989EA /* SKMicrophoneConfiguration.h in CopyFiles */,
 				CF960F3F1B9A08A700F989EA /* SKAccelerometerConfiguration.h in CopyFiles */,
 				CF960F401B9A08A700F989EA /* SKGyroscopeConfiguration.h in CopyFiles */,
 				CF960F411B9A08A700F989EA /* SKMagnetometerConfiguration.h in CopyFiles */,
@@ -215,6 +222,12 @@
 		CF960F3A1B9A070100F989EA /* SKiBeaconProximityConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKiBeaconProximityConfiguration.m; sourceTree = "<group>"; };
 		CF960F3C1B9A070800F989EA /* SKEddystoneProximityConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEddystoneProximityConfiguration.h; sourceTree = "<group>"; };
 		CF960F3D1B9A070800F989EA /* SKEddystoneProximityConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEddystoneProximityConfiguration.m; sourceTree = "<group>"; };
+		CF960F4A1B9B816F00F989EA /* SKMicrophone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMicrophone.h; sourceTree = "<group>"; };
+		CF960F4B1B9B816F00F989EA /* SKMicrophone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMicrophone.m; sourceTree = "<group>"; };
+		CF960F4D1B9B818600F989EA /* SKMicrophoneData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMicrophoneData.h; sourceTree = "<group>"; };
+		CF960F4E1B9B818600F989EA /* SKMicrophoneData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMicrophoneData.m; sourceTree = "<group>"; };
+		CF960F501B9B81A600F989EA /* SKMicrophoneConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMicrophoneConfiguration.h; sourceTree = "<group>"; };
+		CF960F511B9B81A600F989EA /* SKMicrophoneConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMicrophoneConfiguration.m; sourceTree = "<group>"; };
 		CFB0D9351B4FEE7900A7982B /* SKAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAccelerometer.h; sourceTree = "<group>"; };
 		CFB0D9361B4FEE7900A7982B /* SKAccelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAccelerometer.m; sourceTree = "<group>"; };
 		CFB0D9381B4FF7E000A7982B /* SKMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMotionManager.h; sourceTree = "<group>"; };
@@ -329,6 +342,8 @@
 				CF8E9BCF1B3200E7005AC2FC /* SKiBeaconDeviceData.m */,
 				CFD450381B88D90A00E2E78D /* SKEddystoneProximityData.h */,
 				CFD450391B88D90A00E2E78D /* SKEddystoneProximityData.m */,
+				CF960F4D1B9B818600F989EA /* SKMicrophoneData.h */,
+				CF960F4E1B9B818600F989EA /* SKMicrophoneData.m */,
 			);
 			name = SensorData;
 			sourceTree = "<group>";
@@ -360,6 +375,8 @@
 				CF960F3A1B9A070100F989EA /* SKiBeaconProximityConfiguration.m */,
 				CF960F3C1B9A070800F989EA /* SKEddystoneProximityConfiguration.h */,
 				CF960F3D1B9A070800F989EA /* SKEddystoneProximityConfiguration.m */,
+				CF960F501B9B81A600F989EA /* SKMicrophoneConfiguration.h */,
+				CF960F511B9B81A600F989EA /* SKMicrophoneConfiguration.m */,
 			);
 			name = SensorConfiguration;
 			sourceTree = "<group>";
@@ -470,6 +487,8 @@
 				CFBB416219B928C2002AE1A9 /* SKiBeaconProximity.m */,
 				CFD450351B88D8C600E2E78D /* SKEddystoneProximity.h */,
 				CFD450361B88D8C600E2E78D /* SKEddystoneProximity.m */,
+				CF960F4A1B9B816F00F989EA /* SKMicrophone.h */,
+				CF960F4B1B9B816F00F989EA /* SKMicrophone.m */,
 			);
 			name = Sensors;
 			sourceTree = "<group>";
@@ -633,16 +652,19 @@
 				CFD450321B88D86500E2E78D /* ESSBeaconScanner.m in Sources */,
 				CFB0D94F1B52698C00A7982B /* SKDeviceMotionData.m in Sources */,
 				CFB0D93A1B4FF7E000A7982B /* SKMotionManager.m in Sources */,
+				CF960F4F1B9B818600F989EA /* SKMicrophoneData.m in Sources */,
 				CF960F2F1B9A06DD00F989EA /* SKPedometerConfiguration.m in Sources */,
 				CF1DFA181B8C821000D7B182 /* SKPedometerData.m in Sources */,
 				CF11F8B91B2F4B0E0094C9DF /* SKBatteryData.m in Sources */,
 				CF11F8821B2C6D7D0094C9DF /* SKSensorManager.m in Sources */,
 				CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */,
 				CFD450331B88D86500E2E78D /* ESSEddystone.m in Sources */,
+				CF960F521B9B81A600F989EA /* SKMicrophoneConfiguration.m in Sources */,
 				CF11F8881B2D8D370094C9DF /* SKSensorData.m in Sources */,
 				CFB0D9581B5269BD00A7982B /* SKActivity.m in Sources */,
 				CFB0D9551B5269AF00A7982B /* SKDeviceMotion.m in Sources */,
 				CFB0D9521B52699700A7982B /* SKActivityData.m in Sources */,
+				CF960F4C1B9B816F00F989EA /* SKMicrophone.m in Sources */,
 				CF960F321B9A06E600F989EA /* SKAltimeterConfiguration.m in Sources */,
 				CF960F291B9A06CA00F989EA /* SKDeviceMotionConfiguration.m in Sources */,
 				CFBB416719B928C2002AE1A9 /* SKBattery.m in Sources */,

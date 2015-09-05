@@ -25,7 +25,7 @@
 /**
  *  Total number of sensors supported by SensingKit-iOS.
  */
-#define TOTAL_SENSORS 11
+#define TOTAL_SENSORS 12
 
 /**
  *  These constants indicate the type of the sensor.
@@ -42,5 +42,6 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     Battery,
     Location,
     iBeaconProximity,
-    EddystoneProximity
+    EddystoneProximity,
+    Microphone
 };

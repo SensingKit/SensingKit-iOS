@@ -38,6 +38,7 @@
 #import "SKLocation.h"
 #import "SKiBeaconProximity.h"
 #import "SKEddystoneProximity.h"
+#import "SKMicrophone.h"
 
 // SensorData
 #import "SKAccelerometerData.h"
@@ -51,6 +52,7 @@
 #import "SKLocationData.h"
 #import "SKiBeaconDeviceData.h"
 #import "SKEddystoneProximityData.h"
+#import "SKMicrophoneData.h"
 
 // SensorConfiguration
 #import "SKAccelerometerConfiguration.h"
@@ -64,12 +66,15 @@
 #import "SKLocationConfiguration.h"
 #import "SKiBeaconProximityConfiguration.h"
 #import "SKEddystoneProximityConfiguration.h"
+#import "SKMicrophoneConfiguration.h"
+
 
 @interface SKSensorManager()
 
 @property (nonatomic, strong, readonly) NSMutableArray *sensors;
 
 @end
+
 
 @implementation SKSensorManager
 
@@ -126,6 +131,9 @@
             
         case EddystoneProximity:
             return [SKEddystoneProximity isSensorAvailable];
+            
+        case Microphone:
+            return [SKMicrophone isSensorAvailable];
             
         default:
             NSLog(@"Unknown Sensor: %li", (long)sensorType);
@@ -268,6 +276,9 @@
         case EddystoneProximity:
             return [SKEddystoneProximityData csvHeader];
             
+        case Microphone:
+            return [SKMicrophoneData csvHeader];
+            
         default:
             NSLog(@"Unknown Sensor: %li", (long)sensorType);
             abort();
@@ -394,6 +405,10 @@
             sensor = [[SKEddystoneProximity alloc] initWithConfiguration:(SKEddystoneProximityConfiguration *)configuration];
             break;
             
+        case Microphone:
+            sensor = [[SKMicrophone alloc] initWithConfiguration:(SKMicrophoneConfiguration *)configuration];
+            break;
+            
             // Don't forget to break!
             
         default:
@@ -452,6 +467,10 @@
             
         case EddystoneProximity:
             configuration = [[SKEddystoneProximityConfiguration alloc] init];
+            break;
+            
+        case Microphone:
+            configuration = [[SKMicrophoneConfiguration alloc] init];
             break;
             
             // Don't forget to break!

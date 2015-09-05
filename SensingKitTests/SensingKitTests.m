@@ -65,6 +65,7 @@
     XCTAssertTrue([[NSString stringWithSensorType:Location]           isEqualToString:@"Location"],           @"Sensor name is wrong.");
     XCTAssertTrue([[NSString stringWithSensorType:iBeaconProximity]   isEqualToString:@"iBeaconProximity"],   @"Sensor name is wrong.");
     XCTAssertTrue([[NSString stringWithSensorType:EddystoneProximity] isEqualToString:@"EddystoneProximity"], @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorType:EddystoneProximity] isEqualToString:@"Microphone"],         @"Sensor name is wrong.");
 }
 
 - (void)testSensingKitLib
@@ -110,6 +111,7 @@
     [self.sensingKit registerSensor:Location];
     [self.sensingKit registerSensor:iBeaconProximity];
     [self.sensingKit registerSensor:EddystoneProximity];
+    [self.sensingKit registerSensor:Microphone];
     
     // test deregistration
     [self.sensingKit deregisterSensor:Accelerometer];
@@ -123,6 +125,7 @@
     [self.sensingKit deregisterSensor:Location];
     [self.sensingKit deregisterSensor:iBeaconProximity];
     [self.sensingKit deregisterSensor:EddystoneProximity];
+    [self.sensingKit deregisterSensor:Microphone];
 }
 
 @end
