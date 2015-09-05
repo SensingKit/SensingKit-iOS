@@ -63,7 +63,7 @@
     {
         [super setConfiguration:configuration];
         
-        // Case the configuration instance
+        // Cast the configuration instance
         // SKBatteryConfiguration *batteryConfiguration = (SKBatteryConfiguration *)configuration;
         
         // Make the required updates on the sensor

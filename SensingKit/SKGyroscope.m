@@ -64,7 +64,7 @@
     {
         [super setConfiguration:configuration];
         
-        // Case the configuration instance
+        // Cast the configuration instance
         SKGyroscopeConfiguration *gyroscopeConfiguration = (SKGyroscopeConfiguration *)configuration;
         
         // Make the required updates on the sensor

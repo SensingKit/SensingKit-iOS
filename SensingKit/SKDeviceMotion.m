@@ -64,7 +64,7 @@
     {
         [super setConfiguration:configuration];
         
-        // Case the configuration instance
+        // Cast the configuration instance
         SKDeviceMotionConfiguration *deviceMotionConfiguration = (SKDeviceMotionConfiguration *)configuration;
         
         // Make the required updates on the sensor

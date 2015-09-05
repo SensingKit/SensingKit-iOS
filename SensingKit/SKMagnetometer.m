@@ -64,7 +64,7 @@
     {
         [super setConfiguration:configuration];
         
-        // Case the configuration instance
+        // Cast the configuration instance
         SKMagnetometerConfiguration *magnetometerConfiguration = (SKMagnetometerConfiguration *)configuration;
         
         // Make the required updates on the sensor

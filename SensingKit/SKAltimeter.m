@@ -65,7 +65,7 @@
     {
         [super setConfiguration:configuration];
         
-        // Case the configuration instance
+        // Cast the configuration instance
         // SKAltimeterConfiguration *altimeterConfiguration = (SKAltimeterConfiguration *)configuration;
         
         // Make the required updates on the sensor

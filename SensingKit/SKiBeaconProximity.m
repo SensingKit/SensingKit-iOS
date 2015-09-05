@@ -76,7 +76,7 @@
     {
         [super setConfiguration:configuration];
         
-        // Case the configuration instance
+        // Cast the configuration instance
         SKiBeaconProximityConfiguration *beaconConfiguration = (SKiBeaconProximityConfiguration *)configuration;
         
         // Save mode

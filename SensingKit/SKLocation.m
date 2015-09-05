@@ -66,7 +66,7 @@
     {
         [super setConfiguration:configuration];
         
-        // Case the configuration instance
+        // Cast the configuration instance
         SKLocationConfiguration *locationConfiguration = (SKLocationConfiguration *)configuration;
         
         // Make the required updates on the sensor
