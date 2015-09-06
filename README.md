@@ -32,7 +32,7 @@ In case you want to build the library yourself:
 - Choose the ‘Framework’ scheme from the top toolbar (or using Product -> Scheme -> Framework) and build the framework. SensingKit.framework file should be available in your desktop.
 
 
-## Using this Library
+## Using the Library
 
 - First, you need to move the generated SensingKit.framework file into your new Xcode project.
 
