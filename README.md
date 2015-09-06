@@ -23,18 +23,22 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 
 ## Configuring the Library
 
+You can always skip this step by downloading the released version of SensingKit-iOS from [here](https://github.com/SensingKit/SensingKit-iOS/releases).
+
+In case you want to build the library yourself:
+
 - Open SensingKit project in Xcode and build SensingKit library using Product -> Build.
 
 - Choose the ‘Framework’ scheme from the top toolbar (or using Product -> Scheme -> Framework) and build the framework. SensingKit.framework file should be available in your desktop.
 
-- Move the generated SensingKit.framework file into your new Xcode project.
-
-- Since SensingKit-iOS uses Categories internally, you need to add  the ’-ObjC’ flag into your project build settings. Open your project, select your project from the Project Navigator on the left and click on the app’s target. Select the Build Settings tab on the top of the screen and search for “Other Linker Flags”. Finally, click the + button and add ‘-ObjC’ as a new property on the list.
-
 
 ## How to Use this Library
 
-- Import and init SensingKit into your Activity class as shown bellow:
+- First, you need to move the generated SensingKit.framework file into your new Xcode project.
+
+- Since SensingKit-iOS uses Categories internally, you need to add  the ’-ObjC’ flag into your project build settings. Open your project, select your project from the Project Navigator on the left and click on the app’s target. Select the Build Settings tab on the top of the screen and search for “Other Linker Flags”. Finally, click the + button and add ‘-ObjC’ as a new property on the list.
+
+- Import and init SensingKit as shown bellow:
 
 ```objectivec
 #import <SensingKit/SensingKitLib.h>
@@ -65,7 +69,7 @@ if ([self.sensingKit isSensorAvailable:Battery]) {
 ```
 
 
-- Subscribe a sensor data listener. You can cast the data object into the actual sensor data object in order to access all the sensor data properties:
+- Subscribe a sensor data handler. You can cast the data object into the actual sensor data object in order to access all the sensor data properties:
 
 ```objectivec
 [self.sensingKit subscribeToSensor:Battery
