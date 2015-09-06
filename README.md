@@ -29,6 +29,8 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 
 - Move the generated SensingKit.framework file into your new Xcode project.
 
+- Since SensingKit-iOS uses Categories internally, you need to add  the ’-ObjC’ flag into your project build settings. Open your project, select your project from the Project Navigator on the left and click on the app’s target. Select the Build Settings tab on the top of the screen and search for “Other Linker Flags”. Finally, click the + button and add ‘-ObjC’ as a new property on the list.
+
 
 ## How to Use this Library
 
