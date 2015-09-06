@@ -2,7 +2,7 @@
 
 ### 0.4.0
 - Updated SensingKit-iOS API.
-- Added Microphone Sensor.
+- Added support for Microphone sensor.
 - Added Configuration for all sensors.
 - SensorModules have been renamed into Sensors.
 
