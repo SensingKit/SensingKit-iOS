@@ -28,20 +28,6 @@
 #import "NSString+SensorType.h"
 #import "SKSensorDataHandler.h"
 
-// Sensors
-#import "SKAccelerometer.h"
-#import "SKGyroscope.h"
-#import "SKMagnetometer.h"
-#import "SKDeviceMotion.h"
-#import "SKActivity.h"
-#import "SKPedometer.h"
-#import "SKAltimeter.h"
-#import "SKBattery.h"
-#import "SKLocation.h"
-#import "SKiBeaconProximity.h"
-#import "SKEddystoneProximity.h"
-#import "SKMicrophone.h"
-
 // Sensor Data
 #import "SKAccelerometerData.h"
 #import "SKGyroscopeData.h"
