@@ -23,9 +23,52 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "SKSensorType.h"
+#import "NSString+SensorType.h"
 #import "SKSensorDataHandler.h"
-#import "SKConfiguration.h"
+
+// Sensors
+#import "SKAccelerometer.h"
+#import "SKGyroscope.h"
+#import "SKMagnetometer.h"
+#import "SKDeviceMotion.h"
+#import "SKActivity.h"
+#import "SKPedometer.h"
+#import "SKAltimeter.h"
+#import "SKBattery.h"
+#import "SKLocation.h"
+#import "SKiBeaconProximity.h"
+#import "SKEddystoneProximity.h"
+#import "SKMicrophone.h"
+
+// Sensor Data
+#import "SKAccelerometerData.h"
+#import "SKGyroscopeData.h"
+#import "SKMagnetometerData.h"
+#import "SKDeviceMotionData.h"
+#import "SKActivityData.h"
+#import "SKPedometerData.h"
+#import "SKAltimeterData.h"
+#import "SKBatteryData.h"
+#import "SKLocationData.h"
+#import "SKiBeaconDeviceData.h"
+#import "SKEddystoneProximityData.h"
+#import "SKMicrophoneData.h"
+
+// Sensor Configuration
+#import "SKAccelerometerConfiguration.h"
+#import "SKGyroscopeConfiguration.h"
+#import "SKMagnetometerConfiguration.h"
+#import "SKDeviceMotionConfiguration.h"
+#import "SKActivityConfiguration.h"
+#import "SKPedometerConfiguration.h"
+#import "SKAltimeterConfiguration.h"
+#import "SKBatteryConfiguration.h"
+#import "SKLocationConfiguration.h"
+#import "SKiBeaconProximityConfiguration.h"
+#import "SKEddystoneProximityConfiguration.h"
+#import "SKMicrophoneConfiguration.h"
 
 /**
  * The 'SensingKitLib' class is the main class of SensingKit library that manages all supported sensors.
