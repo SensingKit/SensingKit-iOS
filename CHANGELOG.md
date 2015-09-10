@@ -1,6 +1,7 @@
 # Changelog
 
 ### 0.4.0
+- Added support for iOS 9.
 - Updated SensingKit-iOS API.
 - Added support for Microphone sensor.
 - Added Configuration for all sensors.
