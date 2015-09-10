@@ -41,18 +41,20 @@
 
 + (NSString *)csvHeader
 {
-    return @"startTimestamp,startTimeIntervalSince1970,endTimestamp,endTimeIntervalSince1970,numberOfSteps,distance,floorsAscended,floorsDescended";
+    return @"startTimestamp,startTimeIntervalSince1970,endTimestamp,endTimeIntervalSince1970,numberOfSteps,distance,currentPace,currentCadence,floorsAscended,floorsDescended";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"\"%@\",%f,\"%@\",%f,%lu,%lu,%lu,%lu",
+    return [NSString stringWithFormat:@"\"%@\",%f,\"%@\",%f,%lu,%lu,%lu,%lu,%lu,%lu",
             self.startDate.timestampString,
             self.startDate.timeIntervalSince1970,
             self.endDate.timestampString,
             self.endDate.timeIntervalSince1970,
             (unsigned long)_pedometerData.numberOfSteps.unsignedIntegerValue,
             (unsigned long)_pedometerData.distance.unsignedIntegerValue,
+            (unsigned long)_pedometerData.currentPace.unsignedIntegerValue,
+            (unsigned long)_pedometerData.currentCadence.unsignedIntegerValue,
             (unsigned long)_pedometerData.floorsAscended.unsignedIntegerValue,
             (unsigned long)_pedometerData.floorsDescended.unsignedIntegerValue];
 }
@@ -67,6 +69,8 @@
              @"pedometerData": @{
                      @"numberOfSteps": _pedometerData.numberOfSteps,
                      @"distance": _pedometerData.distance,
+                     @"currentPace": _pedometerData.currentPace,
+                     @"currentCadence": _pedometerData.currentCadence,
                      @"floorsAscended": _pedometerData.floorsAscended,
                      @"floorsDescended": _pedometerData.floorsDescended
                      }
