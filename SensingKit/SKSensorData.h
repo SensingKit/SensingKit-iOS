@@ -38,6 +38,6 @@
 
 @property (nonatomic, readonly, copy) NSString *csvString;
 
-- (NSDictionary *)dictionaryData;
+@property (nonatomic, readonly, copy) NSDictionary *dictionaryData;
 
 @end
