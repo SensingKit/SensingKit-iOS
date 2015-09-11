@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKDeviceMotionConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKDeviceMotionConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

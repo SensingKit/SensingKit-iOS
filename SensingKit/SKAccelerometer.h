@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKAccelerometerConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKAccelerometerConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

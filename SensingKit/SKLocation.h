@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKLocationConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKLocationConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

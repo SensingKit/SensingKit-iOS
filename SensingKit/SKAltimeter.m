@@ -39,12 +39,9 @@
 
 - (instancetype)initWithConfiguration:(SKAltimeterConfiguration *)configuration
 {
-    if (self = [super init])
+    if (self = [super initWithConfiguration:configuration])
     {
         self.altemeter = [[CMAltimeter alloc] init];
-        
-        // Set the configuration
-        self.configuration = configuration;
     }
     return self;
 }

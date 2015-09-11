@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKiBeaconProximityConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKiBeaconProximityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

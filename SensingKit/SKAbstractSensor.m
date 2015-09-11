@@ -33,6 +33,16 @@
 
 @implementation SKAbstractSensor
 
+- (instancetype)initWithConfiguration:(SKConfiguration *)configuration
+{
+    if (self = [super init])
+    {
+        // Set the configuration
+        self.configuration = configuration;
+    }
+    return self;
+}
+
 - (void)subscribeHandler:(SKSensorDataHandler)handler
 {
     // Register the callback

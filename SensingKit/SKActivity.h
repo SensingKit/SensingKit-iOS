@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKActivityConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKActivityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

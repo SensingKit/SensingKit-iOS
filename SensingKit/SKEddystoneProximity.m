@@ -41,13 +41,10 @@
 
 - (instancetype)initWithConfiguration:(SKEddystoneProximityConfiguration *)configuration
 {
-    if (self = [super init])
+    if (self = [super initWithConfiguration:configuration])
     {
         self.beaconScanner = [[ESSBeaconScanner alloc] init];
         self.beaconScanner.delegate = self;
-        
-        // Set the configuration
-        self.configuration = configuration;
     }
     return self;
 }

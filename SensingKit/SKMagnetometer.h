@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKMagnetometerConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKMagnetometerConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

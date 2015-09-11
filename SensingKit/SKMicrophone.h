@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKMicrophoneConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKMicrophoneConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

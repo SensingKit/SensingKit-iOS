@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKGyroscopeConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKGyroscopeConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

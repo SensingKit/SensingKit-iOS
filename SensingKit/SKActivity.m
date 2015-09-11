@@ -39,12 +39,9 @@
 
 - (instancetype)initWithConfiguration:(SKActivityConfiguration *)configuration
 {
-    if (self = [super init])
+    if (self = [super initWithConfiguration:configuration])
     {
         self.motionActivityManager = [[CMMotionActivityManager alloc] init];
-        
-        // Set the configuration
-        self.configuration = configuration;
     }
     return self;
 }

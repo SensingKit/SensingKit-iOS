@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKAltimeterConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKAltimeterConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

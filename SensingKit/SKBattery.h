@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

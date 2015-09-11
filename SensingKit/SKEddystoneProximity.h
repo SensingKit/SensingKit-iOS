@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKEddystoneProximityConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKEddystoneProximityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
