@@ -35,7 +35,7 @@
                   withNamespaceId:(NSString *)namespaceId
                    withInstanceId:(NSUInteger)instanceId
                          withRssi:(NSInteger)rssi
-                      withTxPower:(NSInteger)txPower;
+                      withTxPower:(NSInteger)txPower NS_DESIGNATED_INITIALIZER;
 
 + (NSString *)csvHeader;
 

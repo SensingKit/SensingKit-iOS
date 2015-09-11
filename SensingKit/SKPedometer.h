@@ -29,6 +29,6 @@
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKPedometerConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKPedometerConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end

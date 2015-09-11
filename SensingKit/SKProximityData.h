@@ -30,7 +30,7 @@
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
                      withTimestamp:(NSDate *)timestamp
-                       withDevices:(NSArray *)devices;
+                       withDevices:(NSArray *)devices NS_DESIGNATED_INITIALIZER;
 
 + (NSString *)csvHeader;
 

@@ -39,7 +39,7 @@
 
 - (void)setNamespaceFilter:(NSString *)namespaceFilter
 {
-    _namespaceFilter = [namespaceFilter lowercaseString];
+    _namespaceFilter = namespaceFilter.lowercaseString;
 }
 
 @end

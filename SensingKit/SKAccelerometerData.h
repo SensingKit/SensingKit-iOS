@@ -29,7 +29,7 @@
 
 @property (nonatomic, readonly) CMAcceleration acceleration;
 
-- (instancetype)initWithAccelerometerData:(CMAccelerometerData *)accelerometerData;
+- (instancetype)initWithAccelerometerData:(CMAccelerometerData *)accelerometerData NS_DESIGNATED_INITIALIZER;
 
 + (NSString *)csvHeader;
 

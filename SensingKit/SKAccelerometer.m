@@ -43,7 +43,7 @@
         self.motionManager = [SKMotionManager sharedMotionManager];
         
         // Set the configuration
-        [self setConfiguration:configuration];
+        self.configuration = configuration;
     }
     return self;
 }
@@ -60,9 +60,9 @@
         abort();
     }
     
-    if (self.configuration != configuration)
+    if (super.configuration != configuration)
     {
-        [super setConfiguration:configuration];
+        super.configuration = configuration;
         
         // Cast the configuration instance
         SKAccelerometerConfiguration *accelerometerConfiguration = (SKAccelerometerConfiguration *)configuration;
@@ -84,7 +84,7 @@
 {
     [super startSensing];
     
-    if ([self.motionManager isAccelerometerAvailable])
+    if (self.motionManager.accelerometerAvailable)
     {
         [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                                  withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {

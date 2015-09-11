@@ -26,12 +26,12 @@
 
 @interface SKBatteryData : SKSensorData
 
-- (instancetype)initWithLevel:(CGFloat)level withState:(UIDeviceBatteryState)state;
+- (instancetype)initWithLevel:(CGFloat)level withState:(UIDeviceBatteryState)state NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, readonly) CGFloat level;
 @property (nonatomic, readonly) UIDeviceBatteryState state;
 
-- (NSString *)stateString;
+@property (nonatomic, readonly, copy) NSString *stateString;
 
 + (NSString *)csvHeader;
 

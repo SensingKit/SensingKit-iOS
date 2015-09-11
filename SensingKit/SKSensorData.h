@@ -29,8 +29,6 @@
 
 @interface SKSensorData : NSObject
 
-- (instancetype)init __attribute__((unavailable("SKSensorType is required. Use initWithSensorType: instead.")));
-
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
                      withTimestamp:(SKSensorTimestamp *)timestamp;
 
@@ -38,7 +36,7 @@
 
 @property (nonatomic, readonly, strong) SKSensorTimestamp *timestamp;
 
-- (NSString *)csvString;
+@property (nonatomic, readonly, copy) NSString *csvString;
 
 - (NSDictionary *)dictionaryData;
 

@@ -35,7 +35,7 @@
     if (self = [super initWithSensorType:EddystoneProximity
                            withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
     {
-        _namespaceId = [namespaceId lowercaseString];
+        _namespaceId = namespaceId.lowercaseString;
         _instanceId = instanceId;
         _rssi = rssi;
         _txPower = txPower;

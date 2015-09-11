@@ -86,7 +86,7 @@
 {
     if ([self shouldPostSensorData:data]) {
         
-        if ([self.sensorDataListeners count]) {
+        if (self.sensorDataListeners.count) {
             
             // CallBack with data as parameter
             for (SKSensorDataHandler handler in self.sensorDataListeners) {

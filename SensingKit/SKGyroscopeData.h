@@ -29,7 +29,7 @@
 
 @property (nonatomic, readonly) CMRotationRate rotationRate;
 
-- (instancetype)initWithGyroData:(CMGyroData *)gyroData;
+- (instancetype)initWithGyroData:(CMGyroData *)gyroData NS_DESIGNATED_INITIALIZER;
 
 + (NSString *)csvHeader;
 

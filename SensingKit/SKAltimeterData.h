@@ -29,7 +29,7 @@
 
 @property (strong, nonatomic, readonly) CMAltitudeData *altitudeData;
 
-- (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData;
+- (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData NS_DESIGNATED_INITIALIZER;
 
 + (NSString *)csvHeader;
 

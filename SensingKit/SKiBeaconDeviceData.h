@@ -39,10 +39,10 @@
                         withMinor:(NSUInteger)minor
                      withAccuracy:(CLLocationAccuracy)accuracy
                     withProximity:(CLProximity)proximity
-                         withRssi:(NSInteger)rssi;
+                         withRssi:(NSInteger)rssi NS_DESIGNATED_INITIALIZER;
 
 + (NSString *)csvHeader;
 
-- (NSString *)proximityString;
+@property (nonatomic, readonly, copy) NSString *proximityString;
 
 @end

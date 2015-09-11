@@ -33,7 +33,7 @@
 @property (nonatomic, readonly) CMRotationRate rotationRate;
 @property (nonatomic, readonly) CMAcceleration userAcceleration;
 
-- (instancetype)initWithDeviceMotion:(CMDeviceMotion *)motion;
+- (instancetype)initWithDeviceMotion:(CMDeviceMotion *)motion NS_DESIGNATED_INITIALIZER;
 
 + (NSString *)csvHeader;
 

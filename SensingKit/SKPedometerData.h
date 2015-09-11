@@ -32,7 +32,7 @@
 @property (nonatomic, readonly, strong) SKSensorTimestamp *startDate;
 @property (nonatomic, readonly, strong) SKSensorTimestamp *endDate;
 
-- (instancetype)initWithPedometerData:(CMPedometerData *)pedometerData;
+- (instancetype)initWithPedometerData:(CMPedometerData *)pedometerData NS_DESIGNATED_INITIALIZER;
 
 + (NSString *)csvHeader;
 

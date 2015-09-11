@@ -43,7 +43,7 @@
         self.motionManager = [SKMotionManager sharedMotionManager];
         
         // Set the configuration
-        [self setConfiguration:configuration];
+        self.configuration = configuration;
     }
     return self;
 }
@@ -60,9 +60,9 @@
         abort();
     }
     
-    if (self.configuration != configuration)
+    if (super.configuration != configuration)
     {
-        [super setConfiguration:configuration];
+        super.configuration = configuration;
         
         // Cast the configuration instance
         SKDeviceMotionConfiguration *deviceMotionConfiguration = (SKDeviceMotionConfiguration *)configuration;
@@ -84,7 +84,7 @@
 {
     [super startSensing];
 
-    if ([self.motionManager isDeviceMotionAvailable])
+    if (self.motionManager.deviceMotionAvailable)
     {
         [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue]
                                                 withHandler:^(CMDeviceMotion *motion, NSError *error) {

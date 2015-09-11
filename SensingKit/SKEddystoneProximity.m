@@ -47,7 +47,7 @@
         self.beaconScanner.delegate = self;
         
         // Set the configuration
-        [self setConfiguration:configuration];
+        self.configuration = configuration;
     }
     return self;
 }
@@ -64,9 +64,9 @@
         abort();
     }
     
-    if (self.configuration != configuration)
+    if (super.configuration != configuration)
     {
-        [super setConfiguration:configuration];
+        super.configuration = configuration;
         
         // Cast the configuration instance
         SKEddystoneProximityConfiguration *eddystoneConfiguration = (SKEddystoneProximityConfiguration *)configuration;
@@ -154,13 +154,13 @@
 // Thanks to http://stackoverflow.com/questions/1305225/best-way-to-serialize-a-nsdata-into-an-hexadeximal-string
 + (NSString *)hexStringFromData:(NSData *)data
 {
-    const unsigned char *dataBuffer = (const unsigned char *)[data bytes];
+    const unsigned char *dataBuffer = (const unsigned char *)data.bytes;
     
     if (!dataBuffer) {
         return [NSString string];
     }
     
-    NSUInteger dataLength = [data length];
+    NSUInteger dataLength = data.length;
     NSMutableString *hexString = [NSMutableString stringWithCapacity:(dataLength * 2)];
     
     for (int i = 0; i < dataLength; ++i) {
@@ -179,7 +179,7 @@
     unsigned char whole_byte;
     char byte_chars[3] = {'\0','\0','\0'};
     
-    for (int i = 0; i < [hexString length]/2; i++) {
+    for (int i = 0; i < hexString.length/2; i++) {
         byte_chars[0] = [hexString characterAtIndex:i * 2];
         byte_chars[1] = [hexString characterAtIndex:i * 2 + 1];
         whole_byte = strtol(byte_chars, NULL, 16);

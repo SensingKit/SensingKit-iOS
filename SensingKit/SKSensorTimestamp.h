@@ -35,8 +35,8 @@
 
 + (instancetype)sensorTimestampFromTimeInterval:(NSTimeInterval)timeInterval;
 
-- (NSDictionary *)timestampDictionary;
-- (NSString *)timestampString;
-- (NSTimeInterval)timeIntervalSince1970;
+@property (nonatomic, readonly, copy) NSDictionary *timestampDictionary;
+@property (nonatomic, readonly, copy) NSString *timestampString;
+@property (nonatomic, readonly) NSTimeInterval timeIntervalSince1970;
 
 @end

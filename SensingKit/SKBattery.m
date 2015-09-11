@@ -42,7 +42,7 @@
                                                      name:UIDeviceBatteryStateDidChangeNotification object:nil];
         
         // Set the configuration
-        [self setConfiguration:configuration];
+        self.configuration = configuration;
     }
     return self;
 }
@@ -59,9 +59,9 @@
         abort();
     }
     
-    if (self.configuration != configuration)
+    if (super.configuration != configuration)
     {
-        [super setConfiguration:configuration];
+        super.configuration = configuration;
         
         // Cast the configuration instance
         // SKBatteryConfiguration *batteryConfiguration = (SKBatteryConfiguration *)configuration;
@@ -96,12 +96,12 @@
 
 - (CGFloat)batteryLevel
 {
-    return [[UIDevice currentDevice] batteryLevel];
+    return [UIDevice currentDevice].batteryLevel;
 }
 
 - (UIDeviceBatteryState)batteryState
 {
-    return [[UIDevice currentDevice] batteryState];
+    return [UIDevice currentDevice].batteryState;
 }
 
 - (void)batteryLevelChanged:(NSNotification *)notification

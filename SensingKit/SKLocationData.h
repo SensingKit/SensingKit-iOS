@@ -29,7 +29,7 @@
 
 @property (nonatomic, strong, readonly) CLLocation *location;
 
-- (instancetype)initWithLocation:(CLLocation *)location;
+- (instancetype)initWithLocation:(CLLocation *)location NS_DESIGNATED_INITIALIZER;
 
 + (NSString *)csvHeader;
 

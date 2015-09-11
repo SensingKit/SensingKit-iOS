@@ -56,7 +56,7 @@
     if (!lastBoot)
     {
         NSTimeInterval systemUptime = [NSProcessInfo processInfo].systemUptime;
-        NSTimeInterval timeIntervalSince1970 = [[NSDate date] timeIntervalSince1970];
+        NSTimeInterval timeIntervalSince1970 = [NSDate date].timeIntervalSince1970;
         lastBoot = [NSDate dateWithTimeIntervalSince1970:timeIntervalSince1970 - systemUptime];
     }
     return lastBoot;

@@ -56,7 +56,7 @@
         self.locationManager.delegate = self;
         
         // Set the configuration
-        [self setConfiguration:configuration];
+        self.configuration = configuration;
     }
     return self;
 }
@@ -72,9 +72,9 @@
         abort();
     }
     
-    if (self.configuration != configuration)
+    if (super.configuration != configuration)
     {
-        [super setConfiguration:configuration];
+        super.configuration = configuration;
         
         // Cast the configuration instance
         SKiBeaconProximityConfiguration *beaconConfiguration = (SKiBeaconProximityConfiguration *)configuration;

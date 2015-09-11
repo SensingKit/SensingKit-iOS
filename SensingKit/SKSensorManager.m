@@ -145,12 +145,12 @@
 
 - (BOOL)isSensorRegistered:(SKSensorType)sensorType
 {
-    return ([self.sensors objectAtIndex:sensorType] != [NSNull null]);
+    return (self.sensors[sensorType] != [NSNull null]);
 }
 
 - (BOOL)isSensorSensing:(SKSensorType)sensorType
 {
-    return [[self getSensor:sensorType] isSensing];
+    return [self getSensor:sensorType].sensing;
 }
 
 
@@ -172,7 +172,7 @@
     }
     
     SKAbstractSensor *sensor = [SKSensorManager createSensor:sensorType withConfiguration:configuration];
-    [self.sensors replaceObjectAtIndex:sensorType withObject:sensor];
+    self.sensors[sensorType] = sensor;
 }
 
 - (void)deregisterSensor:(SKSensorType)sensorType
@@ -195,7 +195,7 @@
     [[self getSensor:sensorType] unsubscribeAllHandlers];
     
     // Deregister the Sensor
-    [self.sensors replaceObjectAtIndex:sensorType withObject:[NSNull null]];
+    self.sensors[sensorType] = [NSNull null];
 }
 
 - (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType
@@ -205,7 +205,7 @@
         configuration = [SKSensorManager defaultConfigurationForSensor:sensorType];
     }
     
-    [[self getSensor:sensorType] setConfiguration:configuration];
+    [self getSensor:sensorType].configuration = configuration;
 }
 
 - (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType
@@ -351,7 +351,7 @@
         abort();
     }
     
-    return [self.sensors objectAtIndex:sensorType];
+    return self.sensors[sensorType];
 }
 
 + (SKAbstractSensor *)createSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration
