@@ -23,17 +23,38 @@
 //
 
 #import "SKMicrophone.h"
+@import AVFoundation;
+
+
+@interface SKMicrophone () <AVAudioRecorderDelegate>
+
+@property (nonatomic, strong) AVAudioRecorder *recorder;
+
+@end
+
 
 @implementation SKMicrophone
 
 - (instancetype)initWithConfiguration:(SKMicrophoneConfiguration *)configuration
 {
-    if (self = [super init])
+    if (self = [super initWithConfiguration:configuration])
     {
-        //
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
         
-        // Set the configuration
-        [self setConfiguration:configuration];
+        NSError *error;
+        [audioSession setCategory:AVAudioSessionCategoryRecord error:&error];
+        
+        if (error)
+        {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        
+        [audioSession setActive:YES error:&error];
+        
+        if (error)
+        {
+            NSLog(@"%@", error.localizedDescription);
+        }
     }
     return self;
 }
@@ -50,14 +71,24 @@
         abort();
     }
     
-    if (self.configuration != configuration)
+    if (super.configuration != configuration)
     {
-        [super setConfiguration:configuration];
+        super.configuration = configuration;
         
         // Cast the configuration instance
         SKMicrophoneConfiguration *microphoneConfiguration = (SKMicrophoneConfiguration *)configuration;
         
+        NSDictionary *recordSettings = @{AVEncoderAudioQualityKey: @(AVAudioQualityMedium),
+                                         AVEncoderBitRateKey: @(16),
+                                         AVNumberOfChannelsKey: @(2),
+                                         AVSampleRateKey:@(44100.0)};
         
+        NSError *error;
+        self.recorder = [[AVAudioRecorder alloc] initWithURL:microphoneConfiguration.url
+                                                    settings:recordSettings
+                                                       error:&error];
+        
+        [self.recorder prepareToRecord];
     }
 }
 
@@ -75,11 +106,19 @@
     [super startSensing];
     
     //
+    if (![self.recorder record])
+    {
+        NSLog(@"Could not be started.");
+    }
 }
 
 - (void)stopSensing
 {
     //
+    if (self.recorder.recording)
+    {
+        [self.recorder stop];
+    }
     
     [super stopSensing];
 }

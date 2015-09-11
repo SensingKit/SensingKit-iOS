@@ -26,4 +26,6 @@
 
 @interface SKMicrophoneConfiguration : SKConfiguration
 
+@property (nonatomic, strong, nonnull) NSURL *url;
+
 @end
