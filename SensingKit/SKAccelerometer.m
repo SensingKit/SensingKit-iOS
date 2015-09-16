@@ -65,7 +65,7 @@
         SKAccelerometerConfiguration *accelerometerConfiguration = (SKAccelerometerConfiguration *)configuration;
         
         // Make the required updates on the sensor
-        self.motionManager.accelerometerUpdateInterval = 1.0 / accelerometerConfiguration.samplingRate;  // Convert Hz into interval
+        self.motionManager.accelerometerUpdateInterval = 1.0 / accelerometerConfiguration.sampleRate;  // Convert Hz into interval
     }
 }
 

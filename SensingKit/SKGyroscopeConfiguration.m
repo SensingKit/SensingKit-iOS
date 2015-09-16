@@ -31,7 +31,6 @@
     if (self = [super init])
     {
         // Set default values
-        _samplingRate = 100; // Hz
     }
     return self;
 }

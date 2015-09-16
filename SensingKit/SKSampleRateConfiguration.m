@@ -1,5 +1,5 @@
 //
-//  SKMagnetometerConfiguration.m
+//  SKSampleRateConfiguration.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,15 +22,16 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKMagnetometerConfiguration.h"
+#import "SKSampleRateConfiguration.h"
 
-@implementation SKMagnetometerConfiguration
+@implementation SKSampleRateConfiguration
 
 - (instancetype)init
 {
     if (self = [super init])
     {
         // Set default values
+        _sampleRate = 100; // Hz
     }
     return self;
 }

@@ -22,10 +22,8 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKConfiguration.h"
+#import "SKSampleRateConfiguration.h"
 
-@interface SKAccelerometerConfiguration : SKConfiguration
-
-@property (nonatomic) NSUInteger samplingRate;
+@interface SKAccelerometerConfiguration : SKSampleRateConfiguration
 
 @end

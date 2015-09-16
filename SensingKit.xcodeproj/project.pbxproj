@@ -38,6 +38,8 @@
 		CF1DFA191B8C822000D7B182 /* SKPedometer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF1DFA131B8C7F1E00D7B182 /* SKPedometer.h */; };
 		CF1DFA1C1B8CBE5500D7B182 /* SKAltimeter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1DFA1B1B8CBE5500D7B182 /* SKAltimeter.m */; };
 		CF1DFA1F1B8CC01900D7B182 /* SKAltimeterData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1DFA1E1B8CC01900D7B182 /* SKAltimeterData.m */; };
+		CF432D0D1BA98ACD00588CC3 /* SKSampleRateConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF432D0C1BA98ACD00588CC3 /* SKSampleRateConfiguration.m */; settings = {ASSET_TAGS = (); }; };
+		CF432D0E1BA98B6C00588CC3 /* SKSampleRateConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF432D0B1BA98ACD00588CC3 /* SKSampleRateConfiguration.h */; };
 		CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5298951A0CFC7A002A4D54 /* UIKit.framework */; };
 		CF8E9BD01B3200E7005AC2FC /* SKiBeaconDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9BCF1B3200E7005AC2FC /* SKiBeaconDeviceData.m */; };
 		CF8E9BD11B32E420005AC2FC /* SKiBeaconDeviceData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF8E9BCE1B3200E7005AC2FC /* SKiBeaconDeviceData.h */; };
@@ -140,6 +142,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CF432D0E1BA98B6C00588CC3 /* SKSampleRateConfiguration.h in CopyFiles */,
 				CF960F571B9F0ADC00F989EA /* SKAltimeterData.h in CopyFiles */,
 				CF960F561B9F0AB400F989EA /* SKPedometerData.h in CopyFiles */,
 				CF960F551B9F0A5300F989EA /* SKProximityData.h in CopyFiles */,
@@ -200,6 +203,8 @@
 		CF1DFA1B1B8CBE5500D7B182 /* SKAltimeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAltimeter.m; sourceTree = "<group>"; };
 		CF1DFA1D1B8CC01900D7B182 /* SKAltimeterData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAltimeterData.h; sourceTree = "<group>"; };
 		CF1DFA1E1B8CC01900D7B182 /* SKAltimeterData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAltimeterData.m; sourceTree = "<group>"; };
+		CF432D0B1BA98ACD00588CC3 /* SKSampleRateConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSampleRateConfiguration.h; sourceTree = "<group>"; };
+		CF432D0C1BA98ACD00588CC3 /* SKSampleRateConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSampleRateConfiguration.m; sourceTree = "<group>"; };
 		CF5298951A0CFC7A002A4D54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CF8E9BCE1B3200E7005AC2FC /* SKiBeaconDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKiBeaconDeviceData.h; sourceTree = "<group>"; };
 		CF8E9BCF1B3200E7005AC2FC /* SKiBeaconDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKiBeaconDeviceData.m; sourceTree = "<group>"; };
@@ -359,6 +364,8 @@
 			children = (
 				CF960F191B99CC5200F989EA /* SKConfiguration.h */,
 				CF960F1A1B99CC5200F989EA /* SKConfiguration.m */,
+				CF432D0B1BA98ACD00588CC3 /* SKSampleRateConfiguration.h */,
+				CF432D0C1BA98ACD00588CC3 /* SKSampleRateConfiguration.m */,
 				CF960F1E1B99D13100F989EA /* SKAccelerometerConfiguration.h */,
 				CF960F1F1B99D13100F989EA /* SKAccelerometerConfiguration.m */,
 				CF960F211B9A06A700F989EA /* SKGyroscopeConfiguration.h */,
@@ -654,6 +661,7 @@
 				CF8E9BD01B3200E7005AC2FC /* SKiBeaconDeviceData.m in Sources */,
 				CF960F261B9A06B800F989EA /* SKMagnetometerConfiguration.m in Sources */,
 				CFB0D94C1B52690500A7982B /* SKMagnetometerData.m in Sources */,
+				CF432D0D1BA98ACD00588CC3 /* SKSampleRateConfiguration.m in Sources */,
 				CF960F1B1B99CC5200F989EA /* SKConfiguration.m in Sources */,
 				CFD450321B88D86500E2E78D /* ESSBeaconScanner.m in Sources */,
 				CFB0D94F1B52698C00A7982B /* SKDeviceMotionData.m in Sources */,

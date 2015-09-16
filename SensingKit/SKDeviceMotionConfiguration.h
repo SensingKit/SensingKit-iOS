@@ -22,10 +22,10 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKConfiguration.h"
+#import "SKSampleRateConfiguration.h"
 
-@interface SKDeviceMotionConfiguration : SKConfiguration
+@interface SKDeviceMotionConfiguration : SKSampleRateConfiguration
 
-@property (nonatomic) NSUInteger samplingRate;
+
 
 @end

@@ -65,7 +65,7 @@
         SKMagnetometerConfiguration *magnetometerConfiguration = (SKMagnetometerConfiguration *)configuration;
         
         // Make the required updates on the sensor
-        self.motionManager.magnetometerUpdateInterval = 1.0 / magnetometerConfiguration.samplingRate;  // Convert Hz into interval
+        self.motionManager.magnetometerUpdateInterval = 1.0 / magnetometerConfiguration.sampleRate;  // Convert Hz into interval
     }
 }
 
