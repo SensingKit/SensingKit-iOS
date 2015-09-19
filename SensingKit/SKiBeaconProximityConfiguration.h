@@ -26,7 +26,7 @@
 
 typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode)
 {
-    SKiBeaconProximityModeScanOnly,
+    SKiBeaconProximityModeScanOnly = 0,
     SKiBeaconProximityModeBroadcastOnly,
     SKiBeaconProximityModeScanAndBroadcast
 };

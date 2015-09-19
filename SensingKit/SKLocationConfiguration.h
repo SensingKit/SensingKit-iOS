@@ -26,7 +26,7 @@
 
 typedef NS_ENUM(NSUInteger, SKLocationAccuracy)
 {
-    SKLocationAccuracyBestForNavigation,
+    SKLocationAccuracyBestForNavigation = 0,
     SKLocationAccuracyBest,
     SKLocationAccuracyNearestTenMeters,
     SKLocationAccuracyHundredMeters,
@@ -36,6 +36,7 @@ typedef NS_ENUM(NSUInteger, SKLocationAccuracy)
 
 typedef NS_ENUM(NSUInteger, SKLocationAuthorization)
 {
+    SKLocationAuthorizationNone = 0,
     SKLocationAuthorizationWhenInUse,
     SKLocationAuthorizationAlways
 };

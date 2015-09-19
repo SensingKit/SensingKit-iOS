@@ -26,7 +26,7 @@
 
 typedef NS_ENUM(NSUInteger, SKEddystoneProximityMode)
 {
-    SKEddystoneProximityModeScanOnly
+    SKEddystoneProximityModeScanOnly = 0
     // Broadcast mode is not supported at the moment
 };
 
