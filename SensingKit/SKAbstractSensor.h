@@ -34,7 +34,7 @@
 @property (nonatomic, readonly) SKSensorType sensorType;
 @property (nonatomic, readonly, getter=isSensing) BOOL sensing;
 
-- (instancetype)initWithConfiguration:(SKConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithConfiguration:(SKConfiguration *)configuration;
 
 - (void)subscribeHandler:(SKSensorDataHandler)handler;
 
