@@ -27,7 +27,7 @@
 
 @interface SKLocationData : SKSensorData
 
-@property (nonatomic, strong, readonly) CLLocation *location;
+@property (nonatomic, readonly, copy) CLLocation *location;
 
 - (instancetype)initWithLocation:(CLLocation *)location NS_DESIGNATED_INITIALIZER;
 

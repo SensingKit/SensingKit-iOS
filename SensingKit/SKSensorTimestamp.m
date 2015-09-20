@@ -49,6 +49,14 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKSensorTimestamp *sensorTimestamp = [[[self class] alloc] initWithDate:_timestamp
+                                                           withTimeInterval:_timeIntervalSinceLastBoot];
+    
+    return sensorTimestamp;
+}
+
 + (NSDate *)dateOfLastBoot
 {
     static NSDate *lastBoot;

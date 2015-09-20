@@ -27,7 +27,7 @@
 
 @interface SKDeviceMotionData : SKSensorData
 
-@property (nonatomic, strong, readonly) CMAttitude *attitude;
+@property (nonatomic, readonly, copy) CMAttitude *attitude;
 @property (nonatomic, readonly) CMAcceleration gravity;
 @property (nonatomic, readonly) CMCalibratedMagneticField magneticField;
 @property (nonatomic, readonly) CMRotationRate rotationRate;

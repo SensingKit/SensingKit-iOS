@@ -27,10 +27,10 @@
 
 @interface SKPedometerData : SKSensorData
 
-@property (nonatomic, strong, readonly) CMPedometerData *pedometerData;
+@property (nonatomic, readonly, copy) CMPedometerData *pedometerData;
 
-@property (nonatomic, readonly, strong) SKSensorTimestamp *startDate;
-@property (nonatomic, readonly, strong) SKSensorTimestamp *endDate;
+@property (nonatomic, readonly, copy) SKSensorTimestamp *startDate;
+@property (nonatomic, readonly, copy) SKSensorTimestamp *endDate;
 
 - (instancetype)initWithPedometerData:(CMPedometerData *)pedometerData NS_DESIGNATED_INITIALIZER;
 

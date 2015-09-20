@@ -26,7 +26,7 @@
 
 @interface SKProximityData : SKSensorData
 
-@property (nonatomic, strong, readonly) NSArray *devices;
+@property (nonatomic, readonly, copy) NSArray *devices;
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
                      withTimestamp:(NSDate *)timestamp

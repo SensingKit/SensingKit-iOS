@@ -27,7 +27,7 @@
 
 @interface SKAltimeterData : SKSensorData
 
-@property (strong, nonatomic, readonly) CMAltitudeData *altitudeData;
+@property (nonatomic, readonly, copy) CMAltitudeData *altitudeData;
 
 - (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData NS_DESIGNATED_INITIALIZER;
 

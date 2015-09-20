@@ -26,7 +26,7 @@
 
 @interface SKEddystoneProximityData : SKSensorData
 
-@property (nonatomic, strong, readonly) NSString *namespaceId;
+@property (nonatomic, readonly, copy) NSString *namespaceId;
 @property (nonatomic, readonly) NSUInteger instanceId;
 @property (nonatomic, readonly) NSInteger rssi;
 @property (nonatomic, readonly) NSInteger txPower;

@@ -34,7 +34,7 @@
 
 @property (nonatomic, readonly) SKSensorType sensorType;
 
-@property (nonatomic, readonly, strong) SKSensorTimestamp *timestamp;
+@property (nonatomic, readonly, copy) SKSensorTimestamp *timestamp;
 
 @property (nonatomic, readonly, copy) NSString *csvString;
 

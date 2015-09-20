@@ -24,9 +24,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SKSensorTimestamp : NSObject
+@interface SKSensorTimestamp : NSObject <NSCopying>
 
-@property (strong, nonatomic, readonly) NSDate *timestamp;
+@property (nonatomic, readonly, copy) NSDate *timestamp;
 @property (nonatomic, readonly) NSTimeInterval timeIntervalSinceLastBoot;
 
 - (instancetype)init __attribute__((unavailable("Use [SKSensorTimestamp sensorTimestampFromDate:] or [SKSensorTimestamp sensorTimestampFromTimeInterval:] instead.")));
