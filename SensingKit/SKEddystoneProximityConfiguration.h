@@ -34,6 +34,6 @@ typedef NS_ENUM(NSUInteger, SKEddystoneProximityMode)
 
 @property (nonatomic) SKEddystoneProximityMode mode;
 
-@property (nonatomic, strong) NSString *namespaceFilter;
+@property (nonatomic, copy) NSString *namespaceFilter;
 
 @end

@@ -33,13 +33,13 @@ typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode)
 
 @interface SKiBeaconProximityConfiguration : SKConfiguration
 
-@property (nonatomic, strong) NSUUID *uuid;
+@property (nonatomic, copy) NSUUID *uuid;
 
 @property (nonatomic) SKiBeaconProximityMode mode;
 
 @property (nonatomic) uint16_t major;
 @property (nonatomic) uint16_t minor;
 
-@property (nonatomic, strong) NSNumber *measuredPower;
+@property (nonatomic, copy) NSNumber *measuredPower;
 
 @end

@@ -26,6 +26,4 @@
 
 @interface SKDeviceMotionConfiguration : SKSampleRateConfiguration
 
-
-
 @end
