@@ -24,6 +24,6 @@
 
 #import "SKConfiguration.h"
 
-@interface SKBatteryConfiguration : SKConfiguration
+@interface SKBatteryConfiguration : SKConfiguration <NSCopying>
 
 @end

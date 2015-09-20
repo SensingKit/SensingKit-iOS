@@ -42,7 +42,7 @@ typedef NS_ENUM(NSUInteger, SKLocationAuthorization)
 };
 
 
-@interface SKLocationConfiguration : SKConfiguration
+@interface SKLocationConfiguration : SKConfiguration <NSCopying>
 
 @property (nonatomic) SKLocationAccuracy locationAccuracy;
 @property (nonatomic) SKLocationAuthorization locationAuthorization;

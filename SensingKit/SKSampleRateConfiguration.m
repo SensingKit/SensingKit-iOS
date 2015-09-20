@@ -36,4 +36,12 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKSampleRateConfiguration *configuration = [super copyWithZone:zone];
+    configuration.sampleRate = _sampleRate;
+    
+    return configuration;
+}
+
 @end

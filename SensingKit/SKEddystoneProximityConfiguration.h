@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, SKEddystoneProximityMode)
     // Broadcast mode is not supported at the moment
 };
 
-@interface SKEddystoneProximityConfiguration : SKConfiguration
+@interface SKEddystoneProximityConfiguration : SKConfiguration <NSCopying>
 
 @property (nonatomic) SKEddystoneProximityMode mode;
 

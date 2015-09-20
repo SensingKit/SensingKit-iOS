@@ -26,4 +26,11 @@
 
 @implementation SKConfiguration
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKConfiguration *configuration = [[[self class] alloc] init];
+    
+    return configuration;
+}
+
 @end

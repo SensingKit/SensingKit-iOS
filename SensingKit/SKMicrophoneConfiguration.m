@@ -26,4 +26,11 @@
 
 @implementation SKMicrophoneConfiguration
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKMicrophoneConfiguration *configuration = [super copyWithZone:zone];
+    
+    return configuration;
+}
+
 @end

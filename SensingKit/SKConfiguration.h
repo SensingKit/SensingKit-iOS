@@ -22,6 +22,6 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-@interface SKConfiguration : NSObject
+@interface SKConfiguration : NSObject <NSCopying>
 
 @end

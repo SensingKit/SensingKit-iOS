@@ -24,6 +24,6 @@
 
 #import "SKSampleRateConfiguration.h"
 
-@interface SKMagnetometerConfiguration : SKSampleRateConfiguration
+@interface SKMagnetometerConfiguration : SKSampleRateConfiguration <NSCopying>
 
 @end

@@ -24,7 +24,7 @@
 
 #import "SKConfiguration.h"
 
-@interface SKMicrophoneConfiguration : SKConfiguration
+@interface SKMicrophoneConfiguration : SKConfiguration <NSCopying>
 
 @property (nonatomic, copy, nonnull) NSURL *url;
 

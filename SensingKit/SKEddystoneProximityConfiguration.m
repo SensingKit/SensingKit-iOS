@@ -42,4 +42,13 @@
     _namespaceFilter = namespaceFilter.lowercaseString;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKEddystoneProximityConfiguration *configuration = [super copyWithZone:zone];
+    configuration.mode = _mode;
+    configuration.namespaceFilter = _namespaceFilter;
+    
+    return configuration;
+}
+
 @end

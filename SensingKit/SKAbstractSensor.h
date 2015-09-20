@@ -29,7 +29,7 @@
 
 @interface SKAbstractSensor : NSObject
 
-@property (nonatomic, strong) SKConfiguration *configuration;
+@property (nonatomic, copy) SKConfiguration *configuration;
 
 @property (nonatomic, readonly) SKSensorType sensorType;
 @property (nonatomic, readonly, getter=isSensing) BOOL sensing;

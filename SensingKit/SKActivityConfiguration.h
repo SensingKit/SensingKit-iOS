@@ -24,6 +24,6 @@
 
 #import "SKSampleRateConfiguration.h"
 
-@interface SKActivityConfiguration : SKSampleRateConfiguration
+@interface SKActivityConfiguration : SKSampleRateConfiguration <NSCopying>
 
 @end

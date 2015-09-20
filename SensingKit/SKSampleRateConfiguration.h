@@ -24,7 +24,7 @@
 
 #import "SKConfiguration.h"
 
-@interface SKSampleRateConfiguration : SKConfiguration
+@interface SKSampleRateConfiguration : SKConfiguration <NSCopying>
 
 @property (nonatomic) NSUInteger sampleRate;
 

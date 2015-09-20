@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode)
     SKiBeaconProximityModeScanAndBroadcast
 };
 
-@interface SKiBeaconProximityConfiguration : SKConfiguration
+@interface SKiBeaconProximityConfiguration : SKConfiguration <NSCopying>
 
 @property (nonatomic, copy) NSUUID *uuid;
 

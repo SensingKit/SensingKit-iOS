@@ -24,6 +24,6 @@
 
 #import "SKSampleRateConfiguration.h"
 
-@interface SKGyroscopeConfiguration : SKSampleRateConfiguration
+@interface SKGyroscopeConfiguration : SKSampleRateConfiguration <NSCopying>
 
 @end

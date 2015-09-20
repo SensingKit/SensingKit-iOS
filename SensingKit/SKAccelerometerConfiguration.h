@@ -24,6 +24,6 @@
 
 #import "SKSampleRateConfiguration.h"
 
-@interface SKAccelerometerConfiguration : SKSampleRateConfiguration
+@interface SKAccelerometerConfiguration : SKSampleRateConfiguration <NSCopying>
 
 @end

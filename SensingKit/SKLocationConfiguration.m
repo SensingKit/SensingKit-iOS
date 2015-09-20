@@ -40,4 +40,14 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKLocationConfiguration *configuration = [super copyWithZone:zone];
+    configuration.locationAccuracy = _locationAccuracy;
+    configuration.locationAuthorization = _locationAuthorization;
+    configuration.distanceFilter = _distanceFilter;
+    
+    return configuration;
+}
+
 @end

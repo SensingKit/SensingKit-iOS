@@ -35,4 +35,11 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKMagnetometerConfiguration *configuration = [super copyWithZone:zone];
+    
+    return configuration;
+}
+
 @end

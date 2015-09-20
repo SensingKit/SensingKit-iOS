@@ -35,4 +35,11 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKActivityConfiguration *configuration = [super copyWithZone:zone];
+    
+    return configuration;
+}
+
 @end

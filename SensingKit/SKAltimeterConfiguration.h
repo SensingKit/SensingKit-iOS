@@ -24,6 +24,6 @@
 
 #import "SKConfiguration.h"
 
-@interface SKAltimeterConfiguration : SKConfiguration
+@interface SKAltimeterConfiguration : SKConfiguration <NSCopying>
 
 @end

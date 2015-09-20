@@ -35,4 +35,11 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKBatteryConfiguration *configuration = [super copyWithZone:zone];
+    
+    return configuration;
+}
+
 @end

@@ -24,6 +24,6 @@
 
 #import "SKConfiguration.h"
 
-@interface SKPedometerConfiguration : SKConfiguration
+@interface SKPedometerConfiguration : SKConfiguration <NSCopying>
 
 @end

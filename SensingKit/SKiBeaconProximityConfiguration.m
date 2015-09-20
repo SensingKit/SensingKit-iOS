@@ -40,4 +40,16 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKiBeaconProximityConfiguration *configuration = [super copyWithZone:zone];
+    configuration.uuid = _uuid;
+    configuration.mode = _mode;
+    configuration.major = _major;
+    configuration.minor = _minor;
+    configuration.measuredPower = _measuredPower;
+    
+    return configuration;
+}
+
 @end
