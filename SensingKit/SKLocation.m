@@ -111,6 +111,10 @@
 {
     switch (authorization)
     {
+        case SKLocationAuthorizationNone:
+            // Just ignore
+            break;
+            
         case SKLocationAuthorizationWhenInUse:
             if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
                 [self.locationManager requestWhenInUseAuthorization];
