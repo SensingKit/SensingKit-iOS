@@ -207,4 +207,13 @@
     [super stopSensing];
 }
 
+- (void)dealloc
+{
+    // Stop recording on dealloc
+    if (self.recorder.recording)
+    {
+        [self.recorder stop];
+    }
+}
+
 @end
