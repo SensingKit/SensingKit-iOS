@@ -24,8 +24,31 @@
 
 #import "SKConfiguration.h"
 
+typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingFormat)
+{
+    SKMicrophoneRecordingCafFormat = 0,
+    SKMicrophoneRecordingAacFormat,
+    SKMicrophoneRecordingMp3Format
+};
+
+typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingQuality)
+{
+    SKMicrophoneRecordingQualityMin = 0,
+    SKMicrophoneRecordingQualityLow,
+    SKMicrophoneRecordingQualityMedium,
+    SKMicrophoneRecordingQualityHight,
+    SKMicrophoneRecordingQualityMax
+};
+
 @interface SKMicrophoneConfiguration : SKConfiguration <NSCopying>
 
-@property (nonatomic, copy, nonnull) NSURL *url;
+@property (nonatomic, copy, nonnull) NSURL *outputDirectory;
+@property (nonatomic, copy, nonnull) NSString *recordingFilename;
+
+@property (nonatomic, copy, nonnull, readonly) NSURL *recordingPath;
+
+@property (nonatomic) SKMicrophoneRecordingFormat recordingFormat;
+@property (nonatomic) SKMicrophoneRecordingQuality recordingQuality;
+@property (nonatomic) float sampleRate;
 
 @end

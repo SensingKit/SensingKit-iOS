@@ -26,11 +26,53 @@
 
 @implementation SKMicrophoneConfiguration
 
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        // Set default values
+        _recordingFormat = SKMicrophoneRecordingAacFormat;
+        _recordingQuality = SKMicrophoneRecordingQualityMedium;
+        _sampleRate = 44100.0;
+    }
+    return self;
+}
+
 - (id)copyWithZone:(NSZone *)zone
 {
     SKMicrophoneConfiguration *configuration = [super copyWithZone:zone];
+    configuration.outputDirectory = _outputDirectory;
+    configuration.recordingFilename = _recordingFilename;
+    configuration.recordingFormat = _recordingFormat;
+    configuration.recordingQuality = _recordingQuality;
+    configuration.sampleRate = _sampleRate;
     
     return configuration;
+}
+
++ (NSString *)extensionForRecordingFormat:(SKMicrophoneRecordingFormat)recordingFormat
+{
+    switch (recordingFormat)
+    {
+        case SKMicrophoneRecordingCafFormat:
+            return @"pcm";
+            
+        case SKMicrophoneRecordingAacFormat:
+            return @"m4a";
+            
+        case SKMicrophoneRecordingMp3Format:
+            return @"mp3";
+            
+        default:
+            NSLog(@"Unknown SKMicrophoneRecordingFormat: %lu", (unsigned long)recordingFormat);
+            abort();
+    }
+}
+
+- (NSURL *)recordingPath
+{
+    NSString *extension = [SKMicrophoneConfiguration extensionForRecordingFormat:self.recordingFormat];
+    return [self.outputDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", self.recordingFilename, extension]];
 }
 
 @end

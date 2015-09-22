@@ -46,19 +46,30 @@
         
         if (error)
         {
-            NSLog(@"%@", error.localizedDescription);
+            NSLog(@"Error: %@", error.localizedDescription);
         }
         
         [audioSession setActive:YES error:&error];
         
         if (error)
         {
-            NSLog(@"%@", error.localizedDescription);
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        
+        // Request authorization. Only WhenInUse is required for proximity scanning.
+        if ([audioSession respondsToSelector:@selector(requestRecordPermission:)])
+        {
+            [audioSession requestRecordPermission:^(BOOL granted) {
+                if (!granted)
+                {
+                    NSLog(@"Permission for using Microphone sensor was not granted.");
+                    // TODO: In the future, report this as NSError.
+                }
+            }];
         }
     }
     return self;
 }
-
 
 #pragma mark Configuration
 
@@ -78,20 +89,91 @@
         // Cast the configuration instance
         SKMicrophoneConfiguration *microphoneConfiguration = (SKMicrophoneConfiguration *)configuration;
         
-        NSDictionary *recordSettings = @{AVEncoderAudioQualityKey: @(AVAudioQualityMedium),
-                                         AVEncoderBitRateKey: @(16),
-                                         AVNumberOfChannelsKey: @(2),
-                                         AVSampleRateKey:@(44100.0)};
+        NSDictionary *recordSettings = [SKMicrophone recordingSettingsForConfiguration:microphoneConfiguration];
         
         NSError *error;
-        self.recorder = [[AVAudioRecorder alloc] initWithURL:microphoneConfiguration.url
+        self.recorder = [[AVAudioRecorder alloc] initWithURL:microphoneConfiguration.recordingPath
                                                     settings:recordSettings
                                                        error:&error];
         
-        [self.recorder prepareToRecord];
+        if (error)
+        {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        
+        if (![self.recorder prepareToRecord])
+        {
+            NSLog(@"Recording using Microphone sensor could not be initialized.");
+            // TODO: In the future, report this as NSError.
+        }
     }
 }
 
++ (NSDictionary *)recordingSettingsForConfiguration:(SKMicrophoneConfiguration *)configuration
+{
+    NSDictionary *recordingSettings;
+    
+    // Convert SKMicrophoneRecordingQuality to AVAudioQuality
+    AVAudioQuality audioQuality = [SKMicrophone audioQualityForMicrophoneRecordingQuality:configuration.recordingQuality];
+    
+    switch (configuration.recordingFormat)
+    {
+        case SKMicrophoneRecordingCafFormat:
+            recordingSettings = @{AVFormatIDKey: @(kAudioFormatLinearPCM),
+                                  AVEncoderAudioQualityKey: @(audioQuality),
+                                  AVNumberOfChannelsKey: @(1),
+                                  AVSampleRateKey:@(configuration.sampleRate),
+                                  AVLinearPCMBitDepthKey: @(16),
+                                  AVLinearPCMIsBigEndianKey: @(NO),
+                                  AVLinearPCMIsFloatKey: @(NO)};
+            break;
+    
+        case SKMicrophoneRecordingAacFormat:
+            recordingSettings = @{AVFormatIDKey: @(kAudioFormatMPEG4AAC),
+                                  AVEncoderAudioQualityKey: @(audioQuality),
+                                  AVNumberOfChannelsKey: @(1),
+                                  AVSampleRateKey:@(configuration.sampleRate)};
+            break;
+            
+        case SKMicrophoneRecordingMp3Format:
+            recordingSettings = @{AVFormatIDKey: @(kAudioFormatMPEGLayer3),
+                                  AVEncoderAudioQualityKey: @(audioQuality),
+                                  AVNumberOfChannelsKey: @(1),
+                                  AVSampleRateKey:@(configuration.sampleRate)};
+            break;
+            
+        default:
+            NSLog(@"Unknown SKMicrophoneRecordingFormat: %lu", (unsigned long)configuration.recordingFormat);
+            abort();
+    }
+    
+    return recordingSettings;
+}
+
++ (AVAudioQuality)audioQualityForMicrophoneRecordingQuality:(SKMicrophoneRecordingQuality)microphoneRecordingQuality
+{
+    switch (microphoneRecordingQuality)
+    {
+        case SKMicrophoneRecordingQualityMin:
+            return AVAudioQualityMin;
+            
+        case SKMicrophoneRecordingQualityLow:
+            return AVAudioQualityLow;
+            
+        case SKMicrophoneRecordingQualityMedium:
+            return AVAudioQualityMedium;
+            
+        case SKMicrophoneRecordingQualityHight:
+            return AVAudioQualityHigh;
+            
+        case SKMicrophoneRecordingQualityMax:
+            return AVAudioQualityMax;
+            
+        default:
+            NSLog(@"Unknown SKMicrophoneRecordingQuality: %lu", (unsigned long)microphoneRecordingQuality);
+            abort();
+    }
+}
 
 #pragma mark Sensing
 
@@ -105,19 +187,21 @@
 {
     [super startSensing];
     
-    //
+    // Start recording
     if (![self.recorder record])
     {
-        NSLog(@"Could not be started.");
+        NSLog(@"Recording using Microphone sensor could not be started.");
+        // TODO: In the future, report this as NSError.
     }
 }
 
 - (void)stopSensing
 {
-    //
+    // Stop recording
     if (self.recorder.recording)
     {
-        [self.recorder stop];
+        // Pause instead of stop, in order to continue on the same file.
+        [self.recorder pause];
     }
     
     [super stopSensing];
