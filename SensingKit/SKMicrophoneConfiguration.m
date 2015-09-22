@@ -31,7 +31,7 @@
     if (self = [super init])
     {
         // Set default values
-        _recordingFormat = SKMicrophoneRecordingAacFormat;
+        _recordingFormat = SKMicrophoneRecordingFormatAAC;
         _recordingQuality = SKMicrophoneRecordingQualityMedium;
         _sampleRate = 44100.0;
     }
@@ -54,13 +54,13 @@
 {
     switch (recordingFormat)
     {
-        case SKMicrophoneRecordingCafFormat:
+        case SKMicrophoneRecordingFormatPCM:
             return @"pcm";
             
-        case SKMicrophoneRecordingAacFormat:
+        case SKMicrophoneRecordingFormatAAC:
             return @"m4a";
             
-        case SKMicrophoneRecordingMp3Format:
+        case SKMicrophoneRecordingFormatMP3:
             return @"mp3";
             
         default:

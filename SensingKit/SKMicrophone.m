@@ -118,7 +118,7 @@
     
     switch (configuration.recordingFormat)
     {
-        case SKMicrophoneRecordingCafFormat:
+        case SKMicrophoneRecordingFormatPCM:
             recordingSettings = @{AVFormatIDKey: @(kAudioFormatLinearPCM),
                                   AVEncoderAudioQualityKey: @(audioQuality),
                                   AVNumberOfChannelsKey: @(1),
@@ -128,14 +128,14 @@
                                   AVLinearPCMIsFloatKey: @(NO)};
             break;
     
-        case SKMicrophoneRecordingAacFormat:
+        case SKMicrophoneRecordingFormatAAC:
             recordingSettings = @{AVFormatIDKey: @(kAudioFormatMPEG4AAC),
                                   AVEncoderAudioQualityKey: @(audioQuality),
                                   AVNumberOfChannelsKey: @(1),
                                   AVSampleRateKey:@(configuration.sampleRate)};
             break;
             
-        case SKMicrophoneRecordingMp3Format:
+        case SKMicrophoneRecordingFormatMP3:
             recordingSettings = @{AVFormatIDKey: @(kAudioFormatMPEGLayer3),
                                   AVEncoderAudioQualityKey: @(audioQuality),
                                   AVNumberOfChannelsKey: @(1),
@@ -163,7 +163,7 @@
         case SKMicrophoneRecordingQualityMedium:
             return AVAudioQualityMedium;
             
-        case SKMicrophoneRecordingQualityHight:
+        case SKMicrophoneRecordingQualityHigh:
             return AVAudioQualityHigh;
             
         case SKMicrophoneRecordingQualityMax:
