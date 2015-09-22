@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingQuality)
     SKMicrophoneRecordingQualityMin = 0,
     SKMicrophoneRecordingQualityLow,
     SKMicrophoneRecordingQualityMedium,
-    SKMicrophoneRecordingQualityHight,
+    SKMicrophoneRecordingQualityHigh,
     SKMicrophoneRecordingQualityMax
 };
 
