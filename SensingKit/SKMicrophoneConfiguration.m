@@ -26,7 +26,7 @@
 
 @implementation SKMicrophoneConfiguration
 
-- (instancetype)init
+- (nonnull instancetype)initWithOutputDirectory:(nonnull NSURL *)outputDirectory withFilename:(nonnull NSString *)filename
 {
     if (self = [super init])
     {
@@ -42,7 +42,7 @@
 {
     SKMicrophoneConfiguration *configuration = [super copyWithZone:zone];
     configuration.outputDirectory = _outputDirectory;
-    configuration.recordingFilename = _recordingFilename;
+    configuration.filename = _filename;
     configuration.recordingFormat = _recordingFormat;
     configuration.recordingQuality = _recordingQuality;
     configuration.sampleRate = _sampleRate;
@@ -69,7 +69,7 @@
 - (NSURL *)recordingPath
 {
     NSString *extension = [SKMicrophoneConfiguration extensionForRecordingFormat:self.recordingFormat];
-    return [self.outputDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", self.recordingFilename, extension]];
+    return [self.outputDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", self.filename, extension]];
 }
 
 @end

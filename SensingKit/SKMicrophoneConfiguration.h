@@ -41,8 +41,10 @@ typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingQuality)
 
 @interface SKMicrophoneConfiguration : SKConfiguration <NSCopying>
 
+- (nonnull instancetype)initWithOutputDirectory:(nonnull NSURL *)outputDirectory withFilename:(nonnull NSString *)filename;
+
 @property (nonatomic, copy, nonnull) NSURL *outputDirectory;
-@property (nonatomic, copy, nonnull) NSString *recordingFilename;
+@property (nonatomic, copy, nonnull) NSString *filename;
 
 @property (nonatomic, copy, nonnull, readonly) NSURL *recordingPath;
 
