@@ -26,10 +26,40 @@
 
 @implementation SKMicrophoneData
 
+- (instancetype)initWithStatus:(NSString *)status
+              withTimeInterval:(NSTimeInterval)timeInterval
+{
+    if (self = [super initWithSensorType:Microphone
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:timeInterval]])
+    {
+        _status = status;
+    }
+    return self;
+}
+
 + (NSString *)csvHeader
 {
-    // TODO
-    return nil;//@"timestamp,timeIntervalSince1970,namespaceID,instanceID,rssi,txPower";
+    return @"timestamp,timeIntervalSince1970,status";
+}
+
+- (NSString *)csvString
+{
+    return [NSString stringWithFormat:@"\"%@\",%f,%@",
+            self.timestamp.timestampString,
+            self.timestamp.timeIntervalSince1970,
+            self.status];
+}
+
+- (NSDictionary *)dictionaryData
+{
+    return @{
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
+             @"timestamp": self.timestamp.timestampDictionary,
+             @"microphone": @{
+                     @"status": _status
+                     }
+             };
 }
 
 @end

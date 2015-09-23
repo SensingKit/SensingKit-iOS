@@ -24,6 +24,7 @@
 
 #import "SKMicrophone.h"
 @import AVFoundation;
+#import "SKMicrophoneData.h"
 
 
 @interface SKMicrophone () <AVAudioRecorderDelegate>
@@ -186,6 +187,13 @@
         NSLog(@"Recording using Microphone sensor could not be started.");
         // TODO: In the future, report this as NSError.
     }
+    else
+    {
+        NSTimeInterval startTime = [NSProcessInfo processInfo].systemUptime;
+        
+        SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithStatus:@"Started" withTimeInterval:startTime];
+        [self submitSensorData:data];
+    }
 }
 
 - (void)stopSensing
@@ -195,6 +203,11 @@
     {
         // Pause instead of stop, in order to continue on the same file.
         [self.recorder pause];
+        
+        NSTimeInterval endTime = [NSProcessInfo processInfo].systemUptime;
+        
+        SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithStatus:@"Stopped" withTimeInterval:endTime];
+        [self submitSensorData:data];
     }
     
     [super stopSensing];

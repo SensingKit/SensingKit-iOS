@@ -26,6 +26,11 @@
 
 @interface SKMicrophoneData : SKSensorData
 
+@property (nonatomic, readonly, copy) NSString *status;
+
+- (instancetype)initWithStatus:(NSString *)status
+              withTimeInterval:(NSTimeInterval)timeInterval NS_DESIGNATED_INITIALIZER;
+
 + (NSString *)csvHeader;
 
 @end
