@@ -30,6 +30,9 @@
 {
     if (self = [super init])
     {
+        _outputDirectory = outputDirectory;
+        _filename = filename;
+        
         // Set default values
         _recordingFormat = SKMicrophoneRecordingFormatMPEG4AAC;
         _recordingQuality = SKMicrophoneRecordingQualityMedium;
