@@ -26,9 +26,8 @@
 
 typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingFormat)
 {
-    SKMicrophoneRecordingFormatPCM = 0,
-    SKMicrophoneRecordingFormatAAC,
-    SKMicrophoneRecordingFormatMP3
+    SKMicrophoneRecordingFormatLinearPCM = 0,
+    SKMicrophoneRecordingFormatMPEG4AAC
 };
 
 typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingQuality)

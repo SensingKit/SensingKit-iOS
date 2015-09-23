@@ -31,7 +31,7 @@
     if (self = [super init])
     {
         // Set default values
-        _recordingFormat = SKMicrophoneRecordingFormatAAC;
+        _recordingFormat = SKMicrophoneRecordingFormatMPEG4AAC;
         _recordingQuality = SKMicrophoneRecordingQualityMedium;
         _sampleRate = 44100.0;
     }
@@ -54,14 +54,11 @@
 {
     switch (recordingFormat)
     {
-        case SKMicrophoneRecordingFormatPCM:
+        case SKMicrophoneRecordingFormatLinearPCM:
             return @"pcm";
             
-        case SKMicrophoneRecordingFormatAAC:
+        case SKMicrophoneRecordingFormatMPEG4AAC:
             return @"m4a";
-            
-        case SKMicrophoneRecordingFormatMP3:
-            return @"mp3";
             
         default:
             NSLog(@"Unknown SKMicrophoneRecordingFormat: %lu", (unsigned long)recordingFormat);
