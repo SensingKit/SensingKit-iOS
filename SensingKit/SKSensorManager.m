@@ -470,7 +470,7 @@
             break;
             
         case Microphone:
-            configuration = [[SKMicrophoneConfiguration alloc] init];
+            configuration = [[SKMicrophoneConfiguration alloc] initWithOutputDirectory:[SKSensorManager applicationDocumentsDirectory] withFilename:@"Recording"];
             break;
             
             // Don't forget to break!
@@ -481,6 +481,12 @@
     }
     
     return configuration;
+}
+
+// Returns the URL to the application's Documents directory.
++ (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end
