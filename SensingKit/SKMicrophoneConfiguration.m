@@ -58,7 +58,7 @@
     switch (recordingFormat)
     {
         case SKMicrophoneRecordingFormatLinearPCM:
-            return @"pcm";
+            return @"caf";
             
         case SKMicrophoneRecordingFormatMPEG4AAC:
             return @"m4a";
