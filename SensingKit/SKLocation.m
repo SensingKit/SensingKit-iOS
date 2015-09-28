@@ -119,11 +119,19 @@
             if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
                 [self.locationManager requestWhenInUseAuthorization];
             }
+            
+            if ([self.locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)]) {
+                self.locationManager.allowsBackgroundLocationUpdates = NO;
+            }
             break;
             
         case SKLocationAuthorizationAlways:
             if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
                 [self.locationManager requestAlwaysAuthorization];
+            }
+            
+            if ([self.locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)]) {
+                self.locationManager.allowsBackgroundLocationUpdates = YES;
             }
             break;
             
