@@ -31,12 +31,23 @@
 @interface NSString (SKSensorType)
 
 /**
- *  Converts an SKSensorType enum into a non-spaced string.
+ *  Converts an SKSensorType enum into a string.
+ *  This method is useful when you want to use the sensor name in the application's User Interface. The returned string might contain spaces or special characters (such as '™'). For example, iBeacon™ Proximity sensor (enum iBeaconProximity) will be returned as "iBeacon™ Proximity".
  *
- *  @param sensorType The type of the sensor (e.g. Accelerometer).
+ *  @param sensorType The type of the sensor.
  *
- *  @return A non-spaced string with the sensor name. (e.g. DeviceMotion).
+ *  @return A string with the sensor name. (e.g. "iBeacon™ Proximity").
  */
 + (NSString *)stringWithSensorType:(SKSensorType)sensorType;
+
+/**
+ *  Converts an SKSensorType enum into a non-spaced string that does not include special characters.
+ *  This method is useful when you want to use the sensor name in file or directory names. The returned string does not contain spaces or any special character (such as '™'). For example, iBeacon™ Proximity sensor (enum iBeaconProximity) will be returned as "iBeaconProximity".
+ *
+ *  @param sensorType The type of the sensor.
+ *
+ *  @return A non-spaced string with the sensor name. (e.g. "iBeaconProximity").
+ */
++ (NSString *)nonspacedStringWithSensorType:(SKSensorType)sensorType;
 
 @end

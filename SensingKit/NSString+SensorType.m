@@ -26,7 +26,22 @@
 
 @implementation NSString (SensorType)
 
-static NSString *SENSOR_STRINGS[] = {
+static const NSString *SENSOR_STRINGS[] = {
+    @"Accelerometer",
+    @"Gyroscope",
+    @"Magnetometer",
+    @"Device Motion",
+    @"Activity",
+    @"Pedometer",
+    @"Altimeter",
+    @"Battery",
+    @"Location",
+    @"iBeacon™ Proximity",
+    @"Eddystone™ Proximity",
+    @"Microphone"
+};
+
+static const NSString *NONSPACED_SENSOR_STRINGS[] = {
     @"Accelerometer",
     @"Gyroscope",
     @"Magnetometer",
@@ -43,7 +58,12 @@ static NSString *SENSOR_STRINGS[] = {
 
 + (NSString *)stringWithSensorType:(SKSensorType)sensorType
 {
-    return SENSOR_STRINGS[sensorType];
+    return SENSOR_STRINGS[sensorType].copy;
+}
+
++ (NSString *)nonspacedStringWithSensorType:(SKSensorType)sensorType
+{
+    return NONSPACED_SENSOR_STRINGS[sensorType].copy;
 }
 
 @end
