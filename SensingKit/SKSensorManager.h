@@ -54,9 +54,6 @@
 - (void)subscribeToSensor:(SKSensorType)sensorType
               withHandler:(SKSensorDataHandler)handler;
 
-- (void)unsubscribeFromSensor:(SKSensorType)sensorType
-                      handler:(SKSensorDataHandler)handler;
-
 - (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType;
 
 + (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;

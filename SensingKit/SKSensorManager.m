@@ -224,14 +224,6 @@
     [[self getSensor:sensorType] subscribeHandler:handler];
 }
 
-- (void)unsubscribeFromSensor:(SKSensorType)sensorType
-                      handler:(SKSensorDataHandler)handler
-{
-    NSLog(@"Unsubscribe from sensor: %@.", [NSString stringWithSensorType:sensorType]);
-    
-    [[self getSensor:sensorType] unsubscribeHandler:handler];
-}
-
 - (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType
 {
     NSLog(@"Unsubscribe all handlers from sensor: %@.", [NSString stringWithSensorType:sensorType]);

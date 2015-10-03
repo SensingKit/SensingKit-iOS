@@ -110,13 +110,6 @@
                               withHandler:handler];
 }
 
-- (void)unsubscribeFromSensor:(SKSensorType)sensorType
-                      handler:(SKSensorDataHandler)handler
-{
-    [self.sensorManager unsubscribeFromSensor:sensorType
-                                      handler:handler];
-}
-
 - (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType
 {
     [self.sensorManager unsubscribeAllHandlersFromSensor:sensorType];
