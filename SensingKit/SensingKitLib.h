@@ -165,7 +165,7 @@
 - (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType;
 
 /**
- *  A string with a CSV formatted header that describes the data of the particular sensor. This method is useful in combination with csvString instance method of SKSensorData objects.
+ *  A string with a CSV formatted header that describes the data of the particular sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
  *
  *  @param sensorType The type of the sensor for which the CSV Header will be returned.
  *
