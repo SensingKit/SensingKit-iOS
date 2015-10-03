@@ -117,7 +117,7 @@
  *  Initializes and registers a sensor into the library with a custom sensor configuration.
  *
  *  @param sensorType    The type of the sensor that will be initialized and registered in the library.
- *  @param configuration A configuration object that conforms to NSConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
+ *  @param configuration A configuration object that conforms to SKConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
  */
 - (void)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration;
 
@@ -131,7 +131,7 @@
 /**
  *  Provides custom configuration to a sensor.
  *
- *  @param configuration A configuration object that conforms to NSConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
+ *  @param configuration A configuration object that conforms to SKConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
  *  @param sensorType    The type of the sensor that will be configured.
  */
 - (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
