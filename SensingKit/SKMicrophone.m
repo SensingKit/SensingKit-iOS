@@ -191,7 +191,7 @@
     {
         NSTimeInterval startTime = [NSProcessInfo processInfo].systemUptime;
         
-        SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithStatus:@"Started" withTimeInterval:startTime];
+        SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Started" withTimeInterval:startTime];
         [self submitSensorData:data];
     }
 }
@@ -206,7 +206,7 @@
         
         NSTimeInterval endTime = [NSProcessInfo processInfo].systemUptime;
         
-        SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithStatus:@"Stopped" withTimeInterval:endTime];
+        SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Stopped" withTimeInterval:endTime];
         [self submitSensorData:data];
     }
     
