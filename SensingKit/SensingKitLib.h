@@ -122,7 +122,7 @@
 - (void)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration;
 
 /**
- *  Deregister a sensor from the library. Sensor should not be actively sensing when this method is called. All previously subscribed blocks will also be unsubscribed.
+ *  Deregisters a sensor from the library. Sensor should not be actively sensing when this method is called. All previously subscribed blocks will also be unsubscribed.
  *
  *  @param sensorType The type of the sensor that will be deregistered.
  */
@@ -137,7 +137,7 @@
 - (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
 
 /**
- *  Get the configuration of a sensor.
+ *  Gets the configuration of a sensor.
  *
  *  @param sensorType  The type of the sensor.
  *
@@ -177,26 +177,26 @@
 /** @name Continuous Sensing */
 
 /**
- *  Start continuous sensing with the specified sensor.
+ *  Starts continuous sensing with the specified sensor.
  *
  *  @param sensorType The type of the sensor that will be started.
  */
 - (void)startContinuousSensingWithSensor:(SKSensorType)sensorType;
 
 /**
- *  Stop continuous sensing with the specified sensor.
+ *  Stops continuous sensing with the specified sensor.
  *
  *  @param sensorType The type of the sensor that will be stopped.
  */
 - (void)stopContinuousSensingWithSensor:(SKSensorType)sensorType;
 
 /**
- *  Start continuous sensing with all registered sensors.
+ *  Starts continuous sensing with all registered sensors.
  */
 - (void)startContinuousSensingWithAllRegisteredSensors;
 
 /**
- *  Stop continuous sensing with all registered sensors.
+ *  Stops continuous sensing with all registered sensors.
  */
 - (void)stopContinuousSensingWithAllRegisteredSensors;
 

@@ -50,7 +50,7 @@ typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode){
 /**
  *  <#Description#>
  *
- *  @param uuid <#uuid description#>
+ *  @param UUID <#uuid description#>
  *
  *  @return <#return value description#>
  */
