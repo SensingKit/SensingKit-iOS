@@ -26,12 +26,12 @@
 
 @implementation SKiBeaconProximityConfiguration
 
-- (instancetype)init
+- (nonnull instancetype)initWithUUID:(nonnull NSUUID *)UUID
 {
     if (self = [super init])
     {
         // Set default values
-        _uuid = [[NSUUID alloc] initWithUUIDString:@"eeb79aec-022f-4c05-8331-93d9b2ba6dce"];
+        _UUID = UUID;
         _mode = SKiBeaconProximityModeScanOnly;
         _major = 65535;  // max supported value
         _minor = 65535;  // max supported value
@@ -43,7 +43,7 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     SKiBeaconProximityConfiguration *configuration = [super copyWithZone:zone];
-    configuration.uuid = _uuid;
+    configuration.UUID = _UUID;
     configuration.mode = _mode;
     configuration.major = _major;
     configuration.minor = _minor;

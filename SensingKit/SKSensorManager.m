@@ -462,7 +462,7 @@
             break;
             
         case iBeaconProximity:
-            configuration = [[SKiBeaconProximityConfiguration alloc] init];
+            configuration = [[SKiBeaconProximityConfiguration alloc] initWithUUID:[[NSUUID alloc] initWithUUIDString:@"eeb79aec-022f-4c05-8331-93d9b2ba6dce"]];
             break;
             
         case EddystoneProximity:

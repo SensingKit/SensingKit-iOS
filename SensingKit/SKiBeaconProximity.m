@@ -112,7 +112,7 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     
-    self.scan_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:configuration.uuid
+    self.scan_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:configuration.UUID
                                                                 identifier:SKiBeaconIdentifier];
 }
 
@@ -129,7 +129,7 @@
                                                                      queue:nil];
     }
     
-    self.broadcast_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:configuration.uuid
+    self.broadcast_beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:configuration.UUID
                                                                           major:configuration.major
                                                                           minor:configuration.minor
                                                                      identifier:SKiBeaconIdentifier];

@@ -24,22 +24,61 @@
 
 #import "SKConfiguration.h"
 
-typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode)
-{
+/**
+ *  <#Description#>
+ */
+typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode){
+    /**
+     *  <#Description#>
+     */
     SKiBeaconProximityModeScanOnly = 0,
+    /**
+     *  <#Description#>
+     */
     SKiBeaconProximityModeBroadcastOnly,
+    /**
+     *  <#Description#>
+     */
     SKiBeaconProximityModeScanAndBroadcast
 };
 
+/**
+ *  <#Description#>
+ */
 @interface SKiBeaconProximityConfiguration : SKConfiguration <NSCopying>
 
-@property (nonatomic, copy) NSUUID *uuid;
+/**
+ *  <#Description#>
+ *
+ *  @param uuid <#uuid description#>
+ *
+ *  @return <#return value description#>
+ */
+- (nonnull instancetype)initWithUUID:(nonnull NSUUID *)UUID;
 
+/**
+ *  <#Description#>
+ */
+@property (nonatomic, copy) NSUUID * _Nonnull UUID;
+
+/**
+ *  <#Description#>
+ */
 @property (nonatomic) SKiBeaconProximityMode mode;
 
+/**
+ *  <#Description#>
+ */
 @property (nonatomic) uint16_t major;
+
+/**
+ *  <#Description#>
+ */
 @property (nonatomic) uint16_t minor;
 
-@property (nonatomic, copy) NSNumber *measuredPower;
+/**
+ *  <#Description#>
+ */
+@property (nonatomic, copy) NSNumber * _Nullable measuredPower;
 
 @end
