@@ -75,47 +75,129 @@
 
 /** @name Sensor Status */
 
+
+/**
+ *  A Boolean value that indicates whether the sensor is available on the device. This method should always be used before using a sensor.
+ *
+ *  @param sensorType The type of the sensor that will be checked.
+ *
+ *  @return YES if the sensor is available or NO if it is not.
+ */
 - (BOOL)isSensorAvailable:(SKSensorType)sensorType;
 
+/**
+ *  A Boolean value that indicates whether the sensor is registered.
+ *
+ *  @param sensorType The type of the sensor that will be checked.
+ *
+ *  @return YES if the sensor is registered or NO if it is not.
+ */
 - (BOOL)isSensorRegistered:(SKSensorType)sensorType;
 
+/**
+ *  A Boolean value that indicates whether the sensor is currently sensing.
+ *
+ *  @param sensorType The type of the sensor that will be checked.
+ *
+ *  @return YES if the sensor is currently sensing or NO if it is not.
+ */
 - (BOOL)isSensorSensing:(SKSensorType)sensorType;
 
 
 /** @name Sensor Registration and Configuration */
 
+/**
+ *  Initializes and registers a sensor into the library with a default sensor configuration.
+ *
+ *  @param sensorType The type of the sensor that will be initialized and registered in the library.
+ */
 - (void)registerSensor:(SKSensorType)sensorType;
 
+/**
+ *  Initializes and registers a sensor into the library with a custom sensor configuration.
+ *
+ *  @param sensorType    The type of the sensor that will be initialized and registered in the library.
+ *  @param configuration A configuration object that conforms to NSConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
+ */
 - (void)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration;
 
+/**
+ *  Deregister a sensor from the library. Sensor should not be actively sensing when this method is called. All previously subscribed blocks will also be unsubscribed.
+ *
+ *  @param sensorType The type of the sensor that will be deregistered.
+ */
 - (void)deregisterSensor:(SKSensorType)sensorType;
 
+/**
+ *  Provides custom configuration to a sensor.
+ *
+ *  @param configuration A configuration object that conforms to NSConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
+ *  @param sensorType    The type of the sensor that will be configured.
+ */
 - (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
 
+/**
+ *  Get the configuration of a sensor.
+ *
+ *  @param sensorType  The type of the sensor.
+ *
+ *  @return The configuration of that particular sensor.
+ */
 - (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType;
 
 
-/** @name Sensor Subscription and Unsubscription */
+/** @name Sensor Subscription */
 
+/**
+ *  Subscribes for sensor updates using a specified block handler.
+ *
+ *  @param sensorType  The type of the sensor that the data handler will be subscribed to.
+ *  @param handler     A block that is invoked with each update to handle new sensor data. The block must conform to the SKSensorDataHandler type.
+ */
 - (void)subscribeToSensor:(SKSensorType)sensorType
               withHandler:(SKSensorDataHandler)handler;
 
-- (void)unsubscribeFromSensor:(SKSensorType)sensorType
-                      handler:(SKSensorDataHandler)handler;
-
+/**
+ *  Unsubscribes all block handlers.
+ *
+ *  @param sensorType The type of the sensor for which all block handlers will be unsubscribed.
+ */
 - (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType;
 
+/**
+ *  A string with a CSV formatted header that describes the data of the particular sensor. This method is useful in combination with csvString instance method of SKSensorData objects.
+ *
+ *  @param sensorType The type of the sensor for which the CSV Header will be returned.
+ *
+ *  @return A string with a CSV header.
+ */
 - (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
 
 
 /** @name Continuous Sensing */
 
+/**
+ *  Start continuous sensing with the specified sensor.
+ *
+ *  @param sensorType The type of the sensor that will be started.
+ */
 - (void)startContinuousSensingWithSensor:(SKSensorType)sensorType;
 
+/**
+ *  Stop continuous sensing with the specified sensor.
+ *
+ *  @param sensorType The type of the sensor that will be stopped.
+ */
 - (void)stopContinuousSensingWithSensor:(SKSensorType)sensorType;
 
+/**
+ *  Start continuous sensing with all registered sensors.
+ */
 - (void)startContinuousSensingWithAllRegisteredSensors;
 
+/**
+ *  Stop continuous sensing with all registered sensors.
+ */
 - (void)stopContinuousSensingWithAllRegisteredSensors;
 
 @end
