@@ -73,8 +73,7 @@
 
 + (BOOL)isSensorAvailable
 {
-    // Always available
-    return YES;
+    return [UIDevice currentDevice].batteryMonitoringEnabled;
 }
 
 - (void)startSensing
