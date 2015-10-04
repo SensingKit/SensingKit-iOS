@@ -22,8 +22,11 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKSampleRateConfiguration.h"
+#import "SKConfiguration.h"
 
-@interface SKActivityConfiguration : SKSampleRateConfiguration <NSCopying>
+/**
+ *  An instance of SKActivityConfiguration can be used to configure the Activity sensor.
+ */
+@interface SKActivityConfiguration : SKConfiguration <NSCopying>
 
 @end
