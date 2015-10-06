@@ -25,6 +25,8 @@
 #import "SKSensorData.h"
 @import CoreMotion;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKAccelerometerData encapsulates measurements related to the Accelerometer sensor.
  */
@@ -52,3 +54,5 @@
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

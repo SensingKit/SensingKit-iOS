@@ -24,6 +24,8 @@
 
 #import "SKSensorData.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKMicrophoneData encapsulates measurements related to the Microphone sensor. Since Microphone sensor records audio from the environment directly into the device's memory, an SKSensorData object represent a change in the state of the Microphone sensor (e.g. Started or Stopped).
  */
@@ -53,3 +55,5 @@
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -3,10 +3,11 @@
 ### 0.4.0
 - Added Documentation using appledoc generator.
 - Added support for iOS 9.
-- Added currentPace and currentCadence in PedometerData (iOS 9 only)
+- Added support for Swift language
 - Updated SensingKit-iOS API.
-- Added support for Microphone sensor.
 - Added Configuration for all sensors.
+- Added support for Microphone sensor.
+- Added currentPace and currentCadence in PedometerData (iOS 9 only)
 - SensorModules have been renamed into Sensors.
 
 ### 0.3.0 (August 29, 2015)

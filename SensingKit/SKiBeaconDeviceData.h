@@ -26,6 +26,8 @@
 #import "SKSensorData.h"
 @import CoreLocation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKiBeaconDeviceData encapsulates measurements related to the iBeacon™ Proximity sensor. For more information about iBeacon™ technology, please refer to Apple's Getting Started with iBeacon documentation.
  */
@@ -88,3 +90,5 @@
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -72,6 +72,7 @@ typedef NS_ENUM(NSUInteger, SKLocationAuthorization){
     SKLocationAuthorizationAlways
 };
 
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An instance of SKLocationConfiguration can be used to configure the Location sensor.
@@ -94,3 +95,5 @@ typedef NS_ENUM(NSUInteger, SKLocationAuthorization){
 @property (nonatomic) double distanceFilter;
 
 @end
+
+NS_ASSUME_NONNULL_END

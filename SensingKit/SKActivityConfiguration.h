@@ -24,9 +24,13 @@
 
 #import "SKConfiguration.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKActivityConfiguration can be used to configure the Activity sensor.
  */
 @interface SKActivityConfiguration : SKConfiguration <NSCopying>
 
 @end
+
+NS_ASSUME_NONNULL_END

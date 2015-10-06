@@ -24,6 +24,8 @@
 
 #import "SKSensorData.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  Βlock to be invoked when new sensor data is available. You can cast the sensorData object
  *  into the actual sensor data (e.g. SKAccelerometerData), based on the reported sensorType.
@@ -32,3 +34,5 @@
  *  @param sensorData The new sensor data produced by the SKSensorType sensor.
  */
 typedef void (^SKSensorDataHandler)(SKSensorType sensorType, SKSensorData *sensorData);
+
+NS_ASSUME_NONNULL_END

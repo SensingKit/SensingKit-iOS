@@ -25,6 +25,8 @@
 #import "SKSensorData.h"
 @import CoreMotion;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKDeviceMotionData encapsulates measurements related to the Device Motion sensor.
  *  The measurements include the device's Attitude, Magnetic Field, Rotation Rate and a separation of the User Acceleration and the Gravity. For more information, please refer to Apple's Core Motion Documentation.
@@ -73,3 +75,5 @@
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

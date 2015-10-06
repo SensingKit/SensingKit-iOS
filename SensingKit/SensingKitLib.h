@@ -56,6 +56,8 @@
 #import "SKEddystoneProximityConfiguration.h"
 #import "SKMicrophoneConfiguration.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * The 'SensingKitLib' class is the main class of SensingKit library that manages all supported sensors.
  * It uses the Singleton design pattern so that only one instance of the library exists in the application.
@@ -119,7 +121,7 @@
  *  @param sensorType    The type of the sensor that will be initialized and registered in the library.
  *  @param configuration A configuration object that conforms to SKConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
  */
-- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration;
+- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(nullable SKConfiguration *)configuration;
 
 /**
  *  Deregisters a sensor from the library. Sensor should not be actively sensing when this method is called. All previously subscribed blocks will also be unsubscribed.
@@ -134,7 +136,7 @@
  *  @param configuration A configuration object that conforms to SKConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
  *  @param sensorType    The type of the sensor that will be configured.
  */
-- (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
+- (void)setConfiguration:(nullable SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
 
 /**
  *  Gets the configuration of a sensor.
@@ -171,7 +173,7 @@
  *
  *  @return A string with a CSV header.
  */
-- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
+- (nullable NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
 
 
 /** @name Continuous Sensing */
@@ -201,3 +203,5 @@
 - (void)stopContinuousSensingWithAllRegisteredSensors;
 
 @end
+
+NS_ASSUME_NONNULL_END

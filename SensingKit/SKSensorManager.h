@@ -27,6 +27,8 @@
 #import "SKSensorDataHandler.h"
 #import "SKConfiguration.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SKSensorManager : NSObject
 
 /** @name Sensor Status */
@@ -40,11 +42,11 @@
 
 /** @name Sensor Registration and Configuration */
 
-- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration;
+- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(nullable SKConfiguration *)configuration;
 
 - (void)deregisterSensor:(SKSensorType)sensorType;
 
-- (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
+- (void)setConfiguration:(nullable SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
 
 - (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType;
 
@@ -56,7 +58,7 @@
 
 - (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType;
 
-+ (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
++ (nullable NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
 
 
 /** @name Continuous Sensing */
@@ -70,3 +72,5 @@
 - (void)stopContinuousSensingWithAllRegisteredSensors;
 
 @end
+
+NS_ASSUME_NONNULL_END

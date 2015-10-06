@@ -24,6 +24,8 @@
 
 #import "SKSensorData.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKProximityData encapsulates an array of Device Data (e.g. SKiBeaconDeviceData).
  */
@@ -52,6 +54,8 @@
  *
  *  @return Always nil.
  */
-+ (NSString *)csvHeader;
++ (nullable NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

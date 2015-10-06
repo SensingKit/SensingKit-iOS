@@ -25,6 +25,8 @@
 #import <Foundation/Foundation.h>
 #import "SKSensorType.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  NSString+SKSensorType is a category responsible for converting an SKSensorType enum into string.
  */
@@ -51,3 +53,5 @@
 + (NSString *)nonspacedStringWithSensorType:(SKSensorType)sensorType;
 
 @end
+
+NS_ASSUME_NONNULL_END

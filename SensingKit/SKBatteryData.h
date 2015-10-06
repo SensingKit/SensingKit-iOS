@@ -24,6 +24,8 @@
 
 #import "SKSensorData.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKBatteryData encapsulates measurements related to the Battery sensor.
  */
@@ -62,3 +64,5 @@
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

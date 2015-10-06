@@ -42,6 +42,8 @@ typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode){
     SKiBeaconProximityModeScanAndBroadcast
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKiBeaconProximityConfiguration can be used to configure the iBeacon™ Proximity sensor.
  */
@@ -54,12 +56,12 @@ typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode){
  *
  *  @return <#return value description#>
  */
-- (nonnull instancetype)initWithUUID:(nonnull NSUUID *)UUID;
+- (instancetype)initWithUUID:(NSUUID *)UUID;
 
 /**
  *  <#Description#>
  */
-@property (nonatomic, copy) NSUUID * _Nonnull UUID;
+@property (nonatomic, copy) NSUUID *UUID;
 
 /**
  *  <#Description#>
@@ -82,3 +84,5 @@ typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode){
 @property (nonatomic, copy) NSNumber * _Nullable measuredPower;
 
 @end
+
+NS_ASSUME_NONNULL_END

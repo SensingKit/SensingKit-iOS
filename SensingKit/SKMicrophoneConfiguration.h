@@ -64,6 +64,7 @@ typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingQuality){
     SKMicrophoneRecordingQualityMax
 };
 
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An instance of SKMicrophoneConfiguration can be used to configure the Microphone sensor.
@@ -78,22 +79,22 @@ typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingQuality){
  *
  *  @return <#return value description#>
  */
-- (nonnull instancetype)initWithOutputDirectory:(nonnull NSURL *)outputDirectory withFilename:(nonnull NSString *)filename;
+- (instancetype)initWithOutputDirectory:(NSURL *)outputDirectory withFilename:(NSString *)filename;
 
 /**
  *  <#Description#>
  */
-@property (nonatomic, copy, nonnull) NSURL *outputDirectory;
+@property (nonatomic, copy) NSURL *outputDirectory;
 
 /**
  *  <#Description#>
  */
-@property (nonatomic, copy, nonnull) NSString *filename;
+@property (nonatomic, copy) NSString *filename;
 
 /**
  *  <#Description#>
  */
-@property (nonatomic, copy, nonnull, readonly) NSURL *recordingPath;
+@property (nonatomic, copy, readonly) NSURL *recordingPath;
 
 /**
  *  <#Description#>
@@ -111,3 +112,5 @@ typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingQuality){
 @property (nonatomic) float sampleRate;
 
 @end
+
+NS_ASSUME_NONNULL_END

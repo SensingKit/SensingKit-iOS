@@ -34,6 +34,7 @@ typedef NS_ENUM(NSUInteger, SKEddystoneProximityMode){
     SKEddystoneProximityModeScanOnly = 0
 };
 
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An instance of SKEddystoneProximityConfiguration can be used to configure the Eddystone™ Proximity sensor.
@@ -48,6 +49,8 @@ typedef NS_ENUM(NSUInteger, SKEddystoneProximityMode){
 /**
  *  <#Description#>
  */
-@property (nonatomic, copy) NSString *namespaceFilter;
+@property (nonatomic, copy, nullable) NSString *namespaceFilter;
 
 @end
+
+NS_ASSUME_NONNULL_END

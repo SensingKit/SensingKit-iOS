@@ -25,6 +25,8 @@
 #import "SKSensorData.h"
 @import CoreMotion;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKActivityData encapsulates measurements related to the Activity sensor. Activity is classified between Stationary, Walking, Running, Automotive, Cycling and Unknown.
  */
@@ -57,3 +59,5 @@
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

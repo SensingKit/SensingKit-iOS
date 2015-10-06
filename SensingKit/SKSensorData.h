@@ -27,6 +27,8 @@
 #import "SKSensorTimestamp.h"
 #import "NSString+SensorType.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  This is the base class for all Sensor Data objects. A subclass of SKSensorData object is delivered through the SKSensorDataHandler, combined with the related SKSensorType.
  */
@@ -64,3 +66,5 @@
 @property (nonatomic, readonly, copy) NSDictionary *dictionaryData;
 
 @end
+
+NS_ASSUME_NONNULL_END

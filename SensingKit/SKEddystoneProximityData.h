@@ -24,6 +24,8 @@
 
 #import "SKSensorData.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKEddystoneProximityData encapsulates measurements related to the Eddystone™ Proximity sensor.
  */
@@ -41,7 +43,7 @@
  *  @return An SKEddystoneProximityData object.
  */
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
-                  withNamespaceId:(NSString *)namespaceId
+                  withNamespaceId:(NSString * _Nullable)namespaceId
                    withInstanceId:(NSUInteger)instanceId
                          withRssi:(NSInteger)rssi
                       withTxPower:(NSInteger)txPower NS_DESIGNATED_INITIALIZER;
@@ -49,7 +51,7 @@
 /**
  *  A 10-byte (80 bit) identifier that can used to group a particular set of beacons. This value should be in Hexadecimal format, with a maximum character length of 20 characters.
  */
-@property (nonatomic, readonly, copy) NSString *namespaceId;
+@property (nonatomic, readonly, copy, nullable) NSString *namespaceId;
 
 /**
  *  A 6-byte (48 bit) unsigned integer that is used to identify individual devices inside the namespace group. It ranges between 0 and 281474976710655.
@@ -74,3 +76,5 @@
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -25,6 +25,8 @@
 #import "SKSensorData.h"
 @import CoreLocation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  An instance of SKLocationData encapsulates measurements related to the Location sensor.
  */
@@ -52,3 +54,5 @@
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

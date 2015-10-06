@@ -24,6 +24,8 @@
 
 #import "SKConfiguration.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  This is the base class for all motion sensors that require a sample rate configuration. These sensors are Accelerometer, Gyroscope, Magnetometer and Device Motion.
  */
@@ -35,3 +37,5 @@
 @property (nonatomic) NSUInteger sampleRate;
 
 @end
+
+NS_ASSUME_NONNULL_END
