@@ -25,6 +25,8 @@
 #import "SKAbstractSensor.h"
 #import "SKGyroscopeConfiguration.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SKGyroscope : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
@@ -32,3 +34,5 @@
 - (instancetype)initWithConfiguration:(SKGyroscopeConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
+
+NS_ASSUME_NONNULL_END

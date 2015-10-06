@@ -25,6 +25,8 @@
 #import "SKAbstractSensor.h"
 #import "SKActivityConfiguration.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SKActivity : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
@@ -32,3 +34,5 @@
 - (instancetype)initWithConfiguration:(SKActivityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
+
+NS_ASSUME_NONNULL_END
