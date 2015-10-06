@@ -44,8 +44,8 @@
  *  @return An SKiBeaconDeviceData object.
  */
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
-                        withMajor:(NSUInteger)major
-                        withMinor:(NSUInteger)minor
+                        withMajor:(uint16_t)major
+                        withMinor:(uint16_t)minor
                      withAccuracy:(CLLocationAccuracy)accuracy
                     withProximity:(CLProximity)proximity
                          withRssi:(NSInteger)rssi NS_DESIGNATED_INITIALIZER;
@@ -53,12 +53,12 @@
 /**
  *  A 16-bit unsigned integer identifier used to identify each device uniquelly. It ranges between 0 and 65535. This identifier can be used in combination with the minor identifier.
  */
-@property (nonatomic, readonly) NSUInteger major;
+@property (nonatomic, readonly) uint16_t major;
 
 /**
  *  A 16-bit unsigned integer identifier used to identify each device uniquelly. It ranges between 0 and 65535. This identifier can be used in combination with the major identifier.
  */
-@property (nonatomic, readonly) NSUInteger minor;
+@property (nonatomic, readonly) uint16_t minor;
 
 /**
  *  A double value that represents the accuracy of the device's proximity in meters.

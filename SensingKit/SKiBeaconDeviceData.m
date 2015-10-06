@@ -27,8 +27,8 @@
 @implementation SKiBeaconDeviceData
 
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
-                        withMajor:(NSUInteger)major
-                        withMinor:(NSUInteger)minor
+                        withMajor:(uint16_t)major
+                        withMinor:(uint16_t)minor
                      withAccuracy:(CLLocationAccuracy)accuracy
                     withProximity:(CLProximity)proximity
                          withRssi:(NSInteger)rssi
