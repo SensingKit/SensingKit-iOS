@@ -33,8 +33,8 @@
         // Set default values
         _UUID = UUID;
         _mode = SKiBeaconProximityModeScanOnly;
-        _major = 65535;  // max supported value
-        _minor = 65535;  // max supported value
+        _major = 0;
+        _minor = 0;
         _measuredPower = nil;  // default
     }
     return self;
