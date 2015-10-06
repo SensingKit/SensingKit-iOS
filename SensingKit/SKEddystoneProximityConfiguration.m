@@ -39,6 +39,11 @@
 
 - (void)setNamespaceFilter:(NSString *)namespaceFilter
 {
+    if (![SKEddystoneProximityConfiguration isNamespaceValid:namespaceFilter])
+    {
+        NSLog(@"Warning: Identifier '%@' is not valid. Namespace should be formatted as a 10-byte hexadecimal string.", namespaceFilter);
+    }
+
     _namespaceFilter = namespaceFilter.lowercaseString;
 }
 
@@ -49,6 +54,19 @@
     configuration.namespaceFilter = _namespaceFilter;
     
     return configuration;
+}
+
++ (BOOL)isNamespaceValid:(NSString *)string
+{
+    if (string.length > 20)
+    {
+        return NO;
+    }
+    else
+    {
+        NSCharacterSet *validCharacters = [NSCharacterSet characterSetWithCharactersInString:@"0123456789ABCDEFabcdef"].invertedSet;
+        return ([string rangeOfCharacterFromSet:validCharacters].location == NSNotFound);
+    }
 }
 
 @end
