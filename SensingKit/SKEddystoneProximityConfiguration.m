@@ -58,6 +58,11 @@
 
 + (BOOL)isNamespaceValid:(NSString *)string
 {
+    if (!string)
+    {
+        // Nil are valid
+        return YES;
+    }
     if (string.length > 20)
     {
         return NO;
