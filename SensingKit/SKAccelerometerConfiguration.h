@@ -24,6 +24,9 @@
 
 #import "SKSampleRateConfiguration.h"
 
+/**
+ *  An instance of SKAccelerometerConfiguration can be used to configure the Accelerometer sensor.
+ */
 @interface SKAccelerometerConfiguration : SKSampleRateConfiguration <NSCopying>
 
 @end

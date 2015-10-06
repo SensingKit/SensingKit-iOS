@@ -24,6 +24,9 @@
 
 #import "SKSampleRateConfiguration.h"
 
+/**
+ *  An instance of SKDeviceMotionConfiguration can be used to configure the Device Motion sensor.
+ */
 @interface SKDeviceMotionConfiguration : SKSampleRateConfiguration <NSCopying>
 
 @end

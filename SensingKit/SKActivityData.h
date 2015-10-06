@@ -25,13 +25,35 @@
 #import "SKSensorData.h"
 @import CoreMotion;
 
+/**
+ *  An instance of SKActivityData encapsulates measurements related to the Activity sensor. Activity is classified between Stationary, Walking, Running, Automotive, Cycling and Unknown.
+ */
 @interface SKActivityData : SKSensorData
 
-@property (nonatomic, readonly, copy) CMMotionActivity *activity;
-@property (nonatomic, readonly, copy) SKSensorTimestamp *startDate;
-
+/**
+ *  Returns an SKActivityData object, initialized with an instance of CMMotionActivity.
+ *
+ *  @param activity <#activity description#>
+ *
+ *  @return An SKActivityData object.
+ */
 - (instancetype)initWithActivity:(CMMotionActivity *)activity NS_DESIGNATED_INITIALIZER;
 
+/**
+ *  <#Description#>
+ */
+@property (nonatomic, readonly, copy) CMMotionActivity *activity;
+
+/**
+ *  Start date that the activity data are valid.
+ */
+@property (nonatomic, readonly, copy) SKSensorTimestamp *startDate;
+
+/**
+ *  A string with a CSV formatted header that describes the data of the Activity sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *
+ *  @return A string with a CSV header.
+ */
 + (NSString *)csvHeader;
 
 @end

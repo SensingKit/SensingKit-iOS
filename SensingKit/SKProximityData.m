@@ -40,7 +40,7 @@
 
 + (NSString *)csvHeader
 {
-    NSLog(@"csvHeader depends on the DeviceData class.");
+    NSLog(@"csvHeader depends on the encapsulated Device Data objects.");
     return nil;
 }
 

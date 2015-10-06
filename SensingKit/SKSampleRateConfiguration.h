@@ -24,8 +24,14 @@
 
 #import "SKConfiguration.h"
 
+/**
+ *  This is the base class for all motion sensors that require a sample rate configuration. These sensors are Accelerometer, Gyroscope, Magnetometer and Device Motion.
+ */
 @interface SKSampleRateConfiguration : SKConfiguration <NSCopying>
 
+/**
+ *  The Sample Rate of the sensor in Hz.
+ */
 @property (nonatomic) NSUInteger sampleRate;
 
 @end

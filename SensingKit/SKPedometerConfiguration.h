@@ -24,6 +24,9 @@
 
 #import "SKConfiguration.h"
 
+/**
+ *  An instance of SKPedometerConfiguration can be used to configure the Pedometer sensor.
+ */
 @interface SKPedometerConfiguration : SKConfiguration <NSCopying>
 
 @end

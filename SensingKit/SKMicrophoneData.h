@@ -24,13 +24,32 @@
 
 #import "SKSensorData.h"
 
+/**
+ *  An instance of SKMicrophoneData encapsulates measurements related to the Microphone sensor. Since Microphone sensor records audio from the environment directly into the device's memory, an SKSensorData object represent a change in the state of the Microphone sensor (e.g. Started or Stopped).
+ */
 @interface SKMicrophoneData : SKSensorData
 
-@property (nonatomic, readonly, copy) NSString *status;
+/**
+ *  Returns an SKMicrophoneData object, initialized with the current state of the sensor and the timestamp.
+ *
+ *  @param state        Microphone sensor state.
+ *  @param timeInterval Time that the state of the sensor changed.
+ *
+ *  @return An SKMicrophoneData object.
+ */
+- (instancetype)initWithState:(NSString *)state
+             withTimeInterval:(NSTimeInterval)timeInterval NS_DESIGNATED_INITIALIZER;
 
-- (instancetype)initWithStatus:(NSString *)status
-              withTimeInterval:(NSTimeInterval)timeInterval NS_DESIGNATED_INITIALIZER;
+/**
+ *  A string with the state of Microphone sensor (e.g. Started or Stopped).
+ */
+@property (nonatomic, readonly, copy) NSString *state;
 
+/**
+ *  A string with a CSV formatted header that describes the data of the Microphone sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *
+ *  @return A string with a CSV header.
+ */
 + (NSString *)csvHeader;
 
 @end

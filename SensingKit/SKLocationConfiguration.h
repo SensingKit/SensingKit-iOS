@@ -24,28 +24,73 @@
 
 #import "SKConfiguration.h"
 
-typedef NS_ENUM(NSUInteger, SKLocationAccuracy)
-{
+/**
+ *  These constants indicate the accuracy of the Location sensor.
+ */
+typedef NS_ENUM(NSUInteger, SKLocationAccuracy){
+    /**
+     *  Highest accuracy possible, combined with other sensor data. This accuracy is ideal for Navigation applications were the device can be plagged in a power source.
+     */
     SKLocationAccuracyBestForNavigation = 0,
+    /**
+     *  Highest accuracy possible.
+     */
     SKLocationAccuracyBest,
+    /**
+     *  Ten meters accuracy.
+     */
     SKLocationAccuracyNearestTenMeters,
+    /**
+     *  One hundred meters accuracy.
+     */
     SKLocationAccuracyHundredMeters,
+    /**
+     *  One kilometer accuracy.
+     */
     SKLocationAccuracyKilometer,
+    /**
+     *  Three kilometers accuracy.
+     */
     SKLocationAccuracyThreeKilometers
 };
 
-typedef NS_ENUM(NSUInteger, SKLocationAuthorization)
-{
+/**
+ *  These constants indicate the authorization of the Location sensor.
+ */
+typedef NS_ENUM(NSUInteger, SKLocationAuthorization){
+    /**
+     *  This mode indicates that there is no authorization for acquiring the location of the device. Location sensor cannot be started with this authorization.
+     */
     SKLocationAuthorizationNone = 0,
+    /**
+     *  Location can be acquired only when the app is running in the foreground.
+     */
     SKLocationAuthorizationWhenInUse,
+    /**
+     *  Location can be acquired even when the app is running in the background.
+     */
     SKLocationAuthorizationAlways
 };
 
 
+/**
+ *  An instance of SKLocationConfiguration can be used to configure the Location sensor.
+ */
 @interface SKLocationConfiguration : SKConfiguration <NSCopying>
 
+/**
+ *  <#Description#>
+ */
 @property (nonatomic) SKLocationAccuracy locationAccuracy;
+
+/**
+ *  <#Description#>
+ */
 @property (nonatomic) SKLocationAuthorization locationAuthorization;
+
+/**
+ *  <#Description#>
+ */
 @property (nonatomic) double distanceFilter;
 
 @end

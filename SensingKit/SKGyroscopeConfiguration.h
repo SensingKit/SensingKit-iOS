@@ -24,6 +24,9 @@
 
 #import "SKSampleRateConfiguration.h"
 
+/**
+ *  An instance of SKGyroscopeConfiguration can be used to configure the Gyroscope sensor.
+ */
 @interface SKGyroscopeConfiguration : SKSampleRateConfiguration <NSCopying>
 
 @end

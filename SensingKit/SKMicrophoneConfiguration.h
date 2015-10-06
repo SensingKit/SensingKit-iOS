@@ -24,32 +24,90 @@
 
 #import "SKConfiguration.h"
 
-typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingFormat)
-{
+/**
+ *  These constants indicate the recording format of the Microphone sensor.
+ */
+typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingFormat){
+    /**
+     *  Linear PCM is an uncompressed audio data format.
+     */
     SKMicrophoneRecordingFormatLinearPCM = 0,
+    /**
+     *  MPEG-4 AAC audio data format.
+     */
     SKMicrophoneRecordingFormatMPEG4AAC
 };
 
-typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingQuality)
-{
+/**
+ *  These constants indicate the recording quality of the Microphone sensor.
+ */
+typedef NS_ENUM(NSUInteger, SKMicrophoneRecordingQuality){
+    /**
+     *  Minimum recording quality
+     */
     SKMicrophoneRecordingQualityMin = 0,
+    /**
+     *  Low recording quality
+     */
     SKMicrophoneRecordingQualityLow,
+    /**
+     *  Medium recording quality
+     */
     SKMicrophoneRecordingQualityMedium,
+    /**
+     *  High recording quality
+     */
     SKMicrophoneRecordingQualityHigh,
+    /**
+     *  Maximum recording quality
+     */
     SKMicrophoneRecordingQualityMax
 };
 
+
+/**
+ *  An instance of SKMicrophoneConfiguration can be used to configure the Microphone sensor.
+ */
 @interface SKMicrophoneConfiguration : SKConfiguration <NSCopying>
 
+/**
+ *  <#Description#>
+ *
+ *  @param outputDirectory <#outputDirectory description#>
+ *  @param filename        <#filename description#>
+ *
+ *  @return <#return value description#>
+ */
 - (nonnull instancetype)initWithOutputDirectory:(nonnull NSURL *)outputDirectory withFilename:(nonnull NSString *)filename;
 
+/**
+ *  <#Description#>
+ */
 @property (nonatomic, copy, nonnull) NSURL *outputDirectory;
+
+/**
+ *  <#Description#>
+ */
 @property (nonatomic, copy, nonnull) NSString *filename;
 
+/**
+ *  <#Description#>
+ */
 @property (nonatomic, copy, nonnull, readonly) NSURL *recordingPath;
 
+/**
+ *  <#Description#>
+ */
 @property (nonatomic) SKMicrophoneRecordingFormat recordingFormat;
+
+/**
+ *  <#Description#>
+ */
 @property (nonatomic) SKMicrophoneRecordingQuality recordingQuality;
+
+/**
+ *  The audio format sampling rate in hertz.
+ */
 @property (nonatomic) float sampleRate;
 
 @end

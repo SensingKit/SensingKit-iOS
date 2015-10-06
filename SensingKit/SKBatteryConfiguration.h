@@ -24,6 +24,9 @@
 
 #import "SKConfiguration.h"
 
+/**
+ *  An instance of SKBatteryConfiguration can be used to configure the Battery sensor.
+ */
 @interface SKBatteryConfiguration : SKConfiguration <NSCopying>
 
 @end

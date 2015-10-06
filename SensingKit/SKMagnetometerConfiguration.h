@@ -24,6 +24,9 @@
 
 #import "SKSampleRateConfiguration.h"
 
+/**
+ *  An instance of SKMagnetometerConfiguration can be used to configure the Magnetometer sensor.
+ */
 @interface SKMagnetometerConfiguration : SKSampleRateConfiguration <NSCopying>
 
 @end

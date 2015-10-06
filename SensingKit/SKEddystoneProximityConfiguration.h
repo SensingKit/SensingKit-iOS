@@ -24,16 +24,30 @@
 
 #import "SKConfiguration.h"
 
-typedef NS_ENUM(NSUInteger, SKEddystoneProximityMode)
-{
+/**
+ *  These constants indicate the mode of the Eddystone™ Proximity sensor. At this moment, only Scan mode is supported.
+ */
+typedef NS_ENUM(NSUInteger, SKEddystoneProximityMode){
+    /**
+     *  Scan only mode ranges for other Eddystone™ beacons existing in range.
+     */
     SKEddystoneProximityModeScanOnly = 0
-    // Broadcast mode is not supported at the moment
 };
 
+
+/**
+ *  An instance of SKEddystoneProximityConfiguration can be used to configure the Eddystone™ Proximity sensor.
+ */
 @interface SKEddystoneProximityConfiguration : SKConfiguration <NSCopying>
 
+/**
+ *  <#Description#>
+ */
 @property (nonatomic) SKEddystoneProximityMode mode;
 
+/**
+ *  <#Description#>
+ */
 @property (nonatomic, copy) NSString *namespaceFilter;
 
 @end

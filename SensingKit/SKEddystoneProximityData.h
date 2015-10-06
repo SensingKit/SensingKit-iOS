@@ -24,19 +24,53 @@
 
 #import "SKSensorData.h"
 
+/**
+ *  An instance of SKEddystoneProximityData encapsulates measurements related to the Eddystone™ Proximity sensor.
+ */
 @interface SKEddystoneProximityData : SKSensorData
 
-@property (nonatomic, readonly, copy) NSString *namespaceId;
-@property (nonatomic, readonly) NSUInteger instanceId;
-@property (nonatomic, readonly) NSInteger rssi;
-@property (nonatomic, readonly) NSInteger txPower;
-
+/**
+ *  Returns an SKEddystoneProximityData object, initialized with the time the data log was captured, its namespace and instance identifiers, as well as its rssi and txPower.
+ *
+ *  @param timestamp   The time that this data log was captured.
+ *  @param namespaceId A 10-byte (80 bit) identifier that can used to group a particular set of beacons. This value should be in Hexadecimal format, with a maximum character length of 20 characters.
+ *  @param instanceId  A 6-byte (48 bit) unsigned integer that is used to identify individual devices inside the namespace group. It ranges between 0 and 281474976710655.
+ *  @param rssi        The strength of the signal (Received Signal Strength Indication).
+ *  @param txPower     The strength of the signal measured at a distance of 1 meter.
+ *
+ *  @return An SKEddystoneProximityData object.
+ */
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
                   withNamespaceId:(NSString *)namespaceId
                    withInstanceId:(NSUInteger)instanceId
                          withRssi:(NSInteger)rssi
                       withTxPower:(NSInteger)txPower NS_DESIGNATED_INITIALIZER;
 
+/**
+ *  A 10-byte (80 bit) identifier that can used to group a particular set of beacons. This value should be in Hexadecimal format, with a maximum character length of 20 characters.
+ */
+@property (nonatomic, readonly, copy) NSString *namespaceId;
+
+/**
+ *  A 6-byte (48 bit) unsigned integer that is used to identify individual devices inside the namespace group. It ranges between 0 and 281474976710655.
+ */
+@property (nonatomic, readonly) NSUInteger instanceId;
+
+/**
+ *  The strength of the signal (Received Signal Strength Indication).
+ */
+@property (nonatomic, readonly) NSInteger rssi;
+
+/**
+ *  The strength of the signal measured at a distance of 1 meter.
+ */
+@property (nonatomic, readonly) NSInteger txPower;
+
+/**
+ *  A string with a CSV formatted header that describes the data of the Eddystone™ Proximity sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *
+ *  @return A string with a CSV header.
+ */
 + (NSString *)csvHeader;
 
 @end

@@ -26,14 +26,23 @@
 #import "SKSensorData.h"
 @import CoreLocation;
 
+/**
+ *  An instance of SKiBeaconDeviceData encapsulates measurements related to the iBeacon™ Proximity sensor. For more information about iBeacon™ technology, please refer to Apple's Getting Started with iBeacon documentation.
+ */
 @interface SKiBeaconDeviceData : SKSensorData
 
-@property (nonatomic, readonly) NSUInteger major;
-@property (nonatomic, readonly) NSUInteger minor;
-@property (nonatomic, readonly) CLLocationAccuracy accuracy;
-@property (nonatomic, readonly) CLProximity proximity;
-@property (nonatomic, readonly) NSInteger rssi;
-
+/**
+ *  Returns an SKiBeaconDeviceData object, initialized with the time the device was found, its major and minor identifiers, as well as its accuracy, proximity and RSSI.
+ *
+ *  @param timestamp The time that this data log was captured.
+ *  @param major     A 16-bit unsigned integer identifier used to identify each device uniquelly. It ranges between 0 and 65535.
+ *  @param minor     A 16-bit unsigned integer identifier used to identify each device uniquelly. It ranges between 0 and 65535.
+ *  @param accuracy  A double value that represents the accuracy of the device's proximity in meters.
+ *  @param proximity The proximity of the device classified as Immediate, Near, Far or Unknown.
+ *  @param rssi      The strength of the signal (Received Signal Strength Indication).
+ *
+ *  @return An SKiBeaconDeviceData object.
+ */
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
                         withMajor:(NSUInteger)major
                         withMinor:(NSUInteger)minor
@@ -41,8 +50,41 @@
                     withProximity:(CLProximity)proximity
                          withRssi:(NSInteger)rssi NS_DESIGNATED_INITIALIZER;
 
-+ (NSString *)csvHeader;
+/**
+ *  A 16-bit unsigned integer identifier used to identify each device uniquelly. It ranges between 0 and 65535. This identifier can be used in combination with the minor identifier.
+ */
+@property (nonatomic, readonly) NSUInteger major;
 
+/**
+ *  A 16-bit unsigned integer identifier used to identify each device uniquelly. It ranges between 0 and 65535. This identifier can be used in combination with the major identifier.
+ */
+@property (nonatomic, readonly) NSUInteger minor;
+
+/**
+ *  A double value that represents the accuracy of the device's proximity in meters.
+ */
+@property (nonatomic, readonly) CLLocationAccuracy accuracy;
+
+/**
+ *  The proximity of the device classified as Immediate, Near, Far or Unknown.
+ */
+@property (nonatomic, readonly) CLProximity proximity;
+
+/**
+ *  A string representation of the proximity, classified as Immediate, Near, Far or Unknown.
+ */
 @property (nonatomic, readonly, copy) NSString *proximityString;
+
+/**
+ *  The strength of the signal (Received Signal Strength Indication).
+ */
+@property (nonatomic, readonly) NSInteger rssi;
+
+/**
+ *  A string with a CSV formatted header that describes the data of the iBeacon™ Proximity sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *
+ *  @return A string with a CSV header.
+ */
++ (NSString *)csvHeader;
 
 @end

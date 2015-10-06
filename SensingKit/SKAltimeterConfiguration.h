@@ -24,6 +24,9 @@
 
 #import "SKConfiguration.h"
 
+/**
+ *  An instance of SKAltimeterConfiguration can be used to configure the Altimeter sensor.
+ */
 @interface SKAltimeterConfiguration : SKConfiguration <NSCopying>
 
 @end

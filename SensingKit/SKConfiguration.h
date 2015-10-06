@@ -22,6 +22,9 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+/**
+ *  This is the base class for all Sensor Configuration objects.
+ */
 @interface SKConfiguration : NSObject <NSCopying>
 
 @end

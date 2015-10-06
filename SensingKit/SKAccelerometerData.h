@@ -25,12 +25,30 @@
 #import "SKSensorData.h"
 @import CoreMotion;
 
+/**
+ *  An instance of SKAccelerometerData encapsulates measurements related to the Accelerometer sensor.
+ */
 @interface SKAccelerometerData : SKSensorData
 
-@property (nonatomic, readonly) CMAcceleration acceleration;
-
+/**
+ *  Returns an SKAccelerometerData object, initialized with a CMAccelerometerData structure.
+ *
+ *  @param accelerometerData A structure that contains 3-axis acceleration data.
+ *
+ *  @return An SKAccelerometerData object.
+ */
 - (instancetype)initWithAccelerometerData:(CMAccelerometerData *)accelerometerData NS_DESIGNATED_INITIALIZER;
 
+/**
+ *  A structure that contains 3-axes acceleration values.
+ */
+@property (nonatomic, readonly) CMAcceleration acceleration;
+
+/**
+ *  A string with a CSV formatted header that describes the data of the Accelerometer sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *
+ *  @return A string with a CSV header.
+ */
 + (NSString *)csvHeader;
 
 @end

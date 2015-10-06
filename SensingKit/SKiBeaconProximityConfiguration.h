@@ -25,25 +25,25 @@
 #import "SKConfiguration.h"
 
 /**
- *  <#Description#>
+ *  These constants indicate the mode of the iBeacon™ Proximity sensor.
  */
 typedef NS_ENUM(NSUInteger, SKiBeaconProximityMode){
     /**
-     *  <#Description#>
+     *  Scan only mode ranges for other iBeacons registered to the same UUID that exist in range.
      */
     SKiBeaconProximityModeScanOnly = 0,
     /**
-     *  <#Description#>
+     *  Broadcast only mode broadcasts an iBeacon™ signal to nearby devices.
      */
     SKiBeaconProximityModeBroadcastOnly,
     /**
-     *  <#Description#>
+     *  This mode both ranges and broadcasts an iBeacon™ signal at the same time.
      */
     SKiBeaconProximityModeScanAndBroadcast
 };
 
 /**
- *  <#Description#>
+ *  An instance of SKiBeaconProximityConfiguration can be used to configure the iBeacon™ Proximity sensor.
  */
 @interface SKiBeaconProximityConfiguration : SKConfiguration <NSCopying>
 

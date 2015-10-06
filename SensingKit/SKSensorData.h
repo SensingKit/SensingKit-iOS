@@ -27,17 +27,40 @@
 #import "SKSensorTimestamp.h"
 #import "NSString+SensorType.h"
 
+/**
+ *  This is the base class for all Sensor Data objects. A subclass of SKSensorData object is delivered through the SKSensorDataHandler, combined with the related SKSensorType.
+ */
 @interface SKSensorData : NSObject
 
+/**
+ *  Returns an SKSensorData object, initialized with the given SKSensorType and SKSensorTimestamp.
+ *
+ *  @param sensorType The type of the sensor that produced this data object.
+ *  @param timestamp  The time were this data log was captured.
+ *
+ *  @return A new SKSensorData object.
+ */
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
                      withTimestamp:(SKSensorTimestamp *)timestamp;
 
+/**
+ *  The type of the sensor that produced this data object.
+ */
 @property (nonatomic, readonly) SKSensorType sensorType;
 
+/**
+ *  The time were this data log was captured.
+ */
 @property (nonatomic, readonly, copy) SKSensorTimestamp *timestamp;
 
+/**
+ *  Returns a string with all the sensor data elements into CSV format. For a description of the element types, sensor class method csvHeader can be used.
+ */
 @property (nonatomic, readonly, copy) NSString *csvString;
 
+/**
+ *  Returns a dictionary that encapsulates all the sensor data elements.
+ */
 @property (nonatomic, readonly, copy) NSDictionary *dictionaryData;
 
 @end
