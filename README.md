@@ -11,7 +11,7 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 - Gyroscope
 - Magnetometer
 - Device Motion (senses Attitude, Gravity, User Acceleration, Magnetic Field, Rotation)
-- Activity
+- Motion Activity
 - Pedometer
 - Altimeter
 - Battery
