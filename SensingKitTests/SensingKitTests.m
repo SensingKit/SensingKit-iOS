@@ -58,7 +58,7 @@
     XCTAssertTrue([[NSString stringWithSensorType:Gyroscope]          isEqualToString:@"Gyroscope"],          @"Sensor name is wrong.");
     XCTAssertTrue([[NSString stringWithSensorType:Magnetometer]       isEqualToString:@"Magnetometer"],       @"Sensor name is wrong.");
     XCTAssertTrue([[NSString stringWithSensorType:DeviceMotion]       isEqualToString:@"DeviceMotion"],       @"Sensor name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorType:Activity]           isEqualToString:@"Activity"],           @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString stringWithSensorType:MotionActivity]     isEqualToString:@"MotionActivity"],     @"Sensor name is wrong.");
     XCTAssertTrue([[NSString stringWithSensorType:Pedometer]          isEqualToString:@"Pedometer"],          @"Sensor name is wrong.");
     XCTAssertTrue([[NSString stringWithSensorType:Altimeter]          isEqualToString:@"Altimeter"],          @"Sensor name is wrong.");
     XCTAssertTrue([[NSString stringWithSensorType:Battery]            isEqualToString:@"Battery"],            @"Sensor name is wrong.");
@@ -104,7 +104,7 @@
     [self.sensingKit registerSensor:Gyroscope];
     [self.sensingKit registerSensor:Magnetometer];
     [self.sensingKit registerSensor:DeviceMotion];
-    [self.sensingKit registerSensor:Activity];
+    [self.sensingKit registerSensor:MotionActivity];
     [self.sensingKit registerSensor:Pedometer];
     [self.sensingKit registerSensor:Altimeter];
     [self.sensingKit registerSensor:Battery];
@@ -118,7 +118,7 @@
     [self.sensingKit deregisterSensor:Gyroscope];
     [self.sensingKit deregisterSensor:Magnetometer];
     [self.sensingKit deregisterSensor:DeviceMotion];
-    [self.sensingKit deregisterSensor:Activity];
+    [self.sensingKit deregisterSensor:MotionActivity];
     [self.sensingKit deregisterSensor:Pedometer];
     [self.sensingKit deregisterSensor:Altimeter];
     [self.sensingKit deregisterSensor:Battery];

@@ -31,7 +31,7 @@
 #import "SKGyroscope.h"
 #import "SKMagnetometer.h"
 #import "SKDeviceMotion.h"
-#import "SKActivity.h"
+#import "SKMotionActivity.h"
 #import "SKPedometer.h"
 #import "SKAltimeter.h"
 #import "SKBattery.h"
@@ -45,7 +45,7 @@
 #import "SKGyroscopeData.h"
 #import "SKMagnetometerData.h"
 #import "SKDeviceMotionData.h"
-#import "SKActivityData.h"
+#import "SKMotionActivityData.h"
 #import "SKPedometerData.h"
 #import "SKAltimeterData.h"
 #import "SKBatteryData.h"
@@ -59,7 +59,7 @@
 #import "SKGyroscopeConfiguration.h"
 #import "SKMagnetometerConfiguration.h"
 #import "SKDeviceMotionConfiguration.h"
-#import "SKActivityConfiguration.h"
+#import "SKMotionActivityConfiguration.h"
 #import "SKPedometerConfiguration.h"
 #import "SKAltimeterConfiguration.h"
 #import "SKBatteryConfiguration.h"
@@ -111,8 +111,8 @@
         case DeviceMotion:
             return [SKDeviceMotion isSensorAvailable];
             
-        case Activity:
-            return [SKActivity isSensorAvailable];
+        case MotionActivity:
+            return [SKMotionActivity isSensorAvailable];
             
         case Pedometer:
             return [SKPedometer isSensorAvailable];
@@ -247,8 +247,8 @@
         case DeviceMotion:
             return [SKDeviceMotionData csvHeader];
             
-        case Activity:
-            return [SKActivityData csvHeader];
+        case MotionActivity:
+            return [SKMotionActivityData csvHeader];
             
         case Pedometer:
             return [SKPedometerData csvHeader];
@@ -369,8 +369,8 @@
             sensor = [[SKDeviceMotion alloc] initWithConfiguration:(SKDeviceMotionConfiguration *)configuration];
             break;
             
-        case Activity:
-            sensor = [[SKActivity alloc] initWithConfiguration:(SKActivityConfiguration *)configuration];
+        case MotionActivity:
+            sensor = [[SKMotionActivity alloc] initWithConfiguration:(SKMotionActivityConfiguration *)configuration];
             break;
             
         case Pedometer:
@@ -433,8 +433,8 @@
             configuration = [[SKDeviceMotionConfiguration alloc] init];
             break;
             
-        case Activity:
-            configuration = [[SKActivityConfiguration alloc] init];
+        case MotionActivity:
+            configuration = [[SKMotionActivityConfiguration alloc] init];
             break;
             
         case Pedometer:

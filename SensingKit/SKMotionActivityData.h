@@ -1,5 +1,5 @@
 //
-//  SKActivityData.h
+//  SKMotionActivityData.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -28,23 +28,23 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKActivityData encapsulates measurements related to the Activity sensor. Activity is classified between Stationary, Walking, Running, Automotive, Cycling and Unknown.
+ *  An instance of SKMotionActivityData encapsulates measurements related to the Motion Activity sensor. Activity is classified between Stationary, Walking, Running, Automotive, Cycling and Unknown.
  */
-@interface SKActivityData : SKSensorData
+@interface SKMotionActivityData : SKSensorData
 
 /**
- *  Returns an SKActivityData object, initialized with an instance of CMMotionActivity.
+ *  Returns an SKMotionActivityData object, initialized with an instance of CMMotionActivity.
  *
  *  @param activity <#activity description#>
  *
- *  @return An SKActivityData object.
+ *  @return An SKMotionActivityData object.
  */
-- (instancetype)initWithActivity:(CMMotionActivity *)activity NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithMotionActivity:(CMMotionActivity *)motionActivity NS_DESIGNATED_INITIALIZER;
 
 /**
  *  <#Description#>
  */
-@property (nonatomic, readonly, copy) CMMotionActivity *activity;
+@property (nonatomic, readonly, copy) CMMotionActivity *motionActivity;
 
 /**
  *  Start date that the activity data are valid.

@@ -1,5 +1,5 @@
 //
-//  SKActivity.h
+//  SKMotionActivity.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -23,15 +23,15 @@
 //
 
 #import "SKAbstractSensor.h"
-#import "SKActivityConfiguration.h"
+#import "SKMotionActivityConfiguration.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SKActivity : SKAbstractSensor
+@interface SKMotionActivity : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKActivityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithConfiguration:(SKMotionActivityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
 

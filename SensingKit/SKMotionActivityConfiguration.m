@@ -1,5 +1,5 @@
 //
-//  SKActivityConfiguration.m
+//  SKMotionActivityConfiguration.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,9 +22,9 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKActivityConfiguration.h"
+#import "SKMotionActivityConfiguration.h"
 
-@implementation SKActivityConfiguration
+@implementation SKMotionActivityConfiguration
 
 - (instancetype)init
 {
@@ -37,7 +37,7 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    SKActivityConfiguration *configuration = [super copyWithZone:zone];
+    SKMotionActivityConfiguration *configuration = [super copyWithZone:zone];
     
     return configuration;
 }

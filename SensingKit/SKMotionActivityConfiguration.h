@@ -1,5 +1,5 @@
 //
-//  SKActivityConfiguration.h
+//  SKMotionActivityConfiguration.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -27,9 +27,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKActivityConfiguration can be used to configure the Activity sensor.
+ *  An instance of SKMotionActivityConfiguration can be used to configure the Activity sensor.
  */
-@interface SKActivityConfiguration : SKConfiguration <NSCopying>
+@interface SKMotionActivityConfiguration : SKConfiguration <NSCopying>
 
 @end
 

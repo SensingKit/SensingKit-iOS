@@ -53,9 +53,9 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     DeviceMotion,
     
     /**
-     *  Activity sensor uses an embedded motion co‑processor that senses the user’s activity classified as Stationary, Walking, Running, Automotive or Cycling.
+     *  Motion Activity sensor uses an embedded motion co‑processor that senses the user’s activity classified as Stationary, Walking, Running, Automotive or Cycling.
      */
-    Activity,
+    MotionActivity,
     
     /**
      *  Pedometer sensor uses an embedded motion co‑processor that captures pedestrian‑related data such as step counts, distance traveled and number of floors ascended or descended.

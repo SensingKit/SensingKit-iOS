@@ -9,6 +9,7 @@
 - Added support for Microphone sensor.
 - Added currentPace and currentCadence in PedometerData (iOS 9 only)
 - SensorModules have been renamed into Sensors.
+- Activity sensor has been renamed into MotionActivity.
 
 ### 0.3.0 (August 29, 2015)
 - Added support for Pedometer sensor.
