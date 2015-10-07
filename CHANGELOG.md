@@ -3,7 +3,8 @@
 ### 0.4.0
 - Added Documentation using appledoc generator.
 - Added support for iOS 9.
-- Added support for Swift language
+- Added support for iOS 9 App Slicing.
+- Added support for Swift 2 language
 - Updated SensingKit-iOS API.
 - Added Configuration for all sensors.
 - Added support for Microphone sensor.
