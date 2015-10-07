@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Returns an SKMotionActivityData object, initialized with an instance of CMMotionActivity.
  *
- *  @param activity <#activity description#>
+ *  @param motionActivity <#activity description#>
  *
  *  @return An SKMotionActivityData object.
  */
