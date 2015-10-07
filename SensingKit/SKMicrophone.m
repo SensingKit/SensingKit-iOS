@@ -102,11 +102,13 @@
             NSLog(@"Error: %@", error.localizedDescription);
         }
         
+        #if !TARGET_IPHONE_SIMULATOR
         if (![self.recorder prepareToRecord])
         {
             NSLog(@"Recording using Microphone sensor could not be initialized.");
             // TODO: In the future, report this as NSError.
         }
+        #endif
     }
 }
 
