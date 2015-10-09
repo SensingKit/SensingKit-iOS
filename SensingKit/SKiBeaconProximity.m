@@ -50,10 +50,11 @@
 
 - (instancetype)initWithConfiguration:(SKiBeaconProximityConfiguration *)configuration
 {
-    if (self = [super initWithConfiguration:configuration])
+    if (self = [super init])
     {
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
+        self.configuration = configuration;
     }
     return self;
 }

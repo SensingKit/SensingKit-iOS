@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKPedometerConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithConfiguration:(SKPedometerConfiguration *)configuration;
 
 @end
 

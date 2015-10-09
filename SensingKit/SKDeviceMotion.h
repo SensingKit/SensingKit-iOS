@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKDeviceMotionConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithConfiguration:(SKDeviceMotionConfiguration *)configuration;
 
 @end
 

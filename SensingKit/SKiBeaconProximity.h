@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isSensorAvailable;
 
-- (instancetype)initWithConfiguration:(SKiBeaconProximityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithConfiguration:(SKiBeaconProximityConfiguration *)configuration;
 
 @end
 

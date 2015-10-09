@@ -38,9 +38,10 @@
 
 - (instancetype)initWithConfiguration:(SKMagnetometerConfiguration *)configuration
 {
-    if (self = [super initWithConfiguration:configuration])
+    if (self = [super init])
     {
         self.motionManager = [SKMotionManager sharedMotionManager];
+        self.configuration = configuration;
     }
     return self;
 }

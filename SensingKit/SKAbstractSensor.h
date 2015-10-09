@@ -36,8 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) SKSensorType sensorType;
 @property (nonatomic, readonly, getter=isSensing) BOOL sensing;
 
-- (instancetype)initWithConfiguration:(SKConfiguration *)configuration;
-
 - (void)subscribeHandler:(SKSensorDataHandler)handler;
 
 - (void)unsubscribeHandler:(SKSensorDataHandler)handler;

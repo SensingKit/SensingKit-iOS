@@ -39,9 +39,10 @@
 
 - (instancetype)initWithConfiguration:(SKPedometerConfiguration *)configuration
 {
-    if (self = [super initWithConfiguration:configuration])
+    if (self = [super init])
     {
         self.pedometer = [[CMPedometer alloc] init];
+        self.configuration = configuration;
     }
     return self;
 }

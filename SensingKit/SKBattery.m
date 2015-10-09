@@ -30,7 +30,7 @@
 
 - (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration
 {
-    if (self = [super initWithConfiguration:configuration])
+    if (self = [super init])
     {
         // Register for battery level and state change notifications.
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -40,6 +40,8 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(batteryStateChanged:)
                                                      name:UIDeviceBatteryStateDidChangeNotification object:nil];
+        
+        self.configuration = configuration;
     }
     return self;
 }

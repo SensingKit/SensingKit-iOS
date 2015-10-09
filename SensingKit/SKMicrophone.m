@@ -38,7 +38,7 @@
 
 - (instancetype)initWithConfiguration:(SKMicrophoneConfiguration *)configuration
 {
-    if (self = [super initWithConfiguration:configuration])
+    if (self = [super init])
     {
         AVAudioSession *audioSession = [AVAudioSession sharedInstance];
         
@@ -68,6 +68,8 @@
                 }
             }];
         }
+        
+        self.configuration = configuration;
     }
     return self;
 }
