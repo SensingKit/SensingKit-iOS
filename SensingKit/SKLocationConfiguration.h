@@ -59,10 +59,6 @@ typedef NS_ENUM(NSUInteger, SKLocationAccuracy){
  */
 typedef NS_ENUM(NSUInteger, SKLocationAuthorization){
     /**
-     *  This mode indicates that there is no authorization for acquiring the location of the device. Location sensor cannot be started with this authorization.
-     */
-    SKLocationAuthorizationNone = 0,
-    /**
      *  Location can be acquired only when the app is running in the foreground.
      */
     SKLocationAuthorizationWhenInUse,

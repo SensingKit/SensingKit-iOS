@@ -34,7 +34,7 @@
     {
         // Set default values
         _locationAccuracy = SKLocationAccuracyBest;
-        _locationAuthorization = SKLocationAuthorizationNone;
+        _locationAuthorization = SKLocationAuthorizationWhenInUse;
         _distanceFilter = kCLDistanceFilterNone;
     }
     return self;
