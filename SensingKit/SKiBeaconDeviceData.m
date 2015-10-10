@@ -79,7 +79,7 @@
             (unsigned long)_major,
             (unsigned long)_minor,
             _accuracy,
-            [self proximityString],
+            self.proximityString,
             (long)_rssi];
 }
 

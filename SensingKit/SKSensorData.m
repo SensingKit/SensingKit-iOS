@@ -51,7 +51,7 @@
 
 - (NSString *)description
 {
-    return [self csvString];
+    return self.csvString;
 }
 
 @end

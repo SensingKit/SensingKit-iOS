@@ -55,7 +55,7 @@
     NSMutableArray *dictionaries = [[NSMutableArray alloc] initWithCapacity:self.devices.count];
     
     for (SKSensorData *device in self.devices) {
-        [dictionaries addObject:[device dictionaryData]];
+        [dictionaries addObject:device.dictionaryData];
     }
     
     return @{

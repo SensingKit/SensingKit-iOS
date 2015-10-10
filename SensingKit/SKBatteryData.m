@@ -68,7 +68,7 @@
     return [NSString stringWithFormat:@"\"%@\",%f,%@,%f",
             self.timestamp.timestampString,
             self.timestamp.timeIntervalSince1970,
-            [self stateString],
+            self.stateString,
             _level];
 }
 
