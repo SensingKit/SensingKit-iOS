@@ -42,6 +42,7 @@
     if (self = [super init])
     {
         self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.pausesLocationUpdatesAutomatically = NO;
         self.locationManager.delegate = self;
         self.configuration = configuration;
     }
