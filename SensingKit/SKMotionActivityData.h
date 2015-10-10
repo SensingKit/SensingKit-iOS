@@ -32,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKMotionActivityData : SKSensorData
 
+/*! @abstract Use initWithMotionActivity: to init. */
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  *  Returns an SKMotionActivityData object, initialized with an instance of CMMotionActivity.
  *

@@ -65,7 +65,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SensingKitLib : NSObject
 
-- (instancetype)init __attribute__((unavailable("Use [SensingKitLib sharedSensingKitLib] instead.")));
+/*! @abstract Use [SensingKitLib sharedSensingKitLib] to init. */
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  *  Returns the shared `SensingKitLib` instance, creating it if necessary.

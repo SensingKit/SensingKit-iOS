@@ -71,6 +71,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKMicrophoneConfiguration : SKConfiguration <NSCopying>
 
+/*! @abstract Use initWithOutputDirectory:withFilename: to init. */
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  *  <#Description#>
  *

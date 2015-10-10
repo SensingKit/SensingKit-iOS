@@ -31,7 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKSensorTimestamp : NSObject <NSCopying>
 
-- (instancetype)init __attribute__((unavailable("Use [SKSensorTimestamp sensorTimestampFromDate:] or [SKSensorTimestamp sensorTimestampFromTimeInterval:] instead.")));
+/*! @abstract Use [SKSensorTimestamp sensorTimestampFromDate:] or [SKSensorTimestamp sensorTimestampFromTimeInterval:] to init. */
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  *  Creates and returns a new SKSensorTimestamp from an NSDate object. If the sensor does not provide an NSDate object, [NSDate date] can be used.

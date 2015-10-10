@@ -30,7 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SKMotionManager : NSObject
 
-- (instancetype)init __attribute__((unavailable("Use [SKMotionManager sharedMotionManager] instead.")));
+/*! @abstract Use [SKMotionManager sharedMotionManager] instead. */
+- (instancetype)init NS_UNAVAILABLE;
 
 + (CMMotionManager *)sharedMotionManager;
 

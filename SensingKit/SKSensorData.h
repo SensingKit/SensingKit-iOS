@@ -34,6 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKSensorData : NSObject
 
+/*! @abstract Use initWithSensorType:withTimestamp: to init. */
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  *  Returns an SKSensorData object, initialized with the given SKSensorType and SKSensorTimestamp.
  *

@@ -49,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKiBeaconProximityConfiguration : SKConfiguration <NSCopying>
 
+/*! @abstract Use initWithUUID: to init. */
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  *  <#Description#>
  *

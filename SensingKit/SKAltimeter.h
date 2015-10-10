@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)isSensorAvailable;
 
+/*! @abstract Use initWithConfiguration: to init. */
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithConfiguration:(SKAltimeterConfiguration *)configuration;
 
 @end

@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKDeviceMotionData : SKSensorData
 
+/*! @abstract Use initWithDeviceMotion: to init. */
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  *  Returns an SKDeviceMotionData object, initialized with a CMDeviceMotion object.
  *

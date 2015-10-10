@@ -32,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKLocationData : SKSensorData
 
+/*! @abstract Use initWithLocation: to init. */
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  *  Returns an SKLocationData object, initialized with an instance of CLLocation.
  *

@@ -32,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKAltimeterData : SKSensorData
 
+/*! @abstract Use initWithAltitudeData: to init. */
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  *  Returns an SKAltimeterData object, initialized with an instance of CMAltitudeData.
  *

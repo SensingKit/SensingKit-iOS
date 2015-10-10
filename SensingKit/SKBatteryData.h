@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKBatteryData : SKSensorData
 
+/*! @abstract Use initWithLevel:withState: to init. */
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  *  Returns an SKBatteryData object, initialized with measurements of the battery level, as well as the battery state.
  *

@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKiBeaconDeviceData : SKSensorData
 
+/*! @abstract Use initWithTimestamp:withMajor:withMinor:withAccuracy:withProximity:withRssi to init. */
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
  *  Returns an SKiBeaconDeviceData object, initialized with the time the device was found, its major and minor identifiers, as well as its accuracy, proximity and RSSI.
  *
