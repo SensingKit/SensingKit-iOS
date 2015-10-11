@@ -1,5 +1,17 @@
 # Changelog
 
+### 0.4.0 (October 11, 2015)
+- Added Documentation using appledoc generator.
+- Added support for iOS 9.
+- Added support for iOS 9 App Slicing.
+- Added support for Swift 2 language
+- Updated SensingKit-iOS API.
+- Added Configuration for all sensors.
+- Added support for Microphone sensor.
+- Added currentPace and currentCadence in PedometerData (iOS 9 only)
+- SensorModules have been renamed into Sensors.
+- Activity sensor has been renamed into MotionActivity.
+
 ### 0.3.0 (August 29, 2015)
 - Added support for Pedometer sensor.
 - Added support for Altimeter sensor.

@@ -1,5 +1,5 @@
 //
-//  SKSensorModuleType.h
+//  SKGyroscopeConfiguration.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,17 +22,24 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-typedef NS_ENUM(NSUInteger, SKSensorModuleType)
+#import "SKGyroscopeConfiguration.h"
+
+@implementation SKGyroscopeConfiguration
+
+- (instancetype)init
 {
-    Accelerometer = 0,
-    Gyroscope,
-    Magnetometer,
-    DeviceMotion,
-    Activity,
-    Pedometer,
-    Altimeter,
-    Battery,
-    Location,
-    iBeaconProximity,
-    EddystoneProximity
-};
+    if (self = [super init])
+    {
+        // Set default values
+    }
+    return self;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKGyroscopeConfiguration *configuration = [super copyWithZone:zone];
+    
+    return configuration;
+}
+
+@end

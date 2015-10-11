@@ -28,8 +28,8 @@
 
 - (instancetype)initWithGyroData:(CMGyroData *)gyroData
 {
-    if (self = [super initWithSensorModuleType:Gyroscope
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:gyroData.timestamp]])
+    if (self = [super initWithSensorType:Gyroscope
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:gyroData.timestamp]])
     {
         _rotationRate = gyroData.rotationRate;
     }
@@ -54,8 +54,8 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"timestamp": self.timestamp.timestampDictionary,
              @"rotationRate": @{
                      @"x": @(_rotationRate.x),

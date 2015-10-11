@@ -1,5 +1,5 @@
 //
-//  SKAbstractSensorModule.h
+//  SKBatteryConfiguration.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,25 +22,15 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
-#import "SKSensorModuleType.h"
-#import "SKSensorDataListener.h"
+#import "SKConfiguration.h"
 
-@interface SKAbstractSensorModule : NSObject
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, readonly) SKSensorModuleType moduleType;
-@property (nonatomic, readonly, getter=isSensing) BOOL sensing;
-
-- (void)subscribeSensorDataListener:(SKSensorDataHandler)handler;
-
-- (void)unsubscribeSensorDataListener:(SKSensorDataHandler)handler;
-
-- (void)unsubscribeAllSensorDataListeners;
-
-- (void)startSensing;
-
-- (void)stopSensing;
-
-- (void)submitSensorData:(SKSensorData *)data;
+/**
+ *  An instance of SKBatteryConfiguration can be used to configure the Battery sensor. No configuration is available at this moment.
+ */
+@interface SKBatteryConfiguration : SKConfiguration <NSCopying>
 
 @end
+
+NS_ASSUME_NONNULL_END

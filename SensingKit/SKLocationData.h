@@ -25,12 +25,39 @@
 #import "SKSensorData.h"
 @import CoreLocation;
 
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  An instance of SKLocationData encapsulates measurements related to the Location sensor.
+ */
 @interface SKLocationData : SKSensorData
 
-@property (nonatomic, strong, readonly) CLLocation *location;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithLocation:(CLLocation *)location;
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
+/**
+ *  Returns an SKLocationData object, initialized with an instance of CLLocation.
+ *
+ *  @param location A CLLocation object that contains Location related data.
+ *
+ *  @return An SKLocationData object.
+ */
+- (instancetype)initWithLocation:(CLLocation *)location NS_DESIGNATED_INITIALIZER;
+
+/**
+ *  A CLLocation object contains data related to the location of the device, as well as the accuracy of the measurements. More specifically it provides location coordinates, altitude and the logical floor of the building that the user is located. It also provides the instantaneous speed and the course of the device when the user is moving. For more information, please refer to Apple's Core Location documentation.
+ */
+@property (nonatomic, readonly, copy) CLLocation *location;
+
+/**
+ *  A string with a CSV formatted header that describes the data of the Location sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *
+ *  @return A string with a CSV header.
+ */
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

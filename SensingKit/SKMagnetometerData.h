@@ -25,12 +25,39 @@
 #import "SKSensorData.h"
 @import CoreMotion;
 
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  An instance of SKMagnetometerData encapsulates measurements related to the Magnetometer sensor.
+ */
 @interface SKMagnetometerData : SKSensorData
 
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+
+/**
+ *  Returns an SKMagnetometerData object, initialized with a CMMagnetometerData structure.
+ *
+ *  @param magnetometerData A structure that contains 3-axis magnetometer data.
+ *
+ *  @return An SKMagnetometerData object.
+ */
+- (instancetype)initWithMagnetometerData:(CMMagnetometerData *)magnetometerData NS_DESIGNATED_INITIALIZER;
+
+/**
+ *  A structure that contains 3-axis magnetometer data.
+ */
 @property (nonatomic, readonly) CMMagneticField magneticField;
 
-- (instancetype)initWithMagnetometerData:(CMMagnetometerData *)magnetometerData;
-
+/**
+ *  A string with a CSV formatted header that describes the data of the Magnetometer sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *
+ *  @return A string with a CSV header.
+ */
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

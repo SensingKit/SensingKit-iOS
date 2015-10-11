@@ -25,12 +25,39 @@
 #import "SKSensorData.h"
 @import CoreMotion;
 
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  An instance of SKGyroscopeData encapsulates measurements related to the Gyroscope sensor.
+ */
 @interface SKGyroscopeData : SKSensorData
 
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+
+/**
+ *  Returns an SKGyroscopeData object, initialized with a CMRotationRate structure.
+ *
+ *  @param gyroData A structure that contains 3-axis rotation rate data.
+ *
+ *  @return An SKGyroscopeData object
+ */
+- (instancetype)initWithGyroData:(CMGyroData *)gyroData NS_DESIGNATED_INITIALIZER;
+
+/**
+ *  A structure that contains 3-axis rotation rate data.
+ */
 @property (nonatomic, readonly) CMRotationRate rotationRate;
 
-- (instancetype)initWithGyroData:(CMGyroData *)gyroData;
-
+/**
+ *  A string with a CSV formatted header that describes the data of the Gyroscope sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *
+ *  @return A string with a CSV header.
+ */
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

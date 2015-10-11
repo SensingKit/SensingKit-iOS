@@ -22,18 +22,19 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
-#import "SKAbstractSensorModule.h"
+#import "SKAbstractSensor.h"
+#import "SKiBeaconProximityConfiguration.h"
 
-@import CoreBluetooth;
-@import CoreLocation;
+NS_ASSUME_NONNULL_BEGIN
 
-@interface SKiBeaconProximity : SKAbstractSensorModule<CBPeripheralManagerDelegate, CLLocationManagerDelegate>
+@interface SKiBeaconProximity : SKAbstractSensor
 
-+ (BOOL)isSensorModuleAvailable;
++ (BOOL)isSensorAvailable;
 
-- (instancetype)initWithUUID:(NSUUID *)UUID
-                   withMajor:(NSUInteger)major
-                   withMinor:(NSUInteger)minor;
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithConfiguration:(SKiBeaconProximityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
+
+NS_ASSUME_NONNULL_END

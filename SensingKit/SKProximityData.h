@@ -24,14 +24,43 @@
 
 #import "SKSensorData.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  An instance of SKProximityData encapsulates an array of Device Data (e.g. SKiBeaconDeviceData).
+ */
 @interface SKProximityData : SKSensorData
 
-@property (nonatomic, strong, readonly) NSArray *devices;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
-                           withTimestamp:(NSDate *)timestamp
-                             withDevices:(NSArray *)devices;
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
-+ (NSString *)csvHeader;
+/**
+ *  Returns an SKProximityData object, initialized with an array of Device Data objects as well as the time that the scan was completed.
+ *
+ *  @param sensorType The type of the sensor that produced this data object.
+ *  @param timestamp  The time that this data log was captured.
+ *  @param devices    An array that holds the Device Data objects.
+ *
+ *  @return An SKProximityData object.
+ */
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(NSDate *)timestamp
+                       withDevices:(NSArray *)devices NS_DESIGNATED_INITIALIZER;
+
+/**
+ *  An array that holds the Device Data objects.
+ */
+@property (nonatomic, readonly, copy) NSArray *devices;
+
+/**
+ *  As the CSV header depends on the encapsulated Device Data objects, this method always returns nil.
+ *
+ *  @return Always nil.
+ */
++ (nullable NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

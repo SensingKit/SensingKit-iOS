@@ -1,5 +1,5 @@
 //
-//  NSString+SensorModuleType.h
+//  SKMotionActivity.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,11 +22,19 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
-#import "SKSensorModuleType.h"
+#import "SKAbstractSensor.h"
+#import "SKMotionActivityConfiguration.h"
 
-@interface NSString (SKSensorModuleType)
+NS_ASSUME_NONNULL_BEGIN
 
-+ (NSString *)stringWithSensorModuleType:(SKSensorModuleType)moduleType;
+@interface SKMotionActivity : SKAbstractSensor
+
++ (BOOL)isSensorAvailable;
+
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithConfiguration:(SKMotionActivityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
+
+NS_ASSUME_NONNULL_END

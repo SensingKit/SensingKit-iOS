@@ -22,10 +22,19 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKAbstractSensorModule.h"
+#import "SKAbstractSensor.h"
+#import "SKAltimeterConfiguration.h"
 
-@interface SKAltimeter : SKAbstractSensorModule
+NS_ASSUME_NONNULL_BEGIN
 
-+ (BOOL)isSensorModuleAvailable;
+@interface SKAltimeter : SKAbstractSensor
+
++ (BOOL)isSensorAvailable;
+
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithConfiguration:(SKAltimeterConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
+
+NS_ASSUME_NONNULL_END

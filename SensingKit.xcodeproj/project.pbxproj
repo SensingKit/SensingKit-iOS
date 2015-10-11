@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -19,15 +19,26 @@
 			name = Framework;
 			productName = Framework;
 		};
+		CFBDACD31BB95F46000C87AB /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CFBDACD61BB95F46000C87AB /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				CFBDACD81BB95F8E000C87AB /* Build Documentation */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		CF11F8821B2C6D7D0094C9DF /* SKSensorModuleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8811B2C6D7D0094C9DF /* SKSensorModuleManager.m */; };
-		CF11F8851B2C7CFE0094C9DF /* SKAbstractSensorModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8841B2C7CFE0094C9DF /* SKAbstractSensorModule.m */; };
+		CF11F8821B2C6D7D0094C9DF /* SKSensorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8811B2C6D7D0094C9DF /* SKSensorManager.m */; };
+		CF11F8851B2C7CFE0094C9DF /* SKAbstractSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8841B2C7CFE0094C9DF /* SKAbstractSensor.m */; };
 		CF11F8881B2D8D370094C9DF /* SKSensorData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8871B2D8D370094C9DF /* SKSensorData.m */; };
 		CF11F8B91B2F4B0E0094C9DF /* SKBatteryData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF11F8B81B2F4B0E0094C9DF /* SKBatteryData.m */; };
-		CF11F8BA1B2F52670094C9DF /* SKSensorModuleType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */; };
-		CF11F8BB1B2F52700094C9DF /* SKSensorDataListener.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */; };
+		CF11F8BA1B2F52670094C9DF /* SKSensorType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F87F1B2C688B0094C9DF /* SKSensorType.h */; };
+		CF11F8BB1B2F52700094C9DF /* SKSensorDataHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8891B2D909F0094C9DF /* SKSensorDataHandler.h */; };
 		CF11F8BC1B2F52A60094C9DF /* SKSensorData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8861B2D8D370094C9DF /* SKSensorData.h */; };
 		CF11F8BD1B2F52A60094C9DF /* SKBatteryData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF11F8B71B2F4B0E0094C9DF /* SKBatteryData.h */; };
 		CF11F8C01B2F769B0094C9DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF11F8BE1B2F76160094C9DF /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -38,11 +49,45 @@
 		CF1DFA191B8C822000D7B182 /* SKPedometer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF1DFA131B8C7F1E00D7B182 /* SKPedometer.h */; };
 		CF1DFA1C1B8CBE5500D7B182 /* SKAltimeter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1DFA1B1B8CBE5500D7B182 /* SKAltimeter.m */; };
 		CF1DFA1F1B8CC01900D7B182 /* SKAltimeterData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1DFA1E1B8CC01900D7B182 /* SKAltimeterData.m */; };
+		CF432D0D1BA98ACD00588CC3 /* SKSampleRateConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF432D0C1BA98ACD00588CC3 /* SKSampleRateConfiguration.m */; settings = {ASSET_TAGS = (); }; };
+		CF432D0E1BA98B6C00588CC3 /* SKSampleRateConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF432D0B1BA98ACD00588CC3 /* SKSampleRateConfiguration.h */; };
 		CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5298951A0CFC7A002A4D54 /* UIKit.framework */; };
-		CF8E9BD01B3200E7005AC2FC /* SKBeaconDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9BCF1B3200E7005AC2FC /* SKBeaconDeviceData.m */; };
-		CF8E9BD11B32E420005AC2FC /* SKBeaconDeviceData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF8E9BCE1B3200E7005AC2FC /* SKBeaconDeviceData.h */; };
+		CF8E9BD01B3200E7005AC2FC /* SKiBeaconDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9BCF1B3200E7005AC2FC /* SKiBeaconDeviceData.m */; };
+		CF8E9BD11B32E420005AC2FC /* SKiBeaconDeviceData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF8E9BCE1B3200E7005AC2FC /* SKiBeaconDeviceData.h */; };
 		CF8E9BD21B32E9D3005AC2FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF11F8BE1B2F76160094C9DF /* CoreLocation.framework */; };
 		CF8E9BD41B32EA04005AC2FC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8E9BD31B32EA04005AC2FC /* CoreBluetooth.framework */; };
+		CF960F1B1B99CC5200F989EA /* SKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F1A1B99CC5200F989EA /* SKConfiguration.m */; };
+		CF960F1D1B99CD9A00F989EA /* SKConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F191B99CC5200F989EA /* SKConfiguration.h */; };
+		CF960F201B99D13100F989EA /* SKAccelerometerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F1F1B99D13100F989EA /* SKAccelerometerConfiguration.m */; };
+		CF960F231B9A06A700F989EA /* SKGyroscopeConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F221B9A06A700F989EA /* SKGyroscopeConfiguration.m */; };
+		CF960F261B9A06B800F989EA /* SKMagnetometerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F251B9A06B800F989EA /* SKMagnetometerConfiguration.m */; };
+		CF960F291B9A06CA00F989EA /* SKDeviceMotionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F281B9A06CA00F989EA /* SKDeviceMotionConfiguration.m */; };
+		CF960F2C1B9A06D400F989EA /* SKMotionActivityConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F2B1B9A06D400F989EA /* SKMotionActivityConfiguration.m */; };
+		CF960F2F1B9A06DD00F989EA /* SKPedometerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F2E1B9A06DD00F989EA /* SKPedometerConfiguration.m */; };
+		CF960F321B9A06E600F989EA /* SKAltimeterConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F311B9A06E600F989EA /* SKAltimeterConfiguration.m */; };
+		CF960F351B9A06EF00F989EA /* SKBatteryConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F341B9A06EF00F989EA /* SKBatteryConfiguration.m */; };
+		CF960F381B9A06FA00F989EA /* SKLocationConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F371B9A06FA00F989EA /* SKLocationConfiguration.m */; };
+		CF960F3B1B9A070100F989EA /* SKiBeaconProximityConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F3A1B9A070100F989EA /* SKiBeaconProximityConfiguration.m */; };
+		CF960F3E1B9A070800F989EA /* SKEddystoneProximityConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F3D1B9A070800F989EA /* SKEddystoneProximityConfiguration.m */; };
+		CF960F3F1B9A08A700F989EA /* SKAccelerometerConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F1E1B99D13100F989EA /* SKAccelerometerConfiguration.h */; };
+		CF960F401B9A08A700F989EA /* SKGyroscopeConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F211B9A06A700F989EA /* SKGyroscopeConfiguration.h */; };
+		CF960F411B9A08A700F989EA /* SKMagnetometerConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F241B9A06B800F989EA /* SKMagnetometerConfiguration.h */; };
+		CF960F421B9A08A700F989EA /* SKDeviceMotionConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F271B9A06CA00F989EA /* SKDeviceMotionConfiguration.h */; };
+		CF960F431B9A08A700F989EA /* SKMotionActivityConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F2A1B9A06D400F989EA /* SKMotionActivityConfiguration.h */; };
+		CF960F441B9A08A700F989EA /* SKPedometerConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F2D1B9A06DD00F989EA /* SKPedometerConfiguration.h */; };
+		CF960F451B9A08A700F989EA /* SKAltimeterConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F301B9A06E600F989EA /* SKAltimeterConfiguration.h */; };
+		CF960F461B9A08A700F989EA /* SKBatteryConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F331B9A06EF00F989EA /* SKBatteryConfiguration.h */; };
+		CF960F471B9A08A700F989EA /* SKLocationConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F361B9A06FA00F989EA /* SKLocationConfiguration.h */; };
+		CF960F481B9A08A700F989EA /* SKiBeaconProximityConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F391B9A070100F989EA /* SKiBeaconProximityConfiguration.h */; };
+		CF960F491B9A08A700F989EA /* SKEddystoneProximityConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F3C1B9A070800F989EA /* SKEddystoneProximityConfiguration.h */; };
+		CF960F4C1B9B816F00F989EA /* SKMicrophone.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F4B1B9B816F00F989EA /* SKMicrophone.m */; };
+		CF960F4F1B9B818600F989EA /* SKMicrophoneData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F4E1B9B818600F989EA /* SKMicrophoneData.m */; };
+		CF960F521B9B81A600F989EA /* SKMicrophoneConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960F511B9B81A600F989EA /* SKMicrophoneConfiguration.m */; };
+		CF960F531B9B81C200F989EA /* SKMicrophoneData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F4D1B9B818600F989EA /* SKMicrophoneData.h */; };
+		CF960F541B9B81C200F989EA /* SKMicrophoneConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF960F501B9B81A600F989EA /* SKMicrophoneConfiguration.h */; };
+		CF960F551B9F0A5300F989EA /* SKProximityData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD450201B8738DC00E2E78D /* SKProximityData.h */; };
+		CF960F561B9F0AB400F989EA /* SKPedometerData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF1DFA161B8C821000D7B182 /* SKPedometerData.h */; };
+		CF960F571B9F0ADC00F989EA /* SKAltimeterData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF1DFA1D1B8CC01900D7B182 /* SKAltimeterData.h */; };
 		CFB0D9371B4FEE7900A7982B /* SKAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D9361B4FEE7900A7982B /* SKAccelerometer.m */; };
 		CFB0D93A1B4FF7E000A7982B /* SKMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D9391B4FF7E000A7982B /* SKMotionManager.m */; };
 		CFB0D93D1B4FFA1D00A7982B /* SKGyroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D93C1B4FFA1D00A7982B /* SKGyroscope.m */; };
@@ -53,14 +98,14 @@
 		CFB0D9491B5268FC00A7982B /* SKGyroscopeData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D9481B5268FC00A7982B /* SKGyroscopeData.m */; };
 		CFB0D94C1B52690500A7982B /* SKMagnetometerData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D94B1B52690500A7982B /* SKMagnetometerData.m */; };
 		CFB0D94F1B52698C00A7982B /* SKDeviceMotionData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D94E1B52698C00A7982B /* SKDeviceMotionData.m */; };
-		CFB0D9521B52699700A7982B /* SKActivityData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D9511B52699700A7982B /* SKActivityData.m */; };
+		CFB0D9521B52699700A7982B /* SKMotionActivityData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D9511B52699700A7982B /* SKMotionActivityData.m */; };
 		CFB0D9551B5269AF00A7982B /* SKDeviceMotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D9541B5269AF00A7982B /* SKDeviceMotion.m */; };
-		CFB0D9581B5269BD00A7982B /* SKActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D9571B5269BD00A7982B /* SKActivity.m */; };
+		CFB0D9581B5269BD00A7982B /* SKMotionActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB0D9571B5269BD00A7982B /* SKMotionActivity.m */; };
 		CFB0D9591B52AD7500A7982B /* SKAccelerometerData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFB0D9441B5268EF00A7982B /* SKAccelerometerData.h */; };
 		CFB0D95A1B52AD7500A7982B /* SKGyroscopeData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFB0D9471B5268FC00A7982B /* SKGyroscopeData.h */; };
 		CFB0D95B1B52AD7500A7982B /* SKMagnetometerData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFB0D94A1B52690500A7982B /* SKMagnetometerData.h */; };
 		CFB0D95C1B52AD7500A7982B /* SKDeviceMotionData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFB0D94D1B52698C00A7982B /* SKDeviceMotionData.h */; };
-		CFB0D95D1B52AD7500A7982B /* SKActivityData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFB0D9501B52699700A7982B /* SKActivityData.h */; };
+		CFB0D95D1B52AD7500A7982B /* SKMotionActivityData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFB0D9501B52699700A7982B /* SKMotionActivityData.h */; };
 		CFBB413A19B92514002AE1A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBB413919B92514002AE1A9 /* Foundation.framework */; };
 		CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBB413E19B92514002AE1A9 /* SensingKitLib.h */; };
 		CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB414019B92514002AE1A9 /* SensingKitLib.m */; };
@@ -74,8 +119,8 @@
 		CFBC059E1B9060A600B9CA6D /* SKSensorTimestamp.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBC059D1B9060A600B9CA6D /* SKSensorTimestamp.m */; };
 		CFBC059F1B90610700B9CA6D /* SKSensorTimestamp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFBC059C1B9060A600B9CA6D /* SKSensorTimestamp.h */; };
 		CFD450221B8738DC00E2E78D /* SKProximityData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450211B8738DC00E2E78D /* SKProximityData.m */; };
-		CFD450251B875B5A00E2E78D /* NSString+SensorModuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */; };
-		CFD450261B878A6900E2E78D /* NSString+SensorModuleType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */; };
+		CFD450251B875B5A00E2E78D /* NSString+SensorType.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450241B875B5A00E2E78D /* NSString+SensorType.m */; };
+		CFD450261B878A6900E2E78D /* NSString+SensorType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CFD450231B875B5A00E2E78D /* NSString+SensorType.h */; };
 		CFD450321B88D86500E2E78D /* ESSBeaconScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4502D1B88D86500E2E78D /* ESSBeaconScanner.m */; };
 		CFD450331B88D86500E2E78D /* ESSEddystone.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4502F1B88D86500E2E78D /* ESSEddystone.m */; };
 		CFD450341B88D86500E2E78D /* ESSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD450311B88D86500E2E78D /* ESSTimer.m */; };
@@ -108,21 +153,39 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				CF432D0E1BA98B6C00588CC3 /* SKSampleRateConfiguration.h in CopyFiles */,
+				CF960F571B9F0ADC00F989EA /* SKAltimeterData.h in CopyFiles */,
+				CF960F561B9F0AB400F989EA /* SKPedometerData.h in CopyFiles */,
+				CF960F551B9F0A5300F989EA /* SKProximityData.h in CopyFiles */,
+				CF960F531B9B81C200F989EA /* SKMicrophoneData.h in CopyFiles */,
+				CF960F541B9B81C200F989EA /* SKMicrophoneConfiguration.h in CopyFiles */,
+				CF960F3F1B9A08A700F989EA /* SKAccelerometerConfiguration.h in CopyFiles */,
+				CF960F401B9A08A700F989EA /* SKGyroscopeConfiguration.h in CopyFiles */,
+				CF960F411B9A08A700F989EA /* SKMagnetometerConfiguration.h in CopyFiles */,
+				CF960F421B9A08A700F989EA /* SKDeviceMotionConfiguration.h in CopyFiles */,
+				CF960F431B9A08A700F989EA /* SKMotionActivityConfiguration.h in CopyFiles */,
+				CF960F441B9A08A700F989EA /* SKPedometerConfiguration.h in CopyFiles */,
+				CF960F451B9A08A700F989EA /* SKAltimeterConfiguration.h in CopyFiles */,
+				CF960F461B9A08A700F989EA /* SKBatteryConfiguration.h in CopyFiles */,
+				CF960F471B9A08A700F989EA /* SKLocationConfiguration.h in CopyFiles */,
+				CF960F481B9A08A700F989EA /* SKiBeaconProximityConfiguration.h in CopyFiles */,
+				CF960F491B9A08A700F989EA /* SKEddystoneProximityConfiguration.h in CopyFiles */,
+				CF960F1D1B99CD9A00F989EA /* SKConfiguration.h in CopyFiles */,
 				CFBC059F1B90610700B9CA6D /* SKSensorTimestamp.h in CopyFiles */,
 				CF1DFA191B8C822000D7B182 /* SKPedometer.h in CopyFiles */,
 				CFD4503B1B88DCD900E2E78D /* SKEddystoneProximityData.h in CopyFiles */,
-				CFD450261B878A6900E2E78D /* NSString+SensorModuleType.h in CopyFiles */,
+				CFD450261B878A6900E2E78D /* NSString+SensorType.h in CopyFiles */,
 				CFB0D9591B52AD7500A7982B /* SKAccelerometerData.h in CopyFiles */,
 				CFB0D95A1B52AD7500A7982B /* SKGyroscopeData.h in CopyFiles */,
 				CFB0D95B1B52AD7500A7982B /* SKMagnetometerData.h in CopyFiles */,
 				CFB0D95C1B52AD7500A7982B /* SKDeviceMotionData.h in CopyFiles */,
-				CFB0D95D1B52AD7500A7982B /* SKActivityData.h in CopyFiles */,
-				CF8E9BD11B32E420005AC2FC /* SKBeaconDeviceData.h in CopyFiles */,
+				CFB0D95D1B52AD7500A7982B /* SKMotionActivityData.h in CopyFiles */,
+				CF8E9BD11B32E420005AC2FC /* SKiBeaconDeviceData.h in CopyFiles */,
 				CF11F8C41B2F77EC0094C9DF /* SKLocationData.h in CopyFiles */,
 				CF11F8BC1B2F52A60094C9DF /* SKSensorData.h in CopyFiles */,
 				CF11F8BD1B2F52A60094C9DF /* SKBatteryData.h in CopyFiles */,
-				CF11F8BB1B2F52700094C9DF /* SKSensorDataListener.h in CopyFiles */,
-				CF11F8BA1B2F52670094C9DF /* SKSensorModuleType.h in CopyFiles */,
+				CF11F8BB1B2F52700094C9DF /* SKSensorDataHandler.h in CopyFiles */,
+				CF11F8BA1B2F52670094C9DF /* SKSensorType.h in CopyFiles */,
 				CFBB413F19B92514002AE1A9 /* SensingKitLib.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,14 +193,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorModuleType.h; sourceTree = "<group>"; };
-		CF11F8801B2C6D7D0094C9DF /* SKSensorModuleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorModuleManager.h; sourceTree = "<group>"; };
-		CF11F8811B2C6D7D0094C9DF /* SKSensorModuleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorModuleManager.m; sourceTree = "<group>"; };
-		CF11F8831B2C7CFE0094C9DF /* SKAbstractSensorModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAbstractSensorModule.h; sourceTree = "<group>"; };
-		CF11F8841B2C7CFE0094C9DF /* SKAbstractSensorModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAbstractSensorModule.m; sourceTree = "<group>"; };
+		CF11F87F1B2C688B0094C9DF /* SKSensorType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorType.h; sourceTree = "<group>"; };
+		CF11F8801B2C6D7D0094C9DF /* SKSensorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorManager.h; sourceTree = "<group>"; };
+		CF11F8811B2C6D7D0094C9DF /* SKSensorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorManager.m; sourceTree = "<group>"; };
+		CF11F8831B2C7CFE0094C9DF /* SKAbstractSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAbstractSensor.h; sourceTree = "<group>"; };
+		CF11F8841B2C7CFE0094C9DF /* SKAbstractSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAbstractSensor.m; sourceTree = "<group>"; };
 		CF11F8861B2D8D370094C9DF /* SKSensorData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorData.h; sourceTree = "<group>"; };
 		CF11F8871B2D8D370094C9DF /* SKSensorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorData.m; sourceTree = "<group>"; };
-		CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSensorDataListener.h; sourceTree = "<group>"; };
+		CF11F8891B2D909F0094C9DF /* SKSensorDataHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSensorDataHandler.h; sourceTree = "<group>"; };
 		CF11F8B71B2F4B0E0094C9DF /* SKBatteryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryData.h; sourceTree = "<group>"; };
 		CF11F8B81B2F4B0E0094C9DF /* SKBatteryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryData.m; sourceTree = "<group>"; };
 		CF11F8BE1B2F76160094C9DF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -151,10 +214,42 @@
 		CF1DFA1B1B8CBE5500D7B182 /* SKAltimeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAltimeter.m; sourceTree = "<group>"; };
 		CF1DFA1D1B8CC01900D7B182 /* SKAltimeterData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAltimeterData.h; sourceTree = "<group>"; };
 		CF1DFA1E1B8CC01900D7B182 /* SKAltimeterData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAltimeterData.m; sourceTree = "<group>"; };
+		CF432D0B1BA98ACD00588CC3 /* SKSampleRateConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSampleRateConfiguration.h; sourceTree = "<group>"; };
+		CF432D0C1BA98ACD00588CC3 /* SKSampleRateConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSampleRateConfiguration.m; sourceTree = "<group>"; };
 		CF5298951A0CFC7A002A4D54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CF8E9BCE1B3200E7005AC2FC /* SKBeaconDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBeaconDeviceData.h; sourceTree = "<group>"; };
-		CF8E9BCF1B3200E7005AC2FC /* SKBeaconDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBeaconDeviceData.m; sourceTree = "<group>"; };
+		CF8E9BCE1B3200E7005AC2FC /* SKiBeaconDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKiBeaconDeviceData.h; sourceTree = "<group>"; };
+		CF8E9BCF1B3200E7005AC2FC /* SKiBeaconDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKiBeaconDeviceData.m; sourceTree = "<group>"; };
 		CF8E9BD31B32EA04005AC2FC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		CF960F191B99CC5200F989EA /* SKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKConfiguration.h; sourceTree = "<group>"; };
+		CF960F1A1B99CC5200F989EA /* SKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKConfiguration.m; sourceTree = "<group>"; };
+		CF960F1E1B99D13100F989EA /* SKAccelerometerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAccelerometerConfiguration.h; sourceTree = "<group>"; };
+		CF960F1F1B99D13100F989EA /* SKAccelerometerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAccelerometerConfiguration.m; sourceTree = "<group>"; };
+		CF960F211B9A06A700F989EA /* SKGyroscopeConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKGyroscopeConfiguration.h; sourceTree = "<group>"; };
+		CF960F221B9A06A700F989EA /* SKGyroscopeConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKGyroscopeConfiguration.m; sourceTree = "<group>"; };
+		CF960F241B9A06B800F989EA /* SKMagnetometerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMagnetometerConfiguration.h; sourceTree = "<group>"; };
+		CF960F251B9A06B800F989EA /* SKMagnetometerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMagnetometerConfiguration.m; sourceTree = "<group>"; };
+		CF960F271B9A06CA00F989EA /* SKDeviceMotionConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDeviceMotionConfiguration.h; sourceTree = "<group>"; };
+		CF960F281B9A06CA00F989EA /* SKDeviceMotionConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDeviceMotionConfiguration.m; sourceTree = "<group>"; };
+		CF960F2A1B9A06D400F989EA /* SKMotionActivityConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMotionActivityConfiguration.h; sourceTree = "<group>"; };
+		CF960F2B1B9A06D400F989EA /* SKMotionActivityConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMotionActivityConfiguration.m; sourceTree = "<group>"; };
+		CF960F2D1B9A06DD00F989EA /* SKPedometerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPedometerConfiguration.h; sourceTree = "<group>"; };
+		CF960F2E1B9A06DD00F989EA /* SKPedometerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPedometerConfiguration.m; sourceTree = "<group>"; };
+		CF960F301B9A06E600F989EA /* SKAltimeterConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAltimeterConfiguration.h; sourceTree = "<group>"; };
+		CF960F311B9A06E600F989EA /* SKAltimeterConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAltimeterConfiguration.m; sourceTree = "<group>"; };
+		CF960F331B9A06EF00F989EA /* SKBatteryConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryConfiguration.h; sourceTree = "<group>"; };
+		CF960F341B9A06EF00F989EA /* SKBatteryConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryConfiguration.m; sourceTree = "<group>"; };
+		CF960F361B9A06FA00F989EA /* SKLocationConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLocationConfiguration.h; sourceTree = "<group>"; };
+		CF960F371B9A06FA00F989EA /* SKLocationConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLocationConfiguration.m; sourceTree = "<group>"; };
+		CF960F391B9A070100F989EA /* SKiBeaconProximityConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKiBeaconProximityConfiguration.h; sourceTree = "<group>"; };
+		CF960F3A1B9A070100F989EA /* SKiBeaconProximityConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKiBeaconProximityConfiguration.m; sourceTree = "<group>"; };
+		CF960F3C1B9A070800F989EA /* SKEddystoneProximityConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEddystoneProximityConfiguration.h; sourceTree = "<group>"; };
+		CF960F3D1B9A070800F989EA /* SKEddystoneProximityConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEddystoneProximityConfiguration.m; sourceTree = "<group>"; };
+		CF960F4A1B9B816F00F989EA /* SKMicrophone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMicrophone.h; sourceTree = "<group>"; };
+		CF960F4B1B9B816F00F989EA /* SKMicrophone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMicrophone.m; sourceTree = "<group>"; };
+		CF960F4D1B9B818600F989EA /* SKMicrophoneData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMicrophoneData.h; sourceTree = "<group>"; };
+		CF960F4E1B9B818600F989EA /* SKMicrophoneData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMicrophoneData.m; sourceTree = "<group>"; };
+		CF960F501B9B81A600F989EA /* SKMicrophoneConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMicrophoneConfiguration.h; sourceTree = "<group>"; };
+		CF960F511B9B81A600F989EA /* SKMicrophoneConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMicrophoneConfiguration.m; sourceTree = "<group>"; };
 		CFB0D9351B4FEE7900A7982B /* SKAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAccelerometer.h; sourceTree = "<group>"; };
 		CFB0D9361B4FEE7900A7982B /* SKAccelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAccelerometer.m; sourceTree = "<group>"; };
 		CFB0D9381B4FF7E000A7982B /* SKMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMotionManager.h; sourceTree = "<group>"; };
@@ -172,12 +267,12 @@
 		CFB0D94B1B52690500A7982B /* SKMagnetometerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMagnetometerData.m; sourceTree = "<group>"; };
 		CFB0D94D1B52698C00A7982B /* SKDeviceMotionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDeviceMotionData.h; sourceTree = "<group>"; };
 		CFB0D94E1B52698C00A7982B /* SKDeviceMotionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDeviceMotionData.m; sourceTree = "<group>"; };
-		CFB0D9501B52699700A7982B /* SKActivityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKActivityData.h; sourceTree = "<group>"; };
-		CFB0D9511B52699700A7982B /* SKActivityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKActivityData.m; sourceTree = "<group>"; };
+		CFB0D9501B52699700A7982B /* SKMotionActivityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMotionActivityData.h; sourceTree = "<group>"; };
+		CFB0D9511B52699700A7982B /* SKMotionActivityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMotionActivityData.m; sourceTree = "<group>"; };
 		CFB0D9531B5269AF00A7982B /* SKDeviceMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDeviceMotion.h; sourceTree = "<group>"; };
 		CFB0D9541B5269AF00A7982B /* SKDeviceMotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDeviceMotion.m; sourceTree = "<group>"; };
-		CFB0D9561B5269BD00A7982B /* SKActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKActivity.h; sourceTree = "<group>"; };
-		CFB0D9571B5269BD00A7982B /* SKActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKActivity.m; sourceTree = "<group>"; };
+		CFB0D9561B5269BD00A7982B /* SKMotionActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMotionActivity.h; sourceTree = "<group>"; };
+		CFB0D9571B5269BD00A7982B /* SKMotionActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMotionActivity.m; sourceTree = "<group>"; };
 		CFBB413619B92514002AE1A9 /* libSensingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSensingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBB413919B92514002AE1A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CFBB413D19B92514002AE1A9 /* SensingKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SensingKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -197,8 +292,8 @@
 		CFBC059D1B9060A600B9CA6D /* SKSensorTimestamp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorTimestamp.m; sourceTree = "<group>"; };
 		CFD450201B8738DC00E2E78D /* SKProximityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProximityData.h; sourceTree = "<group>"; };
 		CFD450211B8738DC00E2E78D /* SKProximityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximityData.m; sourceTree = "<group>"; };
-		CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SensorModuleType.h"; sourceTree = "<group>"; };
-		CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SensorModuleType.m"; sourceTree = "<group>"; };
+		CFD450231B875B5A00E2E78D /* NSString+SensorType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SensorType.h"; sourceTree = "<group>"; };
+		CFD450241B875B5A00E2E78D /* NSString+SensorType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SensorType.m"; sourceTree = "<group>"; };
 		CFD4502C1B88D86500E2E78D /* ESSBeaconScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSBeaconScanner.h; sourceTree = "<group>"; };
 		CFD4502D1B88D86500E2E78D /* ESSBeaconScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSBeaconScanner.m; sourceTree = "<group>"; };
 		CFD4502E1B88D86500E2E78D /* ESSEddystone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSEddystone.h; sourceTree = "<group>"; };
@@ -253,8 +348,8 @@
 				CFB0D94B1B52690500A7982B /* SKMagnetometerData.m */,
 				CFB0D94D1B52698C00A7982B /* SKDeviceMotionData.h */,
 				CFB0D94E1B52698C00A7982B /* SKDeviceMotionData.m */,
-				CFB0D9501B52699700A7982B /* SKActivityData.h */,
-				CFB0D9511B52699700A7982B /* SKActivityData.m */,
+				CFB0D9501B52699700A7982B /* SKMotionActivityData.h */,
+				CFB0D9511B52699700A7982B /* SKMotionActivityData.m */,
 				CF1DFA161B8C821000D7B182 /* SKPedometerData.h */,
 				CF1DFA171B8C821000D7B182 /* SKPedometerData.m */,
 				CF1DFA1D1B8CC01900D7B182 /* SKAltimeterData.h */,
@@ -265,12 +360,49 @@
 				CF11F8C21B2F77940094C9DF /* SKLocationData.m */,
 				CFD450201B8738DC00E2E78D /* SKProximityData.h */,
 				CFD450211B8738DC00E2E78D /* SKProximityData.m */,
-				CF8E9BCE1B3200E7005AC2FC /* SKBeaconDeviceData.h */,
-				CF8E9BCF1B3200E7005AC2FC /* SKBeaconDeviceData.m */,
+				CF8E9BCE1B3200E7005AC2FC /* SKiBeaconDeviceData.h */,
+				CF8E9BCF1B3200E7005AC2FC /* SKiBeaconDeviceData.m */,
 				CFD450381B88D90A00E2E78D /* SKEddystoneProximityData.h */,
 				CFD450391B88D90A00E2E78D /* SKEddystoneProximityData.m */,
+				CF960F4D1B9B818600F989EA /* SKMicrophoneData.h */,
+				CF960F4E1B9B818600F989EA /* SKMicrophoneData.m */,
 			);
 			name = SensorData;
+			sourceTree = "<group>";
+		};
+		CF960F1C1B99CC5A00F989EA /* SensorConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				CF960F191B99CC5200F989EA /* SKConfiguration.h */,
+				CF960F1A1B99CC5200F989EA /* SKConfiguration.m */,
+				CF432D0B1BA98ACD00588CC3 /* SKSampleRateConfiguration.h */,
+				CF432D0C1BA98ACD00588CC3 /* SKSampleRateConfiguration.m */,
+				CF960F1E1B99D13100F989EA /* SKAccelerometerConfiguration.h */,
+				CF960F1F1B99D13100F989EA /* SKAccelerometerConfiguration.m */,
+				CF960F211B9A06A700F989EA /* SKGyroscopeConfiguration.h */,
+				CF960F221B9A06A700F989EA /* SKGyroscopeConfiguration.m */,
+				CF960F241B9A06B800F989EA /* SKMagnetometerConfiguration.h */,
+				CF960F251B9A06B800F989EA /* SKMagnetometerConfiguration.m */,
+				CF960F271B9A06CA00F989EA /* SKDeviceMotionConfiguration.h */,
+				CF960F281B9A06CA00F989EA /* SKDeviceMotionConfiguration.m */,
+				CF960F2A1B9A06D400F989EA /* SKMotionActivityConfiguration.h */,
+				CF960F2B1B9A06D400F989EA /* SKMotionActivityConfiguration.m */,
+				CF960F2D1B9A06DD00F989EA /* SKPedometerConfiguration.h */,
+				CF960F2E1B9A06DD00F989EA /* SKPedometerConfiguration.m */,
+				CF960F301B9A06E600F989EA /* SKAltimeterConfiguration.h */,
+				CF960F311B9A06E600F989EA /* SKAltimeterConfiguration.m */,
+				CF960F331B9A06EF00F989EA /* SKBatteryConfiguration.h */,
+				CF960F341B9A06EF00F989EA /* SKBatteryConfiguration.m */,
+				CF960F361B9A06FA00F989EA /* SKLocationConfiguration.h */,
+				CF960F371B9A06FA00F989EA /* SKLocationConfiguration.m */,
+				CF960F391B9A070100F989EA /* SKiBeaconProximityConfiguration.h */,
+				CF960F3A1B9A070100F989EA /* SKiBeaconProximityConfiguration.m */,
+				CF960F3C1B9A070800F989EA /* SKEddystoneProximityConfiguration.h */,
+				CF960F3D1B9A070800F989EA /* SKEddystoneProximityConfiguration.m */,
+				CF960F501B9B81A600F989EA /* SKMicrophoneConfiguration.h */,
+				CF960F511B9B81A600F989EA /* SKMicrophoneConfiguration.m */,
+			);
+			name = SensorConfiguration;
 			sourceTree = "<group>";
 		};
 		CFBB412D19B92514002AE1A9 = {
@@ -308,16 +440,17 @@
 		CFBB413B19B92514002AE1A9 /* SensingKit */ = {
 			isa = PBXGroup;
 			children = (
-				CFBB416B19B928CF002AE1A9 /* SensorModules */,
+				CFBB416B19B928CF002AE1A9 /* Sensors */,
 				CF11F8B41B2F4A910094C9DF /* SensorData */,
-				CF11F87F1B2C688B0094C9DF /* SKSensorModuleType.h */,
-				CFD450231B875B5A00E2E78D /* NSString+SensorModuleType.h */,
-				CFD450241B875B5A00E2E78D /* NSString+SensorModuleType.m */,
-				CF11F8801B2C6D7D0094C9DF /* SKSensorModuleManager.h */,
-				CF11F8811B2C6D7D0094C9DF /* SKSensorModuleManager.m */,
+				CF960F1C1B99CC5A00F989EA /* SensorConfiguration */,
+				CF11F87F1B2C688B0094C9DF /* SKSensorType.h */,
+				CFD450231B875B5A00E2E78D /* NSString+SensorType.h */,
+				CFD450241B875B5A00E2E78D /* NSString+SensorType.m */,
+				CF11F8801B2C6D7D0094C9DF /* SKSensorManager.h */,
+				CF11F8811B2C6D7D0094C9DF /* SKSensorManager.m */,
 				CFBB413E19B92514002AE1A9 /* SensingKitLib.h */,
 				CFBB414019B92514002AE1A9 /* SensingKitLib.m */,
-				CF11F8891B2D909F0094C9DF /* SKSensorDataListener.h */,
+				CF11F8891B2D909F0094C9DF /* SKSensorDataHandler.h */,
 				CFBB413C19B92514002AE1A9 /* Supporting Files */,
 			);
 			path = SensingKit;
@@ -349,11 +482,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CFBB416B19B928CF002AE1A9 /* SensorModules */ = {
+		CFBB416B19B928CF002AE1A9 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
-				CF11F8831B2C7CFE0094C9DF /* SKAbstractSensorModule.h */,
-				CF11F8841B2C7CFE0094C9DF /* SKAbstractSensorModule.m */,
+				CF11F8831B2C7CFE0094C9DF /* SKAbstractSensor.h */,
+				CF11F8841B2C7CFE0094C9DF /* SKAbstractSensor.m */,
 				CFB0D9381B4FF7E000A7982B /* SKMotionManager.h */,
 				CFB0D9391B4FF7E000A7982B /* SKMotionManager.m */,
 				CFB0D9351B4FEE7900A7982B /* SKAccelerometer.h */,
@@ -364,8 +497,8 @@
 				CFB0D93F1B4FFA2700A7982B /* SKMagnetometer.m */,
 				CFB0D9531B5269AF00A7982B /* SKDeviceMotion.h */,
 				CFB0D9541B5269AF00A7982B /* SKDeviceMotion.m */,
-				CFB0D9561B5269BD00A7982B /* SKActivity.h */,
-				CFB0D9571B5269BD00A7982B /* SKActivity.m */,
+				CFB0D9561B5269BD00A7982B /* SKMotionActivity.h */,
+				CFB0D9571B5269BD00A7982B /* SKMotionActivity.m */,
 				CF1DFA131B8C7F1E00D7B182 /* SKPedometer.h */,
 				CF1DFA141B8C7F1E00D7B182 /* SKPedometer.m */,
 				CF1DFA1A1B8CBE5500D7B182 /* SKAltimeter.h */,
@@ -378,8 +511,10 @@
 				CFBB416219B928C2002AE1A9 /* SKiBeaconProximity.m */,
 				CFD450351B88D8C600E2E78D /* SKEddystoneProximity.h */,
 				CFD450361B88D8C600E2E78D /* SKEddystoneProximity.m */,
+				CF960F4A1B9B816F00F989EA /* SKMicrophone.h */,
+				CF960F4B1B9B816F00F989EA /* SKMicrophone.m */,
 			);
-			name = SensorModules;
+			name = Sensors;
 			sourceTree = "<group>";
 		};
 		CFD4502B1B88D86500E2E78D /* ESSEddystone */ = {
@@ -441,16 +576,19 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SK;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Queen Mary University of London";
 				TargetAttributes = {
 					CF52989D1A0D6DED002A4D54 = {
 						CreatedOnToolsVersion = 6.1;
 					};
+					CFBDACD31BB95F46000C87AB = {
+						CreatedOnToolsVersion = 7.0;
+					};
 				};
 			};
 			buildConfigurationList = CFBB413119B92514002AE1A9 /* Build configuration list for PBXProject "SensingKit" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -465,6 +603,7 @@
 				CFBB413519B92514002AE1A9 /* SensingKit */,
 				CFBB414519B92514002AE1A9 /* SensingKitTests */,
 				CF52989D1A0D6DED002A4D54 /* Framework */,
+				CFBDACD31BB95F46000C87AB /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -509,6 +648,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Copyright (c) Sam Davies on April 28, 2014\n# http://www.raywenderlich.com/65964/create-a-framework-for-ios\n\nset -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework\"";
 		};
+		CFBDACD81BB95F8E000C87AB /* Build Documentation */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Documentation";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Queen Mary University of London\";\ncompanyID=\"org.sensingkit\";\ncompanyURL=\"http://www.sensingkit.com\";\ntarget=\"iphoneos\";\noutputPath=\"${PROJECT_DIR}/Documentation\";\n# End constants\n\n/usr/local/bin/appledoc \\\n--project-name \"SensingKit-iOS\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--output \"${outputPath}\" \\\n--ignore .m \\\n--ignore ESSEddystone \\\n--ignore SKAbstractSensor.h \\\n--ignore SKMotionManager.h \\\n--ignore SKAccelerometer.h \\\n--ignore SKGyroscope.h \\\n--ignore SKMagnetometer.h \\\n--ignore SKDeviceMotion.h \\\n--ignore SKMotionActivity.h \\\n--ignore SKPedometer.h \\\n--ignore SKAltimeter.h \\\n--ignore SKBattery.h \\\n--ignore SKLocation.h \\\n--ignore SKiBeaconProximity.h \\\n--ignore SKEddystoneProximity.h \\\n--ignore SKMicrophone.h \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -516,37 +669,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF960F2C1B9A06D400F989EA /* SKMotionActivityConfiguration.m in Sources */,
 				CFB0D9461B5268EF00A7982B /* SKAccelerometerData.m in Sources */,
 				CF11F8C31B2F77940094C9DF /* SKLocationData.m in Sources */,
-				CFD450251B875B5A00E2E78D /* NSString+SensorModuleType.m in Sources */,
+				CFD450251B875B5A00E2E78D /* NSString+SensorType.m in Sources */,
 				CFB0D9401B4FFA2700A7982B /* SKMagnetometer.m in Sources */,
 				CFB0D9491B5268FC00A7982B /* SKGyroscopeData.m in Sources */,
 				CFD4503A1B88D90A00E2E78D /* SKEddystoneProximityData.m in Sources */,
+				CF960F231B9A06A700F989EA /* SKGyroscopeConfiguration.m in Sources */,
 				CFD450341B88D86500E2E78D /* ESSTimer.m in Sources */,
 				CFBB416919B928C2002AE1A9 /* SKLocation.m in Sources */,
 				CFD450371B88D8C600E2E78D /* SKEddystoneProximity.m in Sources */,
 				CFB0D93D1B4FFA1D00A7982B /* SKGyroscope.m in Sources */,
+				CF960F351B9A06EF00F989EA /* SKBatteryConfiguration.m in Sources */,
 				CFBB416819B928C2002AE1A9 /* SKiBeaconProximity.m in Sources */,
 				CFBC059E1B9060A600B9CA6D /* SKSensorTimestamp.m in Sources */,
 				CF1DFA1F1B8CC01900D7B182 /* SKAltimeterData.m in Sources */,
 				CF1DFA151B8C7F1E00D7B182 /* SKPedometer.m in Sources */,
-				CF8E9BD01B3200E7005AC2FC /* SKBeaconDeviceData.m in Sources */,
+				CF960F201B99D13100F989EA /* SKAccelerometerConfiguration.m in Sources */,
+				CF8E9BD01B3200E7005AC2FC /* SKiBeaconDeviceData.m in Sources */,
+				CF960F261B9A06B800F989EA /* SKMagnetometerConfiguration.m in Sources */,
 				CFB0D94C1B52690500A7982B /* SKMagnetometerData.m in Sources */,
+				CF432D0D1BA98ACD00588CC3 /* SKSampleRateConfiguration.m in Sources */,
+				CF960F1B1B99CC5200F989EA /* SKConfiguration.m in Sources */,
 				CFD450321B88D86500E2E78D /* ESSBeaconScanner.m in Sources */,
 				CFB0D94F1B52698C00A7982B /* SKDeviceMotionData.m in Sources */,
 				CFB0D93A1B4FF7E000A7982B /* SKMotionManager.m in Sources */,
+				CF960F4F1B9B818600F989EA /* SKMicrophoneData.m in Sources */,
+				CF960F2F1B9A06DD00F989EA /* SKPedometerConfiguration.m in Sources */,
 				CF1DFA181B8C821000D7B182 /* SKPedometerData.m in Sources */,
 				CF11F8B91B2F4B0E0094C9DF /* SKBatteryData.m in Sources */,
-				CF11F8821B2C6D7D0094C9DF /* SKSensorModuleManager.m in Sources */,
+				CF11F8821B2C6D7D0094C9DF /* SKSensorManager.m in Sources */,
 				CFBB414119B92514002AE1A9 /* SensingKitLib.m in Sources */,
 				CFD450331B88D86500E2E78D /* ESSEddystone.m in Sources */,
+				CF960F521B9B81A600F989EA /* SKMicrophoneConfiguration.m in Sources */,
 				CF11F8881B2D8D370094C9DF /* SKSensorData.m in Sources */,
-				CFB0D9581B5269BD00A7982B /* SKActivity.m in Sources */,
+				CFB0D9581B5269BD00A7982B /* SKMotionActivity.m in Sources */,
 				CFB0D9551B5269AF00A7982B /* SKDeviceMotion.m in Sources */,
-				CFB0D9521B52699700A7982B /* SKActivityData.m in Sources */,
+				CFB0D9521B52699700A7982B /* SKMotionActivityData.m in Sources */,
+				CF960F4C1B9B816F00F989EA /* SKMicrophone.m in Sources */,
+				CF960F321B9A06E600F989EA /* SKAltimeterConfiguration.m in Sources */,
+				CF960F291B9A06CA00F989EA /* SKDeviceMotionConfiguration.m in Sources */,
 				CFBB416719B928C2002AE1A9 /* SKBattery.m in Sources */,
-				CF11F8851B2C7CFE0094C9DF /* SKAbstractSensorModule.m in Sources */,
+				CF960F3B1B9A070100F989EA /* SKiBeaconProximityConfiguration.m in Sources */,
+				CF960F381B9A06FA00F989EA /* SKLocationConfiguration.m in Sources */,
+				CF11F8851B2C7CFE0094C9DF /* SKAbstractSensor.m in Sources */,
 				CFB0D9371B4FEE7900A7982B /* SKAccelerometer.m in Sources */,
+				CF960F3E1B9A070800F989EA /* SKEddystoneProximityConfiguration.m in Sources */,
 				CF1DFA1C1B8CBE5500D7B182 /* SKAltimeter.m in Sources */,
 				CFD450221B8738DC00E2E78D /* SKProximityData.m in Sources */,
 			);
@@ -590,6 +759,7 @@
 		CF52989F1A0D6DED002A4D54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -597,6 +767,7 @@
 		CF5298A01A0D6DED002A4D54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -618,6 +789,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -680,6 +852,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
@@ -700,6 +873,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
+				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
@@ -713,7 +887,6 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -730,6 +903,7 @@
 					XCTest,
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sensingkit.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -740,7 +914,6 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -753,8 +926,23 @@
 					XCTest,
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.sensingkit.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		CFBDACD41BB95F46000C87AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CFBDACD51BB95F46000C87AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -793,6 +981,15 @@
 			buildConfigurations = (
 				CFBB415D19B92514002AE1A9 /* Debug */,
 				CFBB415E19B92514002AE1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFBDACD61BB95F46000C87AB /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFBDACD41BB95F46000C87AB /* Debug */,
+				CFBDACD51BB95F46000C87AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

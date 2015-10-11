@@ -28,6 +28,7 @@
 #import "SKEddystoneProximityData.h"
 @import CoreLocation;
 
+
 @interface SKEddystoneProximity () <ESSBeaconScannerDelegate>
 
 @property (strong, nonatomic) ESSBeaconScanner *beaconScanner;
@@ -35,29 +36,50 @@
 
 @end
 
+
 @implementation SKEddystoneProximity
 
-- (instancetype)init
-{
-    return [self initWithNamespaceFilter:nil];
-}
-
-- (instancetype)initWithNamespaceFilter:(NSString *)namespaceFilter;
+- (instancetype)initWithConfiguration:(SKEddystoneProximityConfiguration *)configuration
 {
     if (self = [super init])
     {
-        // Save the hex filter in lowercase
-        _namespaceFilter = [namespaceFilter lowercaseString];
-        _namespaceFilterData = [SKEddystoneProximity dataFromHexString:_namespaceFilter];
-        
-        // init ESSBeaconScanner
         self.beaconScanner = [[ESSBeaconScanner alloc] init];
         self.beaconScanner.delegate = self;
+        self.configuration = configuration;
     }
     return self;
 }
 
-+ (BOOL)isSensorModuleAvailable
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKEddystoneProximityConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor EddystoneProximity.", configuration.class);
+        abort();
+    }
+    
+    if (super.configuration != configuration)
+    {
+        super.configuration = configuration;
+        
+        // Cast the configuration instance
+        SKEddystoneProximityConfiguration *eddystoneConfiguration = (SKEddystoneProximityConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        
+        // Save the hex filter in lowercase
+        _namespaceFilterData = [SKEddystoneProximity dataFromHexString:eddystoneConfiguration.namespaceFilter];
+    }
+}
+
+
+#pragma mark Sensing
+
++ (BOOL)isSensorAvailable
 {
     // Bluetooth 4 supports monitoring, so device should have a Bluetooth Smart HW.
     return [CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]];
@@ -130,16 +152,18 @@
 // Thanks to http://stackoverflow.com/questions/1305225/best-way-to-serialize-a-nsdata-into-an-hexadeximal-string
 + (NSString *)hexStringFromData:(NSData *)data
 {
-    const unsigned char *dataBuffer = (const unsigned char *)[data bytes];
+    const unsigned char *dataBuffer = (const unsigned char *)data.bytes;
     
-    if (!dataBuffer)
+    if (!dataBuffer) {
         return [NSString string];
+    }
     
-    NSUInteger          dataLength  = [data length];
-    NSMutableString     *hexString  = [NSMutableString stringWithCapacity:(dataLength * 2)];
+    NSUInteger dataLength = data.length;
+    NSMutableString *hexString = [NSMutableString stringWithCapacity:(dataLength * 2)];
     
-    for (int i = 0; i < dataLength; ++i)
+    for (int i = 0; i < dataLength; ++i) {
         [hexString appendString:[NSString stringWithFormat:@"%02hhx", dataBuffer[i]]];
+    }
     
     return [NSString stringWithString:hexString];
 }
@@ -149,11 +173,11 @@
 + (NSData *)dataFromHexString:(NSString *)hexString
 {
     NSMutableData *data = [[NSMutableData alloc] init];
+    
     unsigned char whole_byte;
     char byte_chars[3] = {'\0','\0','\0'};
     
-    int i;
-    for (i = 0; i < [hexString length]/2; i++) {
+    for (int i = 0; i < hexString.length/2; i++) {
         byte_chars[0] = [hexString characterAtIndex:i * 2];
         byte_chars[1] = [hexString characterAtIndex:i * 2 + 1];
         whole_byte = strtol(byte_chars, NULL, 16);

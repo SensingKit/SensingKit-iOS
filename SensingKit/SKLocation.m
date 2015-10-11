@@ -25,42 +25,133 @@
 #import "SKLocation.h"
 #import "SKLocationData.h"
 
-@interface SKLocation ()
+@import CoreLocation;
+
+
+@interface SKLocation () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
+
 @implementation SKLocation
 
-- (instancetype)init
+- (instancetype)initWithConfiguration:(SKLocationConfiguration *)configuration
 {
     if (self = [super init])
     {
         self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.pausesLocationUpdatesAutomatically = NO;
         self.locationManager.delegate = self;
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;  // kCLLocationAccuracyBestForNavigation??
-        self.locationManager.distanceFilter = kCLDistanceFilterNone;
-        
-        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-            [self.locationManager requestAlwaysAuthorization];
-        }
+        self.configuration = configuration;
     }
     return self;
 }
 
-+ (BOOL)isSensorModuleAvailable
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKLocationConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Location.", configuration.class);
+        abort();
+    }
+    
+    if (super.configuration != configuration)
+    {
+        super.configuration = configuration;
+        
+        // Cast the configuration instance
+        SKLocationConfiguration *locationConfiguration = (SKLocationConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        self.locationManager.distanceFilter = locationConfiguration.distanceFilter;
+        [self updateAccuracy:locationConfiguration.locationAccuracy];
+        [self updateAuthorization:locationConfiguration.locationAuthorization];
+    }
+}
+
+- (void)updateAccuracy:(SKLocationAccuracy)accuracy
+{
+    switch (accuracy)
+    {
+        case SKLocationAccuracyBestForNavigation:
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+            break;
+            
+        case SKLocationAccuracyBest:
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            break;
+            
+        case SKLocationAccuracyNearestTenMeters:
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+            break;
+            
+        case SKLocationAccuracyHundredMeters:
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+            break;
+            
+        case SKLocationAccuracyKilometer:
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+            break;
+            
+        case SKLocationAccuracyThreeKilometers:
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+            break;
+            
+        default:
+            NSLog(@"Unknown SKLocationAccuracy: %lu", (unsigned long)accuracy);
+            abort();
+    }
+}
+
+- (void)updateAuthorization:(SKLocationAuthorization)authorization
+{
+    switch (authorization)
+    {
+        case SKLocationAuthorizationWhenInUse:
+            if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+                [self.locationManager requestWhenInUseAuthorization];
+            }
+            
+            if ([self.locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)]) {
+                self.locationManager.allowsBackgroundLocationUpdates = NO;
+            }
+            break;
+            
+        case SKLocationAuthorizationAlways:
+            if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+                [self.locationManager requestAlwaysAuthorization];
+            }
+            
+            if ([self.locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)]) {
+                self.locationManager.allowsBackgroundLocationUpdates = YES;
+            }
+            break;
+            
+        default:
+            NSLog(@"Unknown SKLocationAuthorization: %lu", (unsigned long)authorization);
+            abort();
+    }
+}
+
+
+#pragma mark Sensing
+
++ (BOOL)isSensorAvailable
 {
     return [CLLocationManager locationServicesEnabled];
 }
-
-#pragma mark start / stop sensing
 
 - (void)startSensing
 {
     [super startSensing];
     
-    if ([SKLocation isSensorModuleAvailable])
+    if ([SKLocation isSensorAvailable])
     {
         [self.locationManager startUpdatingLocation];
     }

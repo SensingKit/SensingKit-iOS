@@ -26,25 +26,54 @@
 #import "SKMotionManager.h"
 #import "SKGyroscopeData.h"
 
+
 @interface SKGyroscope ()
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
 @end
 
+
 @implementation SKGyroscope
 
-- (instancetype)init
+- (instancetype)initWithConfiguration:(SKGyroscopeConfiguration *)configuration
 {
     if (self = [super init])
     {
         self.motionManager = [SKMotionManager sharedMotionManager];
-        self.motionManager.gyroUpdateInterval = 1.0/100;
+        self.configuration = configuration;
     }
     return self;
 }
 
-+ (BOOL)isSensorModuleAvailable
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKGyroscopeConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Gyroscope.", configuration.class);
+        abort();
+    }
+    
+    if (super.configuration != configuration)
+    {
+        super.configuration = configuration;
+        
+        // Cast the configuration instance
+        SKGyroscopeConfiguration *gyroscopeConfiguration = (SKGyroscopeConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        self.motionManager.gyroUpdateInterval = 1.0 / gyroscopeConfiguration.sampleRate;  // Convert Hz into interval
+    }
+}
+
+
+#pragma mark Sensing
+
++ (BOOL)isSensorAvailable
 {
     return [SKMotionManager sharedMotionManager].isGyroAvailable;
 }
@@ -53,7 +82,7 @@
 {
     [super startSensing];
     
-    if ([self.motionManager isGyroAvailable])
+    if (self.motionManager.gyroAvailable)
     {
         [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
                                         withHandler:^(CMGyroData *gyroData, NSError *error) {

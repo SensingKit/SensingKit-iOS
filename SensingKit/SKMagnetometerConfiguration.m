@@ -1,5 +1,5 @@
 //
-//  SKActivityData.h
+//  SKMagnetometerConfiguration.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,16 +22,24 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKSensorData.h"
-@import CoreMotion;
+#import "SKMagnetometerConfiguration.h"
 
-@interface SKActivityData : SKSensorData
+@implementation SKMagnetometerConfiguration
 
-@property (nonatomic, strong, readonly) CMMotionActivity *activity;
-@property (nonatomic, readonly, strong) SKSensorTimestamp *startDate;
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        // Set default values
+    }
+    return self;
+}
 
-- (instancetype)initWithActivity:(CMMotionActivity *)activity;
-
-+ (NSString *)csvHeader;
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKMagnetometerConfiguration *configuration = [super copyWithZone:zone];
+    
+    return configuration;
+}
 
 @end

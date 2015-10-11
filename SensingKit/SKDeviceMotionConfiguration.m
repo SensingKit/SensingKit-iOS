@@ -1,5 +1,5 @@
 //
-//  SKSensorDataListener.h
+//  SKDeviceMotionConfiguration.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,7 +22,24 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKSensorData.h"
+#import "SKDeviceMotionConfiguration.h"
 
-// Typedef of block to be invoked when sensor data is available.
-typedef void (^SKSensorDataHandler)(SKSensorModuleType moduleType, SKSensorData *sensorData);
+@implementation SKDeviceMotionConfiguration
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        // Set default values
+    }
+    return self;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKDeviceMotionConfiguration *configuration = [super copyWithZone:zone];
+    
+    return configuration;
+}
+
+@end

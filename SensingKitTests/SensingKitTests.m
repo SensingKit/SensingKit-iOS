@@ -24,7 +24,7 @@
 
 #import <XCTest/XCTest.h>
 #import "SensingKitLib.h"
-#import "NSString+SensorModuleType.h"
+#import "NSString+SensorType.h"
 
 @import CoreBluetooth;
 
@@ -52,19 +52,20 @@
     [super tearDown];
 }
 
-- (void)testSensorModuleStrings
+- (void)testSensorStrings
 {
-    XCTAssertTrue([[NSString stringWithSensorModuleType:Accelerometer]      isEqualToString:@"Accelerometer"],      @"SensorModule name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorModuleType:Gyroscope]          isEqualToString:@"Gyroscope"],          @"SensorModule name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorModuleType:Magnetometer]       isEqualToString:@"Magnetometer"],       @"SensorModule name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorModuleType:DeviceMotion]       isEqualToString:@"DeviceMotion"],       @"SensorModule name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorModuleType:Activity]           isEqualToString:@"Activity"],           @"SensorModule name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorModuleType:Pedometer]          isEqualToString:@"Pedometer"],          @"SensorModule name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorModuleType:Altimeter]          isEqualToString:@"Altimeter"],          @"SensorModule name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorModuleType:Battery]            isEqualToString:@"Battery"],            @"SensorModule name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorModuleType:Location]           isEqualToString:@"Location"],           @"SensorModule name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorModuleType:iBeaconProximity]   isEqualToString:@"iBeaconProximity"],   @"SensorModule name is wrong.");
-    XCTAssertTrue([[NSString stringWithSensorModuleType:EddystoneProximity] isEqualToString:@"EddystoneProximity"], @"SensorModule name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Accelerometer]      isEqualToString:@"Accelerometer"],      @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Gyroscope]          isEqualToString:@"Gyroscope"],          @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Magnetometer]       isEqualToString:@"Magnetometer"],       @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:DeviceMotion]       isEqualToString:@"DeviceMotion"],       @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:MotionActivity]     isEqualToString:@"MotionActivity"],     @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Pedometer]          isEqualToString:@"Pedometer"],          @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Altimeter]          isEqualToString:@"Altimeter"],          @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Battery]            isEqualToString:@"Battery"],            @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Location]           isEqualToString:@"Location"],           @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:iBeaconProximity]   isEqualToString:@"iBeaconProximity"],   @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:EddystoneProximity] isEqualToString:@"EddystoneProximity"], @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Microphone]         isEqualToString:@"Microphone"],         @"Sensor name is wrong.");
 }
 
 - (void)testSensingKitLib
@@ -75,54 +76,56 @@
     XCTAssertNotNil(sensingKit2, @"SensingKitLib cannot be nil.");
     XCTAssertEqual(self.sensingKit, sensingKit2, @"Instances should be identical.");
     
-    [self.sensingKit registerSensorModule:Battery];
-    XCTAssertTrue([self.sensingKit isSensorModuleRegistered:Battery], @"SensorModule should be registered.");
-    XCTAssertFalse([self.sensingKit isSensorModuleSensing:Battery], @"SensorModule should not be sensing.");
+    [self.sensingKit registerSensor:Battery];
+    XCTAssertTrue([self.sensingKit isSensorRegistered:Battery], @"Sensor should be registered.");
+    XCTAssertFalse([self.sensingKit isSensorSensing:Battery], @"Sensor should not be sensing.");
     
     // Subscribe a sensor data listener
-    [self.sensingKit subscribeSensorDataListenerToSensor:Battery
-                                             withHandler:^(SKSensorModuleType moduleType, SKSensorData *sensorData) {
+    [self.sensingKit subscribeToSensor:Battery
+                           withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
                                                          // Do nothing
                                                      }];
     
     [self.sensingKit startContinuousSensingWithSensor:Battery];
-    XCTAssertTrue([self.sensingKit isSensorModuleSensing:Battery], @"SensorModule should be sensing.");
+    XCTAssertTrue([self.sensingKit isSensorSensing:Battery], @"Sensor should be sensing.");
     
     [self.sensingKit stopContinuousSensingWithSensor:Battery];
-    XCTAssertFalse([self.sensingKit isSensorModuleSensing:Battery], @"SensorModule should not be sensing.");
+    XCTAssertFalse([self.sensingKit isSensorSensing:Battery], @"Sensor should not be sensing.");
     
-    // Do not unsubscribe here.. (should be automated by deregisterSensorModule)
-    [self.sensingKit deregisterSensorModule:Battery];
-    XCTAssertFalse([self.sensingKit isSensorModuleRegistered:Battery], @"SensorModule should not be registered.");
+    // Do not unsubscribe here.. (should be automated by deregisterSensor)
+    [self.sensingKit deregisterSensor:Battery];
+    XCTAssertFalse([self.sensingKit isSensorRegistered:Battery], @"Sensor should not be registered.");
 }
 
 - (void)testSensorRegistrationDeregistration
 {
     // test registration
-    [self.sensingKit registerSensorModule:Accelerometer];
-    [self.sensingKit registerSensorModule:Gyroscope];
-    [self.sensingKit registerSensorModule:Magnetometer];
-    [self.sensingKit registerSensorModule:DeviceMotion];
-    [self.sensingKit registerSensorModule:Activity];
-    [self.sensingKit registerSensorModule:Pedometer];
-    [self.sensingKit registerSensorModule:Altimeter];
-    [self.sensingKit registerSensorModule:Battery];
-    [self.sensingKit registerSensorModule:Location];
-    [self.sensingKit registerSensorModule:iBeaconProximity];
-    [self.sensingKit registerSensorModule:EddystoneProximity];
+    [self.sensingKit registerSensor:Accelerometer];
+    [self.sensingKit registerSensor:Gyroscope];
+    [self.sensingKit registerSensor:Magnetometer];
+    [self.sensingKit registerSensor:DeviceMotion];
+    [self.sensingKit registerSensor:MotionActivity];
+    [self.sensingKit registerSensor:Pedometer];
+    [self.sensingKit registerSensor:Altimeter];
+    [self.sensingKit registerSensor:Battery];
+    [self.sensingKit registerSensor:Location];
+    [self.sensingKit registerSensor:iBeaconProximity];
+    [self.sensingKit registerSensor:EddystoneProximity];
+    [self.sensingKit registerSensor:Microphone];
     
     // test deregistration
-    [self.sensingKit deregisterSensorModule:Accelerometer];
-    [self.sensingKit deregisterSensorModule:Gyroscope];
-    [self.sensingKit deregisterSensorModule:Magnetometer];
-    [self.sensingKit deregisterSensorModule:DeviceMotion];
-    [self.sensingKit deregisterSensorModule:Activity];
-    [self.sensingKit deregisterSensorModule:Pedometer];
-    [self.sensingKit deregisterSensorModule:Altimeter];
-    [self.sensingKit deregisterSensorModule:Battery];
-    [self.sensingKit deregisterSensorModule:Location];
-    [self.sensingKit deregisterSensorModule:iBeaconProximity];
-    [self.sensingKit deregisterSensorModule:EddystoneProximity];
+    [self.sensingKit deregisterSensor:Accelerometer];
+    [self.sensingKit deregisterSensor:Gyroscope];
+    [self.sensingKit deregisterSensor:Magnetometer];
+    [self.sensingKit deregisterSensor:DeviceMotion];
+    [self.sensingKit deregisterSensor:MotionActivity];
+    [self.sensingKit deregisterSensor:Pedometer];
+    [self.sensingKit deregisterSensor:Altimeter];
+    [self.sensingKit deregisterSensor:Battery];
+    [self.sensingKit deregisterSensor:Location];
+    [self.sensingKit deregisterSensor:iBeaconProximity];
+    [self.sensingKit deregisterSensor:EddystoneProximity];
+    [self.sensingKit deregisterSensor:Microphone];
 }
 
 @end

@@ -26,25 +26,54 @@
 #import "SKMotionManager.h"
 #import "SKMagnetometerData.h"
 
+
 @interface SKMagnetometer ()
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
 @end
 
+
 @implementation SKMagnetometer
 
-- (instancetype)init
+- (instancetype)initWithConfiguration:(SKMagnetometerConfiguration *)configuration
 {
     if (self = [super init])
     {
         self.motionManager = [SKMotionManager sharedMotionManager];
-        self.motionManager.magnetometerUpdateInterval = 1.0/100;
+        self.configuration = configuration;
     }
     return self;
 }
 
-+ (BOOL)isSensorModuleAvailable
+
+#pragma mark Configuration
+
+- (void)setConfiguration:(SKConfiguration *)configuration
+{
+    // Check if the correct configuration type provided
+    if (configuration.class != SKMagnetometerConfiguration.class)
+    {
+        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Magnetometer.", configuration.class);
+        abort();
+    }
+    
+    if (super.configuration != configuration)
+    {
+        super.configuration = configuration;
+        
+        // Cast the configuration instance
+        SKMagnetometerConfiguration *magnetometerConfiguration = (SKMagnetometerConfiguration *)configuration;
+        
+        // Make the required updates on the sensor
+        self.motionManager.magnetometerUpdateInterval = 1.0 / magnetometerConfiguration.sampleRate;  // Convert Hz into interval
+    }
+}
+
+
+#pragma mark Sensing
+
++ (BOOL)isSensorAvailable
 {
     return [SKMotionManager sharedMotionManager].isMagnetometerAvailable;
 }
@@ -53,7 +82,7 @@
 {
     [super startSensing];
     
-    if ([self.motionManager isMagnetometerAvailable])
+    if (self.motionManager.magnetometerAvailable)
     {
         [self.motionManager startMagnetometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                                 withHandler:^(CMMagnetometerData *magnetometerData, NSError *error) {

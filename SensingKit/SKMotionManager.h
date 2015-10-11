@@ -26,10 +26,14 @@
 
 @import CoreMotion;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SKMotionManager : NSObject
 
-- (instancetype)init __attribute__((unavailable("Use [SKMotionManager sharedMotionManager] instead.")));
+- (instancetype)init NS_UNAVAILABLE;
 
 + (CMMotionManager *)sharedMotionManager;
 
 @end
+
+NS_ASSUME_NONNULL_END

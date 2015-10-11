@@ -25,12 +25,39 @@
 #import "SKSensorData.h"
 @import CoreMotion;
 
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  An instance of SKAltimeterData encapsulates measurements related to the Altimeter sensor.
+ */
 @interface SKAltimeterData : SKSensorData
 
-@property (strong, nonatomic, readonly) CMAltitudeData *altitudeData;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData;
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
+/**
+ *  Returns an SKAltimeterData object, initialized with an instance of CMAltitudeData.
+ *
+ *  @param altitudeData A CMAltitudeData object that contains data related to the Altimeter sensor.
+ *
+ *  @return An SKAltimeter object.
+ */
+- (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData NS_DESIGNATED_INITIALIZER;
+
+/**
+ *  An instance of CMAltitudeData object contains data about changes to the relative altitude (not the actual). It also provides the recorded atmospheric pressure in kPa.
+ */
+@property (nonatomic, readonly, copy) CMAltitudeData *altitudeData;
+
+/**
+ *  A string with a CSV formatted header that describes the data of the Altimeter sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *
+ *  @return A string with a CSV header.
+ */
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

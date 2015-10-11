@@ -1,5 +1,5 @@
 //
-//  SKBeaconDeviceData.m
+//  SKiBeaconDeviceData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,19 +22,19 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBeaconDeviceData.h"
+#import "SKiBeaconDeviceData.h"
 
-@implementation SKBeaconDeviceData
+@implementation SKiBeaconDeviceData
 
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
-                        withMajor:(NSUInteger)major
-                        withMinor:(NSUInteger)minor
+                        withMajor:(uint16_t)major
+                        withMinor:(uint16_t)minor
                      withAccuracy:(CLLocationAccuracy)accuracy
                     withProximity:(CLProximity)proximity
                          withRssi:(NSInteger)rssi
 {
-    if (self = [super initWithSensorModuleType:iBeaconProximity
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
+    if (self = [super initWithSensorType:iBeaconProximity
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
     {
         _major = major;
         _minor = minor;
@@ -79,15 +79,15 @@
             (unsigned long)_major,
             (unsigned long)_minor,
             _accuracy,
-            [self proximityString],
+            self.proximityString,
             (long)_rssi];
 }
 
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"timestamp": self.timestamp.timestampDictionary,
              @"iBeacon": @{
                      @"major": @(_major),

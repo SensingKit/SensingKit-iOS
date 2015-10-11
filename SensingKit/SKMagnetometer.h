@@ -22,10 +22,19 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKAbstractSensorModule.h"
+#import "SKAbstractSensor.h"
+#import "SKMagnetometerConfiguration.h"
 
-@interface SKMagnetometer : SKAbstractSensorModule
+NS_ASSUME_NONNULL_BEGIN
 
-+ (BOOL)isSensorModuleAvailable;
+@interface SKMagnetometer : SKAbstractSensor
+
++ (BOOL)isSensorAvailable;
+
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithConfiguration:(SKMagnetometerConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
+
+NS_ASSUME_NONNULL_END

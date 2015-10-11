@@ -22,11 +22,19 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
-#import "SKAbstractSensorModule.h"
+#import "SKAbstractSensor.h"
+#import "SKBatteryConfiguration.h"
 
-@interface SKBattery : SKAbstractSensorModule
+NS_ASSUME_NONNULL_BEGIN
 
-+ (BOOL)isSensorModuleAvailable;
+@interface SKBattery : SKAbstractSensor
+
++ (BOOL)isSensorAvailable;
+
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
+
+NS_ASSUME_NONNULL_END

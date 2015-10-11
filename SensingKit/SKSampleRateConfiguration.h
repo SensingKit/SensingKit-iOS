@@ -1,5 +1,5 @@
 //
-//  NSString+SensorModuleType.m
+//  SKSampleRateConfiguration.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,27 +22,20 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "NSString+SensorModuleType.h"
+#import "SKConfiguration.h"
 
-@implementation NSString (SensorModuleType)
+NS_ASSUME_NONNULL_BEGIN
 
-static NSString *MODULE_STRINGS[] = {
-    @"Accelerometer",
-    @"Gyroscope",
-    @"Magnetometer",
-    @"DeviceMotion",
-    @"Activity",
-    @"Pedometer",
-    @"Altimeter",
-    @"Battery",
-    @"Location",
-    @"iBeaconProximity",
-    @"EddystoneProximity"
-};
+/**
+ *  This is the base class for all motion sensors that require a sample rate configuration. These sensors are Accelerometer, Gyroscope, Magnetometer and Device Motion.
+ */
+@interface SKSampleRateConfiguration : SKConfiguration <NSCopying>
 
-+ (NSString *)stringWithSensorModuleType:(SKSensorModuleType)moduleType
-{
-    return MODULE_STRINGS[moduleType];
-}
+/**
+ *  The Sample Rate of the sensor in Hz.
+ */
+@property (nonatomic) NSUInteger sampleRate;
 
 @end
+
+NS_ASSUME_NONNULL_END

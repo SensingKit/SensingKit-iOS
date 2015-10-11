@@ -1,5 +1,5 @@
 //
-//  SKActivityData.m
+//  SKMotionActivityData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,24 +22,24 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKActivityData.h"
+#import "SKMotionActivityData.h"
 
-@implementation SKActivityData
+@implementation SKMotionActivityData
 
-- (instancetype)initWithActivity:(CMMotionActivity *)activity
+- (instancetype)initWithMotionActivity:(CMMotionActivity *)motionActivity
 {
-    if (self = [super initWithSensorModuleType:Activity
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:activity.timestamp]])
+    if (self = [super initWithSensorType:MotionActivity
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:motionActivity.timestamp]])
     {
-        _startDate = [SKSensorTimestamp sensorTimestampFromDate:activity.startDate];
-        _activity = activity;
+        _startDate = [SKSensorTimestamp sensorTimestampFromDate:motionActivity.startDate];
+        _motionActivity = motionActivity;
     }
     return self;
 }
 
 - (NSString *)confidenceString
 {
-    switch (_activity.confidence) {
+    switch (_motionActivity.confidence) {
         case CMMotionActivityConfidenceHigh:
             return @"High";
             
@@ -50,7 +50,7 @@
             return @"Low";
             
         default:
-            NSLog(@"Warning: Unknown confidence: %d", (int)_activity.confidence);
+            NSLog(@"Warning: Unknown confidence: %d", (int)_motionActivity.confidence);
             return @"Unknown";
     }
 }
@@ -67,29 +67,29 @@
             self.timestamp.timeIntervalSince1970,
             _startDate.timestampString,
             _startDate.timeIntervalSince1970,
-            _activity.stationary,
-            _activity.walking,
-            _activity.running,
-            _activity.automotive,
-            _activity.cycling,
-            _activity.unknown,
+            _motionActivity.stationary,
+            _motionActivity.walking,
+            _motionActivity.running,
+            _motionActivity.automotive,
+            _motionActivity.cycling,
+            _motionActivity.unknown,
             [self confidenceString]];
 }
 
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"timestamp": self.timestamp.timestampDictionary,
              @"startDate": self.startDate.timestampDictionary,
              @"activity": @{
-                     @"stationary": @(_activity.stationary),
-                     @"walking": @(_activity.walking),
-                     @"running": @(_activity.running),
-                     @"automotive": @(_activity.automotive),
-                     @"cycling": @(_activity.cycling),
-                     @"unknown": @(_activity.unknown)
+                     @"stationary": @(_motionActivity.stationary),
+                     @"walking": @(_motionActivity.walking),
+                     @"running": @(_motionActivity.running),
+                     @"automotive": @(_motionActivity.automotive),
+                     @"cycling": @(_motionActivity.cycling),
+                     @"unknown": @(_motionActivity.unknown)
                      }
              };
 }

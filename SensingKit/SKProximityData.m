@@ -26,12 +26,12 @@
 
 @implementation SKProximityData
 
-- (instancetype)initWithSensorModuleType:(SKSensorModuleType)moduleType
-                           withTimestamp:(NSDate *)timestamp
-                             withDevices:(NSArray *)devices
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(NSDate *)timestamp
+                       withDevices:(NSArray *)devices
 {
-    if (self = [super initWithSensorModuleType:moduleType
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
+    if (self = [super initWithSensorType:sensorType
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
     {
         _devices = devices;
     }
@@ -40,7 +40,7 @@
 
 + (NSString *)csvHeader
 {
-    NSLog(@"csvHeader depends on the DeviceData class.");
+    NSLog(@"csvHeader depends on the encapsulated Device Data objects.");
     return nil;
 }
 
@@ -55,12 +55,12 @@
     NSMutableArray *dictionaries = [[NSMutableArray alloc] initWithCapacity:self.devices.count];
     
     for (SKSensorData *device in self.devices) {
-        [dictionaries addObject:[device dictionaryData]];
+        [dictionaries addObject:device.dictionaryData];
     }
     
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"timestamp": self.timestamp.timestampDictionary,
              @"devices": dictionaries
              };

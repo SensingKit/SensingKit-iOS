@@ -25,15 +25,49 @@
 #import "SKSensorData.h"
 @import CoreMotion;
 
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  An instance of SKPedometerData encapsulates measurements related to the Pedometer sensor.
+ */
 @interface SKPedometerData : SKSensorData
 
-@property (nonatomic, strong, readonly) CMPedometerData *pedometerData;
+- (instancetype)init NS_UNAVAILABLE;
 
-@property (nonatomic, readonly, strong) SKSensorTimestamp *startDate;
-@property (nonatomic, readonly, strong) SKSensorTimestamp *endDate;
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
-- (instancetype)initWithPedometerData:(CMPedometerData *)pedometerData;
+/**
+ *  Returns an SKPedometer object, initialized with an instance of CMPedometerData.
+ *
+ *  @param pedometerData A CMPedometerData object that contains data related to the Pedometer sensor.
+ *
+ *  @return An SKPedometer object.
+ */
+- (instancetype)initWithPedometerData:(CMPedometerData *)pedometerData NS_DESIGNATED_INITIALIZER;
 
+/**
+ *  An instance of CMPedometerData object contains data about the distance travelled the user by foot.
+ */
+@property (nonatomic, readonly, copy) CMPedometerData *pedometerData;
+
+/**
+ *  Start date that the pedometer data are valid.
+ */
+@property (nonatomic, readonly, copy) SKSensorTimestamp *startDate;
+
+/**
+ *  End date that the pedometer data are valid.
+ */
+@property (nonatomic, readonly, copy) SKSensorTimestamp *endDate;
+
+/**
+ *  A string with a CSV formatted header that describes the data of the Pedometer sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *
+ *  @return A string with a CSV header.
+ */
 + (NSString *)csvHeader;
 
 @end
+
+NS_ASSUME_NONNULL_END

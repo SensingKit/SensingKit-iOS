@@ -1,5 +1,5 @@
 //
-//  SKBeaconDeviceData.h
+//  SKMotionActivityConfiguration.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Queen Mary University of London
@@ -22,27 +22,24 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <Foundation/Foundation.h>
-#import "SKSensorData.h"
-@import CoreLocation;
+#import "SKMotionActivityConfiguration.h"
 
-@interface SKBeaconDeviceData : SKSensorData
+@implementation SKMotionActivityConfiguration
 
-@property (nonatomic, readonly) NSUInteger major;
-@property (nonatomic, readonly) NSUInteger minor;
-@property (nonatomic, readonly) CLLocationAccuracy accuracy;
-@property (nonatomic, readonly) CLProximity proximity;
-@property (nonatomic, readonly) NSInteger rssi;
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        // Set default values
+    }
+    return self;
+}
 
-- (instancetype)initWithTimestamp:(NSDate *)timestamp
-                        withMajor:(NSUInteger)major
-                        withMinor:(NSUInteger)minor
-                     withAccuracy:(CLLocationAccuracy)accuracy
-                    withProximity:(CLProximity)proximity
-                         withRssi:(NSInteger)rssi;
-
-+ (NSString *)csvHeader;
-
-- (NSString *)proximityString;
+- (id)copyWithZone:(NSZone *)zone
+{
+    SKMotionActivityConfiguration *configuration = [super copyWithZone:zone];
+    
+    return configuration;
+}
 
 @end

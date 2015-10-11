@@ -28,8 +28,8 @@
 
 - (instancetype)initWithPedometerData:(CMPedometerData *)pedometerData
 {
-    if (self = [super initWithSensorModuleType:Pedometer
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:pedometerData.startDate]])
+    if (self = [super initWithSensorType:Pedometer
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:pedometerData.startDate]])
     {
         // No need to have two instances of the same timestamp. We point startDate to self.timestamp
         _startDate = self.timestamp;
@@ -41,18 +41,20 @@
 
 + (NSString *)csvHeader
 {
-    return @"startTimestamp,startTimeIntervalSince1970,endTimestamp,endTimeIntervalSince1970,numberOfSteps,distance,floorsAscended,floorsDescended";
+    return @"startTimestamp,startTimeIntervalSince1970,endTimestamp,endTimeIntervalSince1970,numberOfSteps,distance,currentPace,currentCadence,floorsAscended,floorsDescended";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"\"%@\",%f,\"%@\",%f,%lu,%lu,%lu,%lu",
+    return [NSString stringWithFormat:@"\"%@\",%f,\"%@\",%f,%lu,%lu,%lu,%lu,%lu,%lu",
             self.startDate.timestampString,
             self.startDate.timeIntervalSince1970,
             self.endDate.timestampString,
             self.endDate.timeIntervalSince1970,
             (unsigned long)_pedometerData.numberOfSteps.unsignedIntegerValue,
             (unsigned long)_pedometerData.distance.unsignedIntegerValue,
+            (unsigned long)_pedometerData.currentPace.unsignedIntegerValue,
+            (unsigned long)_pedometerData.currentCadence.unsignedIntegerValue,
             (unsigned long)_pedometerData.floorsAscended.unsignedIntegerValue,
             (unsigned long)_pedometerData.floorsDescended.unsignedIntegerValue];
 }
@@ -60,13 +62,15 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
              @"startDate": self.startDate.timestampDictionary,
              @"endDate": self.endDate.timestampDictionary,
              @"pedometerData": @{
                      @"numberOfSteps": _pedometerData.numberOfSteps,
                      @"distance": _pedometerData.distance,
+                     @"currentPace": _pedometerData.currentPace,
+                     @"currentCadence": _pedometerData.currentCadence,
                      @"floorsAscended": _pedometerData.floorsAscended,
                      @"floorsDescended": _pedometerData.floorsDescended
                      }

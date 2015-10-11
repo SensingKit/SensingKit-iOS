@@ -5,33 +5,40 @@ An iOS library that provides Continuous Sensing functionality to your applicatio
 
 ## Supported Sensors
 
-The following sensor modules are currently supported in SensingKit-Android, (listed in [SKSensorModuleType](SensingKit/SKSensorModuleType.h) enum):
+The following mobile sensors are currently supported in SensingKit-iOS, (listed in [SKSensorType](SensingKit/SKSensorType.h) enum):
 
 - Accelerometer
 - Gyroscope
 - Magnetometer
 - Device Motion (senses Attitude, Gravity, User Acceleration, Magnetic Field, Rotation)
-- Activity
+- Motion Activity
 - Pedometer
 - Altimeter
 - Battery
 - Location
 - iBeacon™ Proximity
 - Eddystone™ Proximity
+- Microphone
 
 
 ## Configuring the Library
+
+You can always skip this step by downloading the released version of SensingKit-iOS from [here](https://github.com/SensingKit/SensingKit-iOS/releases).
+
+In case you want to build the library yourself:
 
 - Open SensingKit project in Xcode and build SensingKit library using Product -> Build.
 
 - Choose the ‘Framework’ scheme from the top toolbar (or using Product -> Scheme -> Framework) and build the framework. SensingKit.framework file should be available in your desktop.
 
-- Move the generated SensingKit.framework file into your new Xcode project.
 
+## Using the Library
 
-## How to Use this Library
+- First, you need to move the generated SensingKit.framework file into your new Xcode project.
 
-- Import and init SensingKit into your Activity class as shown bellow:
+- Since SensingKit-iOS uses Categories internally, you need to add  the ’-ObjC’ flag into your project build settings. Open your project, select your project from the Project Navigator on the left and click on the app’s target. Select the Build Settings tab on the top of the screen and search for “Other Linker Flags”. Finally, click the + button and add ‘-ObjC’ as a new property on the list.
+
+- Import and init SensingKit as shown bellow:
 
 ```objectivec
 #import <SensingKit/SensingKitLib.h>
@@ -46,18 +53,27 @@ The following sensor modules are currently supported in SensingKit-Android, (lis
 ```
 
 
-- Register a sensor module (e.g. a Battery sensor) as shown bellow:
+- Check if a sensor is available in the device:
 
 ```objectivec
-[self.sensingKit registerSensorModule:Battery];
+if ([self.sensingKit isSensorAvailable:Battery]) {
+    // You can access the sensor
+}
 ```
 
 
-- Subscribe a sensor data listener. You can cast the data object into the actual sensor data object in order to access all the sensor data properties:
+- Register a sensor (e.g. a Battery sensor) as shown bellow:
 
 ```objectivec
-[self.sensingKit subscribeSensorDataListenerToSensor:Battery
-                                         withHandler:^(SKSensorModuleType moduleType, SKSensorData *sensorData) {
+[self.sensingKit registerSensor:Battery];
+```
+
+
+- Subscribe a sensor data handler. You can cast the data object into the actual sensor data object in order to access all the sensor data properties:
+
+```objectivec
+[self.sensingKit subscribeToSensor:Battery
+                       withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
         
         SKBatteryData *batteryData = (SKBatteryData *)sensorData;
         NSLog(@“Battery Level: %f”, batteryData.level);

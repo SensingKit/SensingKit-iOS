@@ -28,8 +28,8 @@
 
 - (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData
 {
-    if (self = [super initWithSensorModuleType:Altimeter
-                                 withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:altitudeData.timestamp]])
+    if (self = [super initWithSensorType:Altimeter
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:altitudeData.timestamp]])
     {
         _altitudeData = altitudeData;
     }
@@ -53,8 +53,8 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.moduleType),
-             @"sensorTypeString": [NSString stringWithSensorModuleType:self.moduleType],
+             @"sensorType": @(self.sensorType),
+             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
             @"timestamp": self.timestamp.timestampDictionary,
              @"altitudeData": @{
                      @"relativeAltitude": _altitudeData.relativeAltitude,
