@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
 

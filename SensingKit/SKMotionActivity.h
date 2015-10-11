@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithConfiguration:(SKMotionActivityConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKMotionActivityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
 

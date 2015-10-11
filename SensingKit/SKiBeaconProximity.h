@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithConfiguration:(SKiBeaconProximityConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKiBeaconProximityConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
 

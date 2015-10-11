@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithConfiguration:(SKMagnetometerConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKMagnetometerConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
 

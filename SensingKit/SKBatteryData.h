@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+
 /**
  *  Returns an SKBatteryData object, initialized with measurements of the battery level, as well as the battery state.
  *

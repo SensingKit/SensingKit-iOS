@@ -35,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+
 /**
  *  Returns an SKiBeaconDeviceData object, initialized with the time the device was found, its major and minor identifiers, as well as its accuracy, proximity and RSSI.
  *

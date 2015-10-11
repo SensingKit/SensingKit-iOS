@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return A new SKiBeaconProximityConfiguration object.
  */
-- (instancetype)initWithUUID:(NSUUID *)UUID;
+- (instancetype)initWithUUID:(NSUUID *)UUID NS_DESIGNATED_INITIALIZER;
 
 /**
  *  The Universally Unique Identifiers (UUID) that will be used to distinguish the iBeacon™ devices of this application with other devices. Only iBeacons with the same UUID will be identified.

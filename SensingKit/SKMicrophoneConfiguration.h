@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return A new SKMicrophoneConfiguration object.
  */
-- (instancetype)initWithOutputDirectory:(NSURL *)outputDirectory withFilename:(NSString *)filename;
+- (instancetype)initWithOutputDirectory:(NSURL *)outputDirectory withFilename:(NSString *)filename NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Path of the directory that the recording will be stored.

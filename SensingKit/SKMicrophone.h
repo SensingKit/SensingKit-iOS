@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithConfiguration:(SKMicrophoneConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKMicrophoneConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
 

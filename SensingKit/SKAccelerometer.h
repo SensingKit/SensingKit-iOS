@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithConfiguration:(SKAccelerometerConfiguration *)configuration;
+- (instancetype)initWithConfiguration:(SKAccelerometerConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 @end
 

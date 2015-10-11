@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 
+- (instancetype)initWithSensorType:(SKSensorType)sensorType
+                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+
 /**
  *  Returns an SKMicrophoneData object, initialized with the current state of the sensor and the timestamp.
  *
