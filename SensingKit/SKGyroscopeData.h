@@ -32,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKGyroscopeData : SKSensorData
 
-/*! @abstract Use initWithGyroData: to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**

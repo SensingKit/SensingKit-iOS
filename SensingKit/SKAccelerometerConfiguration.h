@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKAccelerometerConfiguration can be used to configure the Accelerometer sensor.
+ *  An instance of SKAccelerometerConfiguration can be used to configure the Accelerometer sensor. No configuration is available at this moment.
  */
 @interface SKAccelerometerConfiguration : SKSampleRateConfiguration <NSCopying>
 

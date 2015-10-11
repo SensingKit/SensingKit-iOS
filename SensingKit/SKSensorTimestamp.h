@@ -31,7 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKSensorTimestamp : NSObject <NSCopying>
 
-/*! @abstract Use [SKSensorTimestamp sensorTimestampFromDate:] or [SKSensorTimestamp sensorTimestampFromTimeInterval:] to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
@@ -46,9 +45,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates and returns a new SKSensorTimestamp from a NSTimeInterval object. The time interval should be relative to the last time the device was boot. If the sensor does not provide this value, [NSProcessInfo processInfo].systemUptime can be used.
  *
- *  @param timeInterval The number of seconds since the last time the device was boot. Use a negative argument to specify a date and time before the reference date.
+ *  @param timeInterval The number of seconds since the last time the device was boot.
  *
- *  @return A new SKSensorTimestamp object initialized relative to timeInterval parameter.
+ *  @return A new SKSensorTimestamp object initialized relative to the timeInterval parameter.
  */
 + (instancetype)sensorTimestampFromTimeInterval:(NSTimeInterval)timeInterval;
 

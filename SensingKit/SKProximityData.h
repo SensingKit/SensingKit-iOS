@@ -31,7 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKProximityData : SKSensorData
 
-/*! @abstract Use initWithSensorType:withTimestamp:withDevices to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**

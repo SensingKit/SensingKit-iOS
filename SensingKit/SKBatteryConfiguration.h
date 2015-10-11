@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKBatteryConfiguration can be used to configure the Battery sensor.
+ *  An instance of SKBatteryConfiguration can be used to configure the Battery sensor. No configuration is available at this moment.
  */
 @interface SKBatteryConfiguration : SKConfiguration <NSCopying>
 

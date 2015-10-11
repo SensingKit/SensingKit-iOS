@@ -65,7 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SensingKitLib : NSObject
 
-/*! @abstract Use [SensingKitLib sharedSensingKitLib] to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**

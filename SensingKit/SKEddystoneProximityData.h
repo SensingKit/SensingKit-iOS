@@ -31,7 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKEddystoneProximityData : SKSensorData
 
-/*! @abstract Use initWithTimestamp:withNamespaceId:withInstanceId:withRssi:withTxPower to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**

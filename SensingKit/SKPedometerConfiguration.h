@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKPedometerConfiguration can be used to configure the Pedometer sensor.
+ *  An instance of SKPedometerConfiguration can be used to configure the Pedometer sensor. No configuration is available at this moment.
  */
 @interface SKPedometerConfiguration : SKConfiguration <NSCopying>
 

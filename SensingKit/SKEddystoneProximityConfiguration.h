@@ -42,12 +42,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SKEddystoneProximityConfiguration : SKConfiguration <NSCopying>
 
 /**
- *  <#Description#>
+ *  Mode of the Eddystone™ Proximity sensor. At this moment, only Scan mode is supported.
  */
 @property (nonatomic) SKEddystoneProximityMode mode;
 
 /**
- *  <#Description#>
+ *  A 10-byte (80 bit) identifier that can used to group a particular set of beacons. This value should be in Hexadecimal format, with a maximum character length of 20 characters.
  */
 @property (nonatomic, copy, nullable) NSString *namespaceFilter;
 

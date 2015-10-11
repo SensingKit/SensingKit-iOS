@@ -30,7 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SKMotionManager : NSObject
 
-/*! @abstract Use [SKMotionManager sharedMotionManager] instead. */
 - (instancetype)init NS_UNAVAILABLE;
 
 + (CMMotionManager *)sharedMotionManager;

@@ -32,20 +32,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKAltimeterData : SKSensorData
 
-/*! @abstract Use initWithAltitudeData: to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
  *  Returns an SKAltimeterData object, initialized with an instance of CMAltitudeData.
  *
- *  @param altitudeData <#altitudeData description#>
+ *  @param altitudeData A CMAltitudeData object that contains data related to the Altimeter sensor.
  *
  *  @return An SKAltimeter object.
  */
 - (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData NS_DESIGNATED_INITIALIZER;
 
 /**
- *  <#Description#>
+ *  An instance of CMAltitudeData object contains data about changes to the relative altitude (not the actual). It also provides the recorded atmospheric pressure in kPa.
  */
 @property (nonatomic, readonly, copy) CMAltitudeData *altitudeData;
 

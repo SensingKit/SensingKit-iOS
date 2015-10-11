@@ -32,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKPedometerData : SKSensorData
 
-/*! @abstract Use initWithPedometerData: to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**

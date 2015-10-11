@@ -31,7 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKMicrophoneData : SKSensorData
 
-/*! @abstract Use initWithState:withTimeInterval: to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**

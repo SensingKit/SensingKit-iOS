@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKAltimeterConfiguration can be used to configure the Altimeter sensor.
+ *  An instance of SKAltimeterConfiguration can be used to configure the Altimeter sensor. No configuration is available at this moment.
  */
 @interface SKAltimeterConfiguration : SKConfiguration <NSCopying>
 

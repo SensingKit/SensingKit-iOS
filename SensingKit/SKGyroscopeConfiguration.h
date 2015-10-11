@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKGyroscopeConfiguration can be used to configure the Gyroscope sensor.
+ *  An instance of SKGyroscopeConfiguration can be used to configure the Gyroscope sensor. No configuration is available at this moment.
  */
 @interface SKGyroscopeConfiguration : SKSampleRateConfiguration <NSCopying>
 

@@ -32,20 +32,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKMotionActivityData : SKSensorData
 
-/*! @abstract Use initWithMotionActivity: to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
  *  Returns an SKMotionActivityData object, initialized with an instance of CMMotionActivity.
  *
- *  @param motionActivity <#activity description#>
+ *  @param motionActivity A CMMotionActivity object that contains data related to the Motion Activity sensor.
  *
  *  @return An SKMotionActivityData object.
  */
 - (instancetype)initWithMotionActivity:(CMMotionActivity *)motionActivity NS_DESIGNATED_INITIALIZER;
 
 /**
- *  <#Description#>
+ *  An instance of CMMotionActivity object contains data about the measured motion activity, classified between Stationary, Walking, Running, Automotive, Cycling and Unknown.
  */
 @property (nonatomic, readonly, copy) CMMotionActivity *motionActivity;
 

@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKMagnetometerConfiguration can be used to configure the Magnetometer sensor.
+ *  An instance of SKMagnetometerConfiguration can be used to configure the Magnetometer sensor. No configuration is available at this moment.
  */
 @interface SKMagnetometerConfiguration : SKSampleRateConfiguration <NSCopying>
 

@@ -71,41 +71,40 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKMicrophoneConfiguration : SKConfiguration <NSCopying>
 
-/*! @abstract Use initWithOutputDirectory:withFilename: to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- *  <#Description#>
+ *  Returns an SKMicrophoneConfiguration object, initialized with the path of the directory, as well as the filename that the recording will be stored.
  *
- *  @param outputDirectory <#outputDirectory description#>
- *  @param filename        <#filename description#>
+ *  @param outputDirectory Path of the directory that the recording will be stored.
+ *  @param filename        A string with the desired filename of the recording, without the extension. Extension will be provided automatically based on the recordingFormat.
  *
- *  @return <#return value description#>
+ *  @return A new SKMicrophoneConfiguration object.
  */
 - (instancetype)initWithOutputDirectory:(NSURL *)outputDirectory withFilename:(NSString *)filename;
 
 /**
- *  <#Description#>
+ *  Path of the directory that the recording will be stored.
  */
 @property (nonatomic, copy) NSURL *outputDirectory;
 
 /**
- *  <#Description#>
+ *  A string with the desired filename of the recording, without the extension. Extension will be provided automatically based on the recordingFormat.
  */
 @property (nonatomic, copy) NSString *filename;
 
 /**
- *  <#Description#>
+ *  A read-only property that returns the full path of the recording filename.
  */
 @property (nonatomic, copy, readonly) NSURL *recordingPath;
 
 /**
- *  <#Description#>
+ *  Recording format of the Microphone sensor.
  */
 @property (nonatomic) SKMicrophoneRecordingFormat recordingFormat;
 
 /**
- *  <#Description#>
+ *  Recording quality of the Microphone sensor.
  */
 @property (nonatomic) SKMicrophoneRecordingQuality recordingQuality;
 

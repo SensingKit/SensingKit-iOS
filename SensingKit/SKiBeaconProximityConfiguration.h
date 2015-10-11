@@ -49,40 +49,39 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKiBeaconProximityConfiguration : SKConfiguration <NSCopying>
 
-/*! @abstract Use initWithUUID: to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
- *  <#Description#>
+ *  Returns an SKiBeaconProximityConfiguration object, initialized with the UUID .
  *
- *  @param UUID <#uuid description#>
+ *  @param UUID The Universally Unique Identifiers (UUID) that will be used to distinguish the iBeacon™ devices of this application with other devices. Only iBeacons with the same UUID will be identified.
  *
- *  @return <#return value description#>
+ *  @return A new SKiBeaconProximityConfiguration object.
  */
 - (instancetype)initWithUUID:(NSUUID *)UUID;
 
 /**
- *  <#Description#>
+ *  The Universally Unique Identifiers (UUID) that will be used to distinguish the iBeacon™ devices of this application with other devices. Only iBeacons with the same UUID will be identified.
  */
 @property (nonatomic, copy) NSUUID *UUID;
 
 /**
- *  <#Description#>
+ *  Mode of the iBeacon™ Proximity sensor. It can Scan for other iBeacon™ devices in range, Broadcast an iBeacon™ signal to other devices, or both Scan and Broadcast simultaneously.
  */
 @property (nonatomic) SKiBeaconProximityMode mode;
 
 /**
- *  <#Description#>
+ *  A 16-bit unsigned integer identifier used to identify each device uniquelly. It ranges between 0 and 65535. This identifier can be used in combination with the minor identifier.
  */
 @property (nonatomic) uint16_t major;
 
 /**
- *  <#Description#>
+ *  A 16-bit unsigned integer identifier used to identify each device uniquelly. It ranges between 0 and 65535. This identifier can be used in combination with the major identifier.
  */
 @property (nonatomic) uint16_t minor;
 
 /**
- *  <#Description#>
+ *  The strength of the signal measured at a distance of 1 meter.
  */
 @property (nonatomic, copy) NSNumber * _Nullable measuredPower;
 

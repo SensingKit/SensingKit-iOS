@@ -33,7 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKiBeaconDeviceData : SKSensorData
 
-/*! @abstract Use initWithTimestamp:withMajor:withMinor:withAccuracy:withProximity:withRssi to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**

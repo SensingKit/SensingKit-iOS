@@ -76,17 +76,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SKLocationConfiguration : SKConfiguration <NSCopying>
 
 /**
- *  <#Description#>
+ *  Accuracy of the Location sensor, expressed as an SKLocationAccuracy enumerator.
  */
 @property (nonatomic) SKLocationAccuracy locationAccuracy;
 
 /**
- *  <#Description#>
+ *  Authrorization of the Location sensor, expressed as an SKLocationAuthorization enumerator.
+ *  Value can either be When In Use (indicating that sensor will only be active while the app runs in the foreground) or Always (allowing the sensor to be active even when the app runs in the background).
  */
 @property (nonatomic) SKLocationAuthorization locationAuthorization;
 
 /**
- *  <#Description#>
+ *  The minimum distance in meters that the device needs to move horizontally before the SKSensorDataHandler attached with an SKLocationData object is being called.
  */
 @property (nonatomic) double distanceFilter;
 

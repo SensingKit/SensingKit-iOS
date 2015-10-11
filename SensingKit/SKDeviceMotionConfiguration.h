@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKDeviceMotionConfiguration can be used to configure the Device Motion sensor.
+ *  An instance of SKDeviceMotionConfiguration can be used to configure the Device Motion sensor. No configuration is available at this moment.
  */
 @interface SKDeviceMotionConfiguration : SKSampleRateConfiguration <NSCopying>
 

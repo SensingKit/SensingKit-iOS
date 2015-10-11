@@ -27,7 +27,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKMotionActivityConfiguration can be used to configure the Activity sensor.
+ *  An instance of SKMotionActivityConfiguration can be used to configure the Activity sensor. No configuration is available at this moment.
  */
 @interface SKMotionActivityConfiguration : SKConfiguration <NSCopying>
 

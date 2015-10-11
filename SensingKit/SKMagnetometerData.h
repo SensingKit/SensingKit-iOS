@@ -32,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKMagnetometerData : SKSensorData
 
-/*! @abstract Use initWithMagnetometerData: to init. */
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
