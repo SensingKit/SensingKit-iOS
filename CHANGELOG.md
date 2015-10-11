@@ -1,6 +1,6 @@
 # Changelog
 
-### 0.4.0
+### 0.4.0 (October 11, 2015)
 - Added Documentation using appledoc generator.
 - Added support for iOS 9.
 - Added support for iOS 9 App Slicing.
