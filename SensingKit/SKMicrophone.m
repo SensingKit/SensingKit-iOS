@@ -185,8 +185,8 @@
 {
     [super startSensing];
     
-    // Start recording
-    if (![self.recorder record])
+    // Start recording (maximum 4 hours)
+    if (![self.recorder recordForDuration:14400])
     {
         NSLog(@"Recording using Microphone sensor could not be started.");
         // TODO: In the future, report this as NSError.
