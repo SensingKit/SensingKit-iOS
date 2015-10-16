@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.4.1 (October 16, 2015)
+- Added a restriction of 4 hours when recording audio using Microphone sensor.
+
 ### 0.4.0 (October 11, 2015)
 - Added Documentation using appledoc generator.
 - Added support for iOS 9.
