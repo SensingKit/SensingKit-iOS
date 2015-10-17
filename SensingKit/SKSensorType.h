@@ -88,7 +88,7 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     EddystoneProximity,
     
     /**
-     *  Microphone sensor can be used to record audio from the environment by converting sound into electrical signal.
+     *  Microphone sensor can be used to record audio from the environment (up to 4 hours) by converting sound into electrical signal.
      */
     Microphone
 };
