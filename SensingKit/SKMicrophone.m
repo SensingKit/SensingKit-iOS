@@ -85,33 +85,30 @@
         abort();
     }
     
-    if (super.configuration != configuration)
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    SKMicrophoneConfiguration *microphoneConfiguration = (SKMicrophoneConfiguration *)configuration;
+    
+    NSDictionary *recordSettings = [SKMicrophone recordingSettingsForConfiguration:microphoneConfiguration];
+    
+    NSError *error;
+    self.recorder = [[AVAudioRecorder alloc] initWithURL:microphoneConfiguration.recordingPath
+                                                settings:recordSettings
+                                                   error:&error];
+    
+    if (error)
     {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        SKMicrophoneConfiguration *microphoneConfiguration = (SKMicrophoneConfiguration *)configuration;
-        
-        NSDictionary *recordSettings = [SKMicrophone recordingSettingsForConfiguration:microphoneConfiguration];
-        
-        NSError *error;
-        self.recorder = [[AVAudioRecorder alloc] initWithURL:microphoneConfiguration.recordingPath
-                                                    settings:recordSettings
-                                                       error:&error];
-        
-        if (error)
-        {
-            NSLog(@"Error: %@", error.localizedDescription);
-        }
-        
-        #if !TARGET_IPHONE_SIMULATOR
-        if (![self.recorder prepareToRecord])
-        {
-            NSLog(@"Recording using Microphone sensor could not be initialized.");
-            // TODO: In the future, report this as NSError.
-        }
-        #endif
+        NSLog(@"Error: %@", error.localizedDescription);
     }
+    
+#if !TARGET_IPHONE_SIMULATOR
+    if (![self.recorder prepareToRecord])
+    {
+        NSLog(@"Recording using Microphone sensor could not be initialized.");
+        // TODO: In the future, report this as NSError.
+    }
+#endif
 }
 
 + (NSDictionary *)recordingSettingsForConfiguration:(SKMicrophoneConfiguration *)configuration

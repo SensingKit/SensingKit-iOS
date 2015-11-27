@@ -62,18 +62,15 @@
         abort();
     }
     
-    if (super.configuration != configuration)
-    {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        SKEddystoneProximityConfiguration *eddystoneConfiguration = (SKEddystoneProximityConfiguration *)configuration;
-        
-        // Make the required updates on the sensor
-        
-        // Save the hex filter in lowercase
-        _namespaceFilterData = [SKEddystoneProximity dataFromHexString:eddystoneConfiguration.namespaceFilter];
-    }
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    SKEddystoneProximityConfiguration *eddystoneConfiguration = (SKEddystoneProximityConfiguration *)configuration;
+    
+    // Make the required updates on the sensor
+    
+    // Save the hex filter in lowercase
+    _namespaceFilterData = [SKEddystoneProximity dataFromHexString:eddystoneConfiguration.namespaceFilter];
 }
 
 

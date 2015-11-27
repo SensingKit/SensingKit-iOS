@@ -65,18 +65,15 @@
         abort();
     }
     
-    if (super.configuration != configuration)
-    {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        SKLocationConfiguration *locationConfiguration = (SKLocationConfiguration *)configuration;
-        
-        // Make the required updates on the sensor
-        self.locationManager.distanceFilter = locationConfiguration.distanceFilter;
-        [self updateAccuracy:locationConfiguration.locationAccuracy];
-        [self updateAuthorization:locationConfiguration.locationAuthorization];
-    }
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    SKLocationConfiguration *locationConfiguration = (SKLocationConfiguration *)configuration;
+    
+    // Make the required updates on the sensor
+    self.locationManager.distanceFilter = locationConfiguration.distanceFilter;
+    [self updateAccuracy:locationConfiguration.locationAccuracy];
+    [self updateAuthorization:locationConfiguration.locationAuthorization];
 }
 
 - (void)updateAccuracy:(SKLocationAccuracy)accuracy

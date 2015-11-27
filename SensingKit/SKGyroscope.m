@@ -58,16 +58,13 @@
         abort();
     }
     
-    if (super.configuration != configuration)
-    {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        SKGyroscopeConfiguration *gyroscopeConfiguration = (SKGyroscopeConfiguration *)configuration;
-        
-        // Make the required updates on the sensor
-        self.motionManager.gyroUpdateInterval = 1.0 / gyroscopeConfiguration.sampleRate;  // Convert Hz into interval
-    }
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    SKGyroscopeConfiguration *gyroscopeConfiguration = (SKGyroscopeConfiguration *)configuration;
+    
+    // Make the required updates on the sensor
+    self.motionManager.gyroUpdateInterval = 1.0 / gyroscopeConfiguration.sampleRate;  // Convert Hz into interval
 }
 
 

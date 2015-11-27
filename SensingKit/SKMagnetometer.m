@@ -58,16 +58,13 @@
         abort();
     }
     
-    if (super.configuration != configuration)
-    {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        SKMagnetometerConfiguration *magnetometerConfiguration = (SKMagnetometerConfiguration *)configuration;
-        
-        // Make the required updates on the sensor
-        self.motionManager.magnetometerUpdateInterval = 1.0 / magnetometerConfiguration.sampleRate;  // Convert Hz into interval
-    }
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    SKMagnetometerConfiguration *magnetometerConfiguration = (SKMagnetometerConfiguration *)configuration;
+    
+    // Make the required updates on the sensor
+    self.motionManager.magnetometerUpdateInterval = 1.0 / magnetometerConfiguration.sampleRate;  // Convert Hz into interval
 }
 
 
