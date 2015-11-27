@@ -42,7 +42,11 @@
     if (self = [super init])
     {
         self.locationManager = [[CLLocationManager alloc] init];
+        
+        #if !TARGET_IPHONE_SIMULATOR
         self.locationManager.pausesLocationUpdatesAutomatically = NO;
+        #endif
+        
         self.locationManager.delegate = self;
         self.configuration = configuration;
     }
