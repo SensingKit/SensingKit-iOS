@@ -70,38 +70,35 @@
         abort();
     }
     
-    if (super.configuration != configuration)
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    SKiBeaconProximityConfiguration *beaconConfiguration = (SKiBeaconProximityConfiguration *)configuration;
+    
+    // Save mode
+    self.mode = beaconConfiguration.mode;
+    
+    // Make the required updates on the sensor
+    switch (self.mode)
     {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        SKiBeaconProximityConfiguration *beaconConfiguration = (SKiBeaconProximityConfiguration *)configuration;
-        
-        // Save mode
-        self.mode = beaconConfiguration.mode;
-        
-        // Make the required updates on the sensor
-        switch (self.mode)
-        {
-            case SKiBeaconProximityModeScanOnly:
-                [self enableScanningWithConfiguration:beaconConfiguration];
-                [self disableBroadcasting];
-                break;
-                
-            case SKiBeaconProximityModeBroadcastOnly:
-                [self disableScanning];
-                [self enableBroadcastingWithConfiguration:beaconConfiguration];
-                break;
-                
-            case SKiBeaconProximityModeScanAndBroadcast:
-                [self enableScanningWithConfiguration:beaconConfiguration];
-                [self enableBroadcastingWithConfiguration:beaconConfiguration];
-                break;
-                
-            default:
-                NSLog(@"Unknown SKiBeaconProximityMode: %lu", (unsigned long)beaconConfiguration.mode);
-                abort();
-        }
+        case SKiBeaconProximityModeScanOnly:
+            [self enableScanningWithConfiguration:beaconConfiguration];
+            [self disableBroadcasting];
+            break;
+            
+        case SKiBeaconProximityModeBroadcastOnly:
+            [self disableScanning];
+            [self enableBroadcastingWithConfiguration:beaconConfiguration];
+            break;
+            
+        case SKiBeaconProximityModeScanAndBroadcast:
+            [self enableScanningWithConfiguration:beaconConfiguration];
+            [self enableBroadcastingWithConfiguration:beaconConfiguration];
+            break;
+            
+        default:
+            NSLog(@"Unknown SKiBeaconProximityMode: %lu", (unsigned long)beaconConfiguration.mode);
+            abort();
     }
 }
 

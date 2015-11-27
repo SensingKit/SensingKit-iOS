@@ -59,16 +59,13 @@
         abort();
     }
     
-    if (super.configuration != configuration)
-    {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        // SKMotionActivityConfiguration *motionActivityConfiguration = (SKMotionActivityConfiguration *)configuration;
-        
-        // Make the required updates on the sensor
-        //
-    }
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    // SKMotionActivityConfiguration *motionActivityConfiguration = (SKMotionActivityConfiguration *)configuration;
+    
+    // Make the required updates on the sensor
+    //
 }
 
 

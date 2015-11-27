@@ -58,16 +58,13 @@
         abort();
     }
     
-    if (super.configuration != configuration)
-    {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        // SKBatteryConfiguration *batteryConfiguration = (SKBatteryConfiguration *)configuration;
-        
-        // Make the required updates on the sensor
-        //
-    }
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    // SKBatteryConfiguration *batteryConfiguration = (SKBatteryConfiguration *)configuration;
+    
+    // Make the required updates on the sensor
+    //
 }
 
 

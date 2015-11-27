@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.4.2 (November 27, 2015)
+- Fixed a bug were sensor configuration was not updated.
+
 ### 0.4.1 (October 16, 2015)
 - Added a restriction of 4 hours when recording audio using Microphone sensor.
 

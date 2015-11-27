@@ -59,16 +59,14 @@
         abort();
     }
     
-    if (super.configuration != configuration)
-    {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        SKAccelerometerConfiguration *accelerometerConfiguration = (SKAccelerometerConfiguration *)configuration;
-        
-        // Make the required updates on the sensor
-        self.motionManager.accelerometerUpdateInterval = 1.0 / accelerometerConfiguration.sampleRate;  // Convert Hz into interval
-    }
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    SKAccelerometerConfiguration *accelerometerConfiguration = (SKAccelerometerConfiguration *)configuration;
+    
+    // Make the required updates on the sensor
+    self.motionManager.accelerometerUpdateInterval = 1.0 / accelerometerConfiguration.sampleRate;  // Convert Hz into interval
+    
 }
 
 

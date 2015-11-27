@@ -59,16 +59,13 @@
         abort();
     }
     
-    if (super.configuration != configuration)
-    {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        // SKAltimeterConfiguration *altimeterConfiguration = (SKAltimeterConfiguration *)configuration;
-        
-        // Make the required updates on the sensor
-        //
-    }
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    // SKAltimeterConfiguration *altimeterConfiguration = (SKAltimeterConfiguration *)configuration;
+    
+    // Make the required updates on the sensor
+    //
 }
 
 

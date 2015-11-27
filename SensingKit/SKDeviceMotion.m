@@ -58,16 +58,13 @@
         abort();
     }
     
-    if (super.configuration != configuration)
-    {
-        super.configuration = configuration;
-        
-        // Cast the configuration instance
-        SKDeviceMotionConfiguration *deviceMotionConfiguration = (SKDeviceMotionConfiguration *)configuration;
-        
-        // Make the required updates on the sensor
-        self.motionManager.deviceMotionUpdateInterval = 1.0 / deviceMotionConfiguration.sampleRate;  // Convert Hz into interval
-    }
+    super.configuration = configuration;
+    
+    // Cast the configuration instance
+    SKDeviceMotionConfiguration *deviceMotionConfiguration = (SKDeviceMotionConfiguration *)configuration;
+    
+    // Make the required updates on the sensor
+    self.motionManager.deviceMotionUpdateInterval = 1.0 / deviceMotionConfiguration.sampleRate;  // Convert Hz into interval
 }
 
 
