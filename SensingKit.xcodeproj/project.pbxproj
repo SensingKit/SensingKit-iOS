@@ -49,7 +49,6 @@
 		CF1DFA191B8C822000D7B182 /* SKPedometer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF1DFA131B8C7F1E00D7B182 /* SKPedometer.h */; };
 		CF1DFA1C1B8CBE5500D7B182 /* SKAltimeter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1DFA1B1B8CBE5500D7B182 /* SKAltimeter.m */; };
 		CF1DFA1F1B8CC01900D7B182 /* SKAltimeterData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1DFA1E1B8CC01900D7B182 /* SKAltimeterData.m */; };
-		CF26FB6D1C69E717003A2EE6 /* SKErrors.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF3AA7AC1C19F4B5002F2695 /* SKErrors.h */; };
 		CF432D0D1BA98ACD00588CC3 /* SKSampleRateConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF432D0C1BA98ACD00588CC3 /* SKSampleRateConfiguration.m */; };
 		CF432D0E1BA98B6C00588CC3 /* SKSampleRateConfiguration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF432D0B1BA98ACD00588CC3 /* SKSampleRateConfiguration.h */; };
 		CF5298961A0CFC7A002A4D54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5298951A0CFC7A002A4D54 /* UIKit.framework */; };
@@ -154,7 +153,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				CF26FB6D1C69E717003A2EE6 /* SKErrors.h in CopyFiles */,
 				CF432D0E1BA98B6C00588CC3 /* SKSampleRateConfiguration.h in CopyFiles */,
 				CF960F571B9F0ADC00F989EA /* SKAltimeterData.h in CopyFiles */,
 				CF960F561B9F0AB400F989EA /* SKPedometerData.h in CopyFiles */,

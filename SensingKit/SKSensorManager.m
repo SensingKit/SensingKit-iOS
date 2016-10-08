@@ -25,6 +25,7 @@
 #import "SKSensorManager.h"
 #import "SKAbstractSensor.h"
 #import "NSString+SensorType.h"
+#import "SKErrors.h"
 
 // Sensors
 #import "SKAccelerometer.h"
