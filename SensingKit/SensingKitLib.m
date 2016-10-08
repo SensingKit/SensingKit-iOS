@@ -75,29 +75,29 @@
 
 #pragma mark Sensor Registration and Configuration methods
 
-- (void)registerSensor:(SKSensorType)sensorType
+- (BOOL)registerSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error
 {
-    [self registerSensor:sensorType withConfiguration:nil];
+    return [self registerSensor:sensorType withConfiguration:nil error:error];
 }
 
-- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration
+- (BOOL)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration error:(NSError * _Nullable * _Nullable)error
 {
-    [self.sensorManager registerSensor:sensorType withConfiguration:configuration];
+    return [self.sensorManager registerSensor:sensorType withConfiguration:configuration error:error];
 }
 
-- (void)deregisterSensor:(SKSensorType)sensorType
+- (BOOL)deregisterSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error
 {
-    [self.sensorManager deregisterSensor:sensorType];
+    return [self.sensorManager deregisterSensor:sensorType error:error];
 }
 
-- (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType
+- (BOOL)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error
 {
-    [self.sensorManager setConfiguration:configuration toSensor:sensorType];
+    return [self.sensorManager setConfiguration:configuration toSensor:sensorType error:error];
 }
 
-- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType
+- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error
 {
-    return [self.sensorManager getConfigurationFromSensor:sensorType];
+    return [self.sensorManager getConfigurationFromSensor:sensorType error:error];
 }
 
 

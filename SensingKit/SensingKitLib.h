@@ -27,6 +27,7 @@
 #import "SKSensorType.h"
 #import "NSString+SensorType.h"
 #import "SKSensorDataHandler.h"
+#import "SKErrors.h"
 
 // Sensor Data
 #import "SKAccelerometerData.h"
@@ -38,6 +39,7 @@
 #import "SKAltimeterData.h"
 #import "SKBatteryData.h"
 #import "SKLocationData.h"
+#import "SKProximityData.h"
 #import "SKiBeaconDeviceData.h"
 #import "SKEddystoneProximityData.h"
 #import "SKMicrophoneData.h"
@@ -113,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param sensorType The type of the sensor that will be initialized and registered in the library.
  */
-- (void)registerSensor:(SKSensorType)sensorType;
+- (BOOL)registerSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Initializes and registers a sensor into the library with a custom sensor configuration.
@@ -121,14 +123,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param sensorType    The type of the sensor that will be initialized and registered in the library.
  *  @param configuration A configuration object that conforms to SKConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
  */
-- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(nullable SKConfiguration *)configuration;
+- (BOOL)registerSensor:(SKSensorType)sensorType withConfiguration:(nullable SKConfiguration *)configuration error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Deregisters a sensor from the library. Sensor should not be actively sensing when this method is called. All previously subscribed blocks will also be unsubscribed.
  *
  *  @param sensorType The type of the sensor that will be deregistered.
  */
-- (void)deregisterSensor:(SKSensorType)sensorType;
+- (BOOL)deregisterSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Provides custom configuration to a sensor.
@@ -136,7 +138,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param configuration A configuration object that conforms to SKConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
  *  @param sensorType    The type of the sensor that will be configured.
  */
-- (void)setConfiguration:(nullable SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
+- (BOOL)setConfiguration:(nullable SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Gets the configuration of a sensor.
@@ -145,7 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return The configuration of that particular sensor.
  */
-- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType;
+- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
 
 
 /** @name Sensor Subscription */

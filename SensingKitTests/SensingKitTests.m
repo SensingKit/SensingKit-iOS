@@ -76,7 +76,7 @@
     XCTAssertNotNil(sensingKit2, @"SensingKitLib cannot be nil.");
     XCTAssertEqual(self.sensingKit, sensingKit2, @"Instances should be identical.");
     
-    [self.sensingKit registerSensor:Battery];
+    [self.sensingKit registerSensor:Battery error:NULL];
     XCTAssertTrue([self.sensingKit isSensorRegistered:Battery], @"Sensor should be registered.");
     XCTAssertFalse([self.sensingKit isSensorSensing:Battery], @"Sensor should not be sensing.");
     
@@ -93,39 +93,39 @@
     XCTAssertFalse([self.sensingKit isSensorSensing:Battery], @"Sensor should not be sensing.");
     
     // Do not unsubscribe here.. (should be automated by deregisterSensor)
-    [self.sensingKit deregisterSensor:Battery];
+    [self.sensingKit deregisterSensor:Battery error:NULL];
     XCTAssertFalse([self.sensingKit isSensorRegistered:Battery], @"Sensor should not be registered.");
 }
 
 - (void)testSensorRegistrationDeregistration
 {
     // test registration
-    [self.sensingKit registerSensor:Accelerometer];
-    [self.sensingKit registerSensor:Gyroscope];
-    [self.sensingKit registerSensor:Magnetometer];
-    [self.sensingKit registerSensor:DeviceMotion];
-    [self.sensingKit registerSensor:MotionActivity];
-    [self.sensingKit registerSensor:Pedometer];
-    [self.sensingKit registerSensor:Altimeter];
-    [self.sensingKit registerSensor:Battery];
-    [self.sensingKit registerSensor:Location];
-    [self.sensingKit registerSensor:iBeaconProximity];
-    [self.sensingKit registerSensor:EddystoneProximity];
-    [self.sensingKit registerSensor:Microphone];
+    [self.sensingKit registerSensor:Accelerometer error:NULL];
+    [self.sensingKit registerSensor:Gyroscope error:NULL];
+    [self.sensingKit registerSensor:Magnetometer error:NULL];
+    [self.sensingKit registerSensor:DeviceMotion error:NULL];
+    [self.sensingKit registerSensor:MotionActivity error:NULL];
+    [self.sensingKit registerSensor:Pedometer error:NULL];
+    [self.sensingKit registerSensor:Altimeter error:NULL];
+    [self.sensingKit registerSensor:Battery error:NULL];
+    [self.sensingKit registerSensor:Location error:NULL];
+    [self.sensingKit registerSensor:iBeaconProximity error:NULL];
+    [self.sensingKit registerSensor:EddystoneProximity error:NULL];
+    [self.sensingKit registerSensor:Microphone error:NULL];
     
     // test deregistration
-    [self.sensingKit deregisterSensor:Accelerometer];
-    [self.sensingKit deregisterSensor:Gyroscope];
-    [self.sensingKit deregisterSensor:Magnetometer];
-    [self.sensingKit deregisterSensor:DeviceMotion];
-    [self.sensingKit deregisterSensor:MotionActivity];
-    [self.sensingKit deregisterSensor:Pedometer];
-    [self.sensingKit deregisterSensor:Altimeter];
-    [self.sensingKit deregisterSensor:Battery];
-    [self.sensingKit deregisterSensor:Location];
-    [self.sensingKit deregisterSensor:iBeaconProximity];
-    [self.sensingKit deregisterSensor:EddystoneProximity];
-    [self.sensingKit deregisterSensor:Microphone];
+    [self.sensingKit deregisterSensor:Accelerometer error:NULL];
+    [self.sensingKit deregisterSensor:Gyroscope error:NULL];
+    [self.sensingKit deregisterSensor:Magnetometer error:NULL];
+    [self.sensingKit deregisterSensor:DeviceMotion error:NULL];
+    [self.sensingKit deregisterSensor:MotionActivity error:NULL];
+    [self.sensingKit deregisterSensor:Pedometer error:NULL];
+    [self.sensingKit deregisterSensor:Altimeter error:NULL];
+    [self.sensingKit deregisterSensor:Battery error:NULL];
+    [self.sensingKit deregisterSensor:Location error:NULL];
+    [self.sensingKit deregisterSensor:iBeaconProximity error:NULL];
+    [self.sensingKit deregisterSensor:EddystoneProximity error:NULL];
+    [self.sensingKit deregisterSensor:Microphone error:NULL];
 }
 
 @end

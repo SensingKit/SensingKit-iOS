@@ -42,13 +42,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** @name Sensor Registration and Configuration */
 
-- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(nullable SKConfiguration *)configuration;
+- (BOOL)registerSensor:(SKSensorType)sensorType withConfiguration:(nullable SKConfiguration *)configuration error:(NSError * _Nullable * _Nullable)error;
 
-- (void)deregisterSensor:(SKSensorType)sensorType;
+- (BOOL)deregisterSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
 
-- (void)setConfiguration:(nullable SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
+- (BOOL)setConfiguration:(nullable SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
 
-- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType;
+- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
 
 
 /** @name Sensor Subscription and Unsubscription */
