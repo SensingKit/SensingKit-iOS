@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "SensingKit"
+  s.name         = "SensingKit-iOS"
   s.version      = "0.5.0"
   s.summary      = "Mobile Sensing Framework."
 
