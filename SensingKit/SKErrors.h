@@ -22,6 +22,8 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import <Foundation/Foundation.h>
+
 #import <Foundation/NSObject.h>
 
 static NSString *const SKErrorDomain = @"org.sensingkit.SensingKit-iOS.ErrorDomain";

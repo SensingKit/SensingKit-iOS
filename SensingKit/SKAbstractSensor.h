@@ -23,6 +23,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "SKSensorType.h"
 #import "SKSensorDataHandler.h"
 #import "SKConfiguration.h"

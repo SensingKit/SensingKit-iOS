@@ -258,7 +258,6 @@
 		CFB0D9571B5269BD00A7982B /* SKMotionActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMotionActivity.m; sourceTree = "<group>"; };
 		CFBB413619B92514002AE1A9 /* libSensingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSensingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBB413919B92514002AE1A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CFBB413D19B92514002AE1A9 /* SensingKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SensingKit-Prefix.pch"; sourceTree = "<group>"; };
 		CFBB413E19B92514002AE1A9 /* SensingKitLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SensingKitLib.h; sourceTree = "<group>"; };
 		CFBB414019B92514002AE1A9 /* SensingKitLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensingKitLib.m; sourceTree = "<group>"; };
 		CFBB414619B92514002AE1A9 /* SensingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SensingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -436,17 +435,8 @@
 				CFBB413E19B92514002AE1A9 /* SensingKitLib.h */,
 				CFBB414019B92514002AE1A9 /* SensingKitLib.m */,
 				CF11F8891B2D909F0094C9DF /* SKSensorDataHandler.h */,
-				CFBB413C19B92514002AE1A9 /* Supporting Files */,
 			);
 			path = SensingKit;
-			sourceTree = "<group>";
-		};
-		CFBB413C19B92514002AE1A9 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CFBB413D19B92514002AE1A9 /* SensingKit-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		CFBB414F19B92514002AE1A9 /* SensingKitTests */ = {
@@ -794,8 +784,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -815,8 +805,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -835,8 +825,8 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -863,8 +853,8 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SensingKit/SensingKit-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "SensingKitTests/SensingKitTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

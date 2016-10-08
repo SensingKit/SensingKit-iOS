@@ -22,6 +22,8 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import <Foundation/Foundation.h>
+
 #import "SKSensorData.h"
 
 NS_ASSUME_NONNULL_BEGIN

@@ -22,6 +22,8 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import <Foundation/Foundation.h>
+
 #import <XCTest/XCTest.h>
 #import "SensingKitLib.h"
 #import "NSString+SensorType.h"

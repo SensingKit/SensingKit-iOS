@@ -22,6 +22,8 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import <Foundation/Foundation.h>
+
 /**
  *  Total number of sensors supported by SensingKit-iOS.
  */
