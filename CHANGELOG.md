@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.5.0 (TPD)
+- Added error handling support using NSError
+- Added CocoaPod support
+
 ### 0.4.2 (November 27, 2015)
 - Fixed a bug were sensor configuration was not updated.
 
