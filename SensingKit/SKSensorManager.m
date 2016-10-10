@@ -36,6 +36,7 @@
 #import "SKPedometer.h"
 #import "SKAltimeter.h"
 #import "SKBattery.h"
+#import "SKScreenStatus.h"
 #import "SKLocation.h"
 #import "SKiBeaconProximity.h"
 #import "SKEddystoneProximity.h"
@@ -50,6 +51,7 @@
 #import "SKPedometerData.h"
 #import "SKAltimeterData.h"
 #import "SKBatteryData.h"
+#import "SKScreenStatusData.h"
 #import "SKLocationData.h"
 #import "SKiBeaconDeviceData.h"
 #import "SKEddystoneProximityData.h"
@@ -64,6 +66,7 @@
 #import "SKPedometerConfiguration.h"
 #import "SKAltimeterConfiguration.h"
 #import "SKBatteryConfiguration.h"
+#import "SKScreenStatusConfiguration.h"
 #import "SKLocationConfiguration.h"
 #import "SKiBeaconProximityConfiguration.h"
 #import "SKEddystoneProximityConfiguration.h"
@@ -123,6 +126,9 @@
             
         case Battery:
             return [SKBattery isSensorAvailable];
+            
+        case ScreenStatus:
+            return [SKScreenStatus isSensorAvailable];
             
         case Location:
             return [SKLocation isSensorAvailable];
@@ -290,6 +296,9 @@
         case Battery:
             return [SKBatteryData csvHeader];
             
+        case ScreenStatus:
+            return [SKScreenStatusData csvHeader];
+            
         case Location:
             return [SKLocationData csvHeader];
             
@@ -416,6 +425,10 @@
             sensor = [[SKBattery alloc] initWithConfiguration:(SKBatteryConfiguration *)configuration];
             break;
             
+        case ScreenStatus:
+            sensor = [[SKScreenStatus alloc] initWithConfiguration:(SKScreenStatusConfiguration *)configuration];
+            break;
+            
         case Location:
             sensor = [[SKLocation alloc] initWithConfiguration:(SKLocationConfiguration *)configuration];
             break;
@@ -478,6 +491,10 @@
             
         case Battery:
             configuration = [[SKBatteryConfiguration alloc] init];
+            break;
+            
+        case ScreenStatus:
+            configuration = [[SKScreenStatusConfiguration alloc] init];
             break;
             
         case Location:

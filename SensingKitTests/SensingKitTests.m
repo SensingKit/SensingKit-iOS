@@ -64,6 +64,7 @@
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Pedometer]          isEqualToString:@"Pedometer"],          @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Altimeter]          isEqualToString:@"Altimeter"],          @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Battery]            isEqualToString:@"Battery"],            @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:ScreenStatus]       isEqualToString:@"ScreenStatus"],       @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Location]           isEqualToString:@"Location"],           @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:iBeaconProximity]   isEqualToString:@"iBeaconProximity"],   @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:EddystoneProximity] isEqualToString:@"EddystoneProximity"], @"Sensor name is wrong.");
@@ -110,6 +111,7 @@
     [self.sensingKit registerSensor:Pedometer error:NULL];
     [self.sensingKit registerSensor:Altimeter error:NULL];
     [self.sensingKit registerSensor:Battery error:NULL];
+    [self.sensingKit registerSensor:ScreenStatus error:NULL];
     [self.sensingKit registerSensor:Location error:NULL];
     [self.sensingKit registerSensor:iBeaconProximity error:NULL];
     [self.sensingKit registerSensor:EddystoneProximity error:NULL];
@@ -124,6 +126,7 @@
     [self.sensingKit deregisterSensor:Pedometer error:NULL];
     [self.sensingKit deregisterSensor:Altimeter error:NULL];
     [self.sensingKit deregisterSensor:Battery error:NULL];
+    [self.sensingKit deregisterSensor:ScreenStatus error:NULL];
     [self.sensingKit deregisterSensor:Location error:NULL];
     [self.sensingKit deregisterSensor:iBeaconProximity error:NULL];
     [self.sensingKit deregisterSensor:EddystoneProximity error:NULL];
