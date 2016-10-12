@@ -52,8 +52,9 @@ For more information about CocoaPods, visit [https://cocoapods.org](https://coco
 
 ## Using the Library
 
-- Import and init SensingKit as shown bellow:
+Import and init SensingKit as shown bellow:
 
+*Objective-C*
 ```objectivec
 #import <SensingKit/SensingKit.h>
 
@@ -66,25 +67,52 @@ For more information about CocoaPods, visit [https://cocoapods.org](https://coco
 }
 ```
 
+*Swift*
+```swift
+import SensingKit
 
-- Check if a sensor is available in the device:
+let sensingKit = SensingKitLib.shared()
+```
 
+
+Check if a sensor is available in the device:
+
+*Objective-C*
 ```objectivec
 if ([self.sensingKit isSensorAvailable:Battery]) {
     // You can access the sensor
 }
 ```
 
+*Swift*
+```swift
+ if sensingKit.isSensorAvailable(SKSensorType.Battery) {
+    // You can access the sensor
+}
+```
 
-- Register a sensor (e.g. a Battery sensor) as shown bellow:
 
+Register a sensor (e.g. a Battery sensor) as shown bellow:
+
+*Objective-C*
 ```objectivec
 [self.sensingKit registerSensor:Battery error:NULL];
 ```
 
+*Swift*
+```swift
+do {
+	try sensingKit.register(SKSensorType.Battery)
+}
+catch {
+  // Handle error
+}
+```
 
-- Subscribe a sensor data handler. You can cast the data object into the actual sensor data object in order to access all the sensor data properties:
 
+Subscribe a sensor data handler. You can cast the data object into the actual sensor data object in order to access all the sensor data properties:
+
+*Objective-C*
 ```objectivec
 [self.sensingKit subscribeToSensor:Battery
                        withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
@@ -94,16 +122,33 @@ if ([self.sensingKit isSensorAvailable:Battery]) {
     }];
 ```
 
+*Swift*
+```swift
+sensingkit.subscribe(to: SKSensorType.Battery, withHandler: { (sensorType, sensorData) in
+                let batteryData = sensorData as! SKBatteryData
+                print("Battery Level: \(batteryData)")
+            })
+```
 
 
-- You can Start and Stop the Continuous Sensing using the following commands:
+You can Start and Stop the Continuous Sensing using the following commands:
 
+*Objective-C*
 ```objectivec
 // Start
 [self.sensingKit startContinuousSensingWithSensor:Battery];
 
 // Stop
 [self.sensingKit stopContinuousSensingWithSensor:Battery];
+```
+
+*Swift*
+```swift
+// Start
+sensingKit.startContinuousSensingWithSensor(SKSensorType.Battery)
+
+// Stop
+sensingKit.stopContinuousSensingWithSensor(SKSensorType.Battery)
 ```
 
 
