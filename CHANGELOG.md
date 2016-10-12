@@ -1,6 +1,7 @@
 # Changelog
 
 ### 0.5.0 (TPD)
+- Changed library into a dynamic framework.
 - Added CocoaPod support.
 - Added support for iOS 10.
 - Added error handling support using NSError.

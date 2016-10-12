@@ -22,27 +22,40 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 - Microphone
 
 
-## Configuring the Library
+## Installing the Library
 
-You can always skip this step by downloading the released version of SensingKit-iOS from [here](https://github.com/SensingKit/SensingKit-iOS/releases).
+You can easily install SensingKit using [CocoaPods](https://cocoapods.org), a popular dependency manager for Cocoa projects. For installing CocoaPods, use the following command:
 
-In case you want to build the library yourself:
+```bash
+$ gem install cocoapods
+```
 
-- Open SensingKit project in Xcode and build SensingKit library using Product -> Build.
+To integrate SensingKit into your Xcode project, specify it in your `Podfile`:
 
-- Choose the ‘Framework’ scheme from the top toolbar (or using Product -> Scheme -> Framework) and build the framework. SensingKit.framework file should be available in your desktop.
+```ruby
+target <MyApp> do
+  # Uncomment this line if you're using Swift or would like to use dynamic frameworks
+  use_frameworks!
+
+  pod 'SensingKit'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+For more information about CocoaPods, visit [https://cocoapods.org](https://cocoapods.org).
 
 
 ## Using the Library
 
-- First, you need to move the generated SensingKit.framework file into your new Xcode project.
-
-- Since SensingKit-iOS uses Categories internally, you need to add  the ’-ObjC’ flag into your project build settings. Open your project, select your project from the Project Navigator on the left and click on the app’s target. Select the Build Settings tab on the top of the screen and search for “Other Linker Flags”. Finally, click the + button and add ‘-ObjC’ as a new property on the list.
-
 - Import and init SensingKit as shown bellow:
 
 ```objectivec
-#import <SensingKit/SensingKitLib.h>
+#import <SensingKit/SensingKit.h>
 
 @property (nonatomic, strong) SensingKitLib *sensingKit;
 
@@ -66,7 +79,7 @@ if ([self.sensingKit isSensorAvailable:Battery]) {
 - Register a sensor (e.g. a Battery sensor) as shown bellow:
 
 ```objectivec
-[self.sensingKit registerSensor:Battery];
+[self.sensingKit registerSensor:Battery error:NULL];
 ```
 
 
