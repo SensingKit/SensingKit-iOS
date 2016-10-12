@@ -24,8 +24,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Foundation/NSObject.h>
-
 static NSString *const SKErrorDomain = @"org.sensingkit.SensingKit-iOS.ErrorDomain";
 
 /* NSError codes in SKErrorDomain.
