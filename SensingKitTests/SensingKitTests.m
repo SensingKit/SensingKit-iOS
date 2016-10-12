@@ -25,8 +25,8 @@
 #import <Foundation/Foundation.h>
 
 #import <XCTest/XCTest.h>
-#import "SensingKitLib.h"
-#import "NSString+SensorType.h"
+#import <SensingKit/SensingKit.h>
+
 
 @import CoreBluetooth;
 
@@ -86,8 +86,8 @@
     // Subscribe a sensor data listener
     [self.sensingKit subscribeToSensor:Battery
                            withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
-                                                         // Do nothing
-                                                     }];
+                               // Do nothing
+                           }];
     
     [self.sensingKit startContinuousSensingWithSensor:Battery];
     XCTAssertTrue([self.sensingKit isSensorSensing:Battery], @"Sensor should be sensing.");

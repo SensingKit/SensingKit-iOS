@@ -25,37 +25,9 @@
 #import <Foundation/Foundation.h>
 
 #import "SKSensorType.h"
-#import "NSString+SensorType.h"
 #import "SKSensorDataHandler.h"
+#import "SKConfiguration.h"
 
-// Sensor Data
-#import "SKAccelerometerData.h"
-#import "SKGyroscopeData.h"
-#import "SKMagnetometerData.h"
-#import "SKDeviceMotionData.h"
-#import "SKMotionActivityData.h"
-#import "SKPedometerData.h"
-#import "SKAltimeterData.h"
-#import "SKBatteryData.h"
-#import "SKLocationData.h"
-#import "SKProximityData.h"
-#import "SKiBeaconDeviceData.h"
-#import "SKEddystoneProximityData.h"
-#import "SKMicrophoneData.h"
-
-// Sensor Configuration
-#import "SKAccelerometerConfiguration.h"
-#import "SKGyroscopeConfiguration.h"
-#import "SKMagnetometerConfiguration.h"
-#import "SKDeviceMotionConfiguration.h"
-#import "SKMotionActivityConfiguration.h"
-#import "SKPedometerConfiguration.h"
-#import "SKAltimeterConfiguration.h"
-#import "SKBatteryConfiguration.h"
-#import "SKLocationConfiguration.h"
-#import "SKiBeaconProximityConfiguration.h"
-#import "SKEddystoneProximityConfiguration.h"
-#import "SKMicrophoneConfiguration.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
