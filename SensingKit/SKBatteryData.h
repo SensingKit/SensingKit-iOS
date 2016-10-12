@@ -22,6 +22,7 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import <UIKit/UIDevice.h>
 #import <Foundation/Foundation.h>
 
 #import "SKSensorData.h"
