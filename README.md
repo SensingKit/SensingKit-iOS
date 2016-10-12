@@ -37,7 +37,9 @@ target <MyApp> do
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks
   use_frameworks!
 
-  pod 'SensingKit'
+  // Pre-release version
+  pod 'SensingKit', :git => 'https://github.com/SensingKit/SensingKit-iOS.git', :branch => 'next'
+  
 end
 ```
 
