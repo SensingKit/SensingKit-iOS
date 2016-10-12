@@ -62,7 +62,7 @@
 		CF397FCE1DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F691DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.m */; };
 		CF397FCF1DAE6C9A00A7C36C /* SKEddystoneProximityData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F6A1DAE6C9A00A7C36C /* SKEddystoneProximityData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF397FD01DAE6C9A00A7C36C /* SKEddystoneProximityData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F6B1DAE6C9A00A7C36C /* SKEddystoneProximityData.m */; };
-		CF397FD11DAE6C9A00A7C36C /* SKErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F6C1DAE6C9A00A7C36C /* SKErrors.h */; };
+		CF397FD11DAE6C9A00A7C36C /* SKErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F6C1DAE6C9A00A7C36C /* SKErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF397FD21DAE6C9A00A7C36C /* SKGyroscope.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F6D1DAE6C9A00A7C36C /* SKGyroscope.h */; };
 		CF397FD31DAE6C9A00A7C36C /* SKGyroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F6E1DAE6C9A00A7C36C /* SKGyroscope.m */; };
 		CF397FD41DAE6C9A00A7C36C /* SKGyroscopeConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F6F1DAE6C9A00A7C36C /* SKGyroscopeConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -949,6 +949,7 @@
 				CF39802E1DAE7AC600A7C36C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

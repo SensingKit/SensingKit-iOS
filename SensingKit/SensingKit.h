@@ -34,6 +34,7 @@ FOUNDATION_EXPORT const unsigned char SensingKitVersionString[];
 
 #import <SensingKit/SensingKitLib.h>
 
+#import <SensingKit/SKErrors.h>
 #import <SensingKit/SKSensorType.h>
 #import <SensingKit/NSString+SensorType.h>
 #import <SensingKit/SKSensorDataHandler.h>
