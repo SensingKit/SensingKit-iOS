@@ -235,14 +235,14 @@
     return YES;
 }
 
-- (BOOL)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError **)error
+- (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError **)error
 {
     // If configuration was not provided, get the Default
     if (!configuration) {
         configuration = [SKSensorManager defaultConfigurationForSensor:sensorType];
     }
     
-    [self getSensor:sensorType].configuration = configuration; return YES;
+    [self getSensor:sensorType].configuration = configuration;
 }
 
 - (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType error:(NSError **)error

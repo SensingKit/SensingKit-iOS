@@ -90,9 +90,9 @@
     return [self.sensorManager deregisterSensor:sensorType error:error];
 }
 
-- (BOOL)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error
+- (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error
 {
-    return [self.sensorManager setConfiguration:configuration toSensor:sensorType error:error];
+    [self.sensorManager setConfiguration:configuration toSensor:sensorType error:error];
 }
 
 - (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error

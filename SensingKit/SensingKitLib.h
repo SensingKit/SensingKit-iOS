@@ -109,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param configuration A configuration object that conforms to SKConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
  *  @param sensorType    The type of the sensor that will be configured.
  */
-- (BOOL)setConfiguration:(nullable SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
+- (void)setConfiguration:(nullable SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Gets the configuration of a sensor.
