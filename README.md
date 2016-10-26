@@ -1,6 +1,6 @@
 # SensingKit-iOS Library
 
-An iOS library that provides Continuous Sensing functionality to your applications. For more information, please refer to the [project website](http://www.sensingkit.org).
+An iOS library that provides Continuous Sensing functionality to your applications. For more information, please refer to the [project website](https://www.sensingkit.org).
 
 
 ## Supported Sensors
@@ -154,7 +154,7 @@ sensingKit.stopContinuousSensingWithSensor(SKSensorType.Battery)
 ```
 
 
-For a complete description of our API, please refer to the [project website](http://www.sensingkit.org).
+For a complete description of our API, please refer to the [project website](https://www.sensingkit.org).
 
 ## License
 
@@ -163,7 +163,7 @@ Copyright (c) 2014. Queen Mary University of London
 Kleomenis Katevas, k.katevas@qmul.ac.uk
 
 This file is part of SensingKit-iOS library.
-For more information, please visit http://www.sensingkit.org
+For more information, please visit https://www.sensingkit.org
 
 SensingKit-iOS is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
