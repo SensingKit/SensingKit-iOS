@@ -162,7 +162,9 @@
 
 #pragma mark Sensor Registration and Configuration methods
 
-- (BOOL)registerSensor:(SKSensorType)sensorType withConfiguration:(SKConfiguration *)configuration error:(NSError **)error
+- (BOOL)registerSensor:(SKSensorType)sensorType
+     withConfiguration:(SKConfiguration *)configuration
+                 error:(NSError **)error
 {
     NSLog(@"Register sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
@@ -192,7 +194,8 @@
     return YES;
 }
 
-- (BOOL)deregisterSensor:(SKSensorType)sensorType error:(NSError **)error
+- (BOOL)deregisterSensor:(SKSensorType)sensorType
+                   error:(NSError **)error
 {
     NSLog(@"Deregister sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
@@ -205,7 +208,7 @@
                                        };
             
             *error = [NSError errorWithDomain:SKErrorDomain
-                                         code:SKSensorNotRegistetedError
+                                         code:SKSensorNotRegisteredError
                                      userInfo:userInfo];
         }
         return NO;
@@ -220,7 +223,7 @@
                                        };
             
             *error = [NSError errorWithDomain:SKErrorDomain
-                                         code:SKSensorCurrentlySensing
+                                         code:SKSensorCurrentlySensingError
                                      userInfo:userInfo];
         }
         return NO;
@@ -235,37 +238,57 @@
     return YES;
 }
 
-- (void)setConfiguration:(SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError **)error
+- (BOOL)setConfiguration:(SKConfiguration *)configuration
+                toSensor:(SKSensorType)sensorType
+                   error:(NSError **)error
 {
     // If configuration was not provided, get the Default
     if (!configuration) {
         configuration = [SKSensorManager defaultConfigurationForSensor:sensorType];
     }
     
+    // TODO: Check if configuration is same type
+    
     [self getSensor:sensorType].configuration = configuration;
+    
+    return YES;
 }
 
-- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType error:(NSError **)error
+- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType
+                                          error:(NSError **)error
 {
+    // TODO ?
+    
     return [self getSensor:sensorType].configuration;
 }
 
 
 #pragma mark Sensor Subscription and Unsubscription methods
 
-- (void)subscribeToSensor:(SKSensorType)sensorType
-              withHandler:(SKSensorDataHandler)handler {
+- (BOOL)subscribeToSensor:(SKSensorType)sensorType
+              withHandler:(SKSensorDataHandler)handler
+                    error:(NSError **)error
+{
+    
+    // TODO ?
     
     NSLog(@"Subscribe to sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
     [[self getSensor:sensorType] subscribeHandler:handler];
+    
+    return YES;
 }
 
-- (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType
+- (BOOL)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType
+                                   error:(NSError **)error
 {
+    // TODO ?
+    
     NSLog(@"Unsubscribe all handlers from sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
     [[self getSensor:sensorType] unsubscribeAllHandlers];
+    
+    return YES;
 }
 
 + (NSString *)csvHeaderForSensor:(SKSensorType)sensorType
@@ -312,6 +335,7 @@
             return [SKMicrophoneData csvHeader];
             
         default:
+            // Internal error. This is a bug!
             NSLog(@"Unknown Sensor: %li", (long)sensorType);
             abort();
     }
@@ -320,32 +344,56 @@
 
 #pragma mark Continuous Sensing methods
 
-- (void)startContinuousSensingWithSensor:(SKSensorType)sensorType
+- (BOOL)startContinuousSensingWithSensor:(SKSensorType)sensorType
+                                   error:(NSError **)error
 {
     NSLog(@"Start sensing with sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
     if ([self isSensorSensing:sensorType]) {
         
-        NSLog(@"Sensor '%@' is already sensing.", [NSString stringWithSensorType:sensorType]);
-        abort();
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Sensor is currenyly sensing.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorCurrentlySensingError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
     
     // Start Sensing
     [[self getSensor:sensorType] startSensing];
+    
+    return YES;
 }
 
-- (void)stopContinuousSensingWithSensor:(SKSensorType)sensorType
+- (BOOL)stopContinuousSensingWithSensor:(SKSensorType)sensorType
+                                  error:(NSError **)error
 {
     NSLog(@"Stop sensing with sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
     if (![self isSensorSensing:sensorType]) {
         
-        NSLog(@"Sensor '%@' is already not sensing.", [NSString stringWithSensorType:sensorType]);
-        abort();
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Sensor is currenyly not sensing.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorCurrentlyNotSensingError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
     
     // Stop Sensing
     [[self getSensor:sensorType] stopSensing];
+    
+    return YES;
 }
 
 - (void)startContinuousSensingWithAllRegisteredSensors
@@ -355,7 +403,7 @@
         SKSensorType sensorType = i;
         
         if ([self isSensorRegistered:sensorType]) {
-            [self startContinuousSensingWithSensor:sensorType];
+            [self startContinuousSensingWithSensor:sensorType error:nil];
         }
     }
 }
@@ -367,7 +415,7 @@
         SKSensorType sensorType = i;
         
         if ([self isSensorRegistered:sensorType]) {
-            [self stopContinuousSensingWithSensor:sensorType];
+            [self stopContinuousSensingWithSensor:sensorType error:nil];
         }
     }
 }

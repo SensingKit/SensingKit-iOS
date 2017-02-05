@@ -31,6 +31,7 @@ static NSString *const SKErrorDomain = @"org.sensingkit.SensingKit-iOS.ErrorDoma
 typedef NS_ENUM(NSInteger, SKSensorError) {
     // Sensor Registration and Configuration Errors
     SKSensorAlreadyRegisteredError = 1,  // Sensor is already registered.
-    SKSensorNotRegistetedError = 2,      // Sensor is not registered.
-    SKSensorCurrentlySensing = 3         // Sensor is currently sensing.
+    SKSensorNotRegisteredError = 2,      // Sensor is not registered.
+    SKSensorCurrentlySensingError = 3,   // Sensor is currently sensing.
+    SKSensorCurrentlyNotSensingError = 4 // Sensor is currently not sensing.
 };

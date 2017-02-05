@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return The shared `SensingKitLib` instance.
  */
-+ (SensingKitLib * )sharedSensingKitLib;
++ (SensingKitLib *)sharedSensingKitLib;
 
 
 /** @name Sensor Status */
@@ -86,7 +86,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param sensorType The type of the sensor that will be initialized and registered in the library.
  */
-- (BOOL)registerSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)registerSensor:(SKSensorType)sensorType
+                 error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Initializes and registers a sensor into the library with a custom sensor configuration.
@@ -94,14 +95,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param sensorType    The type of the sensor that will be initialized and registered in the library.
  *  @param configuration A configuration object that conforms to SKConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
  */
-- (BOOL)registerSensor:(SKSensorType)sensorType withConfiguration:(nullable SKConfiguration *)configuration error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)registerSensor:(SKSensorType)sensorType
+     withConfiguration:(nullable SKConfiguration *)configuration
+                 error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Deregisters a sensor from the library. Sensor should not be actively sensing when this method is called. All previously subscribed blocks will also be unsubscribed.
  *
  *  @param sensorType The type of the sensor that will be deregistered.
  */
-- (BOOL)deregisterSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)deregisterSensor:(SKSensorType)sensorType
+                   error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Provides custom configuration to a sensor.
@@ -109,7 +113,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param configuration A configuration object that conforms to SKConfiguration. If no configuration is specified, it will default to a pre-determined sensor configuration.
  *  @param sensorType    The type of the sensor that will be configured.
  */
-- (void)setConfiguration:(nullable SKConfiguration *)configuration toSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
+- (BOOL)setConfiguration:(nullable SKConfiguration *)configuration
+                toSensor:(SKSensorType)sensorType
+                   error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Gets the configuration of a sensor.
@@ -118,7 +124,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return The configuration of that particular sensor.
  */
-- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType error:(NSError * _Nullable * _Nullable)error;
+- (nullable SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType
+                                          error:(NSError * _Nullable * _Nullable)error;
 
 
 /** @name Sensor Subscription */
@@ -129,15 +136,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param sensorType  The type of the sensor that the data handler will be subscribed to.
  *  @param handler     A block that is invoked with each update to handle new sensor data. The block must conform to the SKSensorDataHandler type.
  */
-- (void)subscribeToSensor:(SKSensorType)sensorType
-              withHandler:(SKSensorDataHandler)handler;
+- (BOOL)subscribeToSensor:(SKSensorType)sensorType
+              withHandler:(SKSensorDataHandler)handler
+                    error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Unsubscribes all block handlers.
  *
  *  @param sensorType The type of the sensor for which all block handlers will be unsubscribed.
  */
-- (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType;
+- (BOOL)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType
+                                   error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  A string with a CSV formatted header that describes the data of the particular sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
@@ -146,7 +155,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return A string with a CSV header.
  */
-- (nullable NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
+- (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
 
 
 /** @name Continuous Sensing */
@@ -156,14 +165,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param sensorType The type of the sensor that will be started.
  */
-- (void)startContinuousSensingWithSensor:(SKSensorType)sensorType;
+- (BOOL)startContinuousSensingWithSensor:(SKSensorType)sensorType
+                                   error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Stops continuous sensing with the specified sensor.
  *
  *  @param sensorType The type of the sensor that will be stopped.
  */
-- (void)stopContinuousSensingWithSensor:(SKSensorType)sensorType;
+- (BOOL)stopContinuousSensingWithSensor:(SKSensorType)sensorType
+                                  error:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Starts continuous sensing with all registered sensors.

@@ -40,8 +40,8 @@
 
 + (NSString *)csvHeader
 {
-    NSLog(@"csvHeader depends on the encapsulated Device Data objects.");
-    return nil;
+    // csvHeader depends on the encapsulated Device Data objects.
+    return @"";
 }
 
 - (NSString *)csvString
