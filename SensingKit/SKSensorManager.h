@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
                 toSensor:(SKSensorType)sensorType
                    error:(NSError * _Nullable * _Nullable)error;
 
-- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType
+- (nullable SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType
                                           error:(NSError * _Nullable * _Nullable)error;
 
 
