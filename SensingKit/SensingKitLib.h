@@ -179,12 +179,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Starts continuous sensing with all registered sensors.
  */
-- (void)startContinuousSensingWithAllRegisteredSensors;
+- (BOOL)startContinuousSensingWithAllRegisteredSensors:(NSError * _Nullable * _Nullable)error;
 
 /**
  *  Stops continuous sensing with all registered sensors.
  */
-- (void)stopContinuousSensingWithAllRegisteredSensors;
+- (BOOL)stopContinuousSensingWithAllRegisteredSensors:(NSError * _Nullable * _Nullable)error;
 
 @end
 

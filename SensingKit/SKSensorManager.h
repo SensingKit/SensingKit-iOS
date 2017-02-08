@@ -79,9 +79,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)stopContinuousSensingWithSensor:(SKSensorType)sensorType
                                   error:(NSError * _Nullable * _Nullable)error;
 
-- (void)startContinuousSensingWithAllRegisteredSensors;
+- (BOOL)startContinuousSensingWithAllRegisteredSensors:(NSError * _Nullable * _Nullable)error;
 
-- (void)stopContinuousSensingWithAllRegisteredSensors;
+- (BOOL)stopContinuousSensingWithAllRegisteredSensors:(NSError * _Nullable * _Nullable)error;
 
 @end
 

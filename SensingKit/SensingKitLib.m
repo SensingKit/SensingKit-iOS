@@ -148,14 +148,14 @@
                                                          error:error];
 }
 
-- (void)startContinuousSensingWithAllRegisteredSensors
+- (BOOL)startContinuousSensingWithAllRegisteredSensors:(NSError * _Nullable * _Nullable)error
 {
-    [self.sensorManager startContinuousSensingWithAllRegisteredSensors];
+    return [self.sensorManager startContinuousSensingWithAllRegisteredSensors:error];
 }
 
-- (void)stopContinuousSensingWithAllRegisteredSensors
+- (BOOL)stopContinuousSensingWithAllRegisteredSensors:(NSError * _Nullable * _Nullable)error
 {
-    [self.sensorManager stopContinuousSensingWithAllRegisteredSensors];
+    return [self.sensorManager stopContinuousSensingWithAllRegisteredSensors:error];
 }
 
 @end

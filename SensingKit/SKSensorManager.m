@@ -89,7 +89,7 @@
         // init array that holds the sensors
         _sensors = [[NSMutableArray alloc] initWithCapacity:TOTAL_SENSORS];
         
-        for (NSInteger i = 0; i < TOTAL_SENSORS; i++) {
+        for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
             [_sensors addObject:[NSNull null]];
         }
     }
@@ -141,12 +141,14 @@
             
         case Microphone:
             return [SKMicrophone isSensorAvailable];
+        
+            // Don't forget to break!
             
         default:
-            NSLog(@"Warning: Unknown Sensor: %li", (long)sensorType);
+            // Internal Error. Should never happen.
+            NSLog(@"Error: Unknown Sensor: %li", (long)sensorType);
+            abort();
     }
-    
-    return NO;
 }
 
 - (BOOL)isSensorRegistered:(SKSensorType)sensorType
@@ -156,7 +158,15 @@
 
 - (BOOL)isSensorSensing:(SKSensorType)sensorType
 {
-    return [self getSensor:sensorType].sensing;
+    SKAbstractSensor *sensor = [self getSensor:sensorType error:NULL];
+    
+    if (sensor) {
+        return sensor.sensing;
+    }
+    else {
+        // Just return NO since we don't have error support here.
+        return NO;
+    }
 }
 
 
@@ -168,6 +178,23 @@
 {
     NSLog(@"Register sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
+    // Sensor should be available first
+    if (![SKSensorManager isSensorAvailable:sensorType]) {
+        
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
+    }
+    
+    // Sensor should not be registered
     if ([self isSensorRegistered:sensorType]) {
         
         if (error) {
@@ -199,21 +226,14 @@
 {
     NSLog(@"Deregister sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
-    if (![self isSensorRegistered:sensorType]) {
-        
-        if (error) {
-            
-            NSDictionary *userInfo = @{
-                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Sensor is not registered.", nil),
-                                       };
-            
-            *error = [NSError errorWithDomain:SKErrorDomain
-                                         code:SKSensorNotRegisteredError
-                                     userInfo:userInfo];
-        }
+    SKAbstractSensor *sensor = [self getSensor:sensorType error:error];
+    
+    // Sensor should be registered
+    if (!sensor) {
         return NO;
     }
     
+    // Sensor should not already be sensing
     if ([self isSensorSensing:sensorType]) {
         
         if (error) {
@@ -230,7 +250,7 @@
     }
     
     // Clear all Callbacks from that sensor
-    [[self getSensor:sensorType] unsubscribeAllHandlers];
+    [sensor unsubscribeAllHandlers];
     
     // Deregister the Sensor
     self.sensors[sensorType] = [NSNull null];
@@ -242,14 +262,25 @@
                 toSensor:(SKSensorType)sensorType
                    error:(NSError **)error
 {
-    // If configuration was not provided, get the Default
-    if (!configuration) {
+    SKAbstractSensor *sensor = [self getSensor:sensorType error:error];
+    
+    // Sensor should be registered
+    if (!sensor) {
+        return NO;
+    }
+    
+    // if configuration is provided, check the type
+    if (configuration)
+    {
+        // TODO
+    }
+    else {
+        // If configuration was not provided, get the Default
         configuration = [SKSensorManager defaultConfigurationForSensor:sensorType];
     }
     
-    // TODO: Check if configuration is same type
-    
-    [self getSensor:sensorType].configuration = configuration;
+    // Set the configuration
+    sensor.configuration = configuration;
     
     return YES;
 }
@@ -257,9 +288,14 @@
 - (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType
                                           error:(NSError **)error
 {
-    // TODO ?
+    SKAbstractSensor *sensor = [self getSensor:sensorType error:error];
     
-    return [self getSensor:sensorType].configuration;
+    // Sensor should be registered
+    if (!sensor) {
+        return nil;
+    }
+    
+    return sensor.configuration;
 }
 
 
@@ -269,12 +305,16 @@
               withHandler:(SKSensorDataHandler)handler
                     error:(NSError **)error
 {
-    
-    // TODO ?
-    
     NSLog(@"Subscribe to sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
-    [[self getSensor:sensorType] subscribeHandler:handler];
+    SKAbstractSensor *sensor = [self getSensor:sensorType error:error];
+    
+    // Sensor should be registered
+    if (!sensor) {
+        return NO;
+    }
+    
+    [sensor subscribeHandler:handler];
     
     return YES;
 }
@@ -282,11 +322,32 @@
 - (BOOL)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType
                                    error:(NSError **)error
 {
-    // TODO ?
-    
     NSLog(@"Unsubscribe all handlers from sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
-    [[self getSensor:sensorType] unsubscribeAllHandlers];
+    SKAbstractSensor *sensor = [self getSensor:sensorType error:error];
+    
+    // Sensor should be registered
+    if (!sensor) {
+        return NO;
+    }
+    
+    // At least one handler should be registered
+    if (!sensor.handlersCount) {
+        
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Sensor Data Handler is not registered.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotRegisteredError
+                                     userInfo:userInfo];
+        }
+        return NO;
+    }
+    
+    [sensor unsubscribeAllHandlers];
     
     return YES;
 }
@@ -333,9 +394,11 @@
             
         case Microphone:
             return [SKMicrophoneData csvHeader];
+        
+            // Don't forget to break!
             
         default:
-            // Internal error. This is a bug!
+            // Internal Error. Should never happen.
             NSLog(@"Unknown Sensor: %li", (long)sensorType);
             abort();
     }
@@ -349,6 +412,30 @@
 {
     NSLog(@"Start sensing with sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
+    SKAbstractSensor *sensor = [self getSensor:sensorType error:error];
+    
+    // Sensor should be registered
+    if (!sensor) {
+        return NO;
+    }
+    
+    // At least one handler should be registered
+    if (!sensor.handlersCount) {
+        
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Sensor Data Handler is not registered.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotRegisteredError
+                                     userInfo:userInfo];
+        }
+        return NO;
+    }
+    
+    // Sensor should not be currently sensing
     if ([self isSensorSensing:sensorType]) {
         
         if (error) {
@@ -365,7 +452,7 @@
     }
     
     // Start Sensing
-    [[self getSensor:sensorType] startSensing];
+    [sensor startSensing];
     
     return YES;
 }
@@ -375,6 +462,7 @@
 {
     NSLog(@"Stop sensing with sensor: %@.", [NSString stringWithSensorType:sensorType]);
     
+    // Sensor should be currently sensing
     if (![self isSensorSensing:sensorType]) {
         
         if (error) {
@@ -390,45 +478,82 @@
         return NO;
     }
     
+    SKAbstractSensor *sensor = [self getSensor:sensorType error:error];
+    
+    // Sensor should be registered
+    if (!sensor) {
+        return NO;
+    }
+    
     // Stop Sensing
-    [[self getSensor:sensorType] stopSensing];
+    [sensor stopSensing];
     
     return YES;
 }
 
-- (void)startContinuousSensingWithAllRegisteredSensors
+- (BOOL)startContinuousSensingWithAllRegisteredSensors:(NSError **)error
 {
-    for (NSInteger i = 0; i < TOTAL_SENSORS; i++) {
+    NSLog(@"Start sensing with all registered sensors.");
+    
+    // Start each sensor individually
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
         
         SKSensorType sensorType = i;
         
         if ([self isSensorRegistered:sensorType]) {
-            [self startContinuousSensingWithSensor:sensorType error:nil];
+            
+            if (![self startContinuousSensingWithSensor:sensorType error:error]) {
+                
+                // Error, return NO
+                return NO;
+            }
         }
     }
+    
+    return YES;
 }
 
-- (void)stopContinuousSensingWithAllRegisteredSensors
+- (BOOL)stopContinuousSensingWithAllRegisteredSensors:(NSError **)error
 {
-    for (NSInteger i = 0; i < TOTAL_SENSORS; i++) {
+    NSLog(@"Stop sensing with all registered sensors.");
+    
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
         
         SKSensorType sensorType = i;
         
         if ([self isSensorRegistered:sensorType]) {
-            [self stopContinuousSensingWithSensor:sensorType error:nil];
+            
+            if (![self stopContinuousSensingWithSensor:sensorType error:error]) {
+                
+                // Error, return NO
+                return NO;
+            }
         }
     }
+    
+    return YES;
 }
 
 
 #pragma mark private methods
 
 - (SKAbstractSensor *)getSensor:(SKSensorType)sensorType
+                          error:(NSError **)error
 {
+    // Sensor should be registered
     if (![self isSensorRegistered:sensorType]) {
         
-        NSLog(@"Sensor '%@' is not registered.", [NSString stringWithSensorType:sensorType]);
-        abort();
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Sensor is not registered.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotRegisteredError
+                                     userInfo:userInfo];
+        }
+        return nil;
     }
     
     return self.sensors[sensorType];
@@ -496,6 +621,7 @@
             // Don't forget to break!
             
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown Sensor: %li", (long)sensorType);
             abort();
     }
@@ -564,6 +690,7 @@
             // Don't forget to break!
             
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown Sensor: %li", (long)sensorType);
             abort();
     }

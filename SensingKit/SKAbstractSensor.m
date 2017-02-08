@@ -97,4 +97,9 @@
     }
 }
 
+- (NSUInteger)handlersCount
+{
+    return self.sensorDataListeners.count;
+}
+
 @end
