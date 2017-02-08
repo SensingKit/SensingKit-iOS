@@ -22,6 +22,7 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 #import "SKAbstractSensor.h"
+#import "SKErrors.h"
 
 
 @interface SKAbstractSensor()
@@ -33,24 +34,52 @@
 
 @implementation SKAbstractSensor
 
-- (void)subscribeHandler:(SKSensorDataHandler)handler
+- (BOOL)subscribeHandler:(SKSensorDataHandler)handler error:(NSError **)error
 {
     // Register the callback
     if ([self.sensorDataListeners containsObject:handler]) {
-        NSLog(@"SKSensorDataHandler already registered.");
+        
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"SKSensorDataHandler already registered.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKDataHandlerAlreadyRegistered
+                                     userInfo:userInfo];
+        }
+        
+        return NO;
     }
     
     [self.sensorDataListeners addObject:handler];
+    
+    return YES;
 }
 
-- (void)unsubscribeHandler:(SKSensorDataHandler)handler
+- (BOOL)unsubscribeHandler:(SKSensorDataHandler)handler error:(NSError **)error
 {
     // Unregister the callback
     if (![self.sensorDataListeners containsObject:handler]) {
-        NSLog(@"SKSensorDataHandler is not registered.");
+        
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"SKSensorDataHandler is not registered.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKDataHandlerAlreadyRegistered
+                                     userInfo:userInfo];
+        }
+        
+        return NO;
     }
     
     [self.sensorDataListeners removeObject:handler];
+    
+    return YES;
 }
 
 - (void)unsubscribeAllHandlers

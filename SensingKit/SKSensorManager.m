@@ -314,9 +314,7 @@
         return NO;
     }
     
-    [sensor subscribeHandler:handler];
-    
-    return YES;
+    return [sensor subscribeHandler:handler error:error];
 }
 
 - (BOOL)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType

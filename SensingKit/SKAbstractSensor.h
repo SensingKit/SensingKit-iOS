@@ -39,9 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) NSUInteger handlersCount;
 
-- (void)subscribeHandler:(SKSensorDataHandler)handler;
+- (BOOL)subscribeHandler:(SKSensorDataHandler)handler
+                   error:(NSError * _Nullable * _Nullable)error;
 
-- (void)unsubscribeHandler:(SKSensorDataHandler)handler;
+- (BOOL)unsubscribeHandler:(SKSensorDataHandler)handler
+                     error:(NSError * _Nullable * _Nullable)error;
 
 - (void)unsubscribeAllHandlers;
 
