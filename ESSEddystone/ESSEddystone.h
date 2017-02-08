@@ -17,11 +17,14 @@
 
 typedef NS_ENUM(NSUInteger, ESSBeaconType) {
   kESSBeaconTypeEddystone = 1,
+  kESSBeaconTypeEddystoneEID = 2,
 };
 
 typedef NS_ENUM(NSUInteger, ESSFrameType) {
   kESSEddystoneUnknownFrameType = 0,
-  kESSEddystoneUIDFrameType = 1,
+  kESSEddystoneUIDFrameType,
+  kESSEddystoneURLFrameType,
+  kESSEddystoneEIDFrameType,
   kESSEddystoneTelemetryFrameType,
 };
 
@@ -33,8 +36,7 @@ typedef NS_ENUM(NSUInteger, ESSFrameType) {
 @interface ESSBeaconID : NSObject <NSCopying>
 
 /**
- * Currently there's only the Eddystone format, but we'd like to leave the door open to other
- * possibilities, so let's have a beacon type here in the info.
+ * The type of the beacon. Currently only a couple of types are supported.
  */
 @property(nonatomic, assign, readonly) ESSBeaconType beaconType;
 
@@ -59,7 +61,6 @@ typedef NS_ENUM(NSUInteger, ESSFrameType) {
  */
 @property(nonatomic, strong, readonly) NSNumber *RSSI;
 
-
 /**
  * The beaconID for this Eddystone. All beacons have an ID.
  */
@@ -77,18 +78,11 @@ typedef NS_ENUM(NSUInteger, ESSFrameType) {
  */
 @property(nonatomic, strong, readonly) NSNumber *txPower;
 
-
 /**
  * The scanner has seen a frame for an Eddystone. We'll need to know what type of Eddystone frame
  * it is, as there are a few types.
  */
-+ (ESSFrameType)frameTypeForFrame:(NSDictionary *)advFrameList;
-
-/**
- * Given some advertisement data that we have already verified is a TLM frame (using
- * frameTypeForFrame:), return the actual telemetry data for that frame.
- */
-+ (NSData *)telemetryDataForFrame:(NSDictionary *)advFrameList;
++ (ESSFrameType)frameTypeForFrame:(NSData *)frameData;
 
 /**
  * Given the service data for a frame we know to be a UID frame, an RSSI sighting,
@@ -98,6 +92,20 @@ typedef NS_ENUM(NSUInteger, ESSFrameType) {
 + (instancetype)beaconInfoForUIDFrameData:(NSData *)UIDFrameData
                                 telemetry:(NSData *)telemetry
                                      RSSI:(NSNumber *)initialRSSI;
+
+/**
+ * Given the service data for a frame we know to be a UID frame, an RSSI sighting,
+ * and -- optionally -- telemetry data (if we've seen it), create a new ESSBeaconInfo object to
+ * represent this Eddystone
+ */
++ (instancetype)beaconInfoForEIDFrameData:(NSData *)EIDFrameData
+                                telemetry:(NSData *)telemetry
+                                     RSSI:(NSNumber *)initialRSSI;
+
+/**
+ * If we're given a URL frame, extract the URL from it.
+ */
++ (NSURL *)parseURLFromFrameData:(NSData *)URLFrameData;
 
 /**
  * Convenience method to save everybody from creating these things all the time.
