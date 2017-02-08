@@ -87,12 +87,12 @@
     [self.sensingKit subscribeToSensor:Battery
                            withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
                                // Do nothing
-                           }];
+                           } error:NULL];
     
-    [self.sensingKit startContinuousSensingWithSensor:Battery];
+    [self.sensingKit startContinuousSensingWithSensor:Battery error:NULL];
     XCTAssertTrue([self.sensingKit isSensorSensing:Battery], @"Sensor should be sensing.");
     
-    [self.sensingKit stopContinuousSensingWithSensor:Battery];
+    [self.sensingKit stopContinuousSensingWithSensor:Battery error:NULL];
     XCTAssertFalse([self.sensingKit isSensorSensing:Battery], @"Sensor should not be sensing.");
     
     // Do not unsubscribe here.. (should be automated by deregisterSensor)
@@ -100,37 +100,71 @@
     XCTAssertFalse([self.sensingKit isSensorRegistered:Battery], @"Sensor should not be registered.");
 }
 
+- (void)testSensorAvailibility
+{
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
+        // No need for XCTAssert here, it just needs to pass without crashing (abort())
+        [self.sensingKit isSensorAvailable:i];
+    }
+}
+
 - (void)testSensorRegistrationDeregistration
 {
     // test registration
-    [self.sensingKit registerSensor:Accelerometer error:NULL];
-    [self.sensingKit registerSensor:Gyroscope error:NULL];
-    [self.sensingKit registerSensor:Magnetometer error:NULL];
-    [self.sensingKit registerSensor:DeviceMotion error:NULL];
-    [self.sensingKit registerSensor:MotionActivity error:NULL];
-    [self.sensingKit registerSensor:Pedometer error:NULL];
-    [self.sensingKit registerSensor:Altimeter error:NULL];
-    [self.sensingKit registerSensor:Battery error:NULL];
-    [self.sensingKit registerSensor:ScreenStatus error:NULL];
-    [self.sensingKit registerSensor:Location error:NULL];
-    [self.sensingKit registerSensor:iBeaconProximity error:NULL];
-    [self.sensingKit registerSensor:EddystoneProximity error:NULL];
-    [self.sensingKit registerSensor:Microphone error:NULL];
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
+        
+        // if sensor is available
+        if ([self.sensingKit isSensorAvailable:(SKSensorType)i]) {
+            
+            // registration should be permitted
+            XCTAssertTrue([self.sensingKit registerSensor:i error:NULL]);
+        }
+        else {
+            
+            // error
+            XCTAssertFalse([self.sensingKit registerSensor:i error:NULL]);
+        }
+    }
     
+    // test isRegistered
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
+        
+        // if sensor is available
+        if ([self.sensingKit isSensorAvailable:(SKSensorType)i]) {
+            
+            // Sensor should now be registered
+            XCTAssertTrue([self.sensingKit isSensorRegistered:i]);
+        }
+        else {
+            
+            // Sensor should not be registered as registration was not permitted previously
+            XCTAssertFalse([self.sensingKit isSensorRegistered:i]);
+        }
+    }
+
     // test deregistration
-    [self.sensingKit deregisterSensor:Accelerometer error:NULL];
-    [self.sensingKit deregisterSensor:Gyroscope error:NULL];
-    [self.sensingKit deregisterSensor:Magnetometer error:NULL];
-    [self.sensingKit deregisterSensor:DeviceMotion error:NULL];
-    [self.sensingKit deregisterSensor:MotionActivity error:NULL];
-    [self.sensingKit deregisterSensor:Pedometer error:NULL];
-    [self.sensingKit deregisterSensor:Altimeter error:NULL];
-    [self.sensingKit deregisterSensor:Battery error:NULL];
-    [self.sensingKit deregisterSensor:ScreenStatus error:NULL];
-    [self.sensingKit deregisterSensor:Location error:NULL];
-    [self.sensingKit deregisterSensor:iBeaconProximity error:NULL];
-    [self.sensingKit deregisterSensor:EddystoneProximity error:NULL];
-    [self.sensingKit deregisterSensor:Microphone error:NULL];
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
+        
+        // if sensor is available
+        if ([self.sensingKit isSensorAvailable:(SKSensorType)i]) {
+            
+            // deregistration should be permitted
+            XCTAssertTrue([self.sensingKit deregisterSensor:i error:NULL]);
+        }
+        else
+        {
+            
+            // error
+            XCTAssertFalse([self.sensingKit deregisterSensor:i error:NULL]);
+        }
+    }
+    
+    // test isRegistered again
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
+        
+        // All sensors should now now be registered
+        XCTAssertFalse([self.sensingKit isSensorRegistered:i]);
+    }
 }
 
 @end
