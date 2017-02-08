@@ -88,7 +88,7 @@ if ([self.sensingKit isSensorAvailable:Battery]) {
 
 *Swift*
 ```swift
- if sensingKit.isSensorAvailable(SKSensorType.Battery) {
+if sensingKit.isSensorAvailable(SKSensorType.Battery) {
     // You can access the sensor
 }
 ```
@@ -107,7 +107,7 @@ do {
 	try sensingKit.register(SKSensorType.Battery)
 }
 catch {
-  // Handle error
+    // Handle error
 }
 ```
 
@@ -121,15 +121,21 @@ Subscribe a sensor data handler. You can cast the data object into the actual se
         
         SKBatteryData *batteryData = (SKBatteryData *)sensorData;
         NSLog(@“Battery Level: %f”, batteryData.level);
-    }];
+    }
+                             error:NULL];
 ```
 
 *Swift*
 ```swift
-sensingkit.subscribe(to: SKSensorType.Battery, withHandler: { (sensorType, sensorData) in
-  let batteryData = sensorData as! SKBatteryData
-  print("Battery Level: \(batteryData)")
-})
+do {
+    try sensingkit.subscribe(to: SKSensorType.Battery, withHandler: { (sensorType, sensorData) in
+        let batteryData = sensorData as! SKBatteryData
+        print("Battery Level: \(batteryData)")
+    })
+}
+catch {
+    // Handle error
+}
 ```
 
 
@@ -138,19 +144,29 @@ You can Start and Stop the Continuous Sensing using the following commands:
 *Objective-C*
 ```objectivec
 // Start
-[self.sensingKit startContinuousSensingWithSensor:Battery];
+[self.sensingKit startContinuousSensingWithSensor:Battery error:NULL];
 
 // Stop
-[self.sensingKit stopContinuousSensingWithSensor:Battery];
+[self.sensingKit stopContinuousSensingWithSensor:Battery error:NULL];
 ```
 
 *Swift*
 ```swift
 // Start
-sensingKit.startContinuousSensingWithSensor(SKSensorType.Battery)
+do {
+    try sensingKit.startContinuousSensingWithSensor(SKSensorType.Battery)
+}
+catch {
+    // Handle error
+}
 
 // Stop
-sensingKit.stopContinuousSensingWithSensor(SKSensorType.Battery)
+do {
+    try sensingKit.stopContinuousSensingWithSensor(SKSensorType.Battery)
+}
+catch {
+    // Handle error
+}
 ```
 
 
