@@ -146,7 +146,7 @@
             
         default:
             // Internal Error. Should never happen.
-            NSLog(@"Error: Unknown Sensor: %li", (long)sensorType);
+            NSLog(@"Internal Error: Unknown Sensor: %li", (long)sensorType);
             abort();
     }
 }
@@ -397,7 +397,7 @@
             
         default:
             // Internal Error. Should never happen.
-            NSLog(@"Unknown Sensor: %li", (long)sensorType);
+            NSLog(@"Internal Error: Unknown Sensor: %li", (long)sensorType);
             abort();
     }
 }
@@ -620,7 +620,7 @@
             
         default:
             // Internal Error. Should never happen.
-            NSLog(@"Unknown Sensor: %li", (long)sensorType);
+            NSLog(@"Internal Error: Unknown Sensor: %li", (long)sensorType);
             abort();
     }
     
@@ -689,7 +689,7 @@
             
         default:
             // Internal Error. Should never happen.
-            NSLog(@"Unknown Sensor: %li", (long)sensorType);
+            NSLog(@"Internal Error: Unknown Sensor: %li", (long)sensorType);
             abort();
     }
     

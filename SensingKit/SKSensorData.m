@@ -39,13 +39,15 @@
 
 - (NSString *)csvString
 {
-    NSLog(@"Error: csvString method has not be implemented in the inherited SKSensorData file.");
+    // Internal Error. Should never happen.
+    NSLog(@"Internal Error: csvString method has not be implemented in the inherited SKSensorData file.");
     abort();
 }
 
 - (NSDictionary *)dictionaryData
 {
-    NSLog(@"Error: dictionaryData method has not be implemented in the inherited SKSensorData file.");
+    // Internal Error. Should never happen.
+    NSLog(@"Internal Error: dictionaryData method has not be implemented in the inherited SKSensorData file.");
     abort();
 }
 
