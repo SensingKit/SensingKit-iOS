@@ -120,7 +120,7 @@ Subscribe a sensor data handler. You can cast the data object into the actual se
                        withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
         
         SKBatteryData *batteryData = (SKBatteryData *)sensorData;
-        NSLog(@“Battery Level: %f”, batteryData.level);
+        NSLog(@"Battery Level: %f", batteryData.level);
     }
                              error:NULL];
 ```
