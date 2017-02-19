@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A 10-byte (80 bit) identifier that can used to group a particular set of beacons. This value should be in Hexadecimal format, with a maximum character length of 20 characters.
  */
-@property (nonatomic, copy, nullable) NSString *namespaceFilter;
+@property (nonatomic, copy, nullable, readonly) NSString *namespaceFilter;
 
 @end
 

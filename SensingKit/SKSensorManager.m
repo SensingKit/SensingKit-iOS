@@ -322,7 +322,7 @@
     
     // Sensor should be registered
     if (!sensor) {
-        return nil; //TODO
+        return nil;
     }
     
     return sensor.configuration;

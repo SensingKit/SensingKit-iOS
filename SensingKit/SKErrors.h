@@ -46,7 +46,8 @@ typedef NS_ENUM(NSInteger, SKSensorError) {
     SKDataHandlerNotRegistered = 31,        // Sensor Data Handler is not registered
     
     // Configuration
-    SKConfigurationNotValid = 40            // Configuration is not compatible with the registered sensor
+    SKConfigurationNotValid = 40,           // Configuration is not compatible with the registered sensor
+    SKConfigurationEddystoneProximityNamespaceNotValid = 41,  // Eddystone Proximity Namespace is not valid
     
     
 };

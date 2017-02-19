@@ -24,6 +24,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SKSensorType.h"
+#import "SKErrors.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
