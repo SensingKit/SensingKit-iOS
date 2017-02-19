@@ -37,8 +37,9 @@ target <MyApp> do
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks
   use_frameworks!
 
-  # Pre-release version
-  pod 'SensingKit', :git => 'https://github.com/SensingKit/SensingKit-iOS.git', :branch => 'next'
+  pod 'SensingKit'
+  # For the latest development version, please use:
+  # pod 'SensingKit', :git => 'https://github.com/SensingKit/SensingKit-iOS.git', :branch => 'next'
   
 end
 ```
@@ -117,10 +118,12 @@ Subscribe a sensor data handler. You can cast the data object into the actual se
 *Objective-C*
 ```objectivec
 [self.sensingKit subscribeToSensor:Battery
-                       withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
+                       withHandler:^(SKSensorType sensorType, SKSensorData *sensorData, NSError *error) {
         
-        SKBatteryData *batteryData = (SKBatteryData *)sensorData;
-        NSLog(@"Battery Level: %f", batteryData.level);
+        if (!error) {
+	          SKBatteryData *batteryData = (SKBatteryData *)sensorData;
+            NSLog(@"Battery Level: %f", batteryData.level);
+        }
     }
                              error:NULL];
 ```
@@ -128,9 +131,12 @@ Subscribe a sensor data handler. You can cast the data object into the actual se
 *Swift*
 ```swift
 do {
-    try sensingkit.subscribe(to: SKSensorType.Battery, withHandler: { (sensorType, sensorData) in
-        let batteryData = sensorData as! SKBatteryData
-        print("Battery Level: \(batteryData)")
+    try sensingkit.subscribe(to: SKSensorType.Battery, withHandler: { (sensorType, sensorData, error) in
+        
+        if (error != nil) {
+            let batteryData = sensorData as! SKBatteryData
+            print("Battery Level: \(batteryData)")
+        }
     })
 }
 catch {
@@ -170,7 +176,7 @@ catch {
 ```
 
 
-For a complete description of our API, please refer to the [project website](https://www.sensingkit.org).
+For a complete description of our API, please refer to the [documentation page](https://www.sensingkit.org/documentation/ios/) of SensingKit website.
 
 ## License
 
