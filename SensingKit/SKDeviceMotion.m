@@ -51,13 +51,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKDeviceMotionConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor DeviceMotion.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance

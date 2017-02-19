@@ -37,10 +37,16 @@
     return self;
 }
 
+- (BOOL)isValidForSensor:(SKSensorType)sensorType
+{
+    return sensorType == EddystoneProximity;
+}
+
 - (void)setNamespaceFilter:(NSString *)namespaceFilter
 {
     if (![SKEddystoneProximityConfiguration isNamespaceValid:namespaceFilter])
     {
+        // TODO
         NSLog(@"Warning: Identifier '%@' is not valid. Namespace should be formatted as a 10-byte hexadecimal string.", namespaceFilter);
     }
 

@@ -58,13 +58,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKLocationConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Location.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance

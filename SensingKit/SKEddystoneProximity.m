@@ -55,13 +55,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKEddystoneProximityConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor EddystoneProximity.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance

@@ -42,4 +42,10 @@
     return configuration;
 }
 
+- (BOOL)isValidForSensor:(SKSensorType)sensorType
+{
+    return sensorType == MotionActivity;
+}
+
+
 @end

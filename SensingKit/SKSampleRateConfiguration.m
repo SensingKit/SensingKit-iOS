@@ -44,4 +44,11 @@
     return configuration;
 }
 
+- (BOOL)isValidForSensor:(SKSensorType)sensorType
+{
+    // Internal Error. Should never happen.
+    NSLog(@"Internal Error: isValidForSensor method is not implemented in the inherited SKSampleRateConfiguration class.");
+    abort();
+}
+
 @end

@@ -53,6 +53,11 @@
     return configuration;
 }
 
+- (BOOL)isValidForSensor:(SKSensorType)sensorType
+{
+    return sensorType == Microphone;
+}
+
 + (NSString *)extensionForRecordingFormat:(SKMicrophoneRecordingFormat)recordingFormat
 {
     switch (recordingFormat)

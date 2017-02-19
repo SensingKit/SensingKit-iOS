@@ -210,8 +210,25 @@
         return NO;
     }
     
-    // If configuration was not provided, get the Default
-    if (!configuration) {
+    // if configuration is provided, check the type
+    if (configuration) {
+        
+        if (![configuration isValidForSensor:sensorType]) {
+            
+            if (error) {
+                
+                NSDictionary *userInfo = @{
+                                           NSLocalizedDescriptionKey: NSLocalizedString(@"Configuration is not compatible with the registered sensor.", nil),
+                                           };
+                
+                *error = [NSError errorWithDomain:SKErrorDomain
+                                             code:SKConfigurationNotValid
+                                         userInfo:userInfo];
+            }
+            return NO;
+        }
+    } else {
+        // If configuration was not provided, get the Default
         configuration = [SKSensorManager defaultConfigurationForSensor:sensorType];
     }
     
@@ -272,7 +289,20 @@
     // if configuration is provided, check the type
     if (configuration)
     {
-        // TODO
+        if (![configuration isValidForSensor:sensorType]) {
+            
+            if (error) {
+                
+                NSDictionary *userInfo = @{
+                                           NSLocalizedDescriptionKey: NSLocalizedString(@"Configuration is not compatible with the registered sensor.", nil),
+                                           };
+                
+                *error = [NSError errorWithDomain:SKErrorDomain
+                                             code:SKConfigurationNotValid
+                                         userInfo:userInfo];
+            }
+            return NO;
+        }
     }
     else {
         // If configuration was not provided, get the Default
@@ -292,7 +322,7 @@
     
     // Sensor should be registered
     if (!sensor) {
-        return nil;
+        return nil; //TODO
     }
     
     return sensor.configuration;
@@ -561,7 +591,6 @@
             
         case Accelerometer:
             sensor = [[SKAccelerometer alloc] initWithConfiguration:(SKAccelerometerConfiguration *)configuration];
-            
             break;
             
         case Gyroscope:

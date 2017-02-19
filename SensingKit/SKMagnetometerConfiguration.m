@@ -42,4 +42,9 @@
     return configuration;
 }
 
+- (BOOL)isValidForSensor:(SKSensorType)sensorType
+{
+    return sensorType == Magnetometer;
+}
+
 @end

@@ -43,6 +43,10 @@ typedef NS_ENUM(NSInteger, SKSensorError) {
     
     // Sensor Data Handlers
     SKDataHandlerAlreadyRegistered = 30,    // Sensor Data Handler is already registered
-    SKDataHandlerNotRegistered = 31         // Sensor Data Handler is not registered
+    SKDataHandlerNotRegistered = 31,        // Sensor Data Handler is not registered
+    
+    // Configuration
+    SKConfigurationNotValid = 40            // Configuration is not compatible with the registered sensor
+    
     
 };
