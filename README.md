@@ -104,7 +104,7 @@ Register a sensor (e.g. a Battery sensor) as shown bellow:
 *Swift*
 ```swift
 do {
-	try sensingKit.register(SKSensorType.Battery)
+    try sensingKit.register(SKSensorType.Battery)
 }
 catch {
     // Handle error
@@ -120,11 +120,10 @@ Subscribe a sensor data handler. You can cast the data object into the actual se
                        withHandler:^(SKSensorType sensorType, SKSensorData *sensorData, NSError *error) {
         
         if (!error) {
-	          SKBatteryData *batteryData = (SKBatteryData *)sensorData;
+            SKBatteryData *batteryData = (SKBatteryData *)sensorData;
             NSLog(@"Battery Level: %f", batteryData.level);
         }
-    }
-                             error:NULL];
+    } error:NULL];
 ```
 
 *Swift*
