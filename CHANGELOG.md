@@ -1,10 +1,14 @@
 # Changelog
 
-### 0.5.0 (TPD)
+### 0.5.0 (February 20, 2017)
+- Added support for Screen Sensor.
+- Added error handling support using NSError.
+- Updated Eddystone Scanner into latest version.
 - Changed library into a dynamic framework.
 - Added CocoaPod support.
 - Added support for iOS 10.
-- Added error handling support using NSError.
+- Improved SensingKit API.
+- Updated SensingKit Documentation.
 
 ### 0.4.2 (November 27, 2015)
 - Fixed a bug were sensor configuration was not updated.
