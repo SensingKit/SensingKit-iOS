@@ -96,6 +96,8 @@
             [self enableBroadcastingWithConfiguration:beaconConfiguration];
             break;
             
+        // Don't forget to break!
+            
         default:
             // Internal Error. Should never happen.
             NSLog(@"Unknown SKiBeaconProximityMode: %lu", (unsigned long)beaconConfiguration.mode);

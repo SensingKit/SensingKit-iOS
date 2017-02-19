@@ -63,7 +63,10 @@
         case SKMicrophoneRecordingFormatMPEG4AAC:
             return @"m4a";
             
+        // Don't forget to break!
+            
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKMicrophoneRecordingFormat: %lu", (unsigned long)recordingFormat);
             abort();
     }

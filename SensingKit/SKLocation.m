@@ -104,6 +104,8 @@
             self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
             break;
             
+        // Don't forget to break!
+            
         default:
             // Internal Error. Should never happen.
             NSLog(@"Unknown SKLocationAccuracy: %lu", (unsigned long)accuracy);
@@ -134,6 +136,8 @@
                 self.locationManager.allowsBackgroundLocationUpdates = YES;
             }
             break;
+            
+        // Don't forget to break!
             
         default:
             // Internal Error. Should never happen.

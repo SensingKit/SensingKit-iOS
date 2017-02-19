@@ -137,6 +137,8 @@
                                   AVSampleRateKey:@(configuration.sampleRate)};
             break;
             
+        // Don't forget to break!
+            
         default:
             // Internal Error. Should never happen.
             NSLog(@"Unknown SKMicrophoneRecordingFormat: %lu", (unsigned long)configuration.recordingFormat);
