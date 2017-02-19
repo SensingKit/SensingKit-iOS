@@ -42,7 +42,7 @@
     return sensorType == EddystoneProximity;
 }
 
-- (BOOL)setNamespaceFilter:(NSString *)namespaceFilter error:(NSError * _Nullable * _Nullable)error
+- (BOOL)setNamespaceFilter:(NSString *)namespaceFilter error:(NSError **)error
 {
     if (![SKEddystoneProximityConfiguration isNamespaceValid:namespaceFilter])
     {
@@ -59,8 +59,13 @@
         }
         return NO;
     }
-
-    _namespaceFilter = namespaceFilter.lowercaseString;
+    
+    if (namespaceFilter.length == 0) {
+        _namespaceFilter = nil;
+    }
+    else {
+        _namespaceFilter = namespaceFilter.lowercaseString;
+    }
     
     return YES;
 }
@@ -76,7 +81,7 @@
 
 + (BOOL)isNamespaceValid:(NSString *)string
 {
-    if (!string)
+    if (!string || string.length == 0)
     {
         // Nil is valid
         return YES;

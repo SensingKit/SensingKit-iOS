@@ -53,6 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy, nullable, readonly) NSString *namespaceFilter;
 
+- (BOOL)setNamespaceFilter:(NSString * _Nullable)namespaceFilter error:(NSError * _Nullable * _Nullable)error;
+
 @end
 
 NS_ASSUME_NONNULL_END
