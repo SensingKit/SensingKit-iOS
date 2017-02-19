@@ -100,12 +100,12 @@
     [self.altemeter startRelativeAltitudeUpdatesToQueue:[NSOperationQueue currentQueue]
                                             withHandler:^(CMAltitudeData *altitudeData, NSError *error) {
                                                 
-                                                if (!error) {
-                                                    SKAltimeterData *data = [[SKAltimeterData alloc] initWithAltitudeData:altitudeData];
-                                                    [self submitSensorData:data];
+                                                if (error) {
+                                                    [self submitSensorData:nil error:error];
                                                 }
                                                 else {
-                                                    NSLog(@"%@", error.localizedDescription);
+                                                    SKAltimeterData *data = [[SKAltimeterData alloc] initWithAltitudeData:altitudeData];
+                                                    [self submitSensorData:data error:NULL];
                                                 }
                                                 
                                             }];

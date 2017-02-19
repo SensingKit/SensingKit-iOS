@@ -223,7 +223,7 @@
     // Submit sensor data
     NSTimeInterval startTime = [NSProcessInfo processInfo].systemUptime;
     SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Started" withTimeInterval:startTime];
-    [self submitSensorData:data];
+    [self submitSensorData:data error:NULL];
     
     return YES;
 }
@@ -239,7 +239,7 @@
         NSTimeInterval endTime = [NSProcessInfo processInfo].systemUptime;
         
         SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Stopped" withTimeInterval:endTime];
-        [self submitSensorData:data];
+        [self submitSensorData:data error:NULL];
     }
     
     return [super stopSensing:error];

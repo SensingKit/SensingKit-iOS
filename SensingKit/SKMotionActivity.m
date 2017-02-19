@@ -100,7 +100,7 @@
     [self.motionActivityManager startActivityUpdatesToQueue:[NSOperationQueue currentQueue]
                                                 withHandler:^(CMMotionActivity *activity) {
                                                     SKMotionActivityData *data = [[SKMotionActivityData alloc] initWithMotionActivity:activity];
-                                                    [self submitSensorData:data];
+                                                    [self submitSensorData:data error:NULL];
                                                 }];
     
     return YES;

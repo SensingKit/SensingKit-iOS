@@ -100,10 +100,10 @@
                                     withHandler:^(CMGyroData *gyroData, NSError *error) {
                                         
                                         if (error) {
-                                            NSLog(@"%@", error.localizedDescription);
+                                            [self submitSensorData:nil error:error];
                                         } else {
                                             SKGyroscopeData *data = [[SKGyroscopeData alloc] initWithGyroData:gyroData];
-                                            [self submitSensorData:data];
+                                            [self submitSensorData:data error:NULL];
                                         }
                                         
                                     }];

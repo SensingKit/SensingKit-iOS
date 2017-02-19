@@ -123,14 +123,16 @@
 {
     SKBatteryData *data = [[SKBatteryData alloc] initWithLevel:[self batteryLevel]
                                                      withState:[self batteryState]];
-    [self submitSensorData:data];
+    
+    [self submitSensorData:data error:NULL];
 }
 
 - (void)batteryStateChanged:(NSNotification *)notification
 {
     SKBatteryData *data = [[SKBatteryData alloc] initWithLevel:[self batteryLevel]
                                                      withState:[self batteryState]];
-    [self submitSensorData:data];
+    
+    [self submitSensorData:data error:NULL];
 }
 
 @end

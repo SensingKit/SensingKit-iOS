@@ -159,7 +159,7 @@
                                                                                         withRssi:rssi
                                                                                      withTxPower:txPower];
             
-            [self submitSensorData:data];
+            [self submitSensorData:data error:NULL];
         }
     }
 }

@@ -102,10 +102,10 @@
                                              withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
                                                  
                                                  if (error) {
-                                                     NSLog(@"%@", error.localizedDescription);
+                                                     [self submitSensorData:nil error:error];
                                                  } else {
                                                      SKAccelerometerData *data = [[SKAccelerometerData alloc] initWithAccelerometerData:accelerometerData];
-                                                     [self submitSensorData:data];
+                                                     [self submitSensorData:data error:NULL];
                                                  }
                                                  
                                              }];

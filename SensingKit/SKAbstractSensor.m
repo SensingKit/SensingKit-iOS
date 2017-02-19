@@ -115,15 +115,15 @@
     return YES;
 }
 
-- (void)submitSensorData:(SKSensorData *)data
+- (void)submitSensorData:(SKSensorData *)data error:(NSError *)error
 {
     if ([self shouldPostSensorData:data]) {
         
         if (self.sensorDataListeners.count) {
             
-            // CallBack with data as parameter
+            // CallBack with data and error as parameters
             for (SKSensorDataHandler handler in self.sensorDataListeners) {
-                handler(self.sensorType, data);
+                handler(self.sensorType, data, error);
             }
             
         }

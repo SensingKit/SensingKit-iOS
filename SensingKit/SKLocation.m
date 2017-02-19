@@ -193,14 +193,13 @@
     {
         SKLocationData *data = [[SKLocationData alloc] initWithLocation:location];
         
-        [self submitSensorData:data];
+        [self submitSensorData:data error:NULL];
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"Error: %@", error.description);
-    abort();
+    [self submitSensorData:nil error:error];
 }
 
 @end

@@ -35,6 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param sensorType The type of the sensor producing the SKSensorData object.
  *  @param sensorData The new sensor data produced by the SKSensorType sensor.
  */
-typedef void (^SKSensorDataHandler)(SKSensorType sensorType, SKSensorData *sensorData);
+typedef void (^SKSensorDataHandler)(SKSensorType sensorType, SKSensorData * __nullable sensorData, NSError * __nullable error);
 
 NS_ASSUME_NONNULL_END

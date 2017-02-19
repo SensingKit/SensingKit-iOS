@@ -100,10 +100,10 @@
                                             withHandler:^(CMMagnetometerData *magnetometerData, NSError *error) {
                                                 
                                                 if (error) {
-                                                    NSLog(@"%@", error.localizedDescription);
+                                                    [self submitSensorData:nil error:error];
                                                 } else {
                                                     SKMagnetometerData *data = [[SKMagnetometerData alloc] initWithMagnetometerData:magnetometerData];
-                                                    [self submitSensorData:data];
+                                                    [self submitSensorData:data error:NULL];
                                                 }
                                                 
                                             }];

@@ -52,7 +52,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)stopSensing:(NSError * _Nullable * _Nullable)error;
 
-- (void)submitSensorData:(SKSensorData *)data;
+- (void)submitSensorData:(SKSensorData * __nullable)data
+                   error:(NSError * _Nullable)error;
 
 @end
 

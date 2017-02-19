@@ -293,24 +293,24 @@
                                                                   withTimestamp:timestamp
                                                                     withDevices:array];
             
-            [self submitSensorData:data];
+            [self submitSensorData:data error:NULL];
         }
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
 {
-    NSLog(@"Region monitoring failed with error: %@", error.localizedDescription);
+    [self submitSensorData:nil error:error];
 }
 
 - (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error
 {
-    NSLog(@"Raging Beacons failed with error: %@", error.localizedDescription);
+    [self submitSensorData:nil error:error];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"Monitoring failed with error: %@", error.localizedDescription);
+    [self submitSensorData:nil error:error];
 }
 
 @end

@@ -100,10 +100,10 @@
                                             withHandler:^(CMDeviceMotion *motion, NSError *error) {
                                                 
                                                 if (error) {
-                                                    NSLog(@"%@", error.localizedDescription);
+                                                    [self submitSensorData:nil error:error];
                                                 } else {
                                                     SKDeviceMotionData *data = [[SKDeviceMotionData alloc] initWithDeviceMotion:motion];
-                                                    [self submitSensorData:data];
+                                                    [self submitSensorData:data error:NULL];
                                                 }
                                                 
                                             }];

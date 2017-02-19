@@ -85,7 +85,7 @@
     
     // Subscribe a sensor data listener
     [self.sensingKit subscribeToSensor:Battery
-                           withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
+                           withHandler:^(SKSensorType sensorType, SKSensorData *sensorData, NSError *error) {
                                // Do nothing
                            } error:NULL];
     
