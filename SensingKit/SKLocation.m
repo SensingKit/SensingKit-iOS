@@ -105,6 +105,7 @@
             break;
             
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKLocationAccuracy: %lu", (unsigned long)accuracy);
             abort();
     }
@@ -135,6 +136,7 @@
             break;
             
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKLocationAuthorization: %lu", (unsigned long)authorization);
             abort();
     }

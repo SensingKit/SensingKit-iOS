@@ -97,6 +97,7 @@
             break;
             
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKiBeaconProximityMode: %lu", (unsigned long)beaconConfiguration.mode);
             abort();
     }

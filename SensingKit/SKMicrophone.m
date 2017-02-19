@@ -138,6 +138,7 @@
             break;
             
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKMicrophoneRecordingFormat: %lu", (unsigned long)configuration.recordingFormat);
             abort();
     }
@@ -165,6 +166,7 @@
             return AVAudioQualityMax;
             
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKMicrophoneRecordingQuality: %lu", (unsigned long)microphoneRecordingQuality);
             abort();
     }
