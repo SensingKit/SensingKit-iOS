@@ -111,12 +111,6 @@
 		CF397FFF1DAE6C9A00A7C36C /* SKProximityData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F9A1DAE6C9A00A7C36C /* SKProximityData.m */; };
 		CF3980001DAE6C9A00A7C36C /* SKSampleRateConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F9B1DAE6C9A00A7C36C /* SKSampleRateConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3980011DAE6C9A00A7C36C /* SKSampleRateConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F9C1DAE6C9A00A7C36C /* SKSampleRateConfiguration.m */; };
-		CF3980021DAE6C9A00A7C36C /* SKScreenStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F9D1DAE6C9A00A7C36C /* SKScreenStatus.h */; };
-		CF3980031DAE6C9A00A7C36C /* SKScreenStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F9E1DAE6C9A00A7C36C /* SKScreenStatus.m */; };
-		CF3980041DAE6C9A00A7C36C /* SKScreenStatusConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F9F1DAE6C9A00A7C36C /* SKScreenStatusConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF3980051DAE6C9A00A7C36C /* SKScreenStatusConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397FA01DAE6C9A00A7C36C /* SKScreenStatusConfiguration.m */; };
-		CF3980061DAE6C9A00A7C36C /* SKScreenStatusData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397FA11DAE6C9A00A7C36C /* SKScreenStatusData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF3980071DAE6C9A00A7C36C /* SKScreenStatusData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397FA21DAE6C9A00A7C36C /* SKScreenStatusData.m */; };
 		CF3980081DAE6C9A00A7C36C /* SKSensorData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397FA31DAE6C9A00A7C36C /* SKSensorData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF3980091DAE6C9A00A7C36C /* SKSensorData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397FA41DAE6C9A00A7C36C /* SKSensorData.m */; };
 		CF39800A1DAE6C9A00A7C36C /* SKSensorDataHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397FA51DAE6C9A00A7C36C /* SKSensorDataHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -240,12 +234,6 @@
 		CF397F9A1DAE6C9A00A7C36C /* SKProximityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProximityData.m; sourceTree = "<group>"; };
 		CF397F9B1DAE6C9A00A7C36C /* SKSampleRateConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSampleRateConfiguration.h; sourceTree = "<group>"; };
 		CF397F9C1DAE6C9A00A7C36C /* SKSampleRateConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSampleRateConfiguration.m; sourceTree = "<group>"; };
-		CF397F9D1DAE6C9A00A7C36C /* SKScreenStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScreenStatus.h; sourceTree = "<group>"; };
-		CF397F9E1DAE6C9A00A7C36C /* SKScreenStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKScreenStatus.m; sourceTree = "<group>"; };
-		CF397F9F1DAE6C9A00A7C36C /* SKScreenStatusConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScreenStatusConfiguration.h; sourceTree = "<group>"; };
-		CF397FA01DAE6C9A00A7C36C /* SKScreenStatusConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKScreenStatusConfiguration.m; sourceTree = "<group>"; };
-		CF397FA11DAE6C9A00A7C36C /* SKScreenStatusData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScreenStatusData.h; sourceTree = "<group>"; };
-		CF397FA21DAE6C9A00A7C36C /* SKScreenStatusData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKScreenStatusData.m; sourceTree = "<group>"; };
 		CF397FA31DAE6C9A00A7C36C /* SKSensorData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorData.h; sourceTree = "<group>"; };
 		CF397FA41DAE6C9A00A7C36C /* SKSensorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSensorData.m; sourceTree = "<group>"; };
 		CF397FA51DAE6C9A00A7C36C /* SKSensorDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSensorDataHandler.h; sourceTree = "<group>"; };
@@ -387,8 +375,6 @@
 				CF397F8C1DAE6C9A00A7C36C /* SKMotionActivity.m */,
 				CF397F931DAE6C9A00A7C36C /* SKPedometer.h */,
 				CF397F941DAE6C9A00A7C36C /* SKPedometer.m */,
-				CF397F9D1DAE6C9A00A7C36C /* SKScreenStatus.h */,
-				CF397F9E1DAE6C9A00A7C36C /* SKScreenStatus.m */,
 			);
 			name = Sensors;
 			sourceTree = "<group>";
@@ -426,8 +412,6 @@
 				CF397F981DAE6C9A00A7C36C /* SKPedometerData.m */,
 				CF397F991DAE6C9A00A7C36C /* SKProximityData.h */,
 				CF397F9A1DAE6C9A00A7C36C /* SKProximityData.m */,
-				CF397FA11DAE6C9A00A7C36C /* SKScreenStatusData.h */,
-				CF397FA21DAE6C9A00A7C36C /* SKScreenStatusData.m */,
 			);
 			name = SensorData;
 			sourceTree = "<group>";
@@ -463,8 +447,6 @@
 				CF397F8E1DAE6C9A00A7C36C /* SKMotionActivityConfiguration.m */,
 				CF397F951DAE6C9A00A7C36C /* SKPedometerConfiguration.h */,
 				CF397F961DAE6C9A00A7C36C /* SKPedometerConfiguration.m */,
-				CF397F9F1DAE6C9A00A7C36C /* SKScreenStatusConfiguration.h */,
-				CF397FA01DAE6C9A00A7C36C /* SKScreenStatusConfiguration.m */,
 			);
 			name = SensorConfiguration;
 			sourceTree = "<group>";
@@ -517,19 +499,16 @@
 				CF397FE61DAE6C9A00A7C36C /* SKMagnetometerConfiguration.h in Headers */,
 				CF397FB51DAE6C9A00A7C36C /* SKAccelerometerData.h in Headers */,
 				CF397FF01DAE6C9A00A7C36C /* SKMotionActivity.h in Headers */,
-				CF3980021DAE6C9A00A7C36C /* SKScreenStatus.h in Headers */,
 				CF397FCB1DAE6C9A00A7C36C /* SKEddystoneProximity.h in Headers */,
 				CF397FB11DAE6C9A00A7C36C /* SKAccelerometer.h in Headers */,
 				CF397FD61DAE6C9A00A7C36C /* SKGyroscopeData.h in Headers */,
 				CF397FE01DAE6C9A00A7C36C /* SKLocationConfiguration.h in Headers */,
 				CF3980001DAE6C9A00A7C36C /* SKSampleRateConfiguration.h in Headers */,
-				CF3980041DAE6C9A00A7C36C /* SKScreenStatusConfiguration.h in Headers */,
 				CF397FB31DAE6C9A00A7C36C /* SKAccelerometerConfiguration.h in Headers */,
 				CF397FEA1DAE6C9A00A7C36C /* SKMicrophone.h in Headers */,
 				CF397FE81DAE6C9A00A7C36C /* SKMagnetometerData.h in Headers */,
 				CF397FE21DAE6C9A00A7C36C /* SKLocationData.h in Headers */,
 				CF397FDA1DAE6C9A00A7C36C /* SKiBeaconProximity.h in Headers */,
-				CF3980061DAE6C9A00A7C36C /* SKScreenStatusData.h in Headers */,
 				CF39800D1DAE6C9A00A7C36C /* SKSensorTimestamp.h in Headers */,
 				CF397FE41DAE6C9A00A7C36C /* SKMagnetometer.h in Headers */,
 				CF397FFE1DAE6C9A00A7C36C /* SKProximityData.h in Headers */,
@@ -675,7 +654,6 @@
 				CF397FB81DAE6C9A00A7C36C /* SKAltimeter.m in Sources */,
 				CF3980251DAE6E6800A7C36C /* ESSTimer.m in Sources */,
 				CF397FE31DAE6C9A00A7C36C /* SKLocationData.m in Sources */,
-				CF3980031DAE6C9A00A7C36C /* SKScreenStatus.m in Sources */,
 				CF397FDF1DAE6C9A00A7C36C /* SKLocation.m in Sources */,
 				CF397FC61DAE6C9A00A7C36C /* SKDeviceMotion.m in Sources */,
 				CF397FF51DAE6C9A00A7C36C /* SKMotionActivityData.m in Sources */,
@@ -695,7 +673,6 @@
 				CF397FD51DAE6C9A00A7C36C /* SKGyroscopeConfiguration.m in Sources */,
 				CF397FFD1DAE6C9A00A7C36C /* SKPedometerData.m in Sources */,
 				CF397FB61DAE6C9A00A7C36C /* SKAccelerometerData.m in Sources */,
-				CF3980051DAE6C9A00A7C36C /* SKScreenStatusConfiguration.m in Sources */,
 				CF397FED1DAE6C9A00A7C36C /* SKMicrophoneConfiguration.m in Sources */,
 				CF397FB21DAE6C9A00A7C36C /* SKAccelerometer.m in Sources */,
 				CF3980091DAE6C9A00A7C36C /* SKSensorData.m in Sources */,
@@ -709,7 +686,6 @@
 				CF397FCC1DAE6C9A00A7C36C /* SKEddystoneProximity.m in Sources */,
 				CF397FE71DAE6C9A00A7C36C /* SKMagnetometerConfiguration.m in Sources */,
 				CF397FC41DAE6C9A00A7C36C /* SKConfiguration.m in Sources */,
-				CF3980071DAE6C9A00A7C36C /* SKScreenStatusData.m in Sources */,
 				CF397FCA1DAE6C9A00A7C36C /* SKDeviceMotionData.m in Sources */,
 				CF397FDB1DAE6C9A00A7C36C /* SKiBeaconProximity.m in Sources */,
 				CF397FEB1DAE6C9A00A7C36C /* SKMicrophone.m in Sources */,

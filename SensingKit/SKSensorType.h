@@ -27,7 +27,7 @@
 /**
  *  Total number of sensors supported by SensingKit-iOS.
  */
-static NSUInteger const TOTAL_SENSORS = 13;
+static NSUInteger const TOTAL_SENSORS = 12;
 
 /**
  *  These constants indicate the type of the sensor.
@@ -74,10 +74,6 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
      */
     Battery,
     
-    /**
-     *  TODO: ...
-     */
-    ScreenStatus,
     
     /**
      *  Location sensor determines the current location of the device using a combination of Cellular, Wi‑Fi, Bluetooth and GPS sensors. It provides 2D geographical coordinate information (latitude, longitude), as well as the altitude of the device.
