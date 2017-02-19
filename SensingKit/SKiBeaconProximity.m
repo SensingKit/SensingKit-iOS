@@ -149,17 +149,30 @@
     return [CLLocationManager isRangingAvailable];
 }
 
-- (void)startBroadcasting
+- (BOOL)startBroadcasting:(NSError **)error
 {
-    if (self.peripheralManager.state == CBPeripheralManagerStatePoweredOn) {
+    if (self.peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
         
-        // Start advertising
-        [self.peripheralManager startAdvertising:self.broadcastPayload];
+        if (error) {
+            
+            NSLog(@"CBPeripheralManager state is %li", (long)self.peripheralManager.state);
+
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"iBeacon Proximity sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else {
-        NSLog(@"CBPeripheralManager state is %li", (long)self.peripheralManager.state);
-        abort();
-    }
+    
+    // Start advertising
+    [self.peripheralManager startAdvertising:self.broadcastPayload];
+    
+    return YES;
 }
 
 - (void)stopBroadcasting
@@ -170,15 +183,8 @@
 
 - (void)startScanning
 {
-    if ([SKiBeaconProximity isSensorAvailable]) {
-        
-        // Start monitoring
-        [self.locationManager startRangingBeaconsInRegion:self.scan_beaconRegion];
-    }
-    else {
-        NSLog(@"Ranging is not available.");
-        abort();
-    }
+    // Start monitoring
+    [self.locationManager startRangingBeaconsInRegion:self.scan_beaconRegion];
 }
 
 - (void)stopScanning
@@ -187,9 +193,26 @@
     [self.locationManager stopRangingBeaconsInRegion:self.scan_beaconRegion];
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
+    
+    if (![SKiBeaconProximity isSensorAvailable])
+    {
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"iBeacon Proximity sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
+    }
     
     if (self.mode != SKiBeaconProximityModeBroadcastOnly)
     {
@@ -198,11 +221,15 @@
     
     if (self.mode != SKiBeaconProximityModeScanOnly)
     {
-        [self startBroadcasting];
+        if (![self startBroadcasting:error]) {
+            return NO;
+        }
     }
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     if (self.mode != SKiBeaconProximityModeBroadcastOnly)
     {
@@ -214,8 +241,9 @@
         [self stopBroadcasting];
     }
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
+
 
 #pragma mark delegate methods
 

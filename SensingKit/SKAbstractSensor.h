@@ -27,6 +27,7 @@
 #import "SKSensorType.h"
 #import "SKSensorDataHandler.h"
 #import "SKConfiguration.h"
+#import "SKErrors.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -47,9 +48,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)unsubscribeAllHandlers;
 
-- (void)startSensing;
+- (BOOL)startSensing:(NSError * _Nullable * _Nullable)error;
 
-- (void)stopSensing;
+- (BOOL)stopSensing:(NSError * _Nullable * _Nullable)error;
 
 - (void)submitSensorData:(SKSensorData *)data;
 

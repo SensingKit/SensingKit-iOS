@@ -178,26 +178,53 @@
     return YES;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
+    
+    if (![SKMicrophone isSensorAvailable])
+    {
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Microphone sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
+    }
     
     // Start recording (maximum 4 hours)
     if (![self.recorder recordForDuration:14400])
     {
-        NSLog(@"Recording using Microphone sensor could not be started.");
-        // TODO: In the future, report this as NSError.
-    }
-    else
-    {
-        NSTimeInterval startTime = [NSProcessInfo processInfo].systemUptime;
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Recording using Microphone sensor could not be started.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
         
-        SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Started" withTimeInterval:startTime];
-        [self submitSensorData:data];
+        return NO;
     }
+    
+    // Submit sensor data
+    NSTimeInterval startTime = [NSProcessInfo processInfo].systemUptime;
+    SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Started" withTimeInterval:startTime];
+    [self submitSensorData:data];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     // Stop recording
     if (self.recorder.recording)
@@ -211,7 +238,7 @@
         [self submitSensorData:data];
     }
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 - (void)dealloc

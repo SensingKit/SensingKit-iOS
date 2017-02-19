@@ -76,30 +76,41 @@
     return [CMMotionActivityManager isActivityAvailable];
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if ([CMMotionActivityManager isActivityAvailable])
+    if (![SKMotionActivity isSensorAvailable])
     {
-        [self.motionActivityManager startActivityUpdatesToQueue:[NSOperationQueue currentQueue]
-                                                    withHandler:^(CMMotionActivity *activity) {
-                                                        SKMotionActivityData *data = [[SKMotionActivityData alloc] initWithMotionActivity:activity];
-                                                        [self submitSensorData:data];
-                                                    }];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"SKMotionActivity sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"DeviceMotion Sensing is not available.");
-        abort();
-    }
+    
+    [self.motionActivityManager startActivityUpdatesToQueue:[NSOperationQueue currentQueue]
+                                                withHandler:^(CMMotionActivity *activity) {
+                                                    SKMotionActivityData *data = [[SKMotionActivityData alloc] initWithMotionActivity:activity];
+                                                    [self submitSensorData:data];
+                                                }];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.motionActivityManager stopActivityUpdates];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 @end

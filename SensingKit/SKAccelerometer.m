@@ -77,36 +77,47 @@
     return [SKMotionManager sharedMotionManager].isAccelerometerAvailable;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if (self.motionManager.accelerometerAvailable)
+    if (![SKAccelerometer isSensorAvailable])
     {
-        [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
-                                                 withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
-                                                     
-                                                     if (error) {
-                                                         NSLog(@"%@", error.localizedDescription);
-                                                     } else {
-                                                         SKAccelerometerData *data = [[SKAccelerometerData alloc] initWithAccelerometerData:accelerometerData];
-                                                         [self submitSensorData:data];
-                                                     }
-                                                     
-                                                 }];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Accelerometer sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"Accelerometer Sensor is not available.");
-        abort();
-    }
+    
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+                                                 
+                                                 if (error) {
+                                                     NSLog(@"%@", error.localizedDescription);
+                                                 } else {
+                                                     SKAccelerometerData *data = [[SKAccelerometerData alloc] initWithAccelerometerData:accelerometerData];
+                                                     [self submitSensorData:data];
+                                                 }
+                                                 
+                                             }];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.motionManager stopAccelerometerUpdates];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 @end

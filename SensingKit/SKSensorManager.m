@@ -450,9 +450,7 @@
     }
     
     // Start Sensing
-    [sensor startSensing];
-    
-    return YES;
+    return [sensor startSensing:error];
 }
 
 - (BOOL)stopContinuousSensingWithSensor:(SKSensorType)sensorType
@@ -484,9 +482,7 @@
     }
     
     // Stop Sensing
-    [sensor stopSensing];
-    
-    return YES;
+    return [sensor stopSensing:error];
 }
 
 - (BOOL)startContinuousSensingWithAllRegisteredSensors:(NSError **)error

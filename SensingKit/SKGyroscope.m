@@ -75,36 +75,47 @@
     return [SKMotionManager sharedMotionManager].isGyroAvailable;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if (self.motionManager.gyroAvailable)
+    if (![SKGyroscope isSensorAvailable])
     {
-        [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
-                                        withHandler:^(CMGyroData *gyroData, NSError *error) {
-                                            
-                                            if (error) {
-                                                NSLog(@"%@", error.localizedDescription);
-                                            } else {
-                                                SKGyroscopeData *data = [[SKGyroscopeData alloc] initWithGyroData:gyroData];
-                                                [self submitSensorData:data];
-                                            }
-                                            
-                                        }];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Gyroscope sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"Gyroscope Sensor is not available.");
-        abort();
-    }
+    
+    [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
+                                    withHandler:^(CMGyroData *gyroData, NSError *error) {
+                                        
+                                        if (error) {
+                                            NSLog(@"%@", error.localizedDescription);
+                                        } else {
+                                            SKGyroscopeData *data = [[SKGyroscopeData alloc] initWithGyroData:gyroData];
+                                            [self submitSensorData:data];
+                                        }
+                                        
+                                    }];
+
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
-    [self.motionManager stopGyroUpdates];
+     [self.motionManager stopGyroUpdates];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 @end

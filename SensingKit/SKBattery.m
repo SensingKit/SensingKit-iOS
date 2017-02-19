@@ -76,18 +76,37 @@
     return YES;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
+    
+    if (![SKBattery isSensorAvailable])
+    {
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Battery sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
+    }
     
     [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [UIDevice currentDevice].batteryMonitoringEnabled = NO;
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 - (CGFloat)batteryLevel

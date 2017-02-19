@@ -148,26 +148,37 @@
     return [CLLocationManager locationServicesEnabled];
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if ([SKLocation isSensorAvailable])
+    if (![SKLocation isSensorAvailable])
     {
-        [self.locationManager startUpdatingLocation];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Location sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"Location Sensing is not available.");
-        abort();
-    }
+    
+    [self.locationManager startUpdatingLocation];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.locationManager stopUpdatingLocation];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations

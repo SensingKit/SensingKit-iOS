@@ -87,14 +87,18 @@
     [self.sensorDataListeners removeAllObjects];
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
     _sensing = YES;
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     _sensing = NO;
+    
+    return YES;
 }
 
 - (NSMutableArray *)sensorDataListeners

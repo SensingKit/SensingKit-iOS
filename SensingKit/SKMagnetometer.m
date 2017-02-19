@@ -75,36 +75,47 @@
     return [SKMotionManager sharedMotionManager].isMagnetometerAvailable;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if (self.motionManager.magnetometerAvailable)
+    if (![SKMagnetometer isSensorAvailable])
     {
-        [self.motionManager startMagnetometerUpdatesToQueue:[NSOperationQueue currentQueue]
-                                                withHandler:^(CMMagnetometerData *magnetometerData, NSError *error) {
-                                                    
-                                                    if (error) {
-                                                        NSLog(@"%@", error.localizedDescription);
-                                                    } else {
-                                                        SKMagnetometerData *data = [[SKMagnetometerData alloc] initWithMagnetometerData:magnetometerData];
-                                                        [self submitSensorData:data];
-                                                    }
-                                                    
-                                                }];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Magnetometer sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"Magnetometer Sensor is not available.");
-        abort();
-    }
+    
+    [self.motionManager startMagnetometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                            withHandler:^(CMMagnetometerData *magnetometerData, NSError *error) {
+                                                
+                                                if (error) {
+                                                    NSLog(@"%@", error.localizedDescription);
+                                                } else {
+                                                    SKMagnetometerData *data = [[SKMagnetometerData alloc] initWithMagnetometerData:magnetometerData];
+                                                    [self submitSensorData:data];
+                                                }
+                                                
+                                            }];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.motionManager stopMagnetometerUpdates];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 @end

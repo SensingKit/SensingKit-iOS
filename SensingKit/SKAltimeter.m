@@ -76,37 +76,48 @@
     return [CMAltimeter isRelativeAltitudeAvailable];
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if ([CMAltimeter isRelativeAltitudeAvailable])
+    if (![SKAltimeter isSensorAvailable])
     {
-        [self.altemeter startRelativeAltitudeUpdatesToQueue:[NSOperationQueue currentQueue]
-                                                withHandler:^(CMAltitudeData *altitudeData, NSError *error) {
-                                                    
-                                                    if (!error) {
-                                                        SKAltimeterData *data = [[SKAltimeterData alloc] initWithAltitudeData:altitudeData];
-                                                        [self submitSensorData:data];
-                                                    }
-                                                    else {
-                                                        NSLog(@"%@", error.localizedDescription);
-                                                    }
-
-                                                }];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Altimeter sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"Altimeter is not available.");
-        abort();
-    }
+    
+    [self.altemeter startRelativeAltitudeUpdatesToQueue:[NSOperationQueue currentQueue]
+                                            withHandler:^(CMAltitudeData *altitudeData, NSError *error) {
+                                                
+                                                if (!error) {
+                                                    SKAltimeterData *data = [[SKAltimeterData alloc] initWithAltitudeData:altitudeData];
+                                                    [self submitSensorData:data];
+                                                }
+                                                else {
+                                                    NSLog(@"%@", error.localizedDescription);
+                                                }
+                                                
+                                            }];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.altemeter stopRelativeAltitudeUpdates];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 @end
