@@ -26,28 +26,74 @@
 
 static NSString *const SKErrorDomain = @"org.sensingkit.SensingKit-iOS.ErrorDomain";
 
-/* NSError codes in SKErrorDomain.
+
+/**
+ NSError codes in SKErrorDomain.
  */
 typedef NS_ENUM(NSInteger, SKSensorError) {
     
     // Sensor Availibility
-    SKSensorNotAvailableError = 0,          // Sensor is not available.
+    
+    /**
+     Sensor is not available.
+     */
+    SKSensorNotAvailableError = 0,
+    
+    
     
     // Sensor Registration
-    SKSensorAlreadyRegisteredError = 10,    // Sensor is already registered.
-    SKSensorNotRegisteredError = 11,        // Sensor is not registered.
+    
+    /**
+     Sensor is already registered.
+     */
+    SKSensorAlreadyRegisteredError = 10,
+    
+    /**
+     Sensor is not registered.
+     */
+    SKSensorNotRegisteredError = 11,
+    
+    
     
     // Sensor Sensing
-    SKSensorCurrentlySensingError = 20,     // Sensor is currently sensing.
-    SKSensorCurrentlyNotSensingError = 21,  // Sensor is currently not sensing.
+    
+    /**
+     Sensor is currently sensing.
+     */
+    SKSensorCurrentlySensingError = 20,
+    
+    /**
+     Sensor is currently not sensing.
+     */
+    SKSensorCurrentlyNotSensingError = 21,
+    
+    
     
     // Sensor Data Handlers
-    SKDataHandlerAlreadyRegistered = 30,    // Sensor Data Handler is already registered
-    SKDataHandlerNotRegistered = 31,        // Sensor Data Handler is not registered
+    
+    /**
+     Sensor Data Handler is already registered
+     */
+    SKDataHandlerAlreadyRegistered = 30,
+    
+    /**
+     Sensor Data Handler is not registered
+     */
+    SKDataHandlerNotRegistered = 31,
+    
+    
     
     // Configuration
-    SKConfigurationNotValid = 40,           // Configuration is not compatible with the registered sensor
-    SKConfigurationEddystoneProximityNamespaceNotValid = 41,  // Eddystone Proximity Namespace is not valid
+    
+    /**
+     Configuration is not compatible with the registered sensor
+     */
+    SKConfigurationNotValid = 40,
+    
+    /**
+     Eddystone Proximity Namespace is not valid
+     */
+    SKConfigurationEddystoneProximityNamespaceNotValid = 41,
     
     
 };
