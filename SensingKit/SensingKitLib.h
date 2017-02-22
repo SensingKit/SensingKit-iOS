@@ -56,8 +56,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
 
 
-/** @name Sensor Status */
 
+/** @name Sensor Status */
 
 /**
  A Boolean value that indicates whether the sensor is available on the device. This method should always be used before using a sensor.
@@ -82,6 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return YES if the sensor is currently sensing or NO if it is not.
  */
 - (BOOL)isSensorSensing:(SKSensorType)sensorType;
+
 
 
 /** @name Sensor Registration and Configuration */
