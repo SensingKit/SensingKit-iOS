@@ -57,7 +57,7 @@
             NSLog(@"Error: %@", error.localizedDescription);
         }
         
-        // Request authorization. Only WhenInUse is required for proximity scanning.
+        // Request authorization.
         if ([audioSession respondsToSelector:@selector(requestRecordPermission:)])
         {
             [audioSession requestRecordPermission:^(BOOL granted) {
