@@ -1,6 +1,6 @@
 # Changelog
 
-### 0.5.0 (February 20, 2017)
+### 0.5.0 (March 2, 2017)
 - Added error handling support using NSError.
 - Updated Eddystone Scanner into latest version.
 - Changed library into a dynamic framework.
