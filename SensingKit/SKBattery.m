@@ -51,13 +51,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKBatteryConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Battery.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance
@@ -76,18 +69,37 @@
     return YES;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
+    
+    if (![SKBattery isSensorAvailable])
+    {
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Battery sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
+    }
     
     [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [UIDevice currentDevice].batteryMonitoringEnabled = NO;
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 - (CGFloat)batteryLevel
@@ -104,14 +116,16 @@
 {
     SKBatteryData *data = [[SKBatteryData alloc] initWithLevel:[self batteryLevel]
                                                      withState:[self batteryState]];
-    [self submitSensorData:data];
+    
+    [self submitSensorData:data error:NULL];
 }
 
 - (void)batteryStateChanged:(NSNotification *)notification
 {
     SKBatteryData *data = [[SKBatteryData alloc] initWithLevel:[self batteryLevel]
                                                      withState:[self batteryState]];
-    [self submitSensorData:data];
+    
+    [self submitSensorData:data error:NULL];
 }
 
 @end

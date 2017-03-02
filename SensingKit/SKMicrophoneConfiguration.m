@@ -53,6 +53,11 @@
     return configuration;
 }
 
+- (BOOL)isValidForSensor:(SKSensorType)sensorType
+{
+    return sensorType == Microphone;
+}
+
 + (NSString *)extensionForRecordingFormat:(SKMicrophoneRecordingFormat)recordingFormat
 {
     switch (recordingFormat)
@@ -63,7 +68,10 @@
         case SKMicrophoneRecordingFormatMPEG4AAC:
             return @"m4a";
             
+        // Don't forget to break!
+            
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKMicrophoneRecordingFormat: %lu", (unsigned long)recordingFormat);
             abort();
     }

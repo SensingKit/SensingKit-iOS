@@ -22,10 +22,12 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import <Foundation/Foundation.h>
+
 /**
  *  Total number of sensors supported by SensingKit-iOS.
  */
-#define TOTAL_SENSORS 12
+static NSUInteger const TOTAL_SENSORS = 12;
 
 /**
  *  These constants indicate the type of the sensor.
@@ -71,6 +73,7 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
      *  Battery sensor listens to changes in the battery charge state (Charging, Full, Unplugged) as well as in the battery charge level (with 1% precision).
      */
     Battery,
+    
     
     /**
      *  Location sensor determines the current location of the device using a combination of Cellular, Wi‑Fi, Bluetooth and GPS sensors. It provides 2D geographical coordinate information (latitude, longitude), as well as the altitude of the device.

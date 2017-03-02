@@ -22,17 +22,20 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import <Foundation/Foundation.h>
+
 #import "SKSensorData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 /**
- *  Βlock to be invoked when new sensor data is available. You can cast the sensorData object
- *  into the actual sensor data (e.g. SKAccelerometerData), based on the reported sensorType.
- *
- *  @param sensorType The type of the sensor producing the SKSensorData object.
- *  @param sensorData The new sensor data produced by the SKSensorType sensor.
+ Βlock to be invoked when new sensor data is available. You can cast the sensorData object into the actual sensor data (e.g. SKAccelerometerData), based on the reported sensorType.
+
+ @param sensorType The type of the sensor producing the SKSensorData object.
+ @param sensorData The new sensor data produced by the SKSensorType sensor.
+ @param error This pointer is NULL if an error has occured and sensor data is not available.
  */
-typedef void (^SKSensorDataHandler)(SKSensorType sensorType, SKSensorData *sensorData);
+typedef void (^SKSensorDataHandler)(SKSensorType sensorType, SKSensorData * __nullable sensorData, NSError * __nullable error);
 
 NS_ASSUME_NONNULL_END

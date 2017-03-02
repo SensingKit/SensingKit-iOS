@@ -51,13 +51,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKMagnetometerConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Magnetometer.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance
@@ -75,36 +68,47 @@
     return [SKMotionManager sharedMotionManager].isMagnetometerAvailable;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if (self.motionManager.magnetometerAvailable)
+    if (![SKMagnetometer isSensorAvailable])
     {
-        [self.motionManager startMagnetometerUpdatesToQueue:[NSOperationQueue currentQueue]
-                                                withHandler:^(CMMagnetometerData *magnetometerData, NSError *error) {
-                                                    
-                                                    if (error) {
-                                                        NSLog(@"%@", error.localizedDescription);
-                                                    } else {
-                                                        SKMagnetometerData *data = [[SKMagnetometerData alloc] initWithMagnetometerData:magnetometerData];
-                                                        [self submitSensorData:data];
-                                                    }
-                                                    
-                                                }];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Magnetometer sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"Magnetometer Sensor is not available.");
-        abort();
-    }
+    
+    [self.motionManager startMagnetometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                            withHandler:^(CMMagnetometerData *magnetometerData, NSError *error) {
+                                                
+                                                if (error) {
+                                                    [self submitSensorData:nil error:error];
+                                                } else {
+                                                    SKMagnetometerData *data = [[SKMagnetometerData alloc] initWithMagnetometerData:magnetometerData];
+                                                    [self submitSensorData:data error:NULL];
+                                                }
+                                                
+                                            }];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.motionManager stopMagnetometerUpdates];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 @end

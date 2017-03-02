@@ -23,9 +23,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "SKSensorType.h"
 #import "SKSensorDataHandler.h"
 #import "SKConfiguration.h"
+#import "SKErrors.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -36,17 +38,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) SKSensorType sensorType;
 @property (nonatomic, readonly, getter=isSensing) BOOL sensing;
 
-- (void)subscribeHandler:(SKSensorDataHandler)handler;
+@property (readonly) NSUInteger handlersCount;
 
-- (void)unsubscribeHandler:(SKSensorDataHandler)handler;
+- (BOOL)subscribeHandler:(SKSensorDataHandler)handler
+                   error:(NSError * _Nullable * _Nullable)error;
+
+- (BOOL)unsubscribeHandler:(SKSensorDataHandler)handler
+                     error:(NSError * _Nullable * _Nullable)error;
 
 - (void)unsubscribeAllHandlers;
 
-- (void)startSensing;
+- (BOOL)startSensing:(NSError * _Nullable * _Nullable)error;
 
-- (void)stopSensing;
+- (BOOL)stopSensing:(NSError * _Nullable * _Nullable)error;
 
-- (void)submitSensorData:(SKSensorData *)data;
+- (void)submitSensorData:(SKSensorData * __nullable)data
+                   error:(NSError * _Nullable)error;
 
 @end
 

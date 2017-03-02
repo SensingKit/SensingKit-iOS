@@ -22,9 +22,11 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import <Foundation/Foundation.h>
+
 #import <XCTest/XCTest.h>
-#import "SensingKitLib.h"
-#import "NSString+SensorType.h"
+#import <SensingKit/SensingKit.h>
+
 
 @import CoreBluetooth;
 
@@ -76,56 +78,117 @@
     XCTAssertNotNil(sensingKit2, @"SensingKitLib cannot be nil.");
     XCTAssertEqual(self.sensingKit, sensingKit2, @"Instances should be identical.");
     
-    [self.sensingKit registerSensor:Battery];
+    XCTAssertTrue([self.sensingKit registerSensor:Battery error:NULL], @"Sensor registration should be allowed.");
     XCTAssertTrue([self.sensingKit isSensorRegistered:Battery], @"Sensor should be registered.");
     XCTAssertFalse([self.sensingKit isSensorSensing:Battery], @"Sensor should not be sensing.");
     
     // Subscribe a sensor data listener
-    [self.sensingKit subscribeToSensor:Battery
-                           withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
-                                                         // Do nothing
-                                                     }];
+    XCTAssertTrue([self.sensingKit subscribeToSensor:Battery
+                                         withHandler:^(SKSensorType sensorType, SKSensorData *sensorData, NSError *error) {
+                                            // Do nothing
+                                         } error:NULL], @"Subscribe to sensor should be allowed.");
     
-    [self.sensingKit startContinuousSensingWithSensor:Battery];
+    XCTAssertFalse([self.sensingKit subscribeToSensor:Accelerometer
+                                         withHandler:^(SKSensorType sensorType, SKSensorData *sensorData, NSError *error) {
+                                             // Do nothing
+                                         } error:NULL], @"Subscribe to sensor should not be allowed as sensor is not registered.");
+    
+    XCTAssertTrue([self.sensingKit startContinuousSensingWithSensor:Battery error:NULL], @"Start continuous sensing with a registered sensor with subscribed handler should be allowed.");
     XCTAssertTrue([self.sensingKit isSensorSensing:Battery], @"Sensor should be sensing.");
     
-    [self.sensingKit stopContinuousSensingWithSensor:Battery];
+    XCTAssertTrue([self.sensingKit stopContinuousSensingWithSensor:Battery error:NULL], @"Stop continuous sensing with a sensor that is currently sensing should be allowed.");
     XCTAssertFalse([self.sensingKit isSensorSensing:Battery], @"Sensor should not be sensing.");
     
     // Do not unsubscribe here.. (should be automated by deregisterSensor)
-    [self.sensingKit deregisterSensor:Battery];
+    XCTAssertTrue([self.sensingKit deregisterSensor:Battery error:NULL], @"Sensor should be succesfully deregistered.");
     XCTAssertFalse([self.sensingKit isSensorRegistered:Battery], @"Sensor should not be registered.");
+}
+
+- (void)testSensorAvailibility
+{
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
+        // No need for XCTAssert here, it just needs to pass without crashing (abort())
+        [self.sensingKit isSensorAvailable:i];
+    }
 }
 
 - (void)testSensorRegistrationDeregistration
 {
     // test registration
-    [self.sensingKit registerSensor:Accelerometer];
-    [self.sensingKit registerSensor:Gyroscope];
-    [self.sensingKit registerSensor:Magnetometer];
-    [self.sensingKit registerSensor:DeviceMotion];
-    [self.sensingKit registerSensor:MotionActivity];
-    [self.sensingKit registerSensor:Pedometer];
-    [self.sensingKit registerSensor:Altimeter];
-    [self.sensingKit registerSensor:Battery];
-    [self.sensingKit registerSensor:Location];
-    [self.sensingKit registerSensor:iBeaconProximity];
-    [self.sensingKit registerSensor:EddystoneProximity];
-    [self.sensingKit registerSensor:Microphone];
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
+        
+        // if sensor is available
+        if ([self.sensingKit isSensorAvailable:(SKSensorType)i]) {
+            
+            // registration should be permitted
+            XCTAssertTrue([self.sensingKit registerSensor:i error:NULL], @"Registration should be permitted.");
+        }
+        else {
+            
+            // error
+            XCTAssertFalse([self.sensingKit registerSensor:i error:NULL], @"Registration should not be permitted.");
+        }
+    }
     
+    // test isRegistered
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
+        
+        // if sensor is available
+        if ([self.sensingKit isSensorAvailable:(SKSensorType)i]) {
+            
+            XCTAssertTrue([self.sensingKit isSensorRegistered:i], @"Sensor should be registered.");
+        }
+        else {
+            
+            XCTAssertFalse([self.sensingKit isSensorRegistered:i], @"Sensor should not be registered as registration was not permitted previously.");
+        }
+    }
+
     // test deregistration
-    [self.sensingKit deregisterSensor:Accelerometer];
-    [self.sensingKit deregisterSensor:Gyroscope];
-    [self.sensingKit deregisterSensor:Magnetometer];
-    [self.sensingKit deregisterSensor:DeviceMotion];
-    [self.sensingKit deregisterSensor:MotionActivity];
-    [self.sensingKit deregisterSensor:Pedometer];
-    [self.sensingKit deregisterSensor:Altimeter];
-    [self.sensingKit deregisterSensor:Battery];
-    [self.sensingKit deregisterSensor:Location];
-    [self.sensingKit deregisterSensor:iBeaconProximity];
-    [self.sensingKit deregisterSensor:EddystoneProximity];
-    [self.sensingKit deregisterSensor:Microphone];
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
+        
+        // if sensor is available
+        if ([self.sensingKit isSensorAvailable:(SKSensorType)i]) {
+            
+            XCTAssertTrue([self.sensingKit deregisterSensor:i error:NULL], @"Deregistration should be permitted.");
+        }
+        else {
+            
+            XCTAssertFalse([self.sensingKit deregisterSensor:i error:NULL], @"Sensor should not be deregistered as registration was never allowed.");
+        }
+    }
+    
+    // test isRegistered again
+    for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
+        
+        // All sensors should now now be registered
+        XCTAssertFalse([self.sensingKit isSensorRegistered:i], @"Sensor shoud not be registered.");
+    }
+}
+
+- (void)testSensorConfiguration
+{
+    // test set configuration without being registered
+    SKBatteryConfiguration *batteryConfiguration = [[SKBatteryConfiguration alloc] init];
+    XCTAssertFalse([self.sensingKit setConfiguration:batteryConfiguration toSensor:Battery error:NULL], @"Configuration should not be set as sensor is not registered.");
+    
+    // test set configuration
+    XCTAssertTrue([self.sensingKit registerSensor:Battery error:NULL], @"Sensor should be registered succesfully.");
+    XCTAssertTrue([self.sensingKit setConfiguration:batteryConfiguration toSensor:Battery error:NULL], @"Configuration should be set.");
+    
+    // test with wrong type of configuration
+    SKAccelerometerConfiguration *accelerometerConfiguration = [[SKAccelerometerConfiguration alloc] init];
+    XCTAssertFalse([self.sensingKit setConfiguration:accelerometerConfiguration toSensor:Battery error:NULL], @"Accelerometer configuration should not be set into a Battery sensor.");
+    
+    // deregister sensor
+    XCTAssertTrue([self.sensingKit deregisterSensor:Battery error:NULL], @"Sensor should be deregistered sucessfully.");
+    
+    // Test SKEddystoneProximityConfiguration
+    SKEddystoneProximityConfiguration *eddystoneConfiguration = [[SKEddystoneProximityConfiguration alloc] init];
+    XCTAssertTrue([eddystoneConfiguration setNamespaceFilter:@"123456" error:NULL], @"Valid namespace should be allowed.");
+    XCTAssertTrue([eddystoneConfiguration setNamespaceFilter:nil error:NULL], @"Nil namespace should be allowed.");
+    XCTAssertTrue([eddystoneConfiguration setNamespaceFilter:@"" error:NULL], @"Empty namespace should be allowed.");
+    XCTAssertFalse([eddystoneConfiguration setNamespaceFilter:@"zzzzzzz" error:NULL], @"Invalid namespace should not be allowed.");
 }
 
 @end

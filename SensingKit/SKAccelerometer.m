@@ -52,13 +52,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKAccelerometerConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Accelerometer.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance
@@ -77,36 +70,47 @@
     return [SKMotionManager sharedMotionManager].isAccelerometerAvailable;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if (self.motionManager.accelerometerAvailable)
+    if (![SKAccelerometer isSensorAvailable])
     {
-        [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
-                                                 withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
-                                                     
-                                                     if (error) {
-                                                         NSLog(@"%@", error.localizedDescription);
-                                                     } else {
-                                                         SKAccelerometerData *data = [[SKAccelerometerData alloc] initWithAccelerometerData:accelerometerData];
-                                                         [self submitSensorData:data];
-                                                     }
-                                                     
-                                                 }];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Accelerometer sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"Accelerometer Sensor is not available.");
-        abort();
-    }
+    
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+                                                 
+                                                 if (error) {
+                                                     [self submitSensorData:nil error:error];
+                                                 } else {
+                                                     SKAccelerometerData *data = [[SKAccelerometerData alloc] initWithAccelerometerData:accelerometerData];
+                                                     [self submitSensorData:data error:NULL];
+                                                 }
+                                                 
+                                             }];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.motionManager stopAccelerometerUpdates];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 @end

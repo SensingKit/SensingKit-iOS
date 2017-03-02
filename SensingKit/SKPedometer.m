@@ -52,13 +52,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKPedometerConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Pedometer.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance
@@ -76,37 +69,48 @@
     return [CMPedometer isStepCountingAvailable];
 }
 
-- (void)startSensing
+
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if ([CMPedometer isStepCountingAvailable])
+    if (![SKPedometer isSensorAvailable])
     {
-        [self.pedometer startPedometerUpdatesFromDate:[NSDate date]
-                                          withHandler:^(CMPedometerData *pedometerData, NSError *error) {
-                                              
-                                              if (!error) {
-                                                  SKPedometerData *data = [[SKPedometerData alloc] initWithPedometerData:pedometerData];
-                                                  [self submitSensorData:data];
-                                              }
-                                              else {
-                                                  NSLog(@"%@", error.localizedDescription);
-                                              }
-                                              
-                                          }];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"SKPedometer sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"Pedometer is not available.");
-        abort();
-    }
+    
+    [self.pedometer startPedometerUpdatesFromDate:[NSDate date]
+                                      withHandler:^(CMPedometerData *pedometerData, NSError *error) {
+                                          
+                                          if (error) {
+                                              [self submitSensorData:nil error:error];
+                                          }
+                                          else {
+                                              SKPedometerData *data = [[SKPedometerData alloc] initWithPedometerData:pedometerData];
+                                              [self submitSensorData:data error:NULL];
+                                          }
+                                      }];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.pedometer stopPedometerUpdates];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 @end

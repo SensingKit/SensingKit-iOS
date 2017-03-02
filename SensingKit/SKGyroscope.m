@@ -51,13 +51,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKGyroscopeConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Gyroscope.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance
@@ -75,36 +68,47 @@
     return [SKMotionManager sharedMotionManager].isGyroAvailable;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if (self.motionManager.gyroAvailable)
+    if (![SKGyroscope isSensorAvailable])
     {
-        [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
-                                        withHandler:^(CMGyroData *gyroData, NSError *error) {
-                                            
-                                            if (error) {
-                                                NSLog(@"%@", error.localizedDescription);
-                                            } else {
-                                                SKGyroscopeData *data = [[SKGyroscopeData alloc] initWithGyroData:gyroData];
-                                                [self submitSensorData:data];
-                                            }
-                                            
-                                        }];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Gyroscope sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"Gyroscope Sensor is not available.");
-        abort();
-    }
+    
+    [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
+                                    withHandler:^(CMGyroData *gyroData, NSError *error) {
+                                        
+                                        if (error) {
+                                            [self submitSensorData:nil error:error];
+                                        } else {
+                                            SKGyroscopeData *data = [[SKGyroscopeData alloc] initWithGyroData:gyroData];
+                                            [self submitSensorData:data error:NULL];
+                                        }
+                                        
+                                    }];
+
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
-    [self.motionManager stopGyroUpdates];
+     [self.motionManager stopGyroUpdates];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 @end

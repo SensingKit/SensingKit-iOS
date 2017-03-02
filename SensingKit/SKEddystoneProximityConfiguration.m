@@ -37,30 +37,53 @@
     return self;
 }
 
-- (void)setNamespaceFilter:(NSString *)namespaceFilter
+- (BOOL)isValidForSensor:(SKSensorType)sensorType
+{
+    return sensorType == EddystoneProximity;
+}
+
+- (BOOL)setNamespaceFilter:(NSString *)namespaceFilter error:(NSError **)error
 {
     if (![SKEddystoneProximityConfiguration isNamespaceValid:namespaceFilter])
     {
-        NSLog(@"Warning: Identifier '%@' is not valid. Namespace should be formatted as a 10-byte hexadecimal string.", namespaceFilter);
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Eddystone Proximity Namespace filter is not valid.", nil),
+                                       NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"Namespace should be formatted as a 10-byte hexadecimal string.", nil)
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKConfigurationEddystoneProximityNamespaceNotValid
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-
-    _namespaceFilter = namespaceFilter.lowercaseString;
+    
+    if (namespaceFilter.length == 0) {
+        _namespaceFilter = nil;
+    }
+    else {
+        _namespaceFilter = namespaceFilter.lowercaseString;
+    }
+    
+    return YES;
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
     SKEddystoneProximityConfiguration *configuration = [super copyWithZone:zone];
     configuration.mode = _mode;
-    configuration.namespaceFilter = _namespaceFilter;
+    [configuration setNamespaceFilter:_namespaceFilter error:NULL];
     
     return configuration;
 }
 
 + (BOOL)isNamespaceValid:(NSString *)string
 {
-    if (!string)
+    if (!string || string.length == 0)
     {
-        // Nil are valid
+        // Nil is valid
         return YES;
     }
     if (string.length > 20)

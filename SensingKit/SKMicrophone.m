@@ -57,7 +57,7 @@
             NSLog(@"Error: %@", error.localizedDescription);
         }
         
-        // Request authorization. Only WhenInUse is required for proximity scanning.
+        // Request authorization.
         if ([audioSession respondsToSelector:@selector(requestRecordPermission:)])
         {
             [audioSession requestRecordPermission:^(BOOL granted) {
@@ -78,13 +78,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKMicrophoneConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Microphone.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance
@@ -137,7 +130,10 @@
                                   AVSampleRateKey:@(configuration.sampleRate)};
             break;
             
+        // Don't forget to break!
+            
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKMicrophoneRecordingFormat: %lu", (unsigned long)configuration.recordingFormat);
             abort();
     }
@@ -165,6 +161,7 @@
             return AVAudioQualityMax;
             
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKMicrophoneRecordingQuality: %lu", (unsigned long)microphoneRecordingQuality);
             abort();
     }
@@ -178,26 +175,53 @@
     return YES;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
+    
+    if (![SKMicrophone isSensorAvailable])
+    {
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Microphone sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
+    }
     
     // Start recording (maximum 4 hours)
     if (![self.recorder recordForDuration:14400])
     {
-        NSLog(@"Recording using Microphone sensor could not be started.");
-        // TODO: In the future, report this as NSError.
-    }
-    else
-    {
-        NSTimeInterval startTime = [NSProcessInfo processInfo].systemUptime;
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Recording using Microphone sensor could not be started.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
         
-        SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Started" withTimeInterval:startTime];
-        [self submitSensorData:data];
+        return NO;
     }
+    
+    // Submit sensor data
+    NSTimeInterval startTime = [NSProcessInfo processInfo].systemUptime;
+    SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Started" withTimeInterval:startTime];
+    [self submitSensorData:data error:NULL];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     // Stop recording
     if (self.recorder.recording)
@@ -208,10 +232,10 @@
         NSTimeInterval endTime = [NSProcessInfo processInfo].systemUptime;
         
         SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Stopped" withTimeInterval:endTime];
-        [self submitSensorData:data];
+        [self submitSensorData:data error:NULL];
     }
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 - (void)dealloc

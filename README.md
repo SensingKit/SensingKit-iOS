@@ -1,6 +1,6 @@
 # SensingKit-iOS Library
 
-An iOS library that provides Continuous Sensing functionality to your applications. For more information, please refer to the [project website](http://www.sensingkit.org).
+An iOS library that provides Continuous Sensing functionality to your applications. For more information, please refer to the [project website](https://www.sensingkit.org).
 
 
 ## Supported Sensors
@@ -21,27 +21,44 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 - Microphone
 
 
-## Configuring the Library
+## Installing the Library
 
-You can always skip this step by downloading the released version of SensingKit-iOS from [here](https://github.com/SensingKit/SensingKit-iOS/releases).
+You can easily install SensingKit using [CocoaPods](https://cocoapods.org), a popular dependency manager for Cocoa projects. For installing CocoaPods, use the following command:
 
-In case you want to build the library yourself:
+```bash
+$ gem install cocoapods
+```
 
-- Open SensingKit project in Xcode and build SensingKit library using Product -> Build.
+To integrate SensingKit into your Xcode project, specify it in your `Podfile`:
 
-- Choose the ‘Framework’ scheme from the top toolbar (or using Product -> Scheme -> Framework) and build the framework. SensingKit.framework file should be available in your desktop.
+```ruby
+target <MyApp> do
+  # Uncomment this line if you're using Swift or would like to use dynamic frameworks
+  use_frameworks!
+
+  pod 'SensingKit'
+  # For the latest development version, please use:
+  # pod 'SensingKit', :git => 'https://github.com/SensingKit/SensingKit-iOS.git', :branch => 'next'
+  
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+For more information about CocoaPods, visit [https://cocoapods.org](https://cocoapods.org).
 
 
 ## Using the Library
 
-- First, you need to move the generated SensingKit.framework file into your new Xcode project.
+Import and init SensingKit as shown bellow:
 
-- Since SensingKit-iOS uses Categories internally, you need to add  the ’-ObjC’ flag into your project build settings. Open your project, select your project from the Project Navigator on the left and click on the app’s target. Select the Build Settings tab on the top of the screen and search for “Other Linker Flags”. Finally, click the + button and add ‘-ObjC’ as a new property on the list.
-
-- Import and init SensingKit as shown bellow:
-
+*Objective-C*
 ```objectivec
-#import <SensingKit/SensingKitLib.h>
+#import <SensingKit/SensingKit.h>
 
 @property (nonatomic, strong) SensingKitLib *sensingKit;
 
@@ -52,48 +69,112 @@ In case you want to build the library yourself:
 }
 ```
 
+*Swift*
+```swift
+import SensingKit
 
-- Check if a sensor is available in the device:
+let sensingKit = SensingKitLib.shared()
+```
 
+
+Check if a sensor is available in the device:
+
+*Objective-C*
 ```objectivec
 if ([self.sensingKit isSensorAvailable:Battery]) {
     // You can access the sensor
 }
 ```
 
-
-- Register a sensor (e.g. a Battery sensor) as shown bellow:
-
-```objectivec
-[self.sensingKit registerSensor:Battery];
+*Swift*
+```swift
+if sensingKit.isSensorAvailable(SKSensorType.Battery) {
+    // You can access the sensor
+}
 ```
 
 
-- Subscribe a sensor data handler. You can cast the data object into the actual sensor data object in order to access all the sensor data properties:
+Register a sensor (e.g. a Battery sensor) as shown bellow:
 
+*Objective-C*
+```objectivec
+[self.sensingKit registerSensor:Battery error:NULL];
+```
+
+*Swift*
+```swift
+do {
+    try sensingKit.register(SKSensorType.Battery)
+}
+catch {
+    // Handle error
+}
+```
+
+
+Subscribe a sensor data handler. You can cast the data object into the actual sensor data object in order to access all the sensor data properties:
+
+*Objective-C*
 ```objectivec
 [self.sensingKit subscribeToSensor:Battery
-                       withHandler:^(SKSensorType sensorType, SKSensorData *sensorData) {
+                       withHandler:^(SKSensorType sensorType, SKSensorData *sensorData, NSError *error) {
         
-        SKBatteryData *batteryData = (SKBatteryData *)sensorData;
-        NSLog(@“Battery Level: %f”, batteryData.level);
-    }];
+        if (!error) {
+            SKBatteryData *batteryData = (SKBatteryData *)sensorData;
+            NSLog(@"Battery Level: %f", batteryData.level);
+        }
+    } error:NULL];
+```
+
+*Swift*
+```swift
+do {
+    try sensingkit.subscribe(to: SKSensorType.Battery, withHandler: { (sensorType, sensorData, error) in
+        
+        if (error != nil) {
+            let batteryData = sensorData as! SKBatteryData
+            print("Battery Level: \(batteryData)")
+        }
+    })
+}
+catch {
+    // Handle error
+}
 ```
 
 
+You can Start and Stop the Continuous Sensing using the following commands:
 
-- You can Start and Stop the Continuous Sensing using the following commands:
-
+*Objective-C*
 ```objectivec
 // Start
-[self.sensingKit startContinuousSensingWithSensor:Battery];
+[self.sensingKit startContinuousSensingWithSensor:Battery error:NULL];
 
 // Stop
-[self.sensingKit stopContinuousSensingWithSensor:Battery];
+[self.sensingKit stopContinuousSensingWithSensor:Battery error:NULL];
+```
+
+*Swift*
+```swift
+// Start
+do {
+    try sensingKit.startContinuousSensingWithSensor(SKSensorType.Battery)
+}
+catch {
+    // Handle error
+}
+
+// Stop
+do {
+    try sensingKit.stopContinuousSensingWithSensor(SKSensorType.Battery)
+}
+catch {
+    // Handle error
+}
 ```
 
 
-For a complete description of our API, please refer to the [project website](http://www.sensingkit.org).
+For a complete description of our API, please refer to the [documentation page](https://www.sensingkit.org/documentation/ios/) of SensingKit website.
 
 ## License
 
@@ -102,7 +183,7 @@ Copyright (c) 2014. Queen Mary University of London
 Kleomenis Katevas, k.katevas@qmul.ac.uk
 
 This file is part of SensingKit-iOS library.
-For more information, please visit http://www.sensingkit.org
+For more information, please visit https://www.sensingkit.org
 
 SensingKit-iOS is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by

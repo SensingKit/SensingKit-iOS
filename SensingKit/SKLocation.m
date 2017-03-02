@@ -58,13 +58,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKLocationConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor Location.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance
@@ -104,7 +97,10 @@
             self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
             break;
             
+        // Don't forget to break!
+            
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKLocationAccuracy: %lu", (unsigned long)accuracy);
             abort();
     }
@@ -134,7 +130,10 @@
             }
             break;
             
+        // Don't forget to break!
+            
         default:
+            // Internal Error. Should never happen.
             NSLog(@"Unknown SKLocationAuthorization: %lu", (unsigned long)authorization);
             abort();
     }
@@ -148,26 +147,37 @@
     return [CLLocationManager locationServicesEnabled];
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
     
-    if ([SKLocation isSensorAvailable])
+    if (![SKLocation isSensorAvailable])
     {
-        [self.locationManager startUpdatingLocation];
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Location sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
-    else
-    {
-        NSLog(@"Location Sensing is not available.");
-        abort();
-    }
+    
+    [self.locationManager startUpdatingLocation];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.locationManager stopUpdatingLocation];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -176,14 +186,13 @@
     {
         SKLocationData *data = [[SKLocationData alloc] initWithLocation:location];
         
-        [self submitSensorData:data];
+        [self submitSensorData:data error:NULL];
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"Error: %@", error.description);
-    abort();
+    [self submitSensorData:nil error:error];
 }
 
 @end

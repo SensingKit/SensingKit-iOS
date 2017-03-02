@@ -23,9 +23,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "SKSensorType.h"
 #import "SKSensorDataHandler.h"
 #import "SKConfiguration.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,34 +44,44 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** @name Sensor Registration and Configuration */
 
-- (void)registerSensor:(SKSensorType)sensorType withConfiguration:(nullable SKConfiguration *)configuration;
+- (BOOL)registerSensor:(SKSensorType)sensorType
+     withConfiguration:(nullable SKConfiguration *)configuration
+                 error:(NSError * _Nullable * _Nullable)error;
 
-- (void)deregisterSensor:(SKSensorType)sensorType;
+- (BOOL)deregisterSensor:(SKSensorType)sensorType
+                   error:(NSError * _Nullable * _Nullable)error;
 
-- (void)setConfiguration:(nullable SKConfiguration *)configuration toSensor:(SKSensorType)sensorType;
+- (BOOL)setConfiguration:(nullable SKConfiguration *)configuration
+                toSensor:(SKSensorType)sensorType
+                   error:(NSError * _Nullable * _Nullable)error;
 
-- (SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType;
+- (nullable SKConfiguration *)getConfigurationFromSensor:(SKSensorType)sensorType
+                                          error:(NSError * _Nullable * _Nullable)error;
 
 
 /** @name Sensor Subscription and Unsubscription */
 
-- (void)subscribeToSensor:(SKSensorType)sensorType
-              withHandler:(SKSensorDataHandler)handler;
+- (BOOL)subscribeToSensor:(SKSensorType)sensorType
+              withHandler:(SKSensorDataHandler)handler
+                    error:(NSError * _Nullable * _Nullable)error;
 
-- (void)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType;
+- (BOOL)unsubscribeAllHandlersFromSensor:(SKSensorType)sensorType
+                                   error:(NSError * _Nullable * _Nullable)error;
 
-+ (nullable NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
++ (NSString *)csvHeaderForSensor:(SKSensorType)sensorType;
 
 
 /** @name Continuous Sensing */
 
-- (void)startContinuousSensingWithSensor:(SKSensorType)sensorType;
+- (BOOL)startContinuousSensingWithSensor:(SKSensorType)sensorType
+                                   error:(NSError * _Nullable * _Nullable)error;
 
-- (void)stopContinuousSensingWithSensor:(SKSensorType)sensorType;
+- (BOOL)stopContinuousSensingWithSensor:(SKSensorType)sensorType
+                                  error:(NSError * _Nullable * _Nullable)error;
 
-- (void)startContinuousSensingWithAllRegisteredSensors;
+- (BOOL)startContinuousSensingWithAllRegisteredSensors:(NSError * _Nullable * _Nullable)error;
 
-- (void)stopContinuousSensingWithAllRegisteredSensors;
+- (BOOL)stopContinuousSensingWithAllRegisteredSensors:(NSError * _Nullable * _Nullable)error;
 
 @end
 

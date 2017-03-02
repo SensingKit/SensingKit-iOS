@@ -22,6 +22,8 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import <Foundation/Foundation.h>
+
 #import "SKAbstractSensor.h"
 #import "SKLocationConfiguration.h"
 

@@ -26,7 +26,9 @@ static NSString *const kEddystoneServiceID = @"FEAA";
  * values. See the Eddystone spec for complete details.
  */
 static const uint8_t kEddystoneUIDFrameTypeID = 0x00;
+static const uint8_t kEddystoneURLFrameTypeID = 0x10;
 static const uint8_t kEddystoneTLMFrameTypeID = 0x20;
+static const uint8_t kEddystoneEIDFrameTypeID = 0x30;
 
 // Note that for these Eddystone structures, the endianness of the individual fields is big-endian,
 // so you'll want to translate back to host format when necessary.
@@ -39,6 +41,12 @@ typedef struct __attribute__((packed)) {
   uint8_t beaconID[16];
   uint8_t RFU[2];
 } ESSEddystoneUIDFrameFields;
+
+typedef struct __attribute__((packed)) {
+  uint8_t frameType;
+  int8_t  txPower;
+  uint8_t beaconID[8];
+} ESSEddystoneEIDFrameFields;
 
 // Test equality, ensuring that nil is equal to itself.
 static inline BOOL IsEqualOrBothNil(id a, id b) {
@@ -74,9 +82,11 @@ static inline BOOL IsEqualOrBothNil(id a, id b) {
 - (NSString *)description {
   if (self.beaconType == kESSBeaconTypeEddystone) {
     return [NSString stringWithFormat:@"ESSBeaconID: beaconID=%@", self.beaconID];
+  } else if (self.beaconType == kESSBeaconTypeEddystoneEID) {
+    return [NSString stringWithFormat:@"ESSBeaconID (EID): beaconID=%@", self.beaconID];
   } else {
     return [NSString stringWithFormat:@"ESSBeaconID with invalid type %lu",
-        (unsigned long)self.beaconType];
+            (unsigned long)self.beaconType];
   }
 }
 
@@ -114,19 +124,21 @@ static inline BOOL IsEqualOrBothNil(id a, id b) {
  * Given the advertising frames from CoreBluetooth for a device with the Eddystone Service ID,
  * figure out what type of frame it is.
  */
-+ (ESSFrameType)frameTypeForFrame:(NSDictionary *)advFrameList {
-  NSData *frameData = advFrameList[[self eddystoneServiceID]];
-
++ (ESSFrameType)frameTypeForFrame:(NSData *)frameData {
   // It's an Eddystone ADV frame. Now check if it's a UID (ID) or TLM (telemetry) frame.
   if (frameData) {
     uint8_t frameType;
     if ([frameData length] > 1) {
       frameType = ((uint8_t *)[frameData bytes])[0];
-
-      if (frameType == kEddystoneUIDFrameTypeID) {
-        return kESSEddystoneUIDFrameType;
-      } else if (frameType == kEddystoneTLMFrameTypeID) {
-        return kESSEddystoneTelemetryFrameType;
+      switch (frameType) {
+        case kEddystoneUIDFrameTypeID:
+          return kESSEddystoneUIDFrameType;
+        case kEddystoneURLFrameTypeID:
+          return kESSEddystoneURLFrameType;
+        case kEddystoneTLMFrameTypeID:
+          return kESSEddystoneTelemetryFrameType;
+        case kEddystoneEIDFrameTypeID:
+          return kESSEddystoneEIDFrameType;
       }
     }
   }
@@ -134,12 +146,25 @@ static inline BOOL IsEqualOrBothNil(id a, id b) {
   return kESSEddystoneUnknownFrameType;
 }
 
-+ (NSData *)telemetryDataForFrame:(NSDictionary *)advFrameList {
-  // NOTE: We assume that you've already called [ESSBeaconInfo frameTypeForFrame] to confirm that
-  //       this actually IS a telemetry frame.
-  NSAssert([ESSBeaconInfo frameTypeForFrame:advFrameList] == kESSEddystoneTelemetryFrameType,
-           @"This should be a TLM frame, but it's not. Whooops");
-  return advFrameList[[self eddystoneServiceID]];
++ (NSURL *)parseURLFromFrameData:(NSData *)URLFrameData {
+  NSAssert([ESSBeaconInfo frameTypeForFrame:URLFrameData] == kESSEddystoneURLFrameType,
+           @"This should be a URL frame, but it's not. Whooops");
+
+  if (!(URLFrameData.length > 0)) {
+    return nil;
+  }
+  
+  unsigned char urlFrame[20];
+  [URLFrameData getBytes:&urlFrame length:URLFrameData.length];
+  
+  NSString *urlScheme = [self getURLScheme:*(urlFrame+2)];
+  
+  NSString *urlString = urlScheme;
+  for (int i = 0; i < URLFrameData.length - 3; i++) {
+    urlString = [urlString stringByAppendingString:[self getEncodedString:*(urlFrame + i + 3)]];
+  }
+  
+  return [NSURL URLWithString:urlString];
 }
 
 - (instancetype)initWithBeaconID:(ESSBeaconID *)beaconID
@@ -159,6 +184,9 @@ static inline BOOL IsEqualOrBothNil(id a, id b) {
 + (instancetype)beaconInfoForUIDFrameData:(NSData *)UIDFrameData
                                 telemetry:(NSData *)telemetry
                                      RSSI:(NSNumber *)RSSI {
+  NSAssert([ESSBeaconInfo frameTypeForFrame:UIDFrameData] == kESSEddystoneUIDFrameType,
+           @"This should be a UID frame, but it's not. Whooops");
+
   // Make sure this frame has the correct frame type identifier
   uint8_t frameType;
   [UIDFrameData getBytes:&frameType length:1];
@@ -167,22 +195,22 @@ static inline BOOL IsEqualOrBothNil(id a, id b) {
   }
 
   ESSEddystoneUIDFrameFields uidFrame;
-  
+
   if ([UIDFrameData length] == sizeof(ESSEddystoneUIDFrameFields)
       || [UIDFrameData length] == sizeof(ESSEddystoneUIDFrameFields) - sizeof(uidFrame.RFU)) {
- 
+
     [UIDFrameData getBytes:&uidFrame length:(sizeof(ESSEddystoneUIDFrameFields)
-        - sizeof(uidFrame.RFU))];
-    
+                                             - sizeof(uidFrame.RFU))];
+
     NSData *beaconIDData = [NSData dataWithBytes:&uidFrame.beaconID
                                           length:sizeof(uidFrame.beaconID)];
-    
+
     ESSBeaconID *beaconID = [[ESSBeaconID alloc] initWithType:kESSBeaconTypeEddystone
                                                      beaconID:beaconIDData];
     if (beaconID == nil) {
       return nil;
     }
-      
+
     return [[ESSBeaconInfo alloc] initWithBeaconID:beaconID
                                            txPower:@(uidFrame.txPower)
                                               RSSI:RSSI
@@ -192,11 +220,46 @@ static inline BOOL IsEqualOrBothNil(id a, id b) {
   }
 }
 
-- (NSString *)description {
-  return [NSString stringWithFormat:@"Eddystone, id: %@, RSSI: %@, txPower: %@",
-      _beaconID, _RSSI, _txPower];
++ (instancetype)beaconInfoForEIDFrameData:(NSData *)EIDFrameData
+                                telemetry:(NSData *)telemetry
+                                     RSSI:(NSNumber *)RSSI {
+  NSAssert([ESSBeaconInfo frameTypeForFrame:EIDFrameData] == kESSEddystoneEIDFrameType,
+           @"This should be an EID frame, but it's not. Whooops");
+
+  // Make sure this frame has the correct frame type identifier
+  uint8_t frameType;
+  [EIDFrameData getBytes:&frameType length:1];
+  if (frameType != kEddystoneEIDFrameTypeID) {
+    return nil;
+  }
+
+  ESSEddystoneEIDFrameFields eidFrame;
+
+  if ([EIDFrameData length] == sizeof(ESSEddystoneEIDFrameFields)) {
+    [EIDFrameData getBytes:&eidFrame length:sizeof(ESSEddystoneEIDFrameFields)];
+    NSData *beaconIDData = [NSData dataWithBytes:&eidFrame.beaconID
+                                          length:sizeof(eidFrame.beaconID)];
+
+    ESSBeaconID *beaconID = [[ESSBeaconID alloc] initWithType:kESSBeaconTypeEddystoneEID
+                                                     beaconID:beaconIDData];
+    if (beaconID == nil) {
+      return nil;
+    }
+
+    return [[ESSBeaconInfo alloc] initWithBeaconID:beaconID
+                                           txPower:@(eidFrame.txPower)
+                                              RSSI:RSSI
+                                         telemetry:telemetry];
+  } else {
+    return nil;
+  }
 }
 
+- (NSString *)description {
+  NSString *str = [NSString stringWithFormat:@"Eddystone, id: %@, RSSI: %@, txPower: %@",
+                                             _beaconID, _RSSI, _txPower];
+  return str;
+}
 
 + (CBUUID *)eddystoneServiceID {
   static CBUUID *_singleton;
@@ -210,11 +273,10 @@ static inline BOOL IsEqualOrBothNil(id a, id b) {
 }
 
 + (ESSBeaconInfo *)testBeaconFromBeaconIDString:(NSString *)beaconID {
-
   NSData *beaconIDData = [ESSBeaconInfo hexStringToNSData:beaconID];
-
   ESSBeaconID *beaconIDObj = [[ESSBeaconID alloc] initWithType:kESSBeaconTypeEddystone
                                                       beaconID:beaconIDData];
+
   return [[ESSBeaconInfo alloc] initWithBeaconID:beaconIDObj
                                          txPower:@(-20)
                                             RSSI:@(-100)
@@ -235,6 +297,56 @@ static inline BOOL IsEqualOrBothNil(id a, id b) {
   }
 
   return data;
+}
+
++ (NSString *)getURLScheme:(char)hexChar {
+  switch (hexChar) {
+    case 0x00:
+      return @"http://www.";
+    case 0x01:
+      return @"https://www.";
+    case 0x02:
+      return @"http://";
+    case 0x03:
+      return @"https://";
+    default:
+      return nil;
+  }
+}
+
++ (NSString *)getEncodedString:(char)hexChar {
+  switch (hexChar) {
+    case 0x00:
+      return @".com/";
+    case 0x01:
+      return @".org/";
+    case 0x02:
+      return @".edu/";
+    case 0x03:
+      return @".net/";
+    case 0x04:
+      return @".info/";
+    case 0x05:
+      return @".biz/";
+    case 0x06:
+      return @".gov/";
+    case 0x07:
+      return @".com";
+    case 0x08:
+      return @".org";
+    case 0x09:
+      return @".edu";
+    case 0x0a:
+      return @".net";
+    case 0x0b:
+      return @".info";
+    case 0x0c:
+      return @".biz";
+    case 0x0d:
+      return @".gov";
+    default:
+      return [NSString stringWithFormat:@"%c", hexChar];
+  }
 }
 
 @end

@@ -55,13 +55,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKEddystoneProximityConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor EddystoneProximity.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance
@@ -82,18 +75,37 @@
     return [CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]];
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
+    if (![super startSensing:error]) {
+        return NO;
+    }
+    
+    if (![SKEddystoneProximity isSensorAvailable])
+    {
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Eddystone Proximity sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
+    }
     
     [self.beaconScanner startScanning];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.beaconScanner stopScanning];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 - (void)beaconScanner:(ESSBeaconScanner *)scanner didFindBeacon:(id)beaconInfo
@@ -140,7 +152,7 @@
                                                                                         withRssi:rssi
                                                                                      withTxPower:txPower];
             
-            [self submitSensorData:data];
+            [self submitSensorData:data error:NULL];
         }
     }
 }

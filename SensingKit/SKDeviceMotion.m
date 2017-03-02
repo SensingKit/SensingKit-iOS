@@ -51,13 +51,6 @@
 
 - (void)setConfiguration:(SKConfiguration *)configuration
 {
-    // Check if the correct configuration type provided
-    if (configuration.class != SKDeviceMotionConfiguration.class)
-    {
-        NSLog(@"Wrong SKConfiguration class provided (%@) for sensor DeviceMotion.", configuration.class);
-        abort();
-    }
-    
     super.configuration = configuration;
     
     // Cast the configuration instance
@@ -75,36 +68,47 @@
     return [SKMotionManager sharedMotionManager].isDeviceMotionAvailable;
 }
 
-- (void)startSensing
+- (BOOL)startSensing:(NSError **)error
 {
-    [super startSensing];
-
-    if (self.motionManager.deviceMotionAvailable)
-    {
-        [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue]
-                                                withHandler:^(CMDeviceMotion *motion, NSError *error) {
-                                                    
-                                                    if (error) {
-                                                        NSLog(@"%@", error.localizedDescription);
-                                                    } else {
-                                                        SKDeviceMotionData *data = [[SKDeviceMotionData alloc] initWithDeviceMotion:motion];
-                                                        [self submitSensorData:data];
-                                                    }
-                                                    
-                                                }];
+    if (![super startSensing:error]) {
+        return NO;
     }
-    else
+    
+    if (![SKDeviceMotion isSensorAvailable])
     {
-        NSLog(@"DeviceMotion Sensing is not available.");
-        abort();
+        if (error) {
+            
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Device Motion sensor is not available.", nil),
+                                       };
+            
+            *error = [NSError errorWithDomain:SKErrorDomain
+                                         code:SKSensorNotAvailableError
+                                     userInfo:userInfo];
+        }
+        return NO;
     }
+    
+    [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue]
+                                            withHandler:^(CMDeviceMotion *motion, NSError *error) {
+                                                
+                                                if (error) {
+                                                    [self submitSensorData:nil error:error];
+                                                } else {
+                                                    SKDeviceMotionData *data = [[SKDeviceMotionData alloc] initWithDeviceMotion:motion];
+                                                    [self submitSensorData:data error:NULL];
+                                                }
+                                                
+                                            }];
+    
+    return YES;
 }
 
-- (void)stopSensing
+- (BOOL)stopSensing:(NSError **)error
 {
     [self.motionManager stopDeviceMotionUpdates];
     
-    [super stopSensing];
+    return [super stopSensing:error];
 }
 
 @end
