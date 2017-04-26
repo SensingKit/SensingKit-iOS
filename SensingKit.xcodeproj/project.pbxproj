@@ -128,6 +128,12 @@
 		CF3980241DAE6E6800A7C36C /* ESSTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = CF39801B1DAE6E6800A7C36C /* ESSTimer.h */; };
 		CF3980251DAE6E6800A7C36C /* ESSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF39801C1DAE6E6800A7C36C /* ESSTimer.m */; };
 		CF3980261DAE6E6800A7C36C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CF39801D1DAE6E6800A7C36C /* LICENSE */; };
+		CF9A70A41EB0DCB900DCAB66 /* SKHeading.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70A21EB0DCB900DCAB66 /* SKHeading.h */; };
+		CF9A70A51EB0DCB900DCAB66 /* SKHeading.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70A31EB0DCB900DCAB66 /* SKHeading.m */; };
+		CF9A70A81EB0DCD500DCAB66 /* SKHeadingConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70A61EB0DCD500DCAB66 /* SKHeadingConfiguration.h */; };
+		CF9A70A91EB0DCD500DCAB66 /* SKHeadingConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70A71EB0DCD500DCAB66 /* SKHeadingConfiguration.m */; };
+		CF9A70AC1EB0DD0E00DCAB66 /* SKHeadingData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70AA1EB0DD0E00DCAB66 /* SKHeadingData.h */; };
+		CF9A70AD1EB0DD0E00DCAB66 /* SKHeadingData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70AB1EB0DD0E00DCAB66 /* SKHeadingData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +257,12 @@
 		CF39801B1DAE6E6800A7C36C /* ESSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESSTimer.h; sourceTree = "<group>"; };
 		CF39801C1DAE6E6800A7C36C /* ESSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESSTimer.m; sourceTree = "<group>"; };
 		CF39801D1DAE6E6800A7C36C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		CF9A70A21EB0DCB900DCAB66 /* SKHeading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHeading.h; sourceTree = "<group>"; };
+		CF9A70A31EB0DCB900DCAB66 /* SKHeading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHeading.m; sourceTree = "<group>"; };
+		CF9A70A61EB0DCD500DCAB66 /* SKHeadingConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHeadingConfiguration.h; sourceTree = "<group>"; };
+		CF9A70A71EB0DCD500DCAB66 /* SKHeadingConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHeadingConfiguration.m; sourceTree = "<group>"; };
+		CF9A70AA1EB0DD0E00DCAB66 /* SKHeadingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHeadingData.h; sourceTree = "<group>"; };
+		CF9A70AB1EB0DD0E00DCAB66 /* SKHeadingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHeadingData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +379,8 @@
 				CF397F761DAE6C9A00A7C36C /* SKiBeaconProximity.m */,
 				CF397F791DAE6C9A00A7C36C /* SKLocation.h */,
 				CF397F7A1DAE6C9A00A7C36C /* SKLocation.m */,
+				CF9A70A21EB0DCB900DCAB66 /* SKHeading.h */,
+				CF9A70A31EB0DCB900DCAB66 /* SKHeading.m */,
 				CF397F7F1DAE6C9A00A7C36C /* SKMagnetometer.h */,
 				CF397F801DAE6C9A00A7C36C /* SKMagnetometer.m */,
 				CF397F851DAE6C9A00A7C36C /* SKMicrophone.h */,
@@ -402,6 +416,8 @@
 				CF397F741DAE6C9A00A7C36C /* SKiBeaconDeviceData.m */,
 				CF397F7D1DAE6C9A00A7C36C /* SKLocationData.h */,
 				CF397F7E1DAE6C9A00A7C36C /* SKLocationData.m */,
+				CF9A70AA1EB0DD0E00DCAB66 /* SKHeadingData.h */,
+				CF9A70AB1EB0DD0E00DCAB66 /* SKHeadingData.m */,
 				CF397F831DAE6C9A00A7C36C /* SKMagnetometerData.h */,
 				CF397F841DAE6C9A00A7C36C /* SKMagnetometerData.m */,
 				CF397F891DAE6C9A00A7C36C /* SKMicrophoneData.h */,
@@ -439,6 +455,8 @@
 				CF397F781DAE6C9A00A7C36C /* SKiBeaconProximityConfiguration.m */,
 				CF397F7B1DAE6C9A00A7C36C /* SKLocationConfiguration.h */,
 				CF397F7C1DAE6C9A00A7C36C /* SKLocationConfiguration.m */,
+				CF9A70A61EB0DCD500DCAB66 /* SKHeadingConfiguration.h */,
+				CF9A70A71EB0DCD500DCAB66 /* SKHeadingConfiguration.m */,
 				CF397F811DAE6C9A00A7C36C /* SKMagnetometerConfiguration.h */,
 				CF397F821DAE6C9A00A7C36C /* SKMagnetometerConfiguration.m */,
 				CF397F871DAE6C9A00A7C36C /* SKMicrophoneConfiguration.h */,
@@ -501,14 +519,17 @@
 				CF397FF01DAE6C9A00A7C36C /* SKMotionActivity.h in Headers */,
 				CF397FCB1DAE6C9A00A7C36C /* SKEddystoneProximity.h in Headers */,
 				CF397FB11DAE6C9A00A7C36C /* SKAccelerometer.h in Headers */,
+				CF9A70AC1EB0DD0E00DCAB66 /* SKHeadingData.h in Headers */,
 				CF397FD61DAE6C9A00A7C36C /* SKGyroscopeData.h in Headers */,
 				CF397FE01DAE6C9A00A7C36C /* SKLocationConfiguration.h in Headers */,
 				CF3980001DAE6C9A00A7C36C /* SKSampleRateConfiguration.h in Headers */,
+				CF9A70A41EB0DCB900DCAB66 /* SKHeading.h in Headers */,
 				CF397FB31DAE6C9A00A7C36C /* SKAccelerometerConfiguration.h in Headers */,
 				CF397FEA1DAE6C9A00A7C36C /* SKMicrophone.h in Headers */,
 				CF397FE81DAE6C9A00A7C36C /* SKMagnetometerData.h in Headers */,
 				CF397FE21DAE6C9A00A7C36C /* SKLocationData.h in Headers */,
 				CF397FDA1DAE6C9A00A7C36C /* SKiBeaconProximity.h in Headers */,
+				CF9A70A81EB0DCD500DCAB66 /* SKHeadingConfiguration.h in Headers */,
 				CF39800D1DAE6C9A00A7C36C /* SKSensorTimestamp.h in Headers */,
 				CF397FE41DAE6C9A00A7C36C /* SKMagnetometer.h in Headers */,
 				CF397FFE1DAE6C9A00A7C36C /* SKProximityData.h in Headers */,
@@ -652,6 +673,8 @@
 				CF3980231DAE6E6800A7C36C /* ESSEddystone.m in Sources */,
 				CF397FCE1DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.m in Sources */,
 				CF397FB81DAE6C9A00A7C36C /* SKAltimeter.m in Sources */,
+				CF9A70A91EB0DCD500DCAB66 /* SKHeadingConfiguration.m in Sources */,
+				CF9A70A51EB0DCB900DCAB66 /* SKHeading.m in Sources */,
 				CF3980251DAE6E6800A7C36C /* ESSTimer.m in Sources */,
 				CF397FE31DAE6C9A00A7C36C /* SKLocationData.m in Sources */,
 				CF397FDF1DAE6C9A00A7C36C /* SKLocation.m in Sources */,
@@ -686,6 +709,7 @@
 				CF397FCC1DAE6C9A00A7C36C /* SKEddystoneProximity.m in Sources */,
 				CF397FE71DAE6C9A00A7C36C /* SKMagnetometerConfiguration.m in Sources */,
 				CF397FC41DAE6C9A00A7C36C /* SKConfiguration.m in Sources */,
+				CF9A70AD1EB0DD0E00DCAB66 /* SKHeadingData.m in Sources */,
 				CF397FCA1DAE6C9A00A7C36C /* SKDeviceMotionData.m in Sources */,
 				CF397FDB1DAE6C9A00A7C36C /* SKiBeaconProximity.m in Sources */,
 				CF397FEB1DAE6C9A00A7C36C /* SKMicrophone.m in Sources */,

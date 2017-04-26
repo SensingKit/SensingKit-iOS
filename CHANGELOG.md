@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.5.1 (??, 2017)
+- Added support for Heading sensor.
+
 ### 0.5.0 (March 2, 2017)
 - Added error handling support using NSError.
 - Updated Eddystone Scanner into latest version.

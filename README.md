@@ -16,6 +16,7 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 - Altimeter
 - Battery
 - Location
+- Heading
 - iBeacon™ Proximity
 - Eddystone™ Proximity
 - Microphone

@@ -36,6 +36,7 @@ static const NSString *SENSOR_STRINGS[] = {
     @"Altimeter",
     @"Battery",
     @"Location",
+    @"Heading",
     @"iBeacon™ Proximity",
     @"Eddystone™ Proximity",
     @"Microphone"
@@ -51,6 +52,7 @@ static const NSString *NONSPACED_SENSOR_STRINGS[] = {
     @"Altimeter",
     @"Battery",
     @"Location",
+    @"Heading",
     @"iBeaconProximity",
     @"EddystoneProximity",
     @"Microphone"
