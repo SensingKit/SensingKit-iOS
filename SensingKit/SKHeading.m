@@ -120,15 +120,7 @@
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager
 {
     SKHeadingConfiguration *headingConfiguration = (SKHeadingConfiguration *)self.configuration;
-    
-    if (!headingConfiguration.displayHeadingCalibration) {
-        return NO;
-    }
-    else if (self.locationManager.heading.headingAccuracy > headingConfiguration.minAccuracyForHeadingCalibration) {
-        return NO;
-    }
-    
-    return YES;
+    return headingConfiguration.displayHeadingCalibration;
 }
 
 @end

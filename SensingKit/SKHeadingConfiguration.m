@@ -31,6 +31,9 @@
     if (self = [super init])
     {
         // Set default values
+        _headingFilter = 1;
+        _headingOrientation = CLDeviceOrientationPortrait;
+        _displayHeadingCalibration = NO;
     }
     return self;
 }
@@ -38,6 +41,9 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     SKHeadingConfiguration *configuration = [super copyWithZone:zone];
+    configuration.headingFilter = _headingFilter;
+    configuration.headingOrientation = _headingOrientation;
+    configuration.displayHeadingCalibration = _displayHeadingCalibration;
     
     return configuration;
 }

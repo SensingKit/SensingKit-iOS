@@ -39,7 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CLDeviceOrientation headingOrientation;
 
 @property (nonatomic) BOOL displayHeadingCalibration;
-@property (nonatomic) NSUInteger minAccuracyForHeadingCalibration;
 
 @end
 
