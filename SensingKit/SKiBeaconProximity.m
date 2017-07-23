@@ -187,8 +187,8 @@
 - (void)stopScanning
 {
     // Stop monitoring and ranging
-    [self.locationManager stopMonitoringForRegion:self.scan_beaconRegion];
     [self.locationManager stopRangingBeaconsInRegion:self.scan_beaconRegion];
+    [self.locationManager stopMonitoringForRegion:self.scan_beaconRegion];
 }
 
 - (BOOL)startSensing:(NSError **)error
