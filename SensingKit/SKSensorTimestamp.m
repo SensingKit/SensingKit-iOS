@@ -23,6 +23,7 @@
 //
 
 #import "SKSensorTimestamp.h"
+#include <sys/sysctl.h>
 
 @implementation SKSensorTimestamp
 
@@ -57,13 +58,31 @@
     return sensorTimestamp;
 }
 
+
+// Thanks to https://stackoverflow.com/questions/12488481/getting-ios-system-uptime-that-doesnt-pause-when-asleep/12490414#12490414
 + (NSDate *)dateOfLastBoot
 {
     static NSDate *lastBoot;
     
     if (!lastBoot)
     {
-        NSTimeInterval systemUptime = [NSProcessInfo processInfo].systemUptime;
+        struct timeval boottime;
+        int mib[2] = {CTL_KERN, KERN_BOOTTIME};
+        size_t size = sizeof(boottime);
+        
+        struct timeval now;
+        struct timezone tz;
+        gettimeofday(&now, &tz);
+        
+        double uptime = -1;
+        
+        if (sysctl(mib, 2, &boottime, &size, NULL, 0) != -1 && boottime.tv_sec != 0)
+        {
+            uptime = now.tv_sec - boottime.tv_sec;
+            uptime += (double)(now.tv_usec - boottime.tv_usec) / 1000000.0;
+        }
+        
+        NSTimeInterval systemUptime = uptime;
         NSTimeInterval timeIntervalSince1970 = [NSDate date].timeIntervalSince1970;
         lastBoot = [NSDate dateWithTimeIntervalSince1970:timeIntervalSince1970 - systemUptime];
     }
