@@ -35,7 +35,8 @@
 
 + (instancetype)sensorTimestampFromTimeInterval:(NSTimeInterval)timeInterval
 {
-    NSDate *date = [NSDate dateWithTimeInterval:timeInterval sinceDate:[SKSensorTimestamp dateOfLastBoot]];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval + [SKSensorTimestamp dateOfLastBoot].timeIntervalSince1970];
+    NSLog(@"DEBUG: LB (%@) LBf(%f) - %f",[SKSensorTimestamp dateOfLastBoot], [SKSensorTimestamp dateOfLastBoot].timeIntervalSince1970, timeInterval);
     return [[SKSensorTimestamp alloc] initWithDate:date withTimeInterval:timeInterval];
 }
 
