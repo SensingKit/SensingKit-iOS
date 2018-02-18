@@ -74,17 +74,11 @@
         struct timezone tz;
         gettimeofday(&now, &tz);
         
-        double uptime = -1;
-        
         if (sysctl(mib, 2, &boottime, &size, NULL, 0) != -1 && boottime.tv_sec != 0)
         {
-            uptime = now.tv_sec - boottime.tv_sec;
-            uptime += (double)(now.tv_usec - boottime.tv_usec) / 1000000.0;
+            lastBoot = [[NSDate alloc] initWithTimeIntervalSince1970:boottime.tv_sec];
+            NSLog(@"Device Boot: %@", lastBoot);
         }
-        
-        NSTimeInterval systemUptime = uptime;
-        NSTimeInterval timeIntervalSince1970 = [NSDate date].timeIntervalSince1970;
-        lastBoot = [NSDate dateWithTimeIntervalSince1970:timeIntervalSince1970 - systemUptime];
     }
     return lastBoot;
 }
