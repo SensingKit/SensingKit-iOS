@@ -78,7 +78,7 @@
         if (sysctl(mib, 2, &boottime, &size, NULL, 0) != -1 && boottime.tv_sec != 0)
         {
             lastBoot = [[NSDate alloc] initWithTimeIntervalSince1970:boottime.tv_sec];
-            NSLog(@"Device Boot: %@", lastBoot);
+            NSLog(@"Device Boot: %@ (%ld)", lastBoot, boottime.tv_sec);
         }
     }
     return lastBoot;
