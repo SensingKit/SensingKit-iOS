@@ -45,7 +45,7 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     Gyroscope,
     
     /**
-     *  Magnetometer (also known as Compass or Magnetic Field Sensor) is a sensor that measures the actual orientation of the device in relation to the Magnetic North.
+     *  Magnetometer (also known as Compass or Magnetic Field Sensor) is a sensor that measures the strength of the magnetic field surrounding the device.
      */
     Magnetometer,
     
@@ -80,7 +80,7 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     Location,
     
     /**
-     *  TODO
+     *  Heading is a sensor that reports the device's orientation relative to magnetic and true north.
      */
     Heading,
     
