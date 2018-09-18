@@ -130,9 +130,9 @@
 		CF3980261DAE6E6800A7C36C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CF39801D1DAE6E6800A7C36C /* LICENSE */; };
 		CF9A70A41EB0DCB900DCAB66 /* SKHeading.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70A21EB0DCB900DCAB66 /* SKHeading.h */; };
 		CF9A70A51EB0DCB900DCAB66 /* SKHeading.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70A31EB0DCB900DCAB66 /* SKHeading.m */; };
-		CF9A70A81EB0DCD500DCAB66 /* SKHeadingConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70A61EB0DCD500DCAB66 /* SKHeadingConfiguration.h */; };
+		CF9A70A81EB0DCD500DCAB66 /* SKHeadingConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70A61EB0DCD500DCAB66 /* SKHeadingConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF9A70A91EB0DCD500DCAB66 /* SKHeadingConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70A71EB0DCD500DCAB66 /* SKHeadingConfiguration.m */; };
-		CF9A70AC1EB0DD0E00DCAB66 /* SKHeadingData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70AA1EB0DD0E00DCAB66 /* SKHeadingData.h */; };
+		CF9A70AC1EB0DD0E00DCAB66 /* SKHeadingData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70AA1EB0DD0E00DCAB66 /* SKHeadingData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF9A70AD1EB0DD0E00DCAB66 /* SKHeadingData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70AB1EB0DD0E00DCAB66 /* SKHeadingData.m */; };
 /* End PBXBuildFile section */
 
