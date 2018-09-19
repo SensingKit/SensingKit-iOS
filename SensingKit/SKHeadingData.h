@@ -26,6 +26,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ *  An instance of SKHeadingData encapsulates measurements related to the Heading sensor.
+ */
 @interface SKHeadingData : SKSensorData
 
 - (instancetype)init NS_UNAVAILABLE;
@@ -42,8 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithHeading:(CLHeading *)heading NS_DESIGNATED_INITIALIZER;
 
-/** TODO
- *  A CLHeading object contains data related to the location of the device, as well as the accuracy of the measurements. More specifically it provides location coordinates, altitude and the logical floor of the building that the user is located. It also provides the instantaneous speed and the course of the device when the user is moving. For more information, please refer to Apple's Core Location documentation.
+/**
+ *  A CLHeading object contains data about the device's orientation relative to magnetic and true north.
  */
 @property (nonatomic, readonly, copy) CLHeading *heading;
 

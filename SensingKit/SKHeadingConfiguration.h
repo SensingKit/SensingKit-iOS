@@ -35,9 +35,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface SKHeadingConfiguration : SKConfiguration
 
+/**
+ *  The minimum angular change (measured in degrees) required to report new heading sensor data.
+ */
 @property (nonatomic) CLLocationDegrees headingFilter;
+
+/**
+ *  The physical orientation of the device, used to compute the heading values more accurately.
+ */
 @property (nonatomic) CLDeviceOrientation headingOrientation;
 
+/**
+ *  Allow the heading calibration alert to be displayed in the device's screen or not.
+ */
 @property (nonatomic) BOOL displayHeadingCalibration;
 
 @end
