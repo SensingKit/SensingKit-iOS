@@ -40,7 +40,7 @@ target <MyApp> do
   pod 'SensingKit'
   # For the latest development version, please use:
   # pod 'SensingKit', :git => 'https://github.com/SensingKit/SensingKit-iOS.git', :branch => 'next'
-  
+
 end
 ```
 
@@ -119,7 +119,7 @@ Subscribe a sensor data handler. You can cast the data object into the actual se
 ```objectivec
 [self.sensingKit subscribeToSensor:Battery
                        withHandler:^(SKSensorType sensorType, SKSensorData *sensorData, NSError *error) {
-        
+
         if (!error) {
             SKBatteryData *batteryData = (SKBatteryData *)sensorData;
             NSLog(@"Battery Level: %f", batteryData.level);
@@ -131,7 +131,7 @@ Subscribe a sensor data handler. You can cast the data object into the actual se
 ```swift
 do {
     try sensingkit.subscribe(to: SKSensorType.Battery, withHandler: { (sensorType, sensorData, error) in
-        
+
         if (error != nil) {
             let batteryData = sensorData as! SKBatteryData
             print("Battery Level: \(batteryData)")
@@ -176,6 +176,26 @@ catch {
 
 
 For a complete description of our API, please refer to the [documentation page](https://www.sensingkit.org/documentation/ios/) of SensingKit website.
+
+
+## Required Info.plist Keys
+
+Depending on the used sensor and its configuration, some keys with a user-friendly description should be included in the [info.plist application file](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html):
+
+### Microphone
+- NSMicrophoneUsageDescription
+
+### Eddystone
+- NSBluetoothPeripheralUsageDescription
+
+### Location
+- NSLocationAlwaysUsageDescription
+- NSLocationWhenInUseUsageDescription
+- NSLocationUsageDescription
+
+### MotionActivity
+- NSMotionUsageDescription
+
 
 ## License
 
