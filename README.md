@@ -55,7 +55,7 @@ For more information about CocoaPods, visit [https://cocoapods.org](https://coco
 
 ## Using the Library
 
-Import and init SensingKit as shown bellow:
+Import and init SensingKit as shown below:
 
 *Objective-C*
 ```objectivec
@@ -95,7 +95,7 @@ if sensingKit.isSensorAvailable(SKSensorType.Battery) {
 ```
 
 
-Register a sensor (e.g. a Battery sensor) as shown bellow:
+Register a sensor (e.g. a Battery sensor) as shown below:
 
 *Objective-C*
 ```objectivec
