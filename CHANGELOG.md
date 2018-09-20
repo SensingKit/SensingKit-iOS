@@ -2,8 +2,9 @@
 
 ### 0.5.1 (September 20, 2018)
 - Added support for Heading sensor.
-- Added support for iOS 12.
+- Added support for iOS 12 and Xcode 10.
 - Changed the minimum supported platform to iOS 9.
+- Fixed a bug with incorrect timestamps reported for some sensors.
 
 ### 0.5.0 (March 2, 2017)
 - Added error handling support using NSError.
