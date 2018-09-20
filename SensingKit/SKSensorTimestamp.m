@@ -29,15 +29,15 @@
 
 + (instancetype)sensorTimestampFromDate:(NSDate *)date
 {
-    NSTimeInterval timeInterval = date.timeIntervalSince1970 - [SKSensorTimestamp dateOfLastBoot].timeIntervalSince1970;
-    return [[SKSensorTimestamp alloc] initWithDate:date withTimeInterval:timeInterval];
+    return [[SKSensorTimestamp alloc] initWithDate:date withTimeInterval:date.timeIntervalSince1970];
 }
 
 + (instancetype)sensorTimestampFromTimeInterval:(NSTimeInterval)timeInterval
 {
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval + [SKSensorTimestamp dateOfLastBoot].timeIntervalSince1970];
-    NSLog(@"DEBUG: LB (%@) LBf(%f) -> %f",[SKSensorTimestamp dateOfLastBoot], [SKSensorTimestamp dateOfLastBoot].timeIntervalSince1970, timeInterval);
-    return [[SKSensorTimestamp alloc] initWithDate:date withTimeInterval:timeInterval];
+    NSTimeInterval timestampOffset = [SKSensorTimestamp timestampOffset];
+    NSTimeInterval fixedInterval = timeInterval + timestampOffset;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:fixedInterval];
+    return [[SKSensorTimestamp alloc] initWithDate:date withTimeInterval:fixedInterval];
 }
 
 - (instancetype)initWithDate:(NSDate *)date
@@ -51,39 +51,19 @@
     return self;
 }
 
++ (NSTimeInterval)timestampOffset
+{
+    NSTimeInterval upTime = [NSProcessInfo processInfo].systemUptime;
+    NSTimeInterval nowTimeIntervalSince1970 = [[NSDate date] timeIntervalSince1970];
+    return nowTimeIntervalSince1970 - upTime;
+}
+
 - (id)copyWithZone:(NSZone *)zone
 {
     SKSensorTimestamp *sensorTimestamp = [[[self class] alloc] initWithDate:_timestamp
                                                            withTimeInterval:_timeIntervalSinceLastBoot];
     
     return sensorTimestamp;
-}
-
-// Thanks to https://stackoverflow.com/questions/12488481/getting-ios-system-uptime-that-doesnt-pause-when-asleep/12490414#12490414
-+ (NSDate *)dateOfLastBoot
-{
-    static NSDate *lastBoot;
-    
-    if (!lastBoot)
-    {
-        struct timeval boottime;
-        int mib[2] = {CTL_KERN, KERN_BOOTTIME};
-        size_t size = sizeof(boottime);
-        
-        struct timeval now;
-        struct timezone tz;
-        gettimeofday(&now, &tz);
-        
-        if (sysctl(mib, 2, &boottime, &size, NULL, 0) != -1 && boottime.tv_sec != 0)
-        {
-            lastBoot = [[NSDate alloc] initWithTimeIntervalSince1970:boottime.tv_sec];
-            NSLog(@"Device Boot: %@ (%f)", lastBoot, lastBoot.timeIntervalSince1970);
-            NSLog(@"SystemUptime: %f", [NSProcessInfo processInfo].systemUptime);
-            NSDate *now = [NSDate date];
-            NSLog(@"Now: %@ (%f)", now, now.timeIntervalSince1970);
-        }
-    }
-    return lastBoot;
 }
 
 + (NSDateFormatter *)dateFormatter
