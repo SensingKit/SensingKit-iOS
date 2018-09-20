@@ -59,7 +59,6 @@
     return sensorTimestamp;
 }
 
-
 // Thanks to https://stackoverflow.com/questions/12488481/getting-ios-system-uptime-that-doesnt-pause-when-asleep/12490414#12490414
 + (NSDate *)dateOfLastBoot
 {
@@ -78,7 +77,9 @@
         if (sysctl(mib, 2, &boottime, &size, NULL, 0) != -1 && boottime.tv_sec != 0)
         {
             lastBoot = [[NSDate alloc] initWithTimeIntervalSince1970:boottime.tv_sec];
-            NSLog(@"Device Boot: %@ (%ld)", lastBoot, boottime.tv_sec);
+            NSLog(@"Device Boot: %@ (%f)", lastBoot, lastBoot.timeIntervalSince1970);
+            NSLog(@"SystemUptime (%f)", [NSProcessInfo processInfo].systemUptime);
+            NSLog(@"Now %@", [NSDate date]);
         }
     }
     return lastBoot;
