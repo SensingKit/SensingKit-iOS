@@ -1,6 +1,6 @@
 # Changelog
 
-### 0.5.1 (??, 2018)
+### 0.5.1 (September 20, 2018)
 - Added support for Heading sensor.
 - Added support for iOS 12.
 - Changed the minimum supported platform to iOS 9.
@@ -15,7 +15,7 @@
 - Updated SensingKit Documentation.
 
 ### 0.4.2 (November 27, 2015)
-- Fixed a bug were sensor configuration was not updated.
+- Fixed a bug where sensor configuration was not updated.
 
 ### 0.4.1 (October 16, 2015)
 - Added a restriction of 4 hours when recording audio using Microphone sensor.
