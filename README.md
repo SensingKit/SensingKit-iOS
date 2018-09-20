@@ -191,7 +191,7 @@ Depending on the used sensor and its configuration, some keys with a user-friend
 ### Location
 - NSLocationAlwaysUsageDescription
 - NSLocationWhenInUseUsageDescription
-- NSLocationUsageDescription
+- NSLocationAlwaysAndWhenInUseUsageDescription
 
 ### MotionActivity
 - NSMotionUsageDescription
