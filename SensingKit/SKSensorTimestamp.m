@@ -36,7 +36,7 @@
 + (instancetype)sensorTimestampFromTimeInterval:(NSTimeInterval)timeInterval
 {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval + [SKSensorTimestamp dateOfLastBoot].timeIntervalSince1970];
-    NSLog(@"DEBUG: LB (%@) LBf(%f) - %f",[SKSensorTimestamp dateOfLastBoot], [SKSensorTimestamp dateOfLastBoot].timeIntervalSince1970, timeInterval);
+    NSLog(@"DEBUG: LB (%@) LBf(%f) -> %f",[SKSensorTimestamp dateOfLastBoot], [SKSensorTimestamp dateOfLastBoot].timeIntervalSince1970, timeInterval);
     return [[SKSensorTimestamp alloc] initWithDate:date withTimeInterval:timeInterval];
 }
 
@@ -78,8 +78,9 @@
         {
             lastBoot = [[NSDate alloc] initWithTimeIntervalSince1970:boottime.tv_sec];
             NSLog(@"Device Boot: %@ (%f)", lastBoot, lastBoot.timeIntervalSince1970);
-            NSLog(@"SystemUptime (%f)", [NSProcessInfo processInfo].systemUptime);
-            NSLog(@"Now %@", [NSDate date]);
+            NSLog(@"SystemUptime: %f", [NSProcessInfo processInfo].systemUptime);
+            NSDate *now = [NSDate date];
+            NSLog(@"Now: %@ (%f)", now, now.timeIntervalSince1970);
         }
     }
     return lastBoot;
