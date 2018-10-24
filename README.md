@@ -132,7 +132,7 @@ Subscribe a sensor data handler. You can cast the data object into the actual se
 do {
     try sensingkit.subscribe(to: SKSensorType.Battery, withHandler: { (sensorType, sensorData, error) in
 
-        if (error != nil) {
+        if (error == nil) {
             let batteryData = sensorData as! SKBatteryData
             print("Battery Level: \(batteryData)")
         }
