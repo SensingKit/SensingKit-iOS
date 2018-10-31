@@ -42,12 +42,11 @@
 		CF397FBA1DAE6C9A00A7C36C /* SKAltimeterConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F551DAE6C9A00A7C36C /* SKAltimeterConfiguration.m */; };
 		CF397FBB1DAE6C9A00A7C36C /* SKAltimeterData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F561DAE6C9A00A7C36C /* SKAltimeterData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF397FBC1DAE6C9A00A7C36C /* SKAltimeterData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F571DAE6C9A00A7C36C /* SKAltimeterData.m */; };
-		CF397FBD1DAE6C9A00A7C36C /* SKBattery.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F581DAE6C9A00A7C36C /* SKBattery.h */; };
-		CF397FBE1DAE6C9A00A7C36C /* SKBattery.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F591DAE6C9A00A7C36C /* SKBattery.m */; };
-		CF397FBF1DAE6C9A00A7C36C /* SKBatteryConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F5A1DAE6C9A00A7C36C /* SKBatteryConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF397FC01DAE6C9A00A7C36C /* SKBatteryConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F5B1DAE6C9A00A7C36C /* SKBatteryConfiguration.m */; };
-		CF397FC11DAE6C9A00A7C36C /* SKBatteryData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F5C1DAE6C9A00A7C36C /* SKBatteryData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF397FC21DAE6C9A00A7C36C /* SKBatteryData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F5D1DAE6C9A00A7C36C /* SKBatteryData.m */; };
+		CF397FBD1DAE6C9A00A7C36C /* SKBatteryStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F581DAE6C9A00A7C36C /* SKBatteryStatus.h */; };
+		CF397FBF1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F5A1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF397FC01DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F5B1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m */; };
+		CF397FC11DAE6C9A00A7C36C /* SKBatteryStatusData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F5C1DAE6C9A00A7C36C /* SKBatteryStatusData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF397FC21DAE6C9A00A7C36C /* SKBatteryStatusData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F5D1DAE6C9A00A7C36C /* SKBatteryStatusData.m */; };
 		CF397FC31DAE6C9A00A7C36C /* SKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F5E1DAE6C9A00A7C36C /* SKConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF397FC41DAE6C9A00A7C36C /* SKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F5F1DAE6C9A00A7C36C /* SKConfiguration.m */; };
 		CF397FC51DAE6C9A00A7C36C /* SKDeviceMotion.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F601DAE6C9A00A7C36C /* SKDeviceMotion.h */; };
@@ -128,6 +127,7 @@
 		CF3980241DAE6E6800A7C36C /* ESSTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = CF39801B1DAE6E6800A7C36C /* ESSTimer.h */; };
 		CF3980251DAE6E6800A7C36C /* ESSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF39801C1DAE6E6800A7C36C /* ESSTimer.m */; };
 		CF3980261DAE6E6800A7C36C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CF39801D1DAE6E6800A7C36C /* LICENSE */; };
+		CF6FF409218A0E9400A7D830 /* SKBatteryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F591DAE6C9A00A7C36C /* SKBatteryStatus.m */; };
 		CF9A70A41EB0DCB900DCAB66 /* SKHeading.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70A21EB0DCB900DCAB66 /* SKHeading.h */; };
 		CF9A70A51EB0DCB900DCAB66 /* SKHeading.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70A31EB0DCB900DCAB66 /* SKHeading.m */; };
 		CF9A70A81EB0DCD500DCAB66 /* SKHeadingConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70A61EB0DCD500DCAB66 /* SKHeadingConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -171,12 +171,12 @@
 		CF397F551DAE6C9A00A7C36C /* SKAltimeterConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAltimeterConfiguration.m; sourceTree = "<group>"; };
 		CF397F561DAE6C9A00A7C36C /* SKAltimeterData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAltimeterData.h; sourceTree = "<group>"; };
 		CF397F571DAE6C9A00A7C36C /* SKAltimeterData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAltimeterData.m; sourceTree = "<group>"; };
-		CF397F581DAE6C9A00A7C36C /* SKBattery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBattery.h; sourceTree = "<group>"; };
-		CF397F591DAE6C9A00A7C36C /* SKBattery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBattery.m; sourceTree = "<group>"; };
-		CF397F5A1DAE6C9A00A7C36C /* SKBatteryConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryConfiguration.h; sourceTree = "<group>"; };
-		CF397F5B1DAE6C9A00A7C36C /* SKBatteryConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryConfiguration.m; sourceTree = "<group>"; };
-		CF397F5C1DAE6C9A00A7C36C /* SKBatteryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryData.h; sourceTree = "<group>"; };
-		CF397F5D1DAE6C9A00A7C36C /* SKBatteryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryData.m; sourceTree = "<group>"; };
+		CF397F581DAE6C9A00A7C36C /* SKBatteryStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryStatus.h; sourceTree = "<group>"; };
+		CF397F591DAE6C9A00A7C36C /* SKBatteryStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryStatus.m; sourceTree = "<group>"; };
+		CF397F5A1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryStatusConfiguration.h; sourceTree = "<group>"; };
+		CF397F5B1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryStatusConfiguration.m; sourceTree = "<group>"; };
+		CF397F5C1DAE6C9A00A7C36C /* SKBatteryStatusData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryStatusData.h; sourceTree = "<group>"; };
+		CF397F5D1DAE6C9A00A7C36C /* SKBatteryStatusData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryStatusData.m; sourceTree = "<group>"; };
 		CF397F5E1DAE6C9A00A7C36C /* SKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKConfiguration.h; sourceTree = "<group>"; };
 		CF397F5F1DAE6C9A00A7C36C /* SKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKConfiguration.m; sourceTree = "<group>"; };
 		CF397F601DAE6C9A00A7C36C /* SKDeviceMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDeviceMotion.h; sourceTree = "<group>"; };
@@ -367,8 +367,8 @@
 				CF397F4D1DAE6C9A00A7C36C /* SKAccelerometer.m */,
 				CF397F521DAE6C9A00A7C36C /* SKAltimeter.h */,
 				CF397F531DAE6C9A00A7C36C /* SKAltimeter.m */,
-				CF397F581DAE6C9A00A7C36C /* SKBattery.h */,
-				CF397F591DAE6C9A00A7C36C /* SKBattery.m */,
+				CF397F581DAE6C9A00A7C36C /* SKBatteryStatus.h */,
+				CF397F591DAE6C9A00A7C36C /* SKBatteryStatus.m */,
 				CF397F601DAE6C9A00A7C36C /* SKDeviceMotion.h */,
 				CF397F611DAE6C9A00A7C36C /* SKDeviceMotion.m */,
 				CF397F661DAE6C9A00A7C36C /* SKEddystoneProximity.h */,
@@ -404,8 +404,8 @@
 				CF397F511DAE6C9A00A7C36C /* SKAccelerometerData.m */,
 				CF397F561DAE6C9A00A7C36C /* SKAltimeterData.h */,
 				CF397F571DAE6C9A00A7C36C /* SKAltimeterData.m */,
-				CF397F5C1DAE6C9A00A7C36C /* SKBatteryData.h */,
-				CF397F5D1DAE6C9A00A7C36C /* SKBatteryData.m */,
+				CF397F5C1DAE6C9A00A7C36C /* SKBatteryStatusData.h */,
+				CF397F5D1DAE6C9A00A7C36C /* SKBatteryStatusData.m */,
 				CF397F641DAE6C9A00A7C36C /* SKDeviceMotionData.h */,
 				CF397F651DAE6C9A00A7C36C /* SKDeviceMotionData.m */,
 				CF397F6A1DAE6C9A00A7C36C /* SKEddystoneProximityData.h */,
@@ -443,8 +443,8 @@
 				CF397F4F1DAE6C9A00A7C36C /* SKAccelerometerConfiguration.m */,
 				CF397F541DAE6C9A00A7C36C /* SKAltimeterConfiguration.h */,
 				CF397F551DAE6C9A00A7C36C /* SKAltimeterConfiguration.m */,
-				CF397F5A1DAE6C9A00A7C36C /* SKBatteryConfiguration.h */,
-				CF397F5B1DAE6C9A00A7C36C /* SKBatteryConfiguration.m */,
+				CF397F5A1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h */,
+				CF397F5B1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m */,
 				CF397F621DAE6C9A00A7C36C /* SKDeviceMotionConfiguration.h */,
 				CF397F631DAE6C9A00A7C36C /* SKDeviceMotionConfiguration.m */,
 				CF397F681DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.h */,
@@ -495,11 +495,11 @@
 				CF397F311DA9609C00A7C36C /* SensingKit.h in Headers */,
 				CF397FCD1DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.h in Headers */,
 				CF397FDC1DAE6C9A00A7C36C /* SKiBeaconProximityConfiguration.h in Headers */,
-				CF397FC11DAE6C9A00A7C36C /* SKBatteryData.h in Headers */,
+				CF397FC11DAE6C9A00A7C36C /* SKBatteryStatusData.h in Headers */,
 				CF397FBB1DAE6C9A00A7C36C /* SKAltimeterData.h in Headers */,
 				CF39800A1DAE6C9A00A7C36C /* SKSensorDataHandler.h in Headers */,
 				CF39800F1DAE6C9A00A7C36C /* SKSensorType.h in Headers */,
-				CF397FBD1DAE6C9A00A7C36C /* SKBattery.h in Headers */,
+				CF397FBD1DAE6C9A00A7C36C /* SKBatteryStatus.h in Headers */,
 				CF397FF81DAE6C9A00A7C36C /* SKPedometer.h in Headers */,
 				CF397FC51DAE6C9A00A7C36C /* SKDeviceMotion.h in Headers */,
 				CF397FB91DAE6C9A00A7C36C /* SKAltimeterConfiguration.h in Headers */,
@@ -536,7 +536,7 @@
 				CF39800B1DAE6C9A00A7C36C /* SKSensorManager.h in Headers */,
 				CF397FFA1DAE6C9A00A7C36C /* SKPedometerConfiguration.h in Headers */,
 				CF397FD41DAE6C9A00A7C36C /* SKGyroscopeConfiguration.h in Headers */,
-				CF397FBF1DAE6C9A00A7C36C /* SKBatteryConfiguration.h in Headers */,
+				CF397FBF1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h in Headers */,
 				CF397FF21DAE6C9A00A7C36C /* SKMotionActivityConfiguration.h in Headers */,
 				CF397FC71DAE6C9A00A7C36C /* SKDeviceMotionConfiguration.h in Headers */,
 				CF397FC91DAE6C9A00A7C36C /* SKDeviceMotionData.h in Headers */,
@@ -659,7 +659,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Kleomenis Katevas\";\ncompanyID=\"org.sensingkit\";\ncompanyURL=\"https://www.sensingkit.com\";\ntarget=\"iphoneos\";\noutputPath=\"${PROJECT_DIR}/Documentation\";\n# End constants\n\n/usr/local/bin/appledoc \\\n--project-name \"SensingKit-iOS\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--output \"${outputPath}\" \\\n--ignore .m \\\n--ignore ESSEddystone \\\n--ignore SKAbstractSensor.h \\\n--ignore SKMotionManager.h \\\n--ignore SKAccelerometer.h \\\n--ignore SKGyroscope.h \\\n--ignore SKMagnetometer.h \\\n--ignore SKDeviceMotion.h \\\n--ignore SKMotionActivity.h \\\n--ignore SKPedometer.h \\\n--ignore SKAltimeter.h \\\n--ignore SKBattery.h \\\n--ignore SKLocation.h \\\n--ignore SKiBeaconProximity.h \\\n--ignore SKEddystoneProximity.h \\\n--ignore SKMicrophone.h \\\n--ignore SKHeading.h \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--no-create-docset \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"\n";
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Kleomenis Katevas\";\ncompanyID=\"org.sensingkit\";\ncompanyURL=\"https://www.sensingkit.com\";\ntarget=\"iphoneos\";\noutputPath=\"${PROJECT_DIR}/Documentation\";\n# End constants\n\n/usr/local/bin/appledoc \\\n--project-name \"SensingKit-iOS\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--output \"${outputPath}\" \\\n--ignore .m \\\n--ignore ESSEddystone \\\n--ignore SKAbstractSensor.h \\\n--ignore SKMotionManager.h \\\n--ignore SKAccelerometer.h \\\n--ignore SKGyroscope.h \\\n--ignore SKMagnetometer.h \\\n--ignore SKDeviceMotion.h \\\n--ignore SKMotionActivity.h \\\n--ignore SKPedometer.h \\\n--ignore SKAltimeter.h \\\n--ignore SKBatteryStatus.h \\\n--ignore SKLocation.h \\\n--ignore SKiBeaconProximity.h \\\n--ignore SKEddystoneProximity.h \\\n--ignore SKMicrophone.h \\\n--ignore SKHeading.h \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--no-create-docset \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -668,8 +668,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6FF409218A0E9400A7D830 /* SKBatteryStatus.m in Sources */,
 				CF397FAE1DAE6C9A00A7C36C /* SensingKitLib.m in Sources */,
-				CF397FBE1DAE6C9A00A7C36C /* SKBattery.m in Sources */,
 				CF3980231DAE6E6800A7C36C /* ESSEddystone.m in Sources */,
 				CF397FCE1DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.m in Sources */,
 				CF397FB81DAE6C9A00A7C36C /* SKAltimeter.m in Sources */,
@@ -689,7 +689,7 @@
 				CF397FE11DAE6C9A00A7C36C /* SKLocationConfiguration.m in Sources */,
 				CF3980211DAE6E6800A7C36C /* ESSBeaconScanner.m in Sources */,
 				CF397FE51DAE6C9A00A7C36C /* SKMagnetometer.m in Sources */,
-				CF397FC21DAE6C9A00A7C36C /* SKBatteryData.m in Sources */,
+				CF397FC21DAE6C9A00A7C36C /* SKBatteryStatusData.m in Sources */,
 				CF397FF31DAE6C9A00A7C36C /* SKMotionActivityConfiguration.m in Sources */,
 				CF397FD71DAE6C9A00A7C36C /* SKGyroscopeData.m in Sources */,
 				CF39800E1DAE6C9A00A7C36C /* SKSensorTimestamp.m in Sources */,
@@ -718,7 +718,7 @@
 				CF397FB41DAE6C9A00A7C36C /* SKAccelerometerConfiguration.m in Sources */,
 				CF397FD31DAE6C9A00A7C36C /* SKGyroscope.m in Sources */,
 				CF397FF71DAE6C9A00A7C36C /* SKMotionManager.m in Sources */,
-				CF397FC01DAE6C9A00A7C36C /* SKBatteryConfiguration.m in Sources */,
+				CF397FC01DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m in Sources */,
 				CF397FD01DAE6C9A00A7C36C /* SKEddystoneProximityData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

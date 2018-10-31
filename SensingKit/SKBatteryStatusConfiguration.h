@@ -1,5 +1,5 @@
 //
-//  SKBattery.h
+//  SKBatteryStatusConfiguration.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
@@ -24,18 +24,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SKAbstractSensor.h"
-#import "SKBatteryConfiguration.h"
+#import "SKConfiguration.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SKBattery : SKAbstractSensor
-
-+ (BOOL)isSensorAvailable;
-
-- (instancetype)init NS_UNAVAILABLE;
-
-- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
+/**
+ *  An instance of SKBatteryStatusConfiguration can be used to configure the Battery Status sensor. No configuration is available at this moment.
+ */
+@interface SKBatteryStatusConfiguration : SKConfiguration <NSCopying>
 
 @end
 

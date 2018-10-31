@@ -1,5 +1,5 @@
 //
-//  SKBattery.m
+//  SKBatteryStatus.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
@@ -22,13 +22,13 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBattery.h"
-#import "SKBatteryData.h"
+#import "SKBatteryStatus.h"
+#import "SKBatteryStatusData.h"
 
 
-@implementation SKBattery
+@implementation SKBatteryStatus
 
-- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration
+- (instancetype)initWithConfiguration:(SKBatteryStatusConfiguration *)configuration
 {
     if (self = [super init])
     {
@@ -75,7 +75,7 @@
         return NO;
     }
     
-    if (![SKBattery isSensorAvailable])
+    if (![SKBatteryStatus isSensorAvailable])
     {
         if (error) {
             
@@ -114,7 +114,7 @@
 
 - (void)batteryLevelChanged:(NSNotification *)notification
 {
-    SKBatteryData *data = [[SKBatteryData alloc] initWithLevel:[self batteryLevel]
+    SKBatteryStatusData *data = [[SKBatteryStatusData alloc] initWithLevel:[self batteryLevel]
                                                      withState:[self batteryState]];
     
     [self submitSensorData:data error:NULL];
@@ -122,7 +122,7 @@
 
 - (void)batteryStateChanged:(NSNotification *)notification
 {
-    SKBatteryData *data = [[SKBatteryData alloc] initWithLevel:[self batteryLevel]
+    SKBatteryStatusData *data = [[SKBatteryStatusData alloc] initWithLevel:[self batteryLevel]
                                                      withState:[self batteryState]];
     
     [self submitSensorData:data error:NULL];

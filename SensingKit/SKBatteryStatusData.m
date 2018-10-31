@@ -1,5 +1,5 @@
 //
-//  SKBatteryData.m
+//  SKBatteryStatusData.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
@@ -22,13 +22,13 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBatteryData.h"
+#import "SKBatteryStatusData.h"
 
-@implementation SKBatteryData
+@implementation SKBatteryStatusData
 
 - (instancetype)initWithLevel:(CGFloat)level withState:(UIDeviceBatteryState)state
 {
-    if (self = [super initWithSensorType:Battery
+    if (self = [super initWithSensorType:BatteryStatus
                            withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
     {
         _level = level;

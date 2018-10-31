@@ -35,7 +35,7 @@
 #import "SKMotionActivity.h"
 #import "SKPedometer.h"
 #import "SKAltimeter.h"
-#import "SKBattery.h"
+#import "SKBatteryStatus.h"
 #import "SKLocation.h"
 #import "SKHeading.h"
 #import "SKiBeaconProximity.h"
@@ -50,7 +50,7 @@
 #import "SKMotionActivityData.h"
 #import "SKPedometerData.h"
 #import "SKAltimeterData.h"
-#import "SKBatteryData.h"
+#import "SKBatteryStatusData.h"
 #import "SKLocationData.h"
 #import "SKHeadingData.h"
 #import "SKiBeaconDeviceData.h"
@@ -65,7 +65,7 @@
 #import "SKMotionActivityConfiguration.h"
 #import "SKPedometerConfiguration.h"
 #import "SKAltimeterConfiguration.h"
-#import "SKBatteryConfiguration.h"
+#import "SKBatteryStatusConfiguration.h"
 #import "SKLocationConfiguration.h"
 #import "SKHeadingConfiguration.h"
 #import "SKiBeaconProximityConfiguration.h"
@@ -124,8 +124,8 @@
         case Altimeter:
             return [SKAltimeter isSensorAvailable];
             
-        case Battery:
-            return [SKBattery isSensorAvailable];
+        case BatteryStatus:
+            return [SKBatteryStatus isSensorAvailable];
             
         case Location:
             return [SKLocation isSensorAvailable];
@@ -405,8 +405,8 @@
         case Altimeter:
             return [SKAltimeterData csvHeader];
             
-        case Battery:
-            return [SKBatteryData csvHeader];
+        case BatteryStatus:
+            return [SKBatteryStatusData csvHeader];
             
         case Location:
             return [SKLocationData csvHeader];
@@ -617,8 +617,8 @@
             sensor = [[SKAltimeter alloc] initWithConfiguration:(SKAltimeterConfiguration *)configuration];
             break;
             
-        case Battery:
-            sensor = [[SKBattery alloc] initWithConfiguration:(SKBatteryConfiguration *)configuration];
+        case BatteryStatus:
+            sensor = [[SKBatteryStatus alloc] initWithConfiguration:(SKBatteryStatusConfiguration *)configuration];
             break;
             
         case Location:
@@ -686,8 +686,8 @@
             configuration = [[SKAltimeterConfiguration alloc] init];
             break;
             
-        case Battery:
-            configuration = [[SKBatteryConfiguration alloc] init];
+        case BatteryStatus:
+            configuration = [[SKBatteryStatusConfiguration alloc] init];
             break;
 
         case Location:

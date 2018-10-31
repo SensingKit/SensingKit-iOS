@@ -1,5 +1,5 @@
 //
-//  SKBatteryConfiguration.m
+//  SKBatteryStatusConfiguration.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
@@ -22,9 +22,9 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBatteryConfiguration.h"
+#import "SKBatteryStatusConfiguration.h"
 
-@implementation SKBatteryConfiguration
+@implementation SKBatteryStatusConfiguration
 
 - (instancetype)init
 {
@@ -37,14 +37,14 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    SKBatteryConfiguration *configuration = [super copyWithZone:zone];
+    SKBatteryStatusConfiguration *configuration = [super copyWithZone:zone];
     
     return configuration;
 }
 
 - (BOOL)isValidForSensor:(SKSensorType)sensorType
 {
-    return sensorType == Battery;
+    return sensorType == BatteryStatus;
 }
 
 
