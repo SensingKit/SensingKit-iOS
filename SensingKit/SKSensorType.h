@@ -70,9 +70,9 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     Altimeter,
     
     /**
-     *  Battery sensor listens to changes in the battery charge state (Charging, Full, Unplugged) as well as in the battery charge level (with 1% precision).
+     *  Battery Status sensor listens to changes in the battery charge state (Charging, Full, Unplugged) as well as in the battery charge level (with 1% precision).
      */
-    Battery,
+    BatteryStatus,
     
     /**
      *  Location sensor determines the current location of the device using a combination of Cellular, Wi‑Fi, Bluetooth and GPS sensors. It provides 2D geographical coordinate information (latitude, longitude), as well as the altitude of the device.

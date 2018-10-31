@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.5.2 ???
+- Renamed Battery sensor to BatteryStatus
+
 ### 0.5.1 (September 20, 2018)
 - Added support for Heading sensor.
 - Added support for iOS 12 and Xcode 10.

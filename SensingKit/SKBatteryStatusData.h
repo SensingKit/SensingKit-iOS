@@ -1,5 +1,5 @@
 //
-//  SKBatteryData.h
+//  SKBatteryStatusData.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
@@ -30,9 +30,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  An instance of SKBatteryData encapsulates measurements related to the Battery sensor.
+ *  An instance of SKBatteryStatusData encapsulates measurements related to the Battery Status sensor.
  */
-@interface SKBatteryData : SKSensorData
+@interface SKBatteryStatusData : SKSensorData
 
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -40,12 +40,12 @@ NS_ASSUME_NONNULL_BEGIN
                      withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
- *  Returns an SKBatteryData object, initialized with measurements of the battery level, as well as the battery state.
+ *  Returns an SKBatteryStatusData object, initialized with measurements of the battery level, as well as the battery state.
  *
  *  @param level A float number that indicates the current battery charge level. Value ranges from 0.0 (fully discharged) to 1.0 (fully charged).
  *  @param state An enumerator that descrives the state of the battery, classified as Charging, Full, Unplugged or Unknown.
  *
- *  @return An SKBatteryData object.
+ *  @return An SKBatteryStatusData object.
  */
 - (instancetype)initWithLevel:(CGFloat)level withState:(UIDeviceBatteryState)state NS_DESIGNATED_INITIALIZER;
 
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *stateString;
 
 /**
- *  A string with a CSV formatted header that describes the data of the Battery sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *  A string with a CSV formatted header that describes the data of the Battery Status sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
  *
  *  @return A string with a CSV header.
  */

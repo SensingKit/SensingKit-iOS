@@ -63,7 +63,7 @@
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:MotionActivity]     isEqualToString:@"MotionActivity"],     @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Pedometer]          isEqualToString:@"Pedometer"],          @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Altimeter]          isEqualToString:@"Altimeter"],          @"Sensor name is wrong.");
-    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Battery]            isEqualToString:@"Battery"],            @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:BatteryStatus]            isEqualToString:@"BatteryStatus"],            @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Location]           isEqualToString:@"Location"],           @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Heading]            isEqualToString:@"Heading"],           @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:iBeaconProximity]   isEqualToString:@"iBeaconProximity"],   @"Sensor name is wrong.");
@@ -79,12 +79,12 @@
     XCTAssertNotNil(sensingKit2, @"SensingKitLib cannot be nil.");
     XCTAssertEqual(self.sensingKit, sensingKit2, @"Instances should be identical.");
     
-    XCTAssertTrue([self.sensingKit registerSensor:Battery error:NULL], @"Sensor registration should be allowed.");
-    XCTAssertTrue([self.sensingKit isSensorRegistered:Battery], @"Sensor should be registered.");
-    XCTAssertFalse([self.sensingKit isSensorSensing:Battery], @"Sensor should not be sensing.");
+    XCTAssertTrue([self.sensingKit registerSensor:BatteryStatus error:NULL], @"Sensor registration should be allowed.");
+    XCTAssertTrue([self.sensingKit isSensorRegistered:BatteryStatus], @"Sensor should be registered.");
+    XCTAssertFalse([self.sensingKit isSensorSensing:BatteryStatus], @"Sensor should not be sensing.");
     
     // Subscribe a sensor data listener
-    XCTAssertTrue([self.sensingKit subscribeToSensor:Battery
+    XCTAssertTrue([self.sensingKit subscribeToSensor:BatteryStatus
                                          withHandler:^(SKSensorType sensorType, SKSensorData *sensorData, NSError *error) {
                                             // Do nothing
                                          } error:NULL], @"Subscribe to sensor should be allowed.");
@@ -94,15 +94,15 @@
                                              // Do nothing
                                          } error:NULL], @"Subscribe to sensor should not be allowed as sensor is not registered.");
     
-    XCTAssertTrue([self.sensingKit startContinuousSensingWithSensor:Battery error:NULL], @"Start continuous sensing with a registered sensor with subscribed handler should be allowed.");
-    XCTAssertTrue([self.sensingKit isSensorSensing:Battery], @"Sensor should be sensing.");
+    XCTAssertTrue([self.sensingKit startContinuousSensingWithSensor:BatteryStatus error:NULL], @"Start continuous sensing with a registered sensor with subscribed handler should be allowed.");
+    XCTAssertTrue([self.sensingKit isSensorSensing:BatteryStatus], @"Sensor should be sensing.");
     
-    XCTAssertTrue([self.sensingKit stopContinuousSensingWithSensor:Battery error:NULL], @"Stop continuous sensing with a sensor that is currently sensing should be allowed.");
-    XCTAssertFalse([self.sensingKit isSensorSensing:Battery], @"Sensor should not be sensing.");
+    XCTAssertTrue([self.sensingKit stopContinuousSensingWithSensor:BatteryStatus error:NULL], @"Stop continuous sensing with a sensor that is currently sensing should be allowed.");
+    XCTAssertFalse([self.sensingKit isSensorSensing:BatteryStatus], @"Sensor should not be sensing.");
     
     // Do not unsubscribe here.. (should be automated by deregisterSensor)
-    XCTAssertTrue([self.sensingKit deregisterSensor:Battery error:NULL], @"Sensor should be succesfully deregistered.");
-    XCTAssertFalse([self.sensingKit isSensorRegistered:Battery], @"Sensor should not be registered.");
+    XCTAssertTrue([self.sensingKit deregisterSensor:BatteryStatus error:NULL], @"Sensor should be succesfully deregistered.");
+    XCTAssertFalse([self.sensingKit isSensorRegistered:BatteryStatus], @"Sensor should not be registered.");
 }
 
 - (void)testSensorAvailibility
@@ -170,19 +170,19 @@
 - (void)testSensorConfiguration
 {
     // test set configuration without being registered
-    SKBatteryConfiguration *batteryConfiguration = [[SKBatteryConfiguration alloc] init];
-    XCTAssertFalse([self.sensingKit setConfiguration:batteryConfiguration toSensor:Battery error:NULL], @"Configuration should not be set as sensor is not registered.");
+    SKBatteryStatusConfiguration *batteryConfiguration = [[SKBatteryStatusConfiguration alloc] init];
+    XCTAssertFalse([self.sensingKit setConfiguration:batteryConfiguration toSensor:BatteryStatus error:NULL], @"Configuration should not be set as sensor is not registered.");
     
     // test set configuration
-    XCTAssertTrue([self.sensingKit registerSensor:Battery error:NULL], @"Sensor should be registered succesfully.");
-    XCTAssertTrue([self.sensingKit setConfiguration:batteryConfiguration toSensor:Battery error:NULL], @"Configuration should be set.");
+    XCTAssertTrue([self.sensingKit registerSensor:BatteryStatus error:NULL], @"Sensor should be registered succesfully.");
+    XCTAssertTrue([self.sensingKit setConfiguration:batteryConfiguration toSensor:BatteryStatus error:NULL], @"Configuration should be set.");
     
     // test with wrong type of configuration
     SKAccelerometerConfiguration *accelerometerConfiguration = [[SKAccelerometerConfiguration alloc] init];
-    XCTAssertFalse([self.sensingKit setConfiguration:accelerometerConfiguration toSensor:Battery error:NULL], @"Accelerometer configuration should not be set into a Battery sensor.");
+    XCTAssertFalse([self.sensingKit setConfiguration:accelerometerConfiguration toSensor:BatteryStatus error:NULL], @"Accelerometer configuration should not be set into a Battery sensor.");
     
     // deregister sensor
-    XCTAssertTrue([self.sensingKit deregisterSensor:Battery error:NULL], @"Sensor should be deregistered sucessfully.");
+    XCTAssertTrue([self.sensingKit deregisterSensor:BatteryStatus error:NULL], @"Sensor should be deregistered sucessfully.");
     
     // Test SKEddystoneProximityConfiguration
     SKEddystoneProximityConfiguration *eddystoneConfiguration = [[SKEddystoneProximityConfiguration alloc] init];
