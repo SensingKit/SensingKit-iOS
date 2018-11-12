@@ -159,7 +159,7 @@ You can Start and Stop the Continuous Sensing using the following commands:
 ```swift
 // Start
 do {
-    try sensingKit.startContinuousSensingWithSensor(SKSensorType.BatteryStatus)
+    try sensingKit.startContinuousSensing(with:SKSensorType.Battery)
 }
 catch {
     // Handle error
@@ -167,7 +167,7 @@ catch {
 
 // Stop
 do {
-    try sensingKit.stopContinuousSensingWithSensor(SKSensorType.BatteryStatus)
+    try sensingKit.stopContinuousSensing(with:SKSensorType.Battery)
 }
 catch {
     // Handle error
