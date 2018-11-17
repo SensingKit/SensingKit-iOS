@@ -32,7 +32,7 @@ static NSString *const SKErrorDomain = @"org.sensingkit.SensingKit-iOS.ErrorDoma
  */
 typedef NS_ENUM(NSInteger, SKSensorError) {
     
-/** Sensor Availibility */
+/** Sensor Availability */
     
     /**
      * Sensor is not available.
