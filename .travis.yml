@@ -1,4 +1,4 @@
 language: objective-c
 xcode_project: SensingKit.xcodeproj
-xcode_scheme: SensingKitTests
+xcode_scheme: SensingKit
 xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X
