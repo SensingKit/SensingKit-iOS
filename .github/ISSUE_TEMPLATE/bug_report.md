@@ -18,8 +18,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Smartphone (please complete the following information):**
  - Device: [e.g. iPhone X]
- - OS: iOS
- - Version [e.g. 12.0]
+ - iOS Version [e.g. 12.0]
 
 **Additional context**
 Add any other context about the problem here.
