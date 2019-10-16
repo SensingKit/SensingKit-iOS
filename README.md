@@ -130,7 +130,7 @@ Subscribe a sensor data handler. You can cast the data object into the actual se
 *Swift*
 ```swift
 do {
-    try sensingkit.subscribe(to: SKSensorType.Battery, withHandler: { (sensorType, sensorData, error) in
+    try sensingKit.subscribe(to: SKSensorType.Battery, withHandler: { (sensorType, sensorData, error) in
 
         if (error == nil) {
             let batteryData = sensorData as! SKBatteryData
