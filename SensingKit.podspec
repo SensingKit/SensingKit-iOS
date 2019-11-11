@@ -53,7 +53,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Kleomenis Katevas"  => 'k.katevas@qmul.ac.uk'}
+  s.author             = { "Kleomenis Katevas"  => 'k.katevas@imperial.ac.uk'}
   s.social_media_url   = "https://twitter.com/SensingKit"
  
 
