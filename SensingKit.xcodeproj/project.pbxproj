@@ -591,7 +591,7 @@
 			attributes = {
 				CLASSPREFIX = SK;
 				LastUpgradeCheck = 1120;
-				ORGANIZATIONNAME = "Queen Mary University of London";
+				ORGANIZATIONNAME = "Kleomenis Katevas";
 				TargetAttributes = {
 					CF397F1F1DA9609C00A7C36C = {
 						CreatedOnToolsVersion = 8.0;
