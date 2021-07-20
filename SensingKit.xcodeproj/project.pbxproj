@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		4322561626A70B8000C8DC46 /* SensingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4322561526A70B8000C8DC46 /* SensingKit.h */; };
 		CF397F2A1DA9609C00A7C36C /* SensingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF397F201DA9609C00A7C36C /* SensingKit.framework */; };
 		CF397F2F1DA9609C00A7C36C /* SensingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F2E1DA9609C00A7C36C /* SensingKitTests.m */; };
 		CF397F311DA9609C00A7C36C /* SensingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F231DA9609C00A7C36C /* SensingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -147,6 +148,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4322561526A70B8000C8DC46 /* SensingKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensingKit.h; sourceTree = "<group>"; };
 		CF397F201DA9609C00A7C36C /* SensingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SensingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF397F231DA9609C00A7C36C /* SensingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SensingKit.h; path = SensingKit/SensingKit.h; sourceTree = "<group>"; };
 		CF397F241DA9609C00A7C36C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SensingKit/Info.plist; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				CF397F491DAE6C9A00A7C36C /* SensingKitLib.m */,
 				CF397FA61DAE6C9A00A7C36C /* SKSensorManager.h */,
 				CF397FA71DAE6C9A00A7C36C /* SKSensorManager.m */,
+				4322561526A70B8000C8DC46 /* SensingKit.h */,
 			);
 			path = SensingKit;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				CF397FB31DAE6C9A00A7C36C /* SKAccelerometerConfiguration.h in Headers */,
 				CF397FEA1DAE6C9A00A7C36C /* SKMicrophone.h in Headers */,
 				CF397FE81DAE6C9A00A7C36C /* SKMagnetometerData.h in Headers */,
+				4322561626A70B8000C8DC46 /* SensingKit.h in Headers */,
 				CF397FE21DAE6C9A00A7C36C /* SKLocationData.h in Headers */,
 				CF397FDA1DAE6C9A00A7C36C /* SKiBeaconProximity.h in Headers */,
 				CF9A70A81EB0DCD500DCAB66 /* SKHeadingConfiguration.h in Headers */,
@@ -877,6 +881,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.sensingkit.SensingKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -896,6 +902,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.sensingkit.SensingKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
