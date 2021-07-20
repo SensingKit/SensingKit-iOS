@@ -24,7 +24,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SKSampleRateConfiguration.h"
+#import <SKSampleRateConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

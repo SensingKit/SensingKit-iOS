@@ -24,7 +24,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SKConfiguration.h"
+#import <SKConfiguration.h>
 
 /**
  *  These constants indicate the mode of the iBeacon™ Proximity sensor.

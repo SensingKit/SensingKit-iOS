@@ -24,7 +24,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SKSensorData.h"
+#import <SKSensorData.h>
 @import CoreLocation;
 
 NS_ASSUME_NONNULL_BEGIN

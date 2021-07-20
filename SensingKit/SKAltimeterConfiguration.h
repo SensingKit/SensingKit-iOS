@@ -24,7 +24,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SKConfiguration.h"
+#import <SKConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
