@@ -41,6 +41,7 @@
 #import "SKiBeaconProximity.h"
 #import "SKEddystoneProximity.h"
 #import "SKMicrophone.h"
+#import "SKCamera.h"
 
 // SensorData
 #import "SKAccelerometerData.h"
@@ -56,6 +57,7 @@
 #import "SKiBeaconDeviceData.h"
 #import "SKEddystoneProximityData.h"
 #import "SKMicrophoneData.h"
+#import "SKCameraData.h"
 
 // SensorConfiguration
 #import "SKAccelerometerConfiguration.h"
@@ -71,6 +73,7 @@
 #import "SKiBeaconProximityConfiguration.h"
 #import "SKEddystoneProximityConfiguration.h"
 #import "SKMicrophoneConfiguration.h"
+#import "SKCameraConfiguration.h"
 
 
 @interface SKSensorManager()
@@ -141,6 +144,9 @@
             
         case Microphone:
             return [SKMicrophone isSensorAvailable];
+        
+        case Camera:
+            return [SKCamera isSensorAvailable];
         
             // Don't forget to break!
             
@@ -422,6 +428,9 @@
             
         case Microphone:
             return [SKMicrophoneData csvHeader];
+            
+        case Camera:
+            return [SKCameraData csvHeader];
         
             // Don't forget to break!
             
@@ -641,6 +650,10 @@
             sensor = [[SKMicrophone alloc] initWithConfiguration:(SKMicrophoneConfiguration *)configuration];
             break;
             
+        case Camera:
+            sensor = [[SKCamera alloc] initWithConfiguration:(SKCameraConfiguration *)configuration];
+            break;
+            
             // Don't forget to break!
             
         default:
@@ -708,6 +721,10 @@
             
         case Microphone:
             configuration = [[SKMicrophoneConfiguration alloc] initWithOutputDirectory:[SKSensorManager applicationDocumentsDirectory] withFilename:@"Recording"];
+            break;
+            
+        case Camera:
+            configuration = [[SKCameraConfiguration alloc] initWithOutputDirectory:[SKSensorManager applicationDocumentsDirectory] withFilename:@"Recording"];
             break;
             
             // Don't forget to break!

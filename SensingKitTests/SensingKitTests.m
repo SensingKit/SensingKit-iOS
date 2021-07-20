@@ -63,12 +63,13 @@
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:MotionActivity]     isEqualToString:@"MotionActivity"],     @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Pedometer]          isEqualToString:@"Pedometer"],          @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Altimeter]          isEqualToString:@"Altimeter"],          @"Sensor name is wrong.");
-    XCTAssertTrue([[NSString nonspacedStringWithSensorType:BatteryStatus]            isEqualToString:@"BatteryStatus"],            @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:BatteryStatus]      isEqualToString:@"BatteryStatus"],      @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Location]           isEqualToString:@"Location"],           @"Sensor name is wrong.");
-    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Heading]            isEqualToString:@"Heading"],           @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Heading]            isEqualToString:@"Heading"],            @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:iBeaconProximity]   isEqualToString:@"iBeaconProximity"],   @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:EddystoneProximity] isEqualToString:@"EddystoneProximity"], @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Microphone]         isEqualToString:@"Microphone"],         @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:Camera]             isEqualToString:@"Camera"],             @"Sensor name is wrong.");
 }
 
 - (void)testSensingKitLib

@@ -22,6 +22,12 @@
 
 /* Begin PBXBuildFile section */
 		4322561626A70B8000C8DC46 /* SensingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4322561526A70B8000C8DC46 /* SensingKit.h */; };
+		43A608DC26A7173800122F3F /* SKCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A608DA26A7173800122F3F /* SKCamera.h */; };
+		43A608DD26A7173800122F3F /* SKCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A608DB26A7173800122F3F /* SKCamera.m */; };
+		43A608E026A7174200122F3F /* SKCameraConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A608DE26A7174200122F3F /* SKCameraConfiguration.h */; };
+		43A608E126A7174200122F3F /* SKCameraConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A608DF26A7174200122F3F /* SKCameraConfiguration.m */; };
+		43A608E426A7174800122F3F /* SKCameraData.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A608E226A7174800122F3F /* SKCameraData.h */; };
+		43A608E526A7174800122F3F /* SKCameraData.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A608E326A7174800122F3F /* SKCameraData.m */; };
 		CF397F2A1DA9609C00A7C36C /* SensingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF397F201DA9609C00A7C36C /* SensingKit.framework */; };
 		CF397F2F1DA9609C00A7C36C /* SensingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F2E1DA9609C00A7C36C /* SensingKitTests.m */; };
 		CF397F311DA9609C00A7C36C /* SensingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F231DA9609C00A7C36C /* SensingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -149,6 +155,12 @@
 
 /* Begin PBXFileReference section */
 		4322561526A70B8000C8DC46 /* SensingKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensingKit.h; sourceTree = "<group>"; };
+		43A608DA26A7173800122F3F /* SKCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCamera.h; sourceTree = "<group>"; };
+		43A608DB26A7173800122F3F /* SKCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCamera.m; sourceTree = "<group>"; };
+		43A608DE26A7174200122F3F /* SKCameraConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCameraConfiguration.h; sourceTree = "<group>"; };
+		43A608DF26A7174200122F3F /* SKCameraConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCameraConfiguration.m; sourceTree = "<group>"; };
+		43A608E226A7174800122F3F /* SKCameraData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCameraData.h; sourceTree = "<group>"; };
+		43A608E326A7174800122F3F /* SKCameraData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCameraData.m; sourceTree = "<group>"; };
 		CF397F201DA9609C00A7C36C /* SensingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SensingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF397F231DA9609C00A7C36C /* SensingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SensingKit.h; path = SensingKit/SensingKit.h; sourceTree = "<group>"; };
 		CF397F241DA9609C00A7C36C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SensingKit/Info.plist; sourceTree = "<group>"; };
@@ -362,6 +374,8 @@
 		CF3980271DAE737C00A7C36C /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				43A608DA26A7173800122F3F /* SKCamera.h */,
+				43A608DB26A7173800122F3F /* SKCamera.m */,
 				CF397F911DAE6C9A00A7C36C /* SKMotionManager.h */,
 				CF397F921DAE6C9A00A7C36C /* SKMotionManager.m */,
 				CF397F4A1DAE6C9A00A7C36C /* SKAbstractSensor.h */,
@@ -399,6 +413,8 @@
 		CF3980281DAE73BB00A7C36C /* SensorData */ = {
 			isa = PBXGroup;
 			children = (
+				43A608E226A7174800122F3F /* SKCameraData.h */,
+				43A608E326A7174800122F3F /* SKCameraData.m */,
 				CF397FA81DAE6C9A00A7C36C /* SKSensorTimestamp.h */,
 				CF397FA91DAE6C9A00A7C36C /* SKSensorTimestamp.m */,
 				CF397FA31DAE6C9A00A7C36C /* SKSensorData.h */,
@@ -438,6 +454,8 @@
 		CF3980291DAE73EA00A7C36C /* SensorConfiguration */ = {
 			isa = PBXGroup;
 			children = (
+				43A608DE26A7174200122F3F /* SKCameraConfiguration.h */,
+				43A608DF26A7174200122F3F /* SKCameraConfiguration.m */,
 				CF397F5E1DAE6C9A00A7C36C /* SKConfiguration.h */,
 				CF397F5F1DAE6C9A00A7C36C /* SKConfiguration.m */,
 				CF397F9B1DAE6C9A00A7C36C /* SKSampleRateConfiguration.h */,
@@ -497,10 +515,12 @@
 				CF397FAB1DAE6C9A00A7C36C /* NSString+SensorType.h in Headers */,
 				CF397F311DA9609C00A7C36C /* SensingKit.h in Headers */,
 				CF397FCD1DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.h in Headers */,
+				43A608E426A7174800122F3F /* SKCameraData.h in Headers */,
 				CF397FDC1DAE6C9A00A7C36C /* SKiBeaconProximityConfiguration.h in Headers */,
 				CF397FC11DAE6C9A00A7C36C /* SKBatteryStatusData.h in Headers */,
 				CF397FBB1DAE6C9A00A7C36C /* SKAltimeterData.h in Headers */,
 				CF39800A1DAE6C9A00A7C36C /* SKSensorDataHandler.h in Headers */,
+				43A608E026A7174200122F3F /* SKCameraConfiguration.h in Headers */,
 				CF39800F1DAE6C9A00A7C36C /* SKSensorType.h in Headers */,
 				CF397FBD1DAE6C9A00A7C36C /* SKBatteryStatus.h in Headers */,
 				CF397FF81DAE6C9A00A7C36C /* SKPedometer.h in Headers */,
@@ -509,6 +529,7 @@
 				CF397FF61DAE6C9A00A7C36C /* SKMotionManager.h in Headers */,
 				CF397FAD1DAE6C9A00A7C36C /* SensingKitLib.h in Headers */,
 				CF397FDE1DAE6C9A00A7C36C /* SKLocation.h in Headers */,
+				43A608DC26A7173800122F3F /* SKCamera.h in Headers */,
 				CF397FF41DAE6C9A00A7C36C /* SKMotionActivityData.h in Headers */,
 				CF397FD21DAE6C9A00A7C36C /* SKGyroscope.h in Headers */,
 				CF397FCF1DAE6C9A00A7C36C /* SKEddystoneProximityData.h in Headers */,
@@ -687,6 +708,7 @@
 				CF397FF51DAE6C9A00A7C36C /* SKMotionActivityData.m in Sources */,
 				CF397FF91DAE6C9A00A7C36C /* SKPedometer.m in Sources */,
 				CF397FEF1DAE6C9A00A7C36C /* SKMicrophoneData.m in Sources */,
+				43A608E526A7174800122F3F /* SKCameraData.m in Sources */,
 				CF397FBA1DAE6C9A00A7C36C /* SKAltimeterConfiguration.m in Sources */,
 				CF397FD91DAE6C9A00A7C36C /* SKiBeaconDeviceData.m in Sources */,
 				CF397FBC1DAE6C9A00A7C36C /* SKAltimeterData.m in Sources */,
@@ -718,12 +740,14 @@
 				CF397FCA1DAE6C9A00A7C36C /* SKDeviceMotionData.m in Sources */,
 				CF397FDB1DAE6C9A00A7C36C /* SKiBeaconProximity.m in Sources */,
 				CF397FEB1DAE6C9A00A7C36C /* SKMicrophone.m in Sources */,
+				43A608E126A7174200122F3F /* SKCameraConfiguration.m in Sources */,
 				CF3980011DAE6C9A00A7C36C /* SKSampleRateConfiguration.m in Sources */,
 				CF397FF11DAE6C9A00A7C36C /* SKMotionActivity.m in Sources */,
 				CF397FB41DAE6C9A00A7C36C /* SKAccelerometerConfiguration.m in Sources */,
 				CF397FD31DAE6C9A00A7C36C /* SKGyroscope.m in Sources */,
 				CF397FF71DAE6C9A00A7C36C /* SKMotionManager.m in Sources */,
 				CF397FC01DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m in Sources */,
+				43A608DD26A7173800122F3F /* SKCamera.m in Sources */,
 				CF397FD01DAE6C9A00A7C36C /* SKEddystoneProximityData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
