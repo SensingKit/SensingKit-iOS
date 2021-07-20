@@ -23,9 +23,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SKSensorType.h"
-#import "SKSensorTimestamp.h"
-#import "NSString+SensorType.h"
+#import <SKSensorType.h>
+#import <SKSensorTimestamp.h>
+#import <NSString+SensorType.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -25,7 +25,7 @@
 #import <UIKit/UIDevice.h>
 #import <Foundation/Foundation.h>
 
-#import "SKSensorData.h"
+#import <SKSensorData.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
