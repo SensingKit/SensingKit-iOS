@@ -147,7 +147,7 @@
 
 - (BOOL)startBroadcasting:(NSError **)error
 {
-    if (self.peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
+    if (self.peripheralManager.state != CBManagerStatePoweredOn) {
         
         if (error) {
             
@@ -247,7 +247,7 @@
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
 {
-    if (peripheral.state != CBPeripheralManagerStatePoweredOn)
+    if (peripheral.state != CBManagerStatePoweredOn)
     {
         NSLog(@"Warning: Bluetooth radio is not available. (State: %d)", (int)peripheral.state);
     }
