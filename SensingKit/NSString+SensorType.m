@@ -39,8 +39,7 @@ static const NSString *SENSOR_STRINGS[] = {
     @"Heading",
     @"iBeacon™ Proximity",
     @"Eddystone™ Proximity",
-    @"Microphone",
-    @"Camera"
+    @"Microphone"
 };
 
 static const NSString *NONSPACED_SENSOR_STRINGS[] = {
@@ -56,8 +55,7 @@ static const NSString *NONSPACED_SENSOR_STRINGS[] = {
     @"Heading",
     @"iBeaconProximity",
     @"EddystoneProximity",
-    @"Microphone",
-    @"Camera"
+    @"Microphone"
 };
 
 + (NSString *)stringWithSensorType:(SKSensorType)sensorType

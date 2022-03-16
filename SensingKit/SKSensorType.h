@@ -97,10 +97,5 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     /**
      *  Microphone sensor(s) can be used to record audio from the environment (up to 4 hours) by converting sound into electrical signal.
      */
-    Microphone,
-    
-    /**
-     *  Camera sensor can be used to take pictures or record video from the environment. Note that recorded video can optionally also include audio from the Microphone sensor(s).
-     */
-    Camera
+    Microphone
 };
