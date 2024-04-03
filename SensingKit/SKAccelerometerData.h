@@ -24,8 +24,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import <SKSensorData.h>
-@import CoreMotion;
+#import <SensingKit/SKSensorData.h>
+#import <CoreMotion/CoreMotion.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

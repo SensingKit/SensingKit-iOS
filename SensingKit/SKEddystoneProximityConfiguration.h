@@ -24,7 +24,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <SKConfiguration.h>
+#import <SensingKit/SKConfiguration.h>
 
 /**
  *  These constants indicate the mode of the Eddystone™ Proximity sensor. At this moment, only Scan mode is supported.

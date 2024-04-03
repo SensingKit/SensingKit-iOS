@@ -24,9 +24,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import <SKSensorType.h>
-#import <SKSensorDataHandler.h>
-#import <SKConfiguration.h>
+#import <SensingKit/SKSensorType.h>
+#import <SensingKit/SKSensorDataHandler.h>
+#import <SensingKit/SKConfiguration.h>
 
 
 NS_ASSUME_NONNULL_BEGIN

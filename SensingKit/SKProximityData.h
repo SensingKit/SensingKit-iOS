@@ -23,7 +23,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <SKSensorData.h>
+#import <SensingKit/SKSensorData.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

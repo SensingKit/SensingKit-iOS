@@ -23,10 +23,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-#import <SKConfiguration.h>
+#import <SensingKit/SKConfiguration.h>
 
-@import CoreLocation;
 
 NS_ASSUME_NONNULL_BEGIN
 
