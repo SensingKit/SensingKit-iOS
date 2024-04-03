@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SensingKit"
-  s.version      = "0.5.1"
+  s.version      = "0.6.0"
   s.summary      = "Mobile Sensing Framework."
 
   # This description is used to generate tags and improve search results.
@@ -53,7 +53,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Kleomenis Katevas"  => 'k.katevas@imperial.ac.uk'}
+  s.author             = { "Kleomenis Katevas"  => 'minos.kat@gmail.com'}
   s.social_media_url   = "https://twitter.com/SensingKit"
  
 
@@ -63,7 +63,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "12.0"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
