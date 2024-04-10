@@ -145,7 +145,8 @@
         case Microphone:
             return [SKMicrophone isSensorAvailable];
         
-            // Don't forget to break!
+        case ScreenBrightness:
+            return [SKScreenBrightness isSensorAvailable];
             
         default:
             // Internal Error. Should never happen.

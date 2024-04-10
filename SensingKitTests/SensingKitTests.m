@@ -69,6 +69,7 @@
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:iBeaconProximity]   isEqualToString:@"iBeaconProximity"],   @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:EddystoneProximity] isEqualToString:@"EddystoneProximity"], @"Sensor name is wrong.");
     XCTAssertTrue([[NSString nonspacedStringWithSensorType:Microphone]         isEqualToString:@"Microphone"],         @"Sensor name is wrong.");
+    XCTAssertTrue([[NSString nonspacedStringWithSensorType:ScreenBrightness]         isEqualToString:@"ScreenBrightness"],  @"Sensor name is wrong.");
 }
 
 - (void)testSensingKitLib
