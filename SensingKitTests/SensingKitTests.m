@@ -106,7 +106,7 @@
     XCTAssertFalse([self.sensingKit isSensorRegistered:BatteryStatus], @"Sensor should not be registered.");
 }
 
-- (void)testSensorAvailibility
+- (void)testSensorAvailability
 {
     for (SKSensorType i = 0; i < TOTAL_SENSORS; i++) {
         // No need for XCTAssert here, it just needs to pass without crashing (abort())
