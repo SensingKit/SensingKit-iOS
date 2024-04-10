@@ -55,6 +55,7 @@ FOUNDATION_EXPORT const unsigned char SensingKitVersionString[];
 #import <SensingKit/SKEddystoneProximityData.h>
 #import <SensingKit/SKMicrophoneData.h>
 #import <SensingKit/SKScreenBrightnessData.h>
+#import <SensingKit/SKNetworkConnectionData.h>
 
 // Sensor Configuration
 #import <SensingKit/SKAccelerometerConfiguration.h>
@@ -71,3 +72,4 @@ FOUNDATION_EXPORT const unsigned char SensingKitVersionString[];
 #import <SensingKit/SKEddystoneProximityConfiguration.h>
 #import <SensingKit/SKMicrophoneConfiguration.h>
 #import <SensingKit/SKScreenBrightnessConfiguration.h>
+#import <SensingKit/SKNetworkConnectionConfiguration.h>

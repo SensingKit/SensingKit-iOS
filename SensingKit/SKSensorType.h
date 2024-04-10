@@ -27,7 +27,7 @@
 /**
  *  Total number of sensors supported by SensingKit-iOS.
  */
-static NSUInteger const TOTAL_SENSORS = 14;
+static NSUInteger const TOTAL_SENSORS = 15;
 
 /**
  *  These constants indicate the type of the sensor.
@@ -102,5 +102,10 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     /**
      *  The Screen Brightness sensor listens for changes in the device screen brightness level and reports it with 1% precision. This change can happen manually by the user or automatically by the OS when Auto-Brightness feature is enabled (Settings > Accessibility > Display & Text Size).
      */
-    ScreenBrightness
+    ScreenBrightness,
+    
+    /**
+     *  TODO: The Network Connection sensor reports changes in the device's network connectivity (e.g., WiFi, Cellular, etc.) and quality (e.g., XXX).
+     */
+    NetworkConnection
 };
