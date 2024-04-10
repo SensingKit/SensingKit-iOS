@@ -134,6 +134,12 @@
 		CF9A70A91EB0DCD500DCAB66 /* SKHeadingConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70A71EB0DCD500DCAB66 /* SKHeadingConfiguration.m */; };
 		CF9A70AC1EB0DD0E00DCAB66 /* SKHeadingData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70AA1EB0DD0E00DCAB66 /* SKHeadingData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF9A70AD1EB0DD0E00DCAB66 /* SKHeadingData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70AB1EB0DD0E00DCAB66 /* SKHeadingData.m */; };
+		CF9D0A4A2BC59FCC0006C55D /* SKScreenBrightness.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9D0A482BC59FCC0006C55D /* SKScreenBrightness.m */; };
+		CF9D0A4C2BC59FCC0006C55D /* SKScreenBrightness.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9D0A492BC59FCC0006C55D /* SKScreenBrightness.h */; };
+		CF9D0A4F2BC5A00A0006C55D /* SKScreenBrightnessData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9D0A4D2BC5A00A0006C55D /* SKScreenBrightnessData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF9D0A502BC5A00A0006C55D /* SKScreenBrightnessData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9D0A4E2BC5A00A0006C55D /* SKScreenBrightnessData.m */; };
+		CF9D0A532BC5A0250006C55D /* SKScreenBrightnessConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9D0A512BC5A0240006C55D /* SKScreenBrightnessConfiguration.m */; };
+		CF9D0A542BC5A0250006C55D /* SKScreenBrightnessConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9D0A522BC5A0240006C55D /* SKScreenBrightnessConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +270,12 @@
 		CF9A70A71EB0DCD500DCAB66 /* SKHeadingConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHeadingConfiguration.m; sourceTree = "<group>"; };
 		CF9A70AA1EB0DD0E00DCAB66 /* SKHeadingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHeadingData.h; sourceTree = "<group>"; };
 		CF9A70AB1EB0DD0E00DCAB66 /* SKHeadingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHeadingData.m; sourceTree = "<group>"; };
+		CF9D0A482BC59FCC0006C55D /* SKScreenBrightness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKScreenBrightness.m; sourceTree = "<group>"; };
+		CF9D0A492BC59FCC0006C55D /* SKScreenBrightness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScreenBrightness.h; sourceTree = "<group>"; };
+		CF9D0A4D2BC5A00A0006C55D /* SKScreenBrightnessData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScreenBrightnessData.h; sourceTree = "<group>"; };
+		CF9D0A4E2BC5A00A0006C55D /* SKScreenBrightnessData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKScreenBrightnessData.m; sourceTree = "<group>"; };
+		CF9D0A512BC5A0240006C55D /* SKScreenBrightnessConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKScreenBrightnessConfiguration.m; sourceTree = "<group>"; };
+		CF9D0A522BC5A0240006C55D /* SKScreenBrightnessConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScreenBrightnessConfiguration.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +383,8 @@
 				CF397F531DAE6C9A00A7C36C /* SKAltimeter.m */,
 				CF397F581DAE6C9A00A7C36C /* SKBatteryStatus.h */,
 				CF397F591DAE6C9A00A7C36C /* SKBatteryStatus.m */,
+				CF9D0A492BC59FCC0006C55D /* SKScreenBrightness.h */,
+				CF9D0A482BC59FCC0006C55D /* SKScreenBrightness.m */,
 				CF397F601DAE6C9A00A7C36C /* SKDeviceMotion.h */,
 				CF397F611DAE6C9A00A7C36C /* SKDeviceMotion.m */,
 				CF397F661DAE6C9A00A7C36C /* SKEddystoneProximity.h */,
@@ -408,6 +422,8 @@
 				CF397F571DAE6C9A00A7C36C /* SKAltimeterData.m */,
 				CF397F5C1DAE6C9A00A7C36C /* SKBatteryStatusData.h */,
 				CF397F5D1DAE6C9A00A7C36C /* SKBatteryStatusData.m */,
+				CF9D0A4D2BC5A00A0006C55D /* SKScreenBrightnessData.h */,
+				CF9D0A4E2BC5A00A0006C55D /* SKScreenBrightnessData.m */,
 				CF397F641DAE6C9A00A7C36C /* SKDeviceMotionData.h */,
 				CF397F651DAE6C9A00A7C36C /* SKDeviceMotionData.m */,
 				CF397F6A1DAE6C9A00A7C36C /* SKEddystoneProximityData.h */,
@@ -447,6 +463,8 @@
 				CF397F551DAE6C9A00A7C36C /* SKAltimeterConfiguration.m */,
 				CF397F5A1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h */,
 				CF397F5B1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m */,
+				CF9D0A522BC5A0240006C55D /* SKScreenBrightnessConfiguration.h */,
+				CF9D0A512BC5A0240006C55D /* SKScreenBrightnessConfiguration.m */,
 				CF397F621DAE6C9A00A7C36C /* SKDeviceMotionConfiguration.h */,
 				CF397F631DAE6C9A00A7C36C /* SKDeviceMotionConfiguration.m */,
 				CF397F681DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.h */,
@@ -502,12 +520,14 @@
 				CF39800A1DAE6C9A00A7C36C /* SKSensorDataHandler.h in Headers */,
 				CF39800F1DAE6C9A00A7C36C /* SKSensorType.h in Headers */,
 				CF397FBD1DAE6C9A00A7C36C /* SKBatteryStatus.h in Headers */,
+				CF9D0A4F2BC5A00A0006C55D /* SKScreenBrightnessData.h in Headers */,
 				CF397FF81DAE6C9A00A7C36C /* SKPedometer.h in Headers */,
 				CF397FC51DAE6C9A00A7C36C /* SKDeviceMotion.h in Headers */,
 				CF397FB91DAE6C9A00A7C36C /* SKAltimeterConfiguration.h in Headers */,
 				CF397FF61DAE6C9A00A7C36C /* SKMotionManager.h in Headers */,
 				CF397FAD1DAE6C9A00A7C36C /* SensingKitLib.h in Headers */,
 				CF397FDE1DAE6C9A00A7C36C /* SKLocation.h in Headers */,
+				CF9D0A542BC5A0250006C55D /* SKScreenBrightnessConfiguration.h in Headers */,
 				CF397FF41DAE6C9A00A7C36C /* SKMotionActivityData.h in Headers */,
 				CF397FD21DAE6C9A00A7C36C /* SKGyroscope.h in Headers */,
 				CF397FCF1DAE6C9A00A7C36C /* SKEddystoneProximityData.h in Headers */,
@@ -537,6 +557,7 @@
 				CF397FFE1DAE6C9A00A7C36C /* SKProximityData.h in Headers */,
 				CF39800B1DAE6C9A00A7C36C /* SKSensorManager.h in Headers */,
 				CF397FFA1DAE6C9A00A7C36C /* SKPedometerConfiguration.h in Headers */,
+				CF9D0A4C2BC59FCC0006C55D /* SKScreenBrightness.h in Headers */,
 				CF397FD41DAE6C9A00A7C36C /* SKGyroscopeConfiguration.h in Headers */,
 				CF397FBF1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h in Headers */,
 				CF397FF21DAE6C9A00A7C36C /* SKMotionActivityConfiguration.h in Headers */,
@@ -695,6 +716,7 @@
 				CF397FE51DAE6C9A00A7C36C /* SKMagnetometer.m in Sources */,
 				CF397FC21DAE6C9A00A7C36C /* SKBatteryStatusData.m in Sources */,
 				CF397FF31DAE6C9A00A7C36C /* SKMotionActivityConfiguration.m in Sources */,
+				CF9D0A4A2BC59FCC0006C55D /* SKScreenBrightness.m in Sources */,
 				CF397FD71DAE6C9A00A7C36C /* SKGyroscopeData.m in Sources */,
 				CF39800E1DAE6C9A00A7C36C /* SKSensorTimestamp.m in Sources */,
 				CF397FD51DAE6C9A00A7C36C /* SKGyroscopeConfiguration.m in Sources */,
@@ -719,11 +741,13 @@
 				CF397FEB1DAE6C9A00A7C36C /* SKMicrophone.m in Sources */,
 				CF3980011DAE6C9A00A7C36C /* SKSampleRateConfiguration.m in Sources */,
 				CF397FF11DAE6C9A00A7C36C /* SKMotionActivity.m in Sources */,
+				CF9D0A502BC5A00A0006C55D /* SKScreenBrightnessData.m in Sources */,
 				CF397FB41DAE6C9A00A7C36C /* SKAccelerometerConfiguration.m in Sources */,
 				CF397FD31DAE6C9A00A7C36C /* SKGyroscope.m in Sources */,
 				CF397FF71DAE6C9A00A7C36C /* SKMotionManager.m in Sources */,
 				CF397FC01DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m in Sources */,
 				CF397FD01DAE6C9A00A7C36C /* SKEddystoneProximityData.m in Sources */,
+				CF9D0A532BC5A0250006C55D /* SKScreenBrightnessConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,7 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 - iBeacon™ Proximity
 - Eddystone™ Proximity
 - Microphone
+- Screen Brightness
 
 
 ## Installing the Library
@@ -201,7 +202,7 @@ Depending on the used sensor and its configuration, some keys with a user-friend
 
 ```
 Copyright (c) 2014. Kleomenis Katevas
-Kleomenis Katevas, k.katevas@imperial.ac.uk
+Kleomenis Katevas, minos.kat@gmail.com
 
 This file is part of SensingKit-iOS library.
 For more information, please visit https://www.sensingkit.org

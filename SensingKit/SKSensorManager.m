@@ -41,6 +41,7 @@
 #import "SKiBeaconProximity.h"
 #import "SKEddystoneProximity.h"
 #import "SKMicrophone.h"
+#import "SKScreenBrightness.h"
 
 // SensorData
 #import "SKAccelerometerData.h"
@@ -56,6 +57,7 @@
 #import "SKiBeaconDeviceData.h"
 #import "SKEddystoneProximityData.h"
 #import "SKMicrophoneData.h"
+#import "SKScreenBrightnessData.h"
 
 // SensorConfiguration
 #import "SKAccelerometerConfiguration.h"
@@ -71,6 +73,7 @@
 #import "SKiBeaconProximityConfiguration.h"
 #import "SKEddystoneProximityConfiguration.h"
 #import "SKMicrophoneConfiguration.h"
+#import "SKScreenBrightnessConfiguration.h"
 
 
 @interface SKSensorManager()
@@ -641,6 +644,10 @@
             sensor = [[SKMicrophone alloc] initWithConfiguration:(SKMicrophoneConfiguration *)configuration];
             break;
             
+        case ScreenBrightness:
+            sensor = [[SKScreenBrightness alloc] initWithConfiguration:(SKScreenBrightnessConfiguration *)configuration];
+            break;
+            
             // Don't forget to break!
             
         default:
@@ -708,6 +715,10 @@
             
         case Microphone:
             configuration = [[SKMicrophoneConfiguration alloc] initWithOutputDirectory:[SKSensorManager applicationDocumentsDirectory] withFilename:@"Recording"];
+            break;
+            
+        case ScreenBrightness:
+            configuration = [[SKScreenBrightnessConfiguration alloc] init];
             break;
             
             // Don't forget to break!

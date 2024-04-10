@@ -97,5 +97,10 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     /**
      *  Microphone sensor(s) can be used to record audio from the environment (up to 4 hours) by converting sound into electrical signal.
      */
-    Microphone
+    Microphone,
+    
+    /**
+     *  The Screen Brightness sensor listens for changes in the device screen brightness level and reports it with 1% precision. This change can happen manually by the user or automatically by the OS when Auto-Brightness feature is enabled (Settings > Accessibility > Display & Text Size).
+     */
+    ScreenBrightness
 };
