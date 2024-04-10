@@ -186,8 +186,11 @@ Depending on the used sensor and its configuration, some keys with a user-friend
 ### Microphone
 - NSMicrophoneUsageDescription
 
+### iBeacon™ Proximity
+- NSBluetoothAlwaysUsageDescription (when Broadcasting only)
+
 ### Eddystone
-- NSBluetoothPeripheralUsageDescription
+- NSBluetoothAlwaysUsageDescription
 
 ### Location
 - NSLocationAlwaysUsageDescription
