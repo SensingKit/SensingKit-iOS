@@ -27,7 +27,7 @@
 /**
  *  Total number of sensors supported by SensingKit-iOS.
  */
-static NSUInteger const TOTAL_SENSORS = 13;
+static NSUInteger const TOTAL_SENSORS = 14;
 
 /**
  *  These constants indicate the type of the sensor.
