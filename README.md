@@ -21,6 +21,7 @@ The following mobile sensors are currently supported in SensingKit-iOS, (listed 
 - Eddystone™ Proximity
 - Microphone
 - Screen Brightness
+- Network Connection
 
 
 ## Installing the Library
