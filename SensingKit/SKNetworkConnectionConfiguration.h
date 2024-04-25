@@ -24,14 +24,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import <SensingKit/SKConfiguration.h>
+#import <SensingKit/SKSampleRateConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An instance of SKNetworkConnectionConfiguration can be used to configure the Network Connection sensor. No configuration is available at this moment.
  */
-@interface SKNetworkConnectionConfiguration : SKConfiguration <NSCopying>
+@interface SKNetworkConnectionConfiguration : SKSampleRateConfiguration <NSCopying>
 
 @end
 

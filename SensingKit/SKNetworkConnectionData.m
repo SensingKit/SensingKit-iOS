@@ -26,27 +26,36 @@
 
 @implementation SKNetworkConnectionData
 
-- (instancetype)initWithLevel:(CGFloat)level
+- (instancetype)initWithWifiSent:(UInt64) wifiSent
+                    wifiReceived:(UInt64) wifiReceived
+                    cellularSent:(UInt64) cellularSent
+                cellularReceived:(UInt64) cellularReceived;
 {
     if (self = [super initWithSensorType:NetworkConnection
                            withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
     {
-        _level = level;
+        _wifiSent = wifiSent;
+        _wifiReceived = wifiReceived;
+        _cellularSent = cellularSent;
+        _cellularReceived = cellularReceived;
     }
     return self;
 }
 
 + (NSString *)csvHeader
 {
-    return @"timestamp,timeIntervalSince1970,level";
+    return @"timestamp,timeIntervalSince1970,wifiSent,wifiReceived,cellularSent,cellularReceived";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"\"%@\",%f,%f",
+    return [NSString stringWithFormat:@"\"%@\",%f,%llu,%llu,%llu,%llu",
             self.timestamp.timestampString,
             self.timestamp.timeIntervalSince1970,
-            _level];
+            _wifiSent,
+            _wifiReceived,
+            _cellularSent,
+            _cellularReceived];
 }
 
 - (NSDictionary *)dictionaryData
@@ -55,8 +64,11 @@
         @"sensorType": @(self.sensorType),
         @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
         @"timestamp": self.timestamp.timestampDictionary,
-        @"brightness": @{
-            @"level": @(_level),
+        @"networkConnection": @{
+            @"wifiSent": @(_wifiSent),
+            @"wifiReceived": @(_wifiReceived),
+            @"cellularSent": @(_cellularSent),
+            @"cellularReceived": @(_cellularReceived)
         }
     };
 }

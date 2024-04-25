@@ -46,12 +46,30 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return An SKScreenBrightnessData object.
  */
-- (instancetype)initWithLevel:(CGFloat)level NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithWifiSent:(UInt64) wifiSent
+                    wifiReceived:(UInt64) wifiReceived
+                    cellularSent:(UInt64) cellularSent
+                cellularReceived:(UInt64) cellularReceived NS_DESIGNATED_INITIALIZER;
 
 /**
  *  A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
  */
-@property (nonatomic, readonly) CGFloat level;
+@property (nonatomic, readonly) UInt64 wifiSent;
+
+/**
+ *  A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
+ */
+@property (nonatomic, readonly) UInt64 wifiReceived;
+
+/**
+ *  A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
+ */
+@property (nonatomic, readonly) UInt64 cellularSent;
+
+/**
+ *  A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
+ */
+@property (nonatomic, readonly) UInt64 cellularReceived;
 
 /**
  *  A string with a CSV formatted header that describes the data of the Screen Brightness sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.

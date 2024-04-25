@@ -25,6 +25,21 @@
 #import "SKNetworkConnection.h"
 #import "SKNetworkConnectionData.h"
 
+#include <net/if.h>
+#include <ifaddrs.h>
+
+typedef struct {
+    uint64_t sent;
+    uint64_t received;
+} SKNetworkDataStruct;
+
+@interface SKNetworkConnection ()
+
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic) NSUInteger *sampleRate;
+
+@end
+
 
 @implementation SKNetworkConnection
 
@@ -81,29 +96,80 @@
         return NO;
     }
     
-    // TODO
+    SKNetworkConnectionConfiguration *networkConnectionConfiguration = (SKNetworkConnectionConfiguration *)self.configuration;
+    NSTimeInterval interval = 1 / networkConnectionConfiguration.sampleRate;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
+        SKNetworkConnectionData *data = [self dataConsumpted];
+        [self submitSensorData:data error:NULL];
+    }];
     
     return YES;
 }
 
 - (BOOL)stopSensing:(NSError **)error
 {
-    // TODO
+    [self.timer invalidate];
+    self.timer = nil;
     
     return [super stopSensing:error];
 }
 
-//- (CGFloat)brightnessLevel
-//{
-//    return [UIScreen mainScreen].brightness;
-//}
+// thanks to:
+// https://stackoverflow.com/questions/7946699/iphone-data-usage-tracking-monitoring
+- (SKNetworkConnectionData *)dataConsumpted
+{
+    SKNetworkDataStruct wifiData = {0, 0};
+    SKNetworkDataStruct cellularData = {0, 0};
+    
+    struct ifaddrs *addrs;
+    if (getifaddrs(&addrs) == 0)
+    {
+        const struct ifaddrs *cursor = addrs;
+        while (cursor != NULL)
+        {
+            if (cursor->ifa_addr->sa_family == AF_LINK)
+            {
+                NSString *name = @(cursor->ifa_name);
+                
+                if ([name hasPrefix:@"en"])  // WiFi
+                {
+                    [self accumulateBytesForIfAddress:cursor
+                                             intoSent:&wifiData.sent
+                                          andReceived:&wifiData.received];
+                }
+                else if ([name hasPrefix:@"pdp_ip"])  // Cellular
+                {
+                    [self accumulateBytesForIfAddress:cursor 
+                                             intoSent:&cellularData.sent
+                                          andReceived:&cellularData.received];
+                }
+                // else not interested, ignore
+            }
 
-//- (void)brightnessLevelChanged:(NSNotification *)notification
-//{
-//    SKScreenBrightnessData *data = [[SKScreenBrightnessData alloc] initWithLevel:[self brightnessLevel]];
-//    
-//    [self submitSensorData:data error:NULL];
-//}
+            cursor = cursor->ifa_next;
+        }
+        
+        freeifaddrs(addrs);
+    }
+    
+    SKNetworkConnectionData *networkConnectionData = [[SKNetworkConnectionData alloc] initWithWifiSent:wifiData.sent
+                                                                                          wifiReceived:wifiData.received
+                                                                                          cellularSent:cellularData.sent
+                                                                                      cellularReceived:cellularData.received];
 
+    return networkConnectionData;
+}
+
+- (void)accumulateBytesForIfAddress:(const struct ifaddrs *)ifaddrs
+                           intoSent:(uint64_t *)sent
+                        andReceived:(uint64_t *)received
+{
+    const struct if_data *ifa_data = (struct if_data *)ifaddrs->ifa_data;
+    if (ifa_data != NULL)
+    {
+        *sent += ifa_data->ifi_obytes;
+        *received += ifa_data->ifi_ibytes;
+    }
+}
 
 @end

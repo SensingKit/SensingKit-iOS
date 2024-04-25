@@ -29,6 +29,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface SKNetworkConnection : SKAbstractSensor
 
 + (BOOL)isSensorAvailable;

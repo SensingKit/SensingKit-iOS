@@ -31,6 +31,7 @@
     if (self = [super init])
     {
         // Set default values
+        self.sampleRate = 1;  // Hz
     }
     return self;
 }
