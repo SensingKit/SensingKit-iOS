@@ -29,7 +29,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  This is the base class for all motion sensors that require a sample rate configuration. These sensors are Accelerometer, Gyroscope, Magnetometer and Device Motion.
+ *  This is the base class for all motion sensors that require a sample rate configuration (e.g., Accelerometer, Gyroscope, Magnetometer, Device Motion, etc.).
  */
 @interface SKSampleRateConfiguration : SKConfiguration <NSCopying>
 

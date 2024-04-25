@@ -28,15 +28,13 @@
 #include <net/if.h>
 #include <ifaddrs.h>
 
-typedef struct {
-    uint64_t sent;
-    uint64_t received;
-} SKNetworkDataStruct;
 
 @interface SKNetworkConnection ()
 
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic) NSUInteger *sampleRate;
+
+@property (nonatomic) SKNetworkDataConsumed dataOffset;
+@property (nonatomic) SKNetworkDataConsumed cumulativeDataConsumed;
 
 @end
 
@@ -48,6 +46,7 @@ typedef struct {
     if (self = [super init])
     {
         self.configuration = configuration;
+        self.cumulativeDataConsumed = (SKNetworkDataConsumed){0, 0, 0, 0};
     }
     return self;
 }
@@ -86,8 +85,8 @@ typedef struct {
         if (error) {
             
             NSDictionary *userInfo = @{
-                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Network Connection sensor is not available.", nil),
-                                       };
+                NSLocalizedDescriptionKey: NSLocalizedString(@"Network Connection sensor is not available.", nil),
+            };
             
             *error = [NSError errorWithDomain:SKErrorDomain
                                          code:SKSensorNotAvailableError
@@ -96,10 +95,25 @@ typedef struct {
         return NO;
     }
     
+    // Save offset
+    self.dataOffset = [self getNetworkDataConsumptedSinceDeviceBoot];
+    
+    // Start sensor
     SKNetworkConnectionConfiguration *networkConnectionConfiguration = (SKNetworkConnectionConfiguration *)self.configuration;
     NSTimeInterval interval = 1 / networkConnectionConfiguration.sampleRate;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
-        SKNetworkConnectionData *data = [self dataConsumpted];
+        
+        SKNetworkDataConsumed currentData = [self getNetworkDataConsumped];
+        
+        // apple offset
+        SKNetworkDataConsumed cumulativeDataConsumed = self.cumulativeDataConsumed;
+        cumulativeDataConsumed.wifiSent += currentData.wifiSent;
+        cumulativeDataConsumed.wifiReceived += currentData.wifiReceived;
+        cumulativeDataConsumed.cellularSent += currentData.cellularSent;
+        cumulativeDataConsumed.cellularReceived += currentData.cellularReceived;
+        self.cumulativeDataConsumed = cumulativeDataConsumed;
+        
+        SKNetworkConnectionData *data = [[SKNetworkConnectionData alloc] initWithNetworkDataConsumped:currentData];
         [self submitSensorData:data error:NULL];
     }];
     
@@ -114,12 +128,24 @@ typedef struct {
     return [super stopSensing:error];
 }
 
+- (SKNetworkDataConsumed)getNetworkDataConsumped
+{
+    SKNetworkDataConsumed dataConsumed = [self getNetworkDataConsumptedSinceDeviceBoot];
+    
+    // apply offset
+    dataConsumed.wifiSent -= self.dataOffset.wifiSent;
+    dataConsumed.wifiReceived -= self.dataOffset.wifiReceived;
+    dataConsumed.cellularSent -= self.dataOffset.cellularSent;
+    dataConsumed.cellularReceived -= self.dataOffset.cellularReceived;
+    
+    return dataConsumed;
+}
+
 // thanks to:
 // https://stackoverflow.com/questions/7946699/iphone-data-usage-tracking-monitoring
-- (SKNetworkConnectionData *)dataConsumpted
+- (SKNetworkDataConsumed)getNetworkDataConsumptedSinceDeviceBoot
 {
-    SKNetworkDataStruct wifiData = {0, 0};
-    SKNetworkDataStruct cellularData = {0, 0};
+    SKNetworkDataConsumed data = (SKNetworkDataConsumed){0, 0, 0, 0};
     
     struct ifaddrs *addrs;
     if (getifaddrs(&addrs) == 0)
@@ -134,31 +160,34 @@ typedef struct {
                 if ([name hasPrefix:@"en"])  // WiFi
                 {
                     [self accumulateBytesForIfAddress:cursor
-                                             intoSent:&wifiData.sent
-                                          andReceived:&wifiData.received];
+                                             intoSent:&data.wifiSent
+                                          andReceived:&data.wifiReceived];
                 }
                 else if ([name hasPrefix:@"pdp_ip"])  // Cellular
                 {
-                    [self accumulateBytesForIfAddress:cursor 
-                                             intoSent:&cellularData.sent
-                                          andReceived:&cellularData.received];
+                    [self accumulateBytesForIfAddress:cursor
+                                             intoSent:&data.cellularSent
+                                          andReceived:&data.cellularReceived];
                 }
-                // else not interested, ignore
+                // else, not interested. Ignore.
             }
-
+            
             cursor = cursor->ifa_next;
         }
         
         freeifaddrs(addrs);
     }
     
-    SKNetworkConnectionData *networkConnectionData = [[SKNetworkConnectionData alloc] initWithWifiSent:wifiData.sent
-                                                                                          wifiReceived:wifiData.received
-                                                                                          cellularSent:cellularData.sent
-                                                                                      cellularReceived:cellularData.received];
-
-    return networkConnectionData;
+    return data;
 }
+    
+//    SKNetworkConnectionData *networkConnectionData = [[SKNetworkConnectionData alloc] initWithWifiSent:wifiData.sent
+//                                                                                          wifiReceived:wifiData.received
+//                                                                                          cellularSent:cellularData.sent
+//                                                                                      cellularReceived:cellularData.received];
+//
+//    return networkConnectionData;
+//}
 
 - (void)accumulateBytesForIfAddress:(const struct ifaddrs *)ifaddrs
                            intoSent:(uint64_t *)sent

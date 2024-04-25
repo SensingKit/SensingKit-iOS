@@ -26,18 +26,29 @@
 
 @implementation SKNetworkConnectionData
 
-- (instancetype)initWithWifiSent:(UInt64) wifiSent
-                    wifiReceived:(UInt64) wifiReceived
-                    cellularSent:(UInt64) cellularSent
-                cellularReceived:(UInt64) cellularReceived;
+- (instancetype)initWithNetworkDataConsumped:(SKNetworkDataConsumed)dataConsumped
 {
     if (self = [super initWithSensorType:NetworkConnection
                            withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
     {
-        _wifiSent = wifiSent;
-        _wifiReceived = wifiReceived;
-        _cellularSent = cellularSent;
-        _cellularReceived = cellularReceived;
+        _wifiSent = dataConsumped.wifiSent;
+        _wifiReceived = dataConsumped.wifiReceived;
+        _cellularSent = dataConsumped.cellularSent;
+        _cellularReceived = dataConsumped.cellularReceived;
+    }
+    return self;
+}
+
+- (instancetype)initWithNetworkDataConsumped:(SKNetworkDataConsumed)dataConsumped
+                                      offset:(SKNetworkDataConsumed)offset
+{
+    if (self = [super initWithSensorType:NetworkConnection
+                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
+    {
+        _wifiSent = offset.wifiSent - dataConsumped.wifiSent;
+        _wifiReceived = offset.wifiReceived - dataConsumped.wifiReceived;
+        _cellularSent = offset.cellularSent - dataConsumped.cellularSent;
+        _cellularReceived = offset.cellularReceived - dataConsumped.cellularReceived;
     }
     return self;
 }

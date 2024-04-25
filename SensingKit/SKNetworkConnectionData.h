@@ -29,6 +29,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef struct {
+    
+    // WiFi
+    uint64_t wifiSent;
+    uint64_t wifiReceived;
+    
+    // Cellular
+    uint64_t cellularSent;
+    uint64_t cellularReceived;
+    
+} SKNetworkDataConsumed;
+
+
 /**
  *  An instance of SKNetworkConnectionData encapsulates measurements related to the Network Connection sensor.
  */
@@ -40,16 +53,21 @@ NS_ASSUME_NONNULL_BEGIN
                      withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
- *  Returns an SKScreenBrightnessData object, initialized with measurements of the screen brightness level.
+ *  Returns an SKNetworkConnectionData object, initialized with measurements related to the network connection and activity.
  *
- *  @param level A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
- *
- *  @return An SKScreenBrightnessData object.
+ *  @param dataConsumped TODO: .
+ *  @return An SKNetworkConnectionData object.
  */
-- (instancetype)initWithWifiSent:(UInt64) wifiSent
-                    wifiReceived:(UInt64) wifiReceived
-                    cellularSent:(UInt64) cellularSent
-                cellularReceived:(UInt64) cellularReceived NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNetworkDataConsumped:(SKNetworkDataConsumed)dataConsumped NS_DESIGNATED_INITIALIZER;
+
+/**
+ *  Returns an SKNetworkConnectionData object, initialized with measurements related to the network connection and activity.
+ *
+ *  @param dataConsumped TODO: .
+ *  @return An SKNetworkConnectionData object.
+ */
+- (instancetype)initWithNetworkDataConsumped:(SKNetworkDataConsumed)dataConsumped
+                                      offset:(SKNetworkDataConsumed)offset NS_DESIGNATED_INITIALIZER;
 
 /**
  *  A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
@@ -72,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) UInt64 cellularReceived;
 
 /**
- *  A string with a CSV formatted header that describes the data of the Screen Brightness sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
+ *  A string with a CSV formatted header that describes the data of the Network Connection sensor. This method is useful in combination with the csvString instance method of an SKSensorData object.
  *
  *  @return A string with a CSV header.
  */
