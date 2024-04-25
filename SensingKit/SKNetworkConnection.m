@@ -32,9 +32,7 @@
 @interface SKNetworkConnection ()
 
 @property (nonatomic, strong) NSTimer *timer;
-
-@property (nonatomic) SKNetworkDataConsumed dataOffset;
-@property (nonatomic) SKNetworkDataConsumed cumulativeDataConsumed;
+@property (nonatomic) SKNetworkDataActivity totalNetworkDataActivity;
 
 @end
 
@@ -46,7 +44,7 @@
     if (self = [super init])
     {
         self.configuration = configuration;
-        self.cumulativeDataConsumed = (SKNetworkDataConsumed){0, 0, 0, 0};
+        self.totalNetworkDataActivity = (SKNetworkDataActivity){0, 0, 0, 0};
     }
     return self;
 }
@@ -96,24 +94,25 @@
     }
     
     // Save offset
-    self.dataOffset = [self getNetworkDataConsumptedSinceDeviceBoot];
+    SKNetworkDataActivity startSensingOffset = [self getNetworkDataSinceDeviceBoot];
     
     // Start sensor
     SKNetworkConnectionConfiguration *networkConnectionConfiguration = (SKNetworkConnectionConfiguration *)self.configuration;
     NSTimeInterval interval = 1 / networkConnectionConfiguration.sampleRate;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
         
-        SKNetworkDataConsumed currentData = [self getNetworkDataConsumped];
+        // get actual data consumped (since start sensing)
+        SKNetworkDataActivity currentDataActivity = [self getNetworkDataWithOffset:startSensingOffset];
         
-        // apple offset
-        SKNetworkDataConsumed cumulativeDataConsumed = self.cumulativeDataConsumed;
-        cumulativeDataConsumed.wifiSent += currentData.wifiSent;
-        cumulativeDataConsumed.wifiReceived += currentData.wifiReceived;
-        cumulativeDataConsumed.cellularSent += currentData.cellularSent;
-        cumulativeDataConsumed.cellularReceived += currentData.cellularReceived;
-        self.cumulativeDataConsumed = cumulativeDataConsumed;
+        // accumulate data
+        SKNetworkDataActivity totalNetworkDataActivity = self.totalNetworkDataActivity;
+        totalNetworkDataActivity.wifiSent += currentDataActivity.wifiSent;
+        totalNetworkDataActivity.wifiReceived += currentDataActivity.wifiReceived;
+        totalNetworkDataActivity.cellularSent += currentDataActivity.cellularSent;
+        totalNetworkDataActivity.cellularReceived += currentDataActivity.cellularReceived;
+        self.totalNetworkDataActivity = totalNetworkDataActivity;
         
-        SKNetworkConnectionData *data = [[SKNetworkConnectionData alloc] initWithNetworkDataConsumped:currentData];
+        SKNetworkConnectionData *data = [[SKNetworkConnectionData alloc] initWithNetworkDataActivity:totalNetworkDataActivity];
         [self submitSensorData:data error:NULL];
     }];
     
@@ -128,24 +127,24 @@
     return [super stopSensing:error];
 }
 
-- (SKNetworkDataConsumed)getNetworkDataConsumped
+- (SKNetworkDataActivity)getNetworkDataWithOffset:(SKNetworkDataActivity)offset
 {
-    SKNetworkDataConsumed dataConsumed = [self getNetworkDataConsumptedSinceDeviceBoot];
+    SKNetworkDataActivity networkDataActivity = [self getNetworkDataSinceDeviceBoot];
     
     // apply offset
-    dataConsumed.wifiSent -= self.dataOffset.wifiSent;
-    dataConsumed.wifiReceived -= self.dataOffset.wifiReceived;
-    dataConsumed.cellularSent -= self.dataOffset.cellularSent;
-    dataConsumed.cellularReceived -= self.dataOffset.cellularReceived;
+    networkDataActivity.wifiSent -= offset.wifiSent;
+    networkDataActivity.wifiReceived -= offset.wifiReceived;
+    networkDataActivity.cellularSent -= offset.cellularSent;
+    networkDataActivity.cellularReceived -= offset.cellularReceived;
     
-    return dataConsumed;
+    return networkDataActivity;
 }
 
 // thanks to:
 // https://stackoverflow.com/questions/7946699/iphone-data-usage-tracking-monitoring
-- (SKNetworkDataConsumed)getNetworkDataConsumptedSinceDeviceBoot
+- (SKNetworkDataActivity)getNetworkDataSinceDeviceBoot
 {
-    SKNetworkDataConsumed data = (SKNetworkDataConsumed){0, 0, 0, 0};
+    SKNetworkDataActivity networkDataActivity = (SKNetworkDataActivity){0, 0, 0, 0};
     
     struct ifaddrs *addrs;
     if (getifaddrs(&addrs) == 0)
@@ -160,14 +159,14 @@
                 if ([name hasPrefix:@"en"])  // WiFi
                 {
                     [self accumulateBytesForIfAddress:cursor
-                                             intoSent:&data.wifiSent
-                                          andReceived:&data.wifiReceived];
+                                             intoSent:&networkDataActivity.wifiSent
+                                          andReceived:&networkDataActivity.wifiReceived];
                 }
                 else if ([name hasPrefix:@"pdp_ip"])  // Cellular
                 {
                     [self accumulateBytesForIfAddress:cursor
-                                             intoSent:&data.cellularSent
-                                          andReceived:&data.cellularReceived];
+                                             intoSent:&networkDataActivity.cellularSent
+                                          andReceived:&networkDataActivity.cellularReceived];
                 }
                 // else, not interested. Ignore.
             }
@@ -178,16 +177,8 @@
         freeifaddrs(addrs);
     }
     
-    return data;
+    return networkDataActivity;
 }
-    
-//    SKNetworkConnectionData *networkConnectionData = [[SKNetworkConnectionData alloc] initWithWifiSent:wifiData.sent
-//                                                                                          wifiReceived:wifiData.received
-//                                                                                          cellularSent:cellularData.sent
-//                                                                                      cellularReceived:cellularData.received];
-//
-//    return networkConnectionData;
-//}
 
 - (void)accumulateBytesForIfAddress:(const struct ifaddrs *)ifaddrs
                            intoSent:(uint64_t *)sent

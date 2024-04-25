@@ -26,29 +26,15 @@
 
 @implementation SKNetworkConnectionData
 
-- (instancetype)initWithNetworkDataConsumped:(SKNetworkDataConsumed)dataConsumped
+- (instancetype)initWithNetworkDataActivity:(SKNetworkDataActivity)networkDataActivity
 {
     if (self = [super initWithSensorType:NetworkConnection
                            withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
     {
-        _wifiSent = dataConsumped.wifiSent;
-        _wifiReceived = dataConsumped.wifiReceived;
-        _cellularSent = dataConsumped.cellularSent;
-        _cellularReceived = dataConsumped.cellularReceived;
-    }
-    return self;
-}
-
-- (instancetype)initWithNetworkDataConsumped:(SKNetworkDataConsumed)dataConsumped
-                                      offset:(SKNetworkDataConsumed)offset
-{
-    if (self = [super initWithSensorType:NetworkConnection
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
-    {
-        _wifiSent = offset.wifiSent - dataConsumped.wifiSent;
-        _wifiReceived = offset.wifiReceived - dataConsumped.wifiReceived;
-        _cellularSent = offset.cellularSent - dataConsumped.cellularSent;
-        _cellularReceived = offset.cellularReceived - dataConsumped.cellularReceived;
+        _wifiSent = networkDataActivity.wifiSent;
+        _wifiReceived = networkDataActivity.wifiReceived;
+        _cellularSent = networkDataActivity.cellularSent;
+        _cellularReceived = networkDataActivity.cellularReceived;
     }
     return self;
 }
@@ -75,7 +61,7 @@
         @"sensorType": @(self.sensorType),
         @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
         @"timestamp": self.timestamp.timestampDictionary,
-        @"networkConnection": @{
+        @"networkData": @{
             @"wifiSent": @(_wifiSent),
             @"wifiReceived": @(_wifiReceived),
             @"cellularSent": @(_cellularSent),

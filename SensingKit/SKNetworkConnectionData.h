@@ -39,7 +39,7 @@ typedef struct {
     uint64_t cellularSent;
     uint64_t cellularReceived;
     
-} SKNetworkDataConsumed;
+} SKNetworkDataActivity;
 
 
 /**
@@ -53,21 +53,12 @@ typedef struct {
                      withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
- *  Returns an SKNetworkConnectionData object, initialized with measurements related to the network connection and activity.
+ *  Returns an SKNetworkConnectionData object, initialized with measurements related to the network connection and data activity.
  *
- *  @param dataConsumped TODO: .
+ *  @param networkDataActivity TODO: .
  *  @return An SKNetworkConnectionData object.
  */
-- (instancetype)initWithNetworkDataConsumped:(SKNetworkDataConsumed)dataConsumped NS_DESIGNATED_INITIALIZER;
-
-/**
- *  Returns an SKNetworkConnectionData object, initialized with measurements related to the network connection and activity.
- *
- *  @param dataConsumped TODO: .
- *  @return An SKNetworkConnectionData object.
- */
-- (instancetype)initWithNetworkDataConsumped:(SKNetworkDataConsumed)dataConsumped
-                                      offset:(SKNetworkDataConsumed)offset NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNetworkDataActivity:(SKNetworkDataActivity)networkDataActivity NS_DESIGNATED_INITIALIZER;
 
 /**
  *  A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
