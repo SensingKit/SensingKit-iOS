@@ -105,7 +105,8 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     ScreenBrightness,
     
     /**
-     *  TODO: The Network Connection sensor reports changes in the device's network connectivity (e.g., WiFi, Cellular, etc.) and quality (e.g., XXX).
+     *  The Network Connection sensor reports changes in the device's network connectivity (e.g., WiFi vs. Cellular, WiFi SSID or Cellular carrier, IP address, etc.), quality (e.g., signal strength, Internet reachability, etc.) and network data consumption (in bytes).
      */
     NetworkConnection
 };
+ 
