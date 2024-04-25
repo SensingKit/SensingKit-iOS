@@ -152,7 +152,7 @@
             return [SKScreenBrightness isSensorAvailable];
             
         case NetworkConnection:
-            return [SKScreenBrightness isSensorAvailable];
+            return [SKNetworkConnection isSensorAvailable];
             
         default:
             // Internal Error. Should never happen.
@@ -437,7 +437,7 @@
             return [SKScreenBrightnessData csvHeader];
             
         case NetworkConnection:
-            return [SKScreenBrightnessData csvHeader];
+            return [SKNetworkConnectionData csvHeader];
             
         default:
             // Internal Error. Should never happen.
@@ -660,7 +660,7 @@
             break;
             
         case NetworkConnection:
-            sensor = [[SKScreenBrightness alloc] initWithConfiguration:(SKScreenBrightnessConfiguration *)configuration];
+            sensor = [[SKNetworkConnection alloc] initWithConfiguration:(SKNetworkConnectionConfiguration *)configuration];
             break;
             
             // Don't forget to break!
