@@ -1,6 +1,7 @@
 # Changelog
 
 ### 0.6.0 ???
+- Added support for Network Connection sensor.
 - Added support for Screen Brightness sensor.
 - Added support for iOS 17 and Xcode 15.
 - Renamed Battery sensor to BatteryStatus.
