@@ -6,20 +6,6 @@
 	objectVersion = 63;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		CF39802B1DAE7AC500A7C36C /* Documentation */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = CF39802C1DAE7AC600A7C36C /* Build configuration list for PBXAggregateTarget "Documentation" */;
-			buildPhases = (
-				CF39802F1DAE7AE100A7C36C /* Build Documentation */,
-			);
-			dependencies = (
-			);
-			name = Documentation;
-			productName = Documentation;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		CF397F2A1DA9609C00A7C36C /* SensingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF397F201DA9609C00A7C36C /* SensingKit.framework */; };
 		CF397F2F1DA9609C00A7C36C /* SensingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F2E1DA9609C00A7C36C /* SensingKitTests.m */; };
@@ -646,10 +632,6 @@
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
-					CF39802B1DAE7AC500A7C36C = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = CF397F1A1DA9609C00A7C36C /* Build configuration list for PBXProject "SensingKit" */;
@@ -667,7 +649,6 @@
 			targets = (
 				CF397F1F1DA9609C00A7C36C /* SensingKit */,
 				CF397F281DA9609C00A7C36C /* SensingKitTests */,
-				CF39802B1DAE7AC500A7C36C /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -691,23 +672,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		CF39802F1DAE7AE100A7C36C /* Build Documentation */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Build Documentation";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Kleomenis Katevas\";\ncompanyID=\"org.sensingkit\";\ncompanyURL=\"https://www.sensingkit.com\";\ntarget=\"iphoneos\";\noutputPath=\"${PROJECT_DIR}/Documentation\";\n# End constants\n\n/usr/local/bin/appledoc \\\n--project-name \"SensingKit-iOS\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--output \"${outputPath}\" \\\n--ignore .m \\\n--ignore ESSEddystone \\\n--ignore SKAbstractSensor.h \\\n--ignore SKMotionManager.h \\\n--ignore SKAccelerometer.h \\\n--ignore SKGyroscope.h \\\n--ignore SKMagnetometer.h \\\n--ignore SKDeviceMotion.h \\\n--ignore SKMotionActivity.h \\\n--ignore SKPedometer.h \\\n--ignore SKAltimeter.h \\\n--ignore SKBatteryStatus.h \\\n--ignore SKLocation.h \\\n--ignore SKiBeaconProximity.h \\\n--ignore SKEddystoneProximity.h \\\n--ignore SKMicrophone.h \\\n--ignore SKHeading.h \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--no-create-docset \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CF397F1B1DA9609C00A7C36C /* Sources */ = {
@@ -998,22 +962,6 @@
 			};
 			name = Release;
 		};
-		CF39802D1DAE7AC600A7C36C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 9T92P8D3FB;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		CF39802E1DAE7AC600A7C36C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 9T92P8D3FB;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1040,15 +988,6 @@
 			buildConfigurations = (
 				CF397F381DA9609C00A7C36C /* Debug */,
 				CF397F391DA9609C00A7C36C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CF39802C1DAE7AC600A7C36C /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CF39802D1DAE7AC600A7C36C /* Debug */,
-				CF39802E1DAE7AC600A7C36C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

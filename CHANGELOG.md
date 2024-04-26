@@ -1,11 +1,12 @@
 # Changelog
 
-### 0.6.0 ???
+### 0.6.0 (???, 2024)
 - Added support for Network Connection sensor.
 - Added support for Screen Brightness sensor.
 - Added support for iOS 17 and Xcode 15.
 - Renamed Battery sensor to BatteryStatus.
 - Changed the minimum supported platform to iOS 12.
+- Replaced appledoc documentation with Jazzy.
 
 ### 0.5.1 (September 20, 2018)
 - Added support for Heading sensor.
