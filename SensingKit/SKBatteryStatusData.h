@@ -54,7 +54,7 @@ typedef NS_ENUM(NSUInteger, SKLowPowerModeState) {
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+                        timestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
  *  Returns an SKBatteryStatusData object, initialized with measurements of the battery level, as well as the battery state.
@@ -65,7 +65,7 @@ typedef NS_ENUM(NSUInteger, SKLowPowerModeState) {
  *  @return An SKBatteryStatusData object.
  */
 - (instancetype)initWithLevel:(CGFloat)level
-                    withState:(UIDeviceBatteryState)state
+                        state:(UIDeviceBatteryState)state
             lowPowerModeState:(SKLowPowerModeState)lowPowerModeState NS_DESIGNATED_INITIALIZER;
 
 /**

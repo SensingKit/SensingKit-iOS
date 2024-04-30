@@ -29,7 +29,7 @@
 - (instancetype)initWithMagnetometerData:(CMMagnetometerData *)magnetometerData
 {
     if (self = [super initWithSensorType:Magnetometer
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:magnetometerData.timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:magnetometerData.timestamp]])
     {
         _magneticField = magnetometerData.magneticField;
     }

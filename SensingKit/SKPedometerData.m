@@ -29,7 +29,7 @@
 - (instancetype)initWithPedometerData:(CMPedometerData *)pedometerData
 {
     if (self = [super initWithSensorType:Pedometer
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:pedometerData.startDate]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromDate:pedometerData.startDate]])
     {
         // No need to have two instances of the same timestamp. We point startDate to self.timestamp
         _startDate = self.timestamp;

@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+                         timestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
  *  Returns an SKLocationData object, initialized with an instance of CLLocation.

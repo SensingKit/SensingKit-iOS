@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+                         timestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
  *  Returns an SKHeadingData object, initialized with an instance of CLHeading.

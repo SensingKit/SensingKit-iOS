@@ -27,10 +27,10 @@
 @implementation SKMicrophoneData
 
 - (instancetype)initWithState:(NSString *)state
-             withTimeInterval:(NSTimeInterval)timeInterval
+                 timeInterval:(NSTimeInterval)timeInterval
 {
     if (self = [super initWithSensorType:Microphone
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:timeInterval]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:timeInterval]])
     {
         _state = state;
     }

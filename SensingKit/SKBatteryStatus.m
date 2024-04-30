@@ -142,7 +142,7 @@
 - (void)batterySensorStateChanged:(NSNotification *)notification
 {
     SKBatteryStatusData *data = [[SKBatteryStatusData alloc] initWithLevel:[self batteryLevel]
-                                                                 withState:[self batteryState]
+                                                                     state:[self batteryState]
                                                          lowPowerModeState:[self lowPowerModeState]];
     
     [self submitSensorData:data error:NULL];

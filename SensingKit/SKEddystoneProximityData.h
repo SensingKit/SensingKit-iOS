@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+                         timestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
  *  Returns an SKEddystoneProximityData object, initialized with the time the data log was captured, its namespace and instance identifiers, as well as its rssi and txPower.
@@ -50,10 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return An SKEddystoneProximityData object.
  */
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
-                  withNamespaceId:(NSString * _Nullable)namespaceId
-                   withInstanceId:(NSUInteger)instanceId
-                         withRssi:(NSInteger)rssi
-                      withTxPower:(NSInteger)txPower NS_DESIGNATED_INITIALIZER;
+                      namespaceId:(NSString * _Nullable)namespaceId
+                       instanceId:(NSUInteger)instanceId
+                             rssi:(NSInteger)rssi
+                          txPower:(NSInteger)txPower NS_DESIGNATED_INITIALIZER;
 
 /**
  *  A 10-byte (80 bit) identifier that can used to group a particular set of beacons. This value should be in Hexadecimal format, with a maximum character length of 20 characters.

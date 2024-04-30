@@ -29,7 +29,7 @@
 - (instancetype)initWithDeviceMotion:(CMDeviceMotion *)motion
 {
     if (self = [super initWithSensorType:DeviceMotion
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:motion.timestamp]])
+                           timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:motion.timestamp]])
     {
         _attitude = motion.attitude;
         _gravity = motion.gravity;

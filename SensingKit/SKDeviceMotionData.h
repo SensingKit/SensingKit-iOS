@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+                         timestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
  *  Returns an SKDeviceMotionData object, initialized with a CMDeviceMotion object.

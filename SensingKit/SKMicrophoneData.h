@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+                         timestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
  *  Returns an SKMicrophoneData object, initialized with the current state of the sensor and the timestamp.
@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return An SKMicrophoneData object.
  */
 - (instancetype)initWithState:(NSString *)state
-             withTimeInterval:(NSTimeInterval)timeInterval NS_DESIGNATED_INITIALIZER;
+                 timeInterval:(NSTimeInterval)timeInterval NS_DESIGNATED_INITIALIZER;
 
 /**
  *  A string with the state of Microphone sensor (e.g. Started or Stopped).

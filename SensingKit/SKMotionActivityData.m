@@ -29,7 +29,7 @@
 - (instancetype)initWithMotionActivity:(CMMotionActivity *)motionActivity
 {
     if (self = [super initWithSensorType:MotionActivity
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:motionActivity.timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:motionActivity.timestamp]])
     {
         _startDate = [SKSensorTimestamp sensorTimestampFromDate:motionActivity.startDate];
         _motionActivity = motionActivity;

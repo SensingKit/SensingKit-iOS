@@ -27,13 +27,13 @@
 @implementation SKEddystoneProximityData
 
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
-                  withNamespaceId:(NSString *)namespaceId
-                   withInstanceId:(NSUInteger)instanceId
-                         withRssi:(NSInteger)rssi
-                      withTxPower:(NSInteger)txPower
+                      namespaceId:(NSString *)namespaceId
+                       instanceId:(NSUInteger)instanceId
+                             rssi:(NSInteger)rssi
+                          txPower:(NSInteger)txPower
 {
     if (self = [super initWithSensorType:EddystoneProximity
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
+                           timestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
     {
         _namespaceId = namespaceId.lowercaseString;
         _instanceId = instanceId;

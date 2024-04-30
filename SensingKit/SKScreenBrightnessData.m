@@ -29,7 +29,7 @@
 - (instancetype)initWithLevel:(CGFloat)level
 {
     if (self = [super initWithSensorType:ScreenBrightness
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
+                           timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
     {
         _level = level;
     }

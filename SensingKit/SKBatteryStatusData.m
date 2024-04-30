@@ -27,11 +27,11 @@
 @implementation SKBatteryStatusData
 
 - (instancetype)initWithLevel:(CGFloat)level
-                    withState:(UIDeviceBatteryState)state
+                    state:(UIDeviceBatteryState)state
             lowPowerModeState:(SKLowPowerModeState)lowPowerModeState
 {
     if (self = [super initWithSensorType:BatteryStatus
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
     {
         _level = level;
         _state = state;

@@ -27,14 +27,14 @@
 @implementation SKiBeaconDeviceData
 
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
-                        withMajor:(uint16_t)major
-                        withMinor:(uint16_t)minor
-                     withAccuracy:(CLLocationAccuracy)accuracy
-                    withProximity:(CLProximity)proximity
-                         withRssi:(NSInteger)rssi
+                            major:(uint16_t)major
+                            minor:(uint16_t)minor
+                         accuracy:(CLLocationAccuracy)accuracy
+                        proximity:(CLProximity)proximity
+                             rssi:(NSInteger)rssi
 {
     if (self = [super initWithSensorType:iBeaconProximity
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromDate:timestamp]])
     {
         _major = major;
         _minor = minor;

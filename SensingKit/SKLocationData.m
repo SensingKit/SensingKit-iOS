@@ -29,7 +29,7 @@
 - (instancetype)initWithLocation:(CLLocation *)location
 {
     if (self = [super initWithSensorType:Location
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:location.timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromDate:location.timestamp]])
     {
         _location = location;
     }

@@ -270,11 +270,11 @@
             if (beacon)
             {
                 SKiBeaconDeviceData *deviceData = [[SKiBeaconDeviceData alloc] initWithTimestamp:timestamp
-                                                                                       withMajor:beacon.major.unsignedIntegerValue
-                                                                                       withMinor:beacon.minor.unsignedIntegerValue
-                                                                                    withAccuracy:beacon.accuracy
-                                                                                   withProximity:beacon.proximity
-                                                                                        withRssi:beacon.rssi];
+                                                                                           major:beacon.major.unsignedIntegerValue
+                                                                                           minor:beacon.minor.unsignedIntegerValue
+                                                                                        accuracy:beacon.accuracy
+                                                                                       proximity:beacon.proximity
+                                                                                            rssi:beacon.rssi];
                 
                 [array addObject:deviceData];
             }
@@ -285,8 +285,8 @@
             
             // Create and submit the SKProximityData object
             SKProximityData *data = [[SKProximityData alloc] initWithSensorType:iBeaconProximity
-                                                                  withTimestamp:timestamp
-                                                                    withDevices:array];
+                                                                      timestamp:timestamp
+                                                                        devices:array];
             
             [self submitSensorData:data error:NULL];
         }

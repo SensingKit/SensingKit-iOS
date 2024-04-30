@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return A new SKSensorData object.
  */
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_DESIGNATED_INITIALIZER;
+                         timestamp:(SKSensorTimestamp *)timestamp NS_DESIGNATED_INITIALIZER;
 
 /**
  *  The type of the sensor that produced this data object.

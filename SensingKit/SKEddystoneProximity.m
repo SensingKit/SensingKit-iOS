@@ -147,10 +147,10 @@
             
             // Create and submit the data
             SKEddystoneProximityData *data = [[SKEddystoneProximityData alloc] initWithTimestamp:[NSDate date]
-                                                                                 withNamespaceId:namespaceId
-                                                                                  withInstanceId:instanceId
-                                                                                        withRssi:rssi
-                                                                                     withTxPower:txPower];
+                                                                                     namespaceId:namespaceId
+                                                                                      instanceId:instanceId
+                                                                                            rssi:rssi
+                                                                                         txPower:txPower];
             
             [self submitSensorData:data error:NULL];
         }

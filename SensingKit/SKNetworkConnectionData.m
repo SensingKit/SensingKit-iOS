@@ -29,7 +29,7 @@
 - (instancetype)initWithNetworkDataActivity:(SKNetworkDataActivity)networkDataActivity
 {
     if (self = [super initWithSensorType:NetworkConnection
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
     {
         _wifiSent = networkDataActivity.wifiSent;
         _wifiReceived = networkDataActivity.wifiReceived;

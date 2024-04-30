@@ -29,7 +29,7 @@
 - (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData
 {
     if (self = [super initWithSensorType:Altimeter
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:altitudeData.timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:altitudeData.timestamp]])
     {
         _altitudeData = altitudeData;
     }

@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+                         timestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
  *  Returns an SKProximityData object, initialized with an array of Device Data objects as well as the time that the scan was completed.
@@ -47,8 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return An SKProximityData object.
  */
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(NSDate *)timestamp
-                       withDevices:(NSArray *)devices NS_DESIGNATED_INITIALIZER;
+                         timestamp:(NSDate *)timestamp
+                           devices:(NSArray *)devices NS_DESIGNATED_INITIALIZER;
 
 /**
  *  An array that holds the Device Data objects.

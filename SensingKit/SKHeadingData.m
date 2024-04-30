@@ -29,7 +29,7 @@
 - (instancetype)initWithHeading:(CLHeading *)heading
 {
     if (self = [super initWithSensorType:Heading
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:heading.timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromDate:heading.timestamp]])
     {
         _heading = heading;
     }

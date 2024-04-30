@@ -186,8 +186,8 @@
         if (error) {
             
             NSDictionary *userInfo = @{
-                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Microphone sensor is not available.", nil),
-                                       };
+                NSLocalizedDescriptionKey: NSLocalizedString(@"Microphone sensor is not available.", nil),
+            };
             
             *error = [NSError errorWithDomain:SKErrorDomain
                                          code:SKSensorNotAvailableError
@@ -202,8 +202,8 @@
         if (error) {
             
             NSDictionary *userInfo = @{
-                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Recording using Microphone sensor could not be started.", nil),
-                                       };
+                NSLocalizedDescriptionKey: NSLocalizedString(@"Recording using Microphone sensor could not be started.", nil),
+            };
             
             *error = [NSError errorWithDomain:SKErrorDomain
                                          code:SKSensorNotAvailableError
@@ -215,7 +215,7 @@
     
     // Submit sensor data
     NSTimeInterval startTime = [NSProcessInfo processInfo].systemUptime;
-    SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Started" withTimeInterval:startTime];
+    SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Started" timeInterval:startTime];
     [self submitSensorData:data error:NULL];
     
     return YES;
@@ -231,7 +231,7 @@
         
         NSTimeInterval endTime = [NSProcessInfo processInfo].systemUptime;
         
-        SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Stopped" withTimeInterval:endTime];
+        SKMicrophoneData *data = [[SKMicrophoneData alloc] initWithState:@"Stopped" timeInterval:endTime];
         [self submitSensorData:data error:NULL];
     }
     

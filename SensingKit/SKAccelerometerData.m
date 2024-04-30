@@ -29,7 +29,7 @@
 - (instancetype)initWithAccelerometerData:(CMAccelerometerData *)accelerometerData
 {
     if (self = [super initWithSensorType:Accelerometer
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:accelerometerData.timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:accelerometerData.timestamp]])
     {
         _acceleration = accelerometerData.acceleration;
     }

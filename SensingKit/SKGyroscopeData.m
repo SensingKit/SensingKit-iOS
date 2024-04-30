@@ -29,7 +29,7 @@
 - (instancetype)initWithGyroData:(CMGyroData *)gyroData
 {
     if (self = [super initWithSensorType:Gyroscope
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:gyroData.timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:gyroData.timestamp]])
     {
         _rotationRate = gyroData.rotationRate;
     }

@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+                         timestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
  *  Returns an SKiBeaconDeviceData object, initialized with the time the device was found, its major and minor identifiers, as well as its accuracy, proximity and RSSI.
@@ -52,11 +52,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return An SKiBeaconDeviceData object.
  */
 - (instancetype)initWithTimestamp:(NSDate *)timestamp
-                        withMajor:(uint16_t)major
-                        withMinor:(uint16_t)minor
-                     withAccuracy:(CLLocationAccuracy)accuracy
-                    withProximity:(CLProximity)proximity
-                         withRssi:(NSInteger)rssi NS_DESIGNATED_INITIALIZER;
+                            major:(uint16_t)major
+                            minor:(uint16_t)minor
+                         accuracy:(CLLocationAccuracy)accuracy
+                        proximity:(CLProximity)proximity
+                             rssi:(NSInteger)rssi NS_DESIGNATED_INITIALIZER;
 
 /**
  *  A 16-bit unsigned integer identifier used to identify each device uniquelly. It ranges between 0 and 65535. This identifier can be used in combination with the minor identifier.

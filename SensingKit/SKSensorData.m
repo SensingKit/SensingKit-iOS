@@ -27,7 +27,7 @@
 @implementation SKSensorData
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp
+                         timestamp:(SKSensorTimestamp *)timestamp
 {
     if (self = [super init])
     {
