@@ -53,14 +53,14 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.sensorType),
-             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
-            @"timestamp": self.timestamp.timestampDictionary,
-             @"altitudeData": @{
-                     @"relativeAltitude": _altitudeData.relativeAltitude,
-                     @"pressure": _altitudeData.pressure
-                     }
-             };
+        @"sensorType": @(self.sensorType),
+        @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
+        @"timestamp": self.timestamp.timestampDictionary,
+        @"altitudeData": @{
+            @"relativeAltitude": _altitudeData.relativeAltitude,
+            @"pressure": _altitudeData.pressure
+        }
+    };
 }
 
 @end

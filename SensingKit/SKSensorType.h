@@ -70,7 +70,7 @@ typedef NS_ENUM(NSUInteger, SKSensorType)
     Altimeter,
     
     /**
-     *  Battery Status sensor listens to changes in the battery charge state (Charging, Full, Unplugged) as well as in the battery charge level (with 1% precision).
+     *  Battery Status sensor listens to changes in the battery charge state (Charging, Full, Unplugged), battery charge level (with 1% precision), and Low Power Model (disabled or enabled).
      */
     BatteryStatus,
     

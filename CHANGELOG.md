@@ -5,6 +5,7 @@
 - Added support for Screen Brightness sensor.
 - Added support for iOS 17 and Xcode 15.
 - Renamed Battery sensor to BatteryStatus.
+- Added support for tracking Low Power Mode in the Battery Status sensor.
 - Changed the minimum supported platform to iOS 12.
 - Replaced appledoc documentation with Jazzy.
 

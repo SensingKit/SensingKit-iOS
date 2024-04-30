@@ -26,13 +26,16 @@
 
 @implementation SKBatteryStatusData
 
-- (instancetype)initWithLevel:(CGFloat)level withState:(UIDeviceBatteryState)state
+- (instancetype)initWithLevel:(CGFloat)level
+                    withState:(UIDeviceBatteryState)state
+            lowPowerModeState:(SKLowPowerModeState)lowPowerModeState
 {
     if (self = [super initWithSensorType:BatteryStatus
                            withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:[NSProcessInfo processInfo].systemUptime]])
     {
         _level = level;
         _state = state;
+        _lowPowerModeState = lowPowerModeState;
     }
     return self;
 }
@@ -58,32 +61,51 @@
     }
 }
 
+- (NSString *)lowPowerModeStateString
+{
+    switch (_lowPowerModeState) {
+            
+        case SKLowPowerModeStateDisabled:
+            return @"Disabled";
+            
+        case SKLowPowerModeStateEnabled:
+            return @"Enabled";
+            
+        default:
+            NSLog(@"Warning: Unknown lowPowerModeState: %d", (int)_lowPowerModeState);
+            return @"Unknown";
+    }
+}
+
 + (NSString *)csvHeader
 {
-    return @"timestamp,timeIntervalSince1970,state,level";
+    return @"timestamp,timeIntervalSince1970,state,level,lowPowerModeState";
 }
 
 - (NSString *)csvString
 {
-    return [NSString stringWithFormat:@"\"%@\",%f,%@,%f",
+    return [NSString stringWithFormat:@"\"%@\",%f,%@,%f,%@",
             self.timestamp.timestampString,
             self.timestamp.timeIntervalSince1970,
             self.stateString,
-            _level];
+            _level,
+            self.lowPowerModeStateString];
 }
 
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.sensorType),
-             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
-             @"timestamp": self.timestamp.timestampDictionary,
-             @"battery": @{
-                     @"level": @(_level),
-                     @"state": @(_state),
-                     @"stateString": self.stateString
-                     }
-             };
+        @"sensorType": @(self.sensorType),
+        @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
+        @"timestamp": self.timestamp.timestampDictionary,
+        @"battery": @{
+            @"level": @(_level),
+            @"state": @(_state),
+            @"stateString": self.stateString,
+            @"lowPowerModeState": @(_lowPowerModeState),
+            @"lowPowerModeStateString": self.lowPowerModeStateString,
+        }
+    };
 }
 
 @end

@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "<<-DESC
-                    An iOS library that provides Continuous Sensing functionality to your applications.
+                    An iOS framework that provides Mobile Sensing to your apps.
                    DESC"
 
   s.homepage     = "https://www.sensingkit.org"
@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
 
   s.author             = { "Kleomenis Katevas"  => 'minos.kat@gmail.com'}
   s.social_media_url   = "https://twitter.com/SensingKit"
- 
+
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
