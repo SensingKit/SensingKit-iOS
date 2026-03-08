@@ -70,7 +70,7 @@
                                        };
             
             *error = [NSError errorWithDomain:SKErrorDomain
-                                         code:SKDataHandlerAlreadyRegistered
+                                         code:SKDataHandlerNotRegistered
                                      userInfo:userInfo];
         }
         
