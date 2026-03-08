@@ -1,9 +1,9 @@
 # Changelog
 
-### 0.6.0 (???, 2024)
+### 0.6.0 (???, 2026)
 - Added support for Network Connection sensor.
 - Added support for Screen Brightness sensor.
-- Added support for iOS 17 and Xcode 15.
+- Added support for iOS 26 and Xcode 26.
 - Renamed Battery sensor to BatteryStatus.
 - Added support for tracking Low Power Mode in the Battery Status sensor.
 - Changed the minimum supported platform to iOS 12.
