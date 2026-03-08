@@ -1,6 +1,6 @@
 # Changelog
 
-### 0.6.0 (???, 2026)
+### 0.6.0 (March 8, 2026)
 - Added support for Network Connection sensor.
 - Added support for Screen Brightness sensor.
 - Added support for iOS 26 and Xcode 26.
