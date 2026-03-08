@@ -55,28 +55,28 @@ typedef struct {
 /**
  *  Returns an SKNetworkConnectionData object, initialized with measurements related to the network connection and data activity.
  *
- *  @param networkDataActivity TODO: .
+ *  @param networkDataActivity Cumulative network data activity (bytes sent/received for WiFi and cellular) since sensing started.
  *  @return An SKNetworkConnectionData object.
  */
 - (instancetype)initWithNetworkDataActivity:(SKNetworkDataActivity)networkDataActivity NS_DESIGNATED_INITIALIZER;
 
 /**
- *  A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
+ *  Total number of bytes sent over WiFi since sensing started.
  */
 @property (nonatomic, readonly) UInt64 wifiSent;
 
 /**
- *  A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
+ *  Total number of bytes received over WiFi since sensing started.
  */
 @property (nonatomic, readonly) UInt64 wifiReceived;
 
 /**
- *  A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
+ *  Total number of bytes sent over cellular since sensing started.
  */
 @property (nonatomic, readonly) UInt64 cellularSent;
 
 /**
- *  A float number that indicates the current screen brightness level. Value ranges from 0.0 (minimum brightness) to 1.0 (maximum brightness).
+ *  Total number of bytes received over cellular since sensing started.
  */
 @property (nonatomic, readonly) UInt64 cellularReceived;
 
