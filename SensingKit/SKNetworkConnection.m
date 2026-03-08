@@ -99,21 +99,24 @@
     // Start sensor
     SKNetworkConnectionConfiguration *networkConnectionConfiguration = (SKNetworkConnectionConfiguration *)self.configuration;
     NSTimeInterval interval = 1 / networkConnectionConfiguration.sampleRate;
+    __weak typeof(self) weakSelf = self;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) { return; }
         
-        // get actual data consumped (since start sensing)
-        SKNetworkDataActivity currentDataActivity = [self getNetworkDataWithOffset:startSensingOffset];
+        // get actual data consumed (since start sensing)
+        SKNetworkDataActivity currentDataActivity = [strongSelf getNetworkDataWithOffset:startSensingOffset];
         
         // accumulate data
-        SKNetworkDataActivity totalNetworkDataActivity = self.totalNetworkDataActivity;
+        SKNetworkDataActivity totalNetworkDataActivity = strongSelf.totalNetworkDataActivity;
         totalNetworkDataActivity.wifiSent += currentDataActivity.wifiSent;
         totalNetworkDataActivity.wifiReceived += currentDataActivity.wifiReceived;
         totalNetworkDataActivity.cellularSent += currentDataActivity.cellularSent;
         totalNetworkDataActivity.cellularReceived += currentDataActivity.cellularReceived;
-        self.totalNetworkDataActivity = totalNetworkDataActivity;
+        strongSelf.totalNetworkDataActivity = totalNetworkDataActivity;
         
         SKNetworkConnectionData *data = [[SKNetworkConnectionData alloc] initWithNetworkDataActivity:totalNetworkDataActivity];
-        [self submitSensorData:data error:NULL];
+        [strongSelf submitSensorData:data error:NULL];
     }];
     
     return YES;
