@@ -1,9 +1,9 @@
 //
-//  SKBatteryConfiguration.m
+//  SKBatteryStatusConfiguration.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -22,30 +22,17 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBatteryConfiguration.h"
+#import <Foundation/Foundation.h>
 
-@implementation SKBatteryConfiguration
+#import <SensingKit/SKConfiguration.h>
 
-- (instancetype)init
-{
-    if (self = [super init])
-    {
-        // Set default values
-    }
-    return self;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-- (id)copyWithZone:(NSZone *)zone
-{
-    SKBatteryConfiguration *configuration = [super copyWithZone:zone];
-    
-    return configuration;
-}
-
-- (BOOL)isValidForSensor:(SKSensorType)sensorType
-{
-    return sensorType == Battery;
-}
-
+/**
+ *  An instance of SKBatteryStatusConfiguration can be used to configure the Battery Status sensor. No configuration is available at this moment.
+ */
+@interface SKBatteryStatusConfiguration : SKConfiguration <NSCopying>
 
 @end
+
+NS_ASSUME_NONNULL_END

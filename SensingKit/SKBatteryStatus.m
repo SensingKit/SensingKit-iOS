@@ -1,9 +1,9 @@
 //
-//  SKBattery.m
+//  SKBatteryStatus.m
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -22,24 +22,26 @@
 //  along with SensingKit-iOS.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "SKBattery.h"
-#import "SKBatteryData.h"
+#import "SKBatteryStatus.h"
+#import "SKBatteryStatusData.h"
 
 
-@implementation SKBattery
+@implementation SKBatteryStatus
 
-- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration
+- (instancetype)initWithConfiguration:(SKBatteryStatusConfiguration *)configuration
 {
     if (self = [super init])
     {
-        // Register for battery level and state change notifications.
+        // Register for battery level and state change notifications
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(batteryLevelChanged:)
+                                                 selector:@selector(batterySensorStateChanged:)
                                                      name:UIDeviceBatteryLevelDidChangeNotification object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(batteryStateChanged:)
+                                                 selector:@selector(batterySensorStateChanged:)
                                                      name:UIDeviceBatteryStateDidChangeNotification object:nil];
+        
+        // powerModeChanged: will be registered later (on startSensing:)
         
         self.configuration = configuration;
     }
@@ -75,13 +77,13 @@
         return NO;
     }
     
-    if (![SKBattery isSensorAvailable])
+    if (![SKBatteryStatus isSensorAvailable])
     {
         if (error) {
             
             NSDictionary *userInfo = @{
-                                       NSLocalizedDescriptionKey: NSLocalizedString(@"Battery sensor is not available.", nil),
-                                       };
+                NSLocalizedDescriptionKey: NSLocalizedString(@"Battery Status sensor is not available.", nil),
+            };
             
             *error = [NSError errorWithDomain:SKErrorDomain
                                          code:SKSensorNotAvailableError
@@ -90,14 +92,27 @@
         return NO;
     }
     
+    // start receiving battery level and state change notifications
     [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+    
+    // start receiving powerModeChanged related notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(batterySensorStateChanged:)
+                                                 name:NSProcessInfoPowerStateDidChangeNotification
+                                               object:nil];
     
     return YES;
 }
 
 - (BOOL)stopSensing:(NSError **)error
 {
+    // stop receiving battery level and state change notifications
     [UIDevice currentDevice].batteryMonitoringEnabled = NO;
+    
+    // stop receiving powerModeChanged related notifications
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSProcessInfoPowerStateDidChangeNotification
+                                                  object:nil];
     
     return [super stopSensing:error];
 }
@@ -112,18 +127,23 @@
     return [UIDevice currentDevice].batteryState;
 }
 
-- (void)batteryLevelChanged:(NSNotification *)notification
+- (SKLowPowerModeState)lowPowerModeState
 {
-    SKBatteryData *data = [[SKBatteryData alloc] initWithLevel:[self batteryLevel]
-                                                     withState:[self batteryState]];
-    
-    [self submitSensorData:data error:NULL];
+    if ([[NSProcessInfo processInfo] isLowPowerModeEnabled])
+    {
+        return SKLowPowerModeStateEnabled;
+    }
+    else
+    {
+        return SKLowPowerModeStateDisabled;
+    }
 }
 
-- (void)batteryStateChanged:(NSNotification *)notification
+- (void)batterySensorStateChanged:(NSNotification *)notification
 {
-    SKBatteryData *data = [[SKBatteryData alloc] initWithLevel:[self batteryLevel]
-                                                     withState:[self batteryState]];
+    SKBatteryStatusData *data = [[SKBatteryStatusData alloc] initWithLevel:[self batteryLevel]
+                                                                     state:[self batteryState]
+                                                         lowPowerModeState:[self lowPowerModeState]];
     
     [self submitSensorData:data error:NULL];
 }

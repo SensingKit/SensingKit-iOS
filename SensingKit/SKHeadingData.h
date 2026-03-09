@@ -3,7 +3,7 @@
 //  SensingKit
 //
 //  Copyright (c) 2017. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
+                         timestamp:(SKSensorTimestamp *)timestamp NS_UNAVAILABLE;
 
 /**
  *  Returns an SKHeadingData object, initialized with an instance of CLHeading.

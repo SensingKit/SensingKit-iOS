@@ -3,7 +3,7 @@
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -29,7 +29,7 @@
 - (instancetype)initWithDeviceMotion:(CMDeviceMotion *)motion
 {
     if (self = [super initWithSensorType:DeviceMotion
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:motion.timestamp]])
+                           timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:motion.timestamp]])
     {
         _attitude = motion.attitude;
         _gravity = motion.gravity;

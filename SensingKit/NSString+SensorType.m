@@ -3,7 +3,7 @@
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -34,12 +34,14 @@ static const NSString *SENSOR_STRINGS[] = {
     @"Motion Activity",
     @"Pedometer",
     @"Altimeter",
-    @"Battery",
+    @"Battery Status",
     @"Location",
     @"Heading",
     @"iBeacon™ Proximity",
     @"Eddystone™ Proximity",
-    @"Microphone"
+    @"Microphone",
+    @"Screen Brightness",
+    @"Network Connection"
 };
 
 static const NSString *NONSPACED_SENSOR_STRINGS[] = {
@@ -50,12 +52,14 @@ static const NSString *NONSPACED_SENSOR_STRINGS[] = {
     @"MotionActivity",
     @"Pedometer",
     @"Altimeter",
-    @"Battery",
+    @"BatteryStatus",
     @"Location",
     @"Heading",
     @"iBeaconProximity",
     @"EddystoneProximity",
-    @"Microphone"
+    @"Microphone",
+    @"ScreenBrightness",
+    @"NetworkConnection"
 };
 
 + (NSString *)stringWithSensorType:(SKSensorType)sensorType

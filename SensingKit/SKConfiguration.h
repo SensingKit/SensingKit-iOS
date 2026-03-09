@@ -3,7 +3,7 @@
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -23,8 +23,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SKSensorType.h"
-#import "SKErrors.h"
+#import <SensingKit/SKSensorType.h>
+#import <SensingKit/SKErrors.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

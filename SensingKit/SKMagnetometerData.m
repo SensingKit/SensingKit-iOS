@@ -3,7 +3,7 @@
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -29,7 +29,7 @@
 - (instancetype)initWithMagnetometerData:(CMMagnetometerData *)magnetometerData
 {
     if (self = [super initWithSensorType:Magnetometer
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:magnetometerData.timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:magnetometerData.timestamp]])
     {
         _magneticField = magnetometerData.magneticField;
     }

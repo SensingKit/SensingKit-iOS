@@ -3,7 +3,7 @@
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -23,9 +23,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SKSensorType.h"
-#import "SKSensorTimestamp.h"
-#import "NSString+SensorType.h"
+#import <SensingKit/SKSensorType.h>
+#import <SensingKit/SKSensorTimestamp.h>
+#import <SensingKit/NSString+SensorType.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return A new SKSensorData object.
  */
 - (instancetype)initWithSensorType:(SKSensorType)sensorType
-                     withTimestamp:(SKSensorTimestamp *)timestamp NS_DESIGNATED_INITIALIZER;
+                         timestamp:(SKSensorTimestamp *)timestamp NS_DESIGNATED_INITIALIZER;
 
 /**
  *  The type of the sensor that produced this data object.

@@ -3,7 +3,7 @@
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -29,7 +29,7 @@
 - (instancetype)initWithAltitudeData:(CMAltitudeData *)altitudeData
 {
     if (self = [super initWithSensorType:Altimeter
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:altitudeData.timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromTimeInterval:altitudeData.timestamp]])
     {
         _altitudeData = altitudeData;
     }
@@ -53,14 +53,14 @@
 - (NSDictionary *)dictionaryData
 {
     return @{
-             @"sensorType": @(self.sensorType),
-             @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
-            @"timestamp": self.timestamp.timestampDictionary,
-             @"altitudeData": @{
-                     @"relativeAltitude": _altitudeData.relativeAltitude,
-                     @"pressure": _altitudeData.pressure
-                     }
-             };
+        @"sensorType": @(self.sensorType),
+        @"sensorTypeString": [NSString stringWithSensorType:self.sensorType],
+        @"timestamp": self.timestamp.timestampDictionary,
+        @"altitudeData": @{
+            @"relativeAltitude": _altitudeData.relativeAltitude,
+            @"pressure": _altitudeData.pressure
+        }
+    };
 }
 
 @end

@@ -3,7 +3,7 @@
 //  SensingKit
 //
 //  Copyright (c) 2017. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -29,7 +29,7 @@
 - (instancetype)initWithHeading:(CLHeading *)heading
 {
     if (self = [super initWithSensorType:Heading
-                           withTimestamp:[SKSensorTimestamp sensorTimestampFromDate:heading.timestamp]])
+                               timestamp:[SKSensorTimestamp sensorTimestampFromDate:heading.timestamp]])
     {
         _heading = heading;
     }

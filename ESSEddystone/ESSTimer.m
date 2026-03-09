@@ -22,7 +22,7 @@
 @interface ESSTimer ()
 
 @property(nonatomic, copy, readwrite) ESSTimerBlock block;
-@property(nonatomic, copy, readwrite) void(^wrappedBlock)();
+@property(nonatomic, copy, readwrite) void(^wrappedBlock)(void);
 @property(nonatomic, strong, readwrite) dispatch_queue_t queue;
 @property(nonatomic, assign, readwrite) NSTimeInterval delay;
 

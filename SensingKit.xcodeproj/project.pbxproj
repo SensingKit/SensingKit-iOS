@@ -3,22 +3,8 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 63;
 	objects = {
-
-/* Begin PBXAggregateTarget section */
-		CF39802B1DAE7AC500A7C36C /* Documentation */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = CF39802C1DAE7AC600A7C36C /* Build configuration list for PBXAggregateTarget "Documentation" */;
-			buildPhases = (
-				CF39802F1DAE7AE100A7C36C /* Build Documentation */,
-			);
-			dependencies = (
-			);
-			name = Documentation;
-			productName = Documentation;
-		};
-/* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		CF397F2A1DA9609C00A7C36C /* SensingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF397F201DA9609C00A7C36C /* SensingKit.framework */; };
@@ -42,12 +28,11 @@
 		CF397FBA1DAE6C9A00A7C36C /* SKAltimeterConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F551DAE6C9A00A7C36C /* SKAltimeterConfiguration.m */; };
 		CF397FBB1DAE6C9A00A7C36C /* SKAltimeterData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F561DAE6C9A00A7C36C /* SKAltimeterData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF397FBC1DAE6C9A00A7C36C /* SKAltimeterData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F571DAE6C9A00A7C36C /* SKAltimeterData.m */; };
-		CF397FBD1DAE6C9A00A7C36C /* SKBattery.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F581DAE6C9A00A7C36C /* SKBattery.h */; };
-		CF397FBE1DAE6C9A00A7C36C /* SKBattery.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F591DAE6C9A00A7C36C /* SKBattery.m */; };
-		CF397FBF1DAE6C9A00A7C36C /* SKBatteryConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F5A1DAE6C9A00A7C36C /* SKBatteryConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF397FC01DAE6C9A00A7C36C /* SKBatteryConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F5B1DAE6C9A00A7C36C /* SKBatteryConfiguration.m */; };
-		CF397FC11DAE6C9A00A7C36C /* SKBatteryData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F5C1DAE6C9A00A7C36C /* SKBatteryData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF397FC21DAE6C9A00A7C36C /* SKBatteryData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F5D1DAE6C9A00A7C36C /* SKBatteryData.m */; };
+		CF397FBD1DAE6C9A00A7C36C /* SKBatteryStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F581DAE6C9A00A7C36C /* SKBatteryStatus.h */; };
+		CF397FBF1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F5A1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF397FC01DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F5B1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m */; };
+		CF397FC11DAE6C9A00A7C36C /* SKBatteryStatusData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F5C1DAE6C9A00A7C36C /* SKBatteryStatusData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF397FC21DAE6C9A00A7C36C /* SKBatteryStatusData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F5D1DAE6C9A00A7C36C /* SKBatteryStatusData.m */; };
 		CF397FC31DAE6C9A00A7C36C /* SKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F5E1DAE6C9A00A7C36C /* SKConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF397FC41DAE6C9A00A7C36C /* SKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F5F1DAE6C9A00A7C36C /* SKConfiguration.m */; };
 		CF397FC51DAE6C9A00A7C36C /* SKDeviceMotion.h in Headers */ = {isa = PBXBuildFile; fileRef = CF397F601DAE6C9A00A7C36C /* SKDeviceMotion.h */; };
@@ -128,12 +113,25 @@
 		CF3980241DAE6E6800A7C36C /* ESSTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = CF39801B1DAE6E6800A7C36C /* ESSTimer.h */; };
 		CF3980251DAE6E6800A7C36C /* ESSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = CF39801C1DAE6E6800A7C36C /* ESSTimer.m */; };
 		CF3980261DAE6E6800A7C36C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CF39801D1DAE6E6800A7C36C /* LICENSE */; };
+		CF6FF409218A0E9400A7D830 /* SKBatteryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CF397F591DAE6C9A00A7C36C /* SKBatteryStatus.m */; };
 		CF9A70A41EB0DCB900DCAB66 /* SKHeading.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70A21EB0DCB900DCAB66 /* SKHeading.h */; };
 		CF9A70A51EB0DCB900DCAB66 /* SKHeading.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70A31EB0DCB900DCAB66 /* SKHeading.m */; };
 		CF9A70A81EB0DCD500DCAB66 /* SKHeadingConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70A61EB0DCD500DCAB66 /* SKHeadingConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF9A70A91EB0DCD500DCAB66 /* SKHeadingConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70A71EB0DCD500DCAB66 /* SKHeadingConfiguration.m */; };
 		CF9A70AC1EB0DD0E00DCAB66 /* SKHeadingData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9A70AA1EB0DD0E00DCAB66 /* SKHeadingData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF9A70AD1EB0DD0E00DCAB66 /* SKHeadingData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9A70AB1EB0DD0E00DCAB66 /* SKHeadingData.m */; };
+		CF9D0A4A2BC59FCC0006C55D /* SKScreenBrightness.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9D0A482BC59FCC0006C55D /* SKScreenBrightness.m */; };
+		CF9D0A4C2BC59FCC0006C55D /* SKScreenBrightness.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9D0A492BC59FCC0006C55D /* SKScreenBrightness.h */; };
+		CF9D0A4F2BC5A00A0006C55D /* SKScreenBrightnessData.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9D0A4D2BC5A00A0006C55D /* SKScreenBrightnessData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF9D0A502BC5A00A0006C55D /* SKScreenBrightnessData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9D0A4E2BC5A00A0006C55D /* SKScreenBrightnessData.m */; };
+		CF9D0A532BC5A0250006C55D /* SKScreenBrightnessConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9D0A512BC5A0240006C55D /* SKScreenBrightnessConfiguration.m */; };
+		CF9D0A542BC5A0250006C55D /* SKScreenBrightnessConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9D0A522BC5A0240006C55D /* SKScreenBrightnessConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFD8C04B2BC6E932002498D4 /* SKNetworkConnectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD8C0492BC6E932002498D4 /* SKNetworkConnectionData.m */; };
+		CFD8C04C2BC6E932002498D4 /* SKNetworkConnectionData.h in Headers */ = {isa = PBXBuildFile; fileRef = CFD8C04A2BC6E932002498D4 /* SKNetworkConnectionData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFD8C04F2BC6E93D002498D4 /* SKNetworkConnectionConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = CFD8C04D2BC6E93D002498D4 /* SKNetworkConnectionConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFD8C0502BC6E93D002498D4 /* SKNetworkConnectionConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD8C04E2BC6E93D002498D4 /* SKNetworkConnectionConfiguration.m */; };
+		CFD8C0532BC6EA07002498D4 /* SKNetworkConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = CFD8C0512BC6EA07002498D4 /* SKNetworkConnection.h */; };
+		CFD8C0542BC6EA07002498D4 /* SKNetworkConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD8C0522BC6EA07002498D4 /* SKNetworkConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +145,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4322561526A70B8000C8DC46 /* SensingKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensingKit.h; sourceTree = "<group>"; };
 		CF397F201DA9609C00A7C36C /* SensingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SensingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF397F231DA9609C00A7C36C /* SensingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SensingKit.h; path = SensingKit/SensingKit.h; sourceTree = "<group>"; };
 		CF397F241DA9609C00A7C36C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SensingKit/Info.plist; sourceTree = "<group>"; };
@@ -171,12 +170,12 @@
 		CF397F551DAE6C9A00A7C36C /* SKAltimeterConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAltimeterConfiguration.m; sourceTree = "<group>"; };
 		CF397F561DAE6C9A00A7C36C /* SKAltimeterData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAltimeterData.h; sourceTree = "<group>"; };
 		CF397F571DAE6C9A00A7C36C /* SKAltimeterData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAltimeterData.m; sourceTree = "<group>"; };
-		CF397F581DAE6C9A00A7C36C /* SKBattery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBattery.h; sourceTree = "<group>"; };
-		CF397F591DAE6C9A00A7C36C /* SKBattery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBattery.m; sourceTree = "<group>"; };
-		CF397F5A1DAE6C9A00A7C36C /* SKBatteryConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryConfiguration.h; sourceTree = "<group>"; };
-		CF397F5B1DAE6C9A00A7C36C /* SKBatteryConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryConfiguration.m; sourceTree = "<group>"; };
-		CF397F5C1DAE6C9A00A7C36C /* SKBatteryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryData.h; sourceTree = "<group>"; };
-		CF397F5D1DAE6C9A00A7C36C /* SKBatteryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryData.m; sourceTree = "<group>"; };
+		CF397F581DAE6C9A00A7C36C /* SKBatteryStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryStatus.h; sourceTree = "<group>"; };
+		CF397F591DAE6C9A00A7C36C /* SKBatteryStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryStatus.m; sourceTree = "<group>"; };
+		CF397F5A1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryStatusConfiguration.h; sourceTree = "<group>"; };
+		CF397F5B1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryStatusConfiguration.m; sourceTree = "<group>"; };
+		CF397F5C1DAE6C9A00A7C36C /* SKBatteryStatusData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBatteryStatusData.h; sourceTree = "<group>"; };
+		CF397F5D1DAE6C9A00A7C36C /* SKBatteryStatusData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBatteryStatusData.m; sourceTree = "<group>"; };
 		CF397F5E1DAE6C9A00A7C36C /* SKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKConfiguration.h; sourceTree = "<group>"; };
 		CF397F5F1DAE6C9A00A7C36C /* SKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKConfiguration.m; sourceTree = "<group>"; };
 		CF397F601DAE6C9A00A7C36C /* SKDeviceMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDeviceMotion.h; sourceTree = "<group>"; };
@@ -263,6 +262,18 @@
 		CF9A70A71EB0DCD500DCAB66 /* SKHeadingConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHeadingConfiguration.m; sourceTree = "<group>"; };
 		CF9A70AA1EB0DD0E00DCAB66 /* SKHeadingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHeadingData.h; sourceTree = "<group>"; };
 		CF9A70AB1EB0DD0E00DCAB66 /* SKHeadingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHeadingData.m; sourceTree = "<group>"; };
+		CF9D0A482BC59FCC0006C55D /* SKScreenBrightness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKScreenBrightness.m; sourceTree = "<group>"; };
+		CF9D0A492BC59FCC0006C55D /* SKScreenBrightness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScreenBrightness.h; sourceTree = "<group>"; };
+		CF9D0A4D2BC5A00A0006C55D /* SKScreenBrightnessData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScreenBrightnessData.h; sourceTree = "<group>"; };
+		CF9D0A4E2BC5A00A0006C55D /* SKScreenBrightnessData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKScreenBrightnessData.m; sourceTree = "<group>"; };
+		CF9D0A512BC5A0240006C55D /* SKScreenBrightnessConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKScreenBrightnessConfiguration.m; sourceTree = "<group>"; };
+		CF9D0A522BC5A0240006C55D /* SKScreenBrightnessConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScreenBrightnessConfiguration.h; sourceTree = "<group>"; };
+		CFD8C0492BC6E932002498D4 /* SKNetworkConnectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKNetworkConnectionData.m; sourceTree = "<group>"; };
+		CFD8C04A2BC6E932002498D4 /* SKNetworkConnectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKNetworkConnectionData.h; sourceTree = "<group>"; };
+		CFD8C04D2BC6E93D002498D4 /* SKNetworkConnectionConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKNetworkConnectionConfiguration.h; sourceTree = "<group>"; };
+		CFD8C04E2BC6E93D002498D4 /* SKNetworkConnectionConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKNetworkConnectionConfiguration.m; sourceTree = "<group>"; };
+		CFD8C0512BC6EA07002498D4 /* SKNetworkConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKNetworkConnection.h; sourceTree = "<group>"; };
+		CFD8C0522BC6EA07002498D4 /* SKNetworkConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKNetworkConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +329,7 @@
 				CF397F491DAE6C9A00A7C36C /* SensingKitLib.m */,
 				CF397FA61DAE6C9A00A7C36C /* SKSensorManager.h */,
 				CF397FA71DAE6C9A00A7C36C /* SKSensorManager.m */,
+				4322561526A70B8000C8DC46 /* SensingKit.h */,
 			);
 			path = SensingKit;
 			sourceTree = "<group>";
@@ -367,8 +379,10 @@
 				CF397F4D1DAE6C9A00A7C36C /* SKAccelerometer.m */,
 				CF397F521DAE6C9A00A7C36C /* SKAltimeter.h */,
 				CF397F531DAE6C9A00A7C36C /* SKAltimeter.m */,
-				CF397F581DAE6C9A00A7C36C /* SKBattery.h */,
-				CF397F591DAE6C9A00A7C36C /* SKBattery.m */,
+				CF397F581DAE6C9A00A7C36C /* SKBatteryStatus.h */,
+				CF397F591DAE6C9A00A7C36C /* SKBatteryStatus.m */,
+				CF9D0A492BC59FCC0006C55D /* SKScreenBrightness.h */,
+				CF9D0A482BC59FCC0006C55D /* SKScreenBrightness.m */,
 				CF397F601DAE6C9A00A7C36C /* SKDeviceMotion.h */,
 				CF397F611DAE6C9A00A7C36C /* SKDeviceMotion.m */,
 				CF397F661DAE6C9A00A7C36C /* SKEddystoneProximity.h */,
@@ -389,6 +403,8 @@
 				CF397F8C1DAE6C9A00A7C36C /* SKMotionActivity.m */,
 				CF397F931DAE6C9A00A7C36C /* SKPedometer.h */,
 				CF397F941DAE6C9A00A7C36C /* SKPedometer.m */,
+				CFD8C0512BC6EA07002498D4 /* SKNetworkConnection.h */,
+				CFD8C0522BC6EA07002498D4 /* SKNetworkConnection.m */,
 			);
 			name = Sensors;
 			sourceTree = "<group>";
@@ -404,8 +420,10 @@
 				CF397F511DAE6C9A00A7C36C /* SKAccelerometerData.m */,
 				CF397F561DAE6C9A00A7C36C /* SKAltimeterData.h */,
 				CF397F571DAE6C9A00A7C36C /* SKAltimeterData.m */,
-				CF397F5C1DAE6C9A00A7C36C /* SKBatteryData.h */,
-				CF397F5D1DAE6C9A00A7C36C /* SKBatteryData.m */,
+				CF397F5C1DAE6C9A00A7C36C /* SKBatteryStatusData.h */,
+				CF397F5D1DAE6C9A00A7C36C /* SKBatteryStatusData.m */,
+				CF9D0A4D2BC5A00A0006C55D /* SKScreenBrightnessData.h */,
+				CF9D0A4E2BC5A00A0006C55D /* SKScreenBrightnessData.m */,
 				CF397F641DAE6C9A00A7C36C /* SKDeviceMotionData.h */,
 				CF397F651DAE6C9A00A7C36C /* SKDeviceMotionData.m */,
 				CF397F6A1DAE6C9A00A7C36C /* SKEddystoneProximityData.h */,
@@ -428,6 +446,8 @@
 				CF397F981DAE6C9A00A7C36C /* SKPedometerData.m */,
 				CF397F991DAE6C9A00A7C36C /* SKProximityData.h */,
 				CF397F9A1DAE6C9A00A7C36C /* SKProximityData.m */,
+				CFD8C04A2BC6E932002498D4 /* SKNetworkConnectionData.h */,
+				CFD8C0492BC6E932002498D4 /* SKNetworkConnectionData.m */,
 			);
 			name = SensorData;
 			sourceTree = "<group>";
@@ -443,8 +463,10 @@
 				CF397F4F1DAE6C9A00A7C36C /* SKAccelerometerConfiguration.m */,
 				CF397F541DAE6C9A00A7C36C /* SKAltimeterConfiguration.h */,
 				CF397F551DAE6C9A00A7C36C /* SKAltimeterConfiguration.m */,
-				CF397F5A1DAE6C9A00A7C36C /* SKBatteryConfiguration.h */,
-				CF397F5B1DAE6C9A00A7C36C /* SKBatteryConfiguration.m */,
+				CF397F5A1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h */,
+				CF397F5B1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m */,
+				CF9D0A522BC5A0240006C55D /* SKScreenBrightnessConfiguration.h */,
+				CF9D0A512BC5A0240006C55D /* SKScreenBrightnessConfiguration.m */,
 				CF397F621DAE6C9A00A7C36C /* SKDeviceMotionConfiguration.h */,
 				CF397F631DAE6C9A00A7C36C /* SKDeviceMotionConfiguration.m */,
 				CF397F681DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.h */,
@@ -465,6 +487,8 @@
 				CF397F8E1DAE6C9A00A7C36C /* SKMotionActivityConfiguration.m */,
 				CF397F951DAE6C9A00A7C36C /* SKPedometerConfiguration.h */,
 				CF397F961DAE6C9A00A7C36C /* SKPedometerConfiguration.m */,
+				CFD8C04D2BC6E93D002498D4 /* SKNetworkConnectionConfiguration.h */,
+				CFD8C04E2BC6E93D002498D4 /* SKNetworkConnectionConfiguration.m */,
 			);
 			name = SensorConfiguration;
 			sourceTree = "<group>";
@@ -495,17 +519,22 @@
 				CF397F311DA9609C00A7C36C /* SensingKit.h in Headers */,
 				CF397FCD1DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.h in Headers */,
 				CF397FDC1DAE6C9A00A7C36C /* SKiBeaconProximityConfiguration.h in Headers */,
-				CF397FC11DAE6C9A00A7C36C /* SKBatteryData.h in Headers */,
+				CF397FC11DAE6C9A00A7C36C /* SKBatteryStatusData.h in Headers */,
 				CF397FBB1DAE6C9A00A7C36C /* SKAltimeterData.h in Headers */,
 				CF39800A1DAE6C9A00A7C36C /* SKSensorDataHandler.h in Headers */,
 				CF39800F1DAE6C9A00A7C36C /* SKSensorType.h in Headers */,
-				CF397FBD1DAE6C9A00A7C36C /* SKBattery.h in Headers */,
+				CF397FBD1DAE6C9A00A7C36C /* SKBatteryStatus.h in Headers */,
+				CF9D0A4F2BC5A00A0006C55D /* SKScreenBrightnessData.h in Headers */,
+				CFD8C0532BC6EA07002498D4 /* SKNetworkConnection.h in Headers */,
+				CFD8C04C2BC6E932002498D4 /* SKNetworkConnectionData.h in Headers */,
 				CF397FF81DAE6C9A00A7C36C /* SKPedometer.h in Headers */,
 				CF397FC51DAE6C9A00A7C36C /* SKDeviceMotion.h in Headers */,
 				CF397FB91DAE6C9A00A7C36C /* SKAltimeterConfiguration.h in Headers */,
 				CF397FF61DAE6C9A00A7C36C /* SKMotionManager.h in Headers */,
 				CF397FAD1DAE6C9A00A7C36C /* SensingKitLib.h in Headers */,
 				CF397FDE1DAE6C9A00A7C36C /* SKLocation.h in Headers */,
+				CFD8C04F2BC6E93D002498D4 /* SKNetworkConnectionConfiguration.h in Headers */,
+				CF9D0A542BC5A0250006C55D /* SKScreenBrightnessConfiguration.h in Headers */,
 				CF397FF41DAE6C9A00A7C36C /* SKMotionActivityData.h in Headers */,
 				CF397FD21DAE6C9A00A7C36C /* SKGyroscope.h in Headers */,
 				CF397FCF1DAE6C9A00A7C36C /* SKEddystoneProximityData.h in Headers */,
@@ -535,8 +564,9 @@
 				CF397FFE1DAE6C9A00A7C36C /* SKProximityData.h in Headers */,
 				CF39800B1DAE6C9A00A7C36C /* SKSensorManager.h in Headers */,
 				CF397FFA1DAE6C9A00A7C36C /* SKPedometerConfiguration.h in Headers */,
+				CF9D0A4C2BC59FCC0006C55D /* SKScreenBrightness.h in Headers */,
 				CF397FD41DAE6C9A00A7C36C /* SKGyroscopeConfiguration.h in Headers */,
-				CF397FBF1DAE6C9A00A7C36C /* SKBatteryConfiguration.h in Headers */,
+				CF397FBF1DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.h in Headers */,
 				CF397FF21DAE6C9A00A7C36C /* SKMotionActivityConfiguration.h in Headers */,
 				CF397FC71DAE6C9A00A7C36C /* SKDeviceMotionConfiguration.h in Headers */,
 				CF397FC91DAE6C9A00A7C36C /* SKDeviceMotionData.h in Headers */,
@@ -589,9 +619,10 @@
 		CF397F171DA9609C00A7C36C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = SK;
-				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = "Queen Mary University of London";
+				LastUpgradeCheck = 1530;
+				ORGANIZATIONNAME = "Kleomenis Katevas";
 				TargetAttributes = {
 					CF397F1F1DA9609C00A7C36C = {
 						CreatedOnToolsVersion = 8.0;
@@ -601,18 +632,15 @@
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
-					CF39802B1DAE7AC500A7C36C = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = CF397F1A1DA9609C00A7C36C /* Build configuration list for PBXProject "SensingKit" */;
-			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			compatibilityVersion = "Xcode 15.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF397F161DA9609C00A7C36C;
 			productRefGroup = CF397F211DA9609C00A7C36C /* Products */;
@@ -621,7 +649,6 @@
 			targets = (
 				CF397F1F1DA9609C00A7C36C /* SensingKit */,
 				CF397F281DA9609C00A7C36C /* SensingKitTests */,
-				CF39802B1DAE7AC500A7C36C /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -646,30 +673,13 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		CF39802F1DAE7AE100A7C36C /* Build Documentation */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Build Documentation";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Kleomenis Katevas\";\ncompanyID=\"org.sensingkit\";\ncompanyURL=\"https://www.sensingkit.com\";\ntarget=\"iphoneos\";\noutputPath=\"${PROJECT_DIR}/Documentation\";\n# End constants\n\n/usr/local/bin/appledoc \\\n--project-name \"SensingKit-iOS\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--output \"${outputPath}\" \\\n--ignore .m \\\n--ignore ESSEddystone \\\n--ignore SKAbstractSensor.h \\\n--ignore SKMotionManager.h \\\n--ignore SKAccelerometer.h \\\n--ignore SKGyroscope.h \\\n--ignore SKMagnetometer.h \\\n--ignore SKDeviceMotion.h \\\n--ignore SKMotionActivity.h \\\n--ignore SKPedometer.h \\\n--ignore SKAltimeter.h \\\n--ignore SKBattery.h \\\n--ignore SKLocation.h \\\n--ignore SKiBeaconProximity.h \\\n--ignore SKEddystoneProximity.h \\\n--ignore SKMicrophone.h \\\n--ignore SKHeading.h \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--no-create-docset \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		CF397F1B1DA9609C00A7C36C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6FF409218A0E9400A7D830 /* SKBatteryStatus.m in Sources */,
 				CF397FAE1DAE6C9A00A7C36C /* SensingKitLib.m in Sources */,
-				CF397FBE1DAE6C9A00A7C36C /* SKBattery.m in Sources */,
 				CF3980231DAE6E6800A7C36C /* ESSEddystone.m in Sources */,
 				CF397FCE1DAE6C9A00A7C36C /* SKEddystoneProximityConfiguration.m in Sources */,
 				CF397FB81DAE6C9A00A7C36C /* SKAltimeter.m in Sources */,
@@ -689,15 +699,19 @@
 				CF397FE11DAE6C9A00A7C36C /* SKLocationConfiguration.m in Sources */,
 				CF3980211DAE6E6800A7C36C /* ESSBeaconScanner.m in Sources */,
 				CF397FE51DAE6C9A00A7C36C /* SKMagnetometer.m in Sources */,
-				CF397FC21DAE6C9A00A7C36C /* SKBatteryData.m in Sources */,
+				CFD8C0502BC6E93D002498D4 /* SKNetworkConnectionConfiguration.m in Sources */,
+				CF397FC21DAE6C9A00A7C36C /* SKBatteryStatusData.m in Sources */,
 				CF397FF31DAE6C9A00A7C36C /* SKMotionActivityConfiguration.m in Sources */,
+				CF9D0A4A2BC59FCC0006C55D /* SKScreenBrightness.m in Sources */,
 				CF397FD71DAE6C9A00A7C36C /* SKGyroscopeData.m in Sources */,
+				CFD8C04B2BC6E932002498D4 /* SKNetworkConnectionData.m in Sources */,
 				CF39800E1DAE6C9A00A7C36C /* SKSensorTimestamp.m in Sources */,
 				CF397FD51DAE6C9A00A7C36C /* SKGyroscopeConfiguration.m in Sources */,
 				CF397FFD1DAE6C9A00A7C36C /* SKPedometerData.m in Sources */,
 				CF397FB61DAE6C9A00A7C36C /* SKAccelerometerData.m in Sources */,
 				CF397FED1DAE6C9A00A7C36C /* SKMicrophoneConfiguration.m in Sources */,
 				CF397FB21DAE6C9A00A7C36C /* SKAccelerometer.m in Sources */,
+				CFD8C0542BC6EA07002498D4 /* SKNetworkConnection.m in Sources */,
 				CF3980091DAE6C9A00A7C36C /* SKSensorData.m in Sources */,
 				CF397FE91DAE6C9A00A7C36C /* SKMagnetometerData.m in Sources */,
 				CF397FFB1DAE6C9A00A7C36C /* SKPedometerConfiguration.m in Sources */,
@@ -715,11 +729,13 @@
 				CF397FEB1DAE6C9A00A7C36C /* SKMicrophone.m in Sources */,
 				CF3980011DAE6C9A00A7C36C /* SKSampleRateConfiguration.m in Sources */,
 				CF397FF11DAE6C9A00A7C36C /* SKMotionActivity.m in Sources */,
+				CF9D0A502BC5A00A0006C55D /* SKScreenBrightnessData.m in Sources */,
 				CF397FB41DAE6C9A00A7C36C /* SKAccelerometerConfiguration.m in Sources */,
 				CF397FD31DAE6C9A00A7C36C /* SKGyroscope.m in Sources */,
 				CF397FF71DAE6C9A00A7C36C /* SKMotionManager.m in Sources */,
-				CF397FC01DAE6C9A00A7C36C /* SKBatteryConfiguration.m in Sources */,
+				CF397FC01DAE6C9A00A7C36C /* SKBatteryStatusConfiguration.m in Sources */,
 				CF397FD01DAE6C9A00A7C36C /* SKEddystoneProximityData.m in Sources */,
+				CF9D0A532BC5A0250006C55D /* SKScreenBrightnessConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +762,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -766,6 +783,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -778,6 +796,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -792,7 +811,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -806,6 +825,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -826,6 +846,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -838,6 +859,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -846,7 +868,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -865,12 +887,21 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = SensingKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.6;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sensingkit.SensingKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -883,12 +914,21 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = SensingKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.6;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sensingkit.SensingKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -897,7 +937,11 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 9T92P8D3FB;
 				INFOPLIST_FILE = SensingKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.sensingkit.SensingKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -908,24 +952,12 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 9T92P8D3FB;
 				INFOPLIST_FILE = SensingKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.sensingkit.SensingKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		CF39802D1DAE7AC600A7C36C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 9T92P8D3FB;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		CF39802E1DAE7AC600A7C36C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 9T92P8D3FB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -956,15 +988,6 @@
 			buildConfigurations = (
 				CF397F381DA9609C00A7C36C /* Debug */,
 				CF397F391DA9609C00A7C36C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CF39802C1DAE7AC600A7C36C /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CF39802D1DAE7AC600A7C36C /* Debug */,
-				CF39802E1DAE7AC600A7C36C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

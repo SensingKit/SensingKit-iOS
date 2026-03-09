@@ -1,9 +1,9 @@
 //
-//  SKBattery.h
+//  SKScreenBrightnessConfiguration.h
 //  SensingKit
 //
 //  Copyright (c) 2014. Kleomenis Katevas
-//  Kleomenis Katevas, k.katevas@imperial.ac.uk
+//  Kleomenis Katevas, minos.kat@gmail.com
 //
 //  This file is part of SensingKit-iOS library.
 //  For more information, please visit https://www.sensingkit.org
@@ -24,18 +24,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SKAbstractSensor.h"
-#import "SKBatteryConfiguration.h"
+#import <SensingKit/SKConfiguration.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SKBattery : SKAbstractSensor
-
-+ (BOOL)isSensorAvailable;
-
-- (instancetype)init NS_UNAVAILABLE;
-
-- (instancetype)initWithConfiguration:(SKBatteryConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
+/**
+ *  An instance of SKScreenBrightnessConfiguration can be used to configure the Screen Brightness sensor. No configuration is available at this moment.
+ */
+@interface SKScreenBrightnessConfiguration : SKConfiguration <NSCopying>
 
 @end
 

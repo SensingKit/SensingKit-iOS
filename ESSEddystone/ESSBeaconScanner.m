@@ -75,10 +75,10 @@ static NSString *const kSeenCacheOnLostTimer = @"on_lost_timer";
 
 - (void)startScanning {
   dispatch_async(_beaconOperationsQueue, ^{
-    if (_centralManager.state != CBCentralManagerStatePoweredOn) {
+      if (self->_centralManager.state != CBManagerStatePoweredOn) {
       NSLog(@"CBCentralManager state is %ld, cannot start or stop scanning",
-            (long)_centralManager.state);
-      _shouldBeScanning = YES;
+            (long)self->_centralManager.state);
+          self->_shouldBeScanning = YES;
     } else {
       NSLog(@"Starting to scan for Eddystones");
       NSArray *services = @[
@@ -88,7 +88,7 @@ static NSString *const kSeenCacheOnLostTimer = @"on_lost_timer";
       // We do not want multiple discoveries of the same beacon to be coalesced into one.
       // (Unfortunately this is ignored when we are in the background.)
       NSDictionary *options = @{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES };
-      [_centralManager scanForPeripheralsWithServices:services options:options];
+        [self->_centralManager scanForPeripheralsWithServices:services options:options];
     }
   });
 }
@@ -100,7 +100,7 @@ static NSString *const kSeenCacheOnLostTimer = @"on_lost_timer";
 }
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-  if (central.state == CBCentralManagerStatePoweredOn && _shouldBeScanning) {
+  if (central.state == CBManagerStatePoweredOn && _shouldBeScanning) {
     [self startScanning];
   }
 }
@@ -165,12 +165,12 @@ static NSString *const kSeenCacheOnLostTimer = @"on_lost_timer";
                                                             block:
             ^(ESSTimer *timer) {
               ESSBeaconInfo *lostBeaconInfo =
-                  _seenEddystoneCache[beaconInfo.beaconID][kSeenCacheBeaconInfo];
+            self->_seenEddystoneCache[beaconInfo.beaconID][kSeenCacheBeaconInfo];
               if (lostBeaconInfo) {
-                if ([_delegate respondsToSelector:@selector(beaconScanner:didLoseBeacon:)]) {
-                  [_delegate beaconScanner:self didLoseBeacon:lostBeaconInfo];
+                  if ([self->_delegate respondsToSelector:@selector(beaconScanner:didLoseBeacon:)]) {
+                      [self->_delegate beaconScanner:self didLoseBeacon:lostBeaconInfo];
                 }
-                [_seenEddystoneCache removeObjectForKey:beaconInfo.beaconID];
+                  [self->_seenEddystoneCache removeObjectForKey:beaconInfo.beaconID];
               }
             }];
 
